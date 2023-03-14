@@ -1,0 +1,16 @@
+<div class="form-floating mb-3">
+  <input
+      bsDatepicker
+      type="text"
+      [formControl]="control"
+      placeholder="{{label | lowercase}}"
+      class="form-control"
+      [ngClass]="(control.touched) ? control.invalid ? 'is-invalid' : 'is-valid' : null"
+      [bsConfig]="bsConfig"
+      [maxDate]="maxDate"
+  >
+  <label for="floatingInput">{{label}}</label>
+  <div *ngIf="control.errors?.['required']" class="invalid-feedback">
+      Ingrese su {{label | lowercase}}
+  </div>
+</div>
