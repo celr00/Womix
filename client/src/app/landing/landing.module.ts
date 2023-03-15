@@ -6,12 +6,14 @@ import { LandingComponent } from './landing.component';
 import { RegisterComponent } from './register/register.component';
 import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
+import { LoginComponent } from './login/login.component';
 
 
 @NgModule({
   declarations: [
     LandingComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     CommonModule,
