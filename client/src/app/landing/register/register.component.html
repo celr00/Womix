@@ -1,51 +1,54 @@
-<div class="container mt-5">
+<div class="container">
 
-  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+  <form [formGroup]="registerForm" class="mb-5" (ngSubmit)="onSubmit()">
     <div class="card shadow-sm">
       <h5 class="card-header p-3 bg-white">
         Crea tu perfil
       </h5>
       <div class="card-body">
         <div class="d-flex row mb-5">
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
             <app-text-input [formControl]="registerForm.controls['firstName']" [label]="'Nombre'"></app-text-input>
           </div>
-          <div class="col-12 col-sm-3">
+          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
             <app-text-input [formControl]="registerForm.controls['lastName']" [label]="'Apellido'"></app-text-input>
           </div>
-          <div class="col-12 col-sm-3">
-            <app-text-input [formControl]="registerForm.controls['email']" [label]="'Correo'"></app-text-input>
+          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4">
+            <app-text-input [formControl]="registerForm.controls['email']" [label]="'Correo'" [type]="'email'"></app-text-input>
           </div>
-          <div class="col-12 col-sm-2">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
             <app-date-picker [formControl]="registerForm.controls['dateOfBirth']" [label]="'Fecha de nacimiento'"
               [maxDate]="maxDate"></app-date-picker>
           </div>
         </div>
         <div class="row d-flex">
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
             <app-text-input [formControl]="registerForm.controls['password']" [label]="'Contraseña'" [type]="'password'"></app-text-input>
           </div>
         </div>
         <div class="row d-flex mb-5">
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
             <app-text-input [formControl]="registerForm.controls['confirmPassword']" [label]="'Repetir contraseña'" [type]="'password'"></app-text-input>
           </div>
         </div>
         <div class="row d-flex">
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <app-text-input [formControl]="registerForm.controls['phone']" [label]="'Teléfono'"></app-text-input>
           </div>
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <app-text-input [formControl]="registerForm.controls['facebook']" [label]="'Facebook'"></app-text-input>
           </div>
-          <div class="col-12 col-sm-4">
+          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
             <app-text-input [formControl]="registerForm.controls['instagram']" [label]="'Instagram'"></app-text-input>
           </div>
         </div>
       </div>
       <div class="card-footer p-3 bg-white">
-        <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary" type="submit">Sign up</button>
+        <a routerLink="/" class="btn btn-lg btn-outline-secondary me-3">Cancelar</a>
+        <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary" type="submit">Crear cuenta</button>
       </div>
     </div>
   </form>
+  <a class="text-decoration-none" routerLink="/sign-in">Ya tengo cuenta</a>
+
 </div>
