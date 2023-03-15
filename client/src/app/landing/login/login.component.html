@@ -1,0 +1,24 @@
+<div class="container">
+  <form [formGroup]="loginForm" class="mb-5" (ngSubmit)="onSubmit()">
+    <div class="d-flex justify-content-center">
+      <div class="card shadow-sm col-12 col-sm-8 col-md-6 col-xl-4 mt-5">
+        <h5 class="card-header p-3 bg-white">
+          Iniciar sesión
+        </h5>
+        <div class="card-body">
+          <div class="row">
+            <app-text-input [formControl]="loginForm.controls['email']" [label]="'Correo'" [type]="'email'"></app-text-input>
+          </div>
+          <div class="row">
+            <app-text-input [formControl]="loginForm.controls['password']" [label]="'Contraseña'" [type]="'password'"></app-text-input>
+          </div>
+        </div>
+        <div class="card-footer p-3 bg-white">
+          <a routerLink="/" class="btn btn-lg btn-outline-secondary me-3">Cancelar</a>
+          <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary" type="submit">Iniciar sesión</button>
+        </div>
+      </div>
+    </div>
+  </form>
+  <a class="text-decoration-none" routerLink="/sign-up">No tengo cuenta</a>
+</div>
