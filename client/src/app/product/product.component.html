@@ -4,7 +4,10 @@
       <div class="card shadow-sm mb-4">
         <h5 class="card-header bg-white text-primary text-center">{{product.name}}</h5>
         <div class="card-body">
-          {{product.id}}, {{product.name}}
+          <p class="card-text">
+            {{product.id}}, {{product.name}}
+          </p>
+          <a routerLink="/products/{{product.id}}" class="card-link">Ver</a>
         </div>
       </div>
     </div>
