@@ -5,3 +5,5 @@ node_modules
 .angular
 .vscode
 package-lock.json
+wwwroot
+*.db
