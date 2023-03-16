@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -9,7 +11,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class LoginComponent {
 
-  constructor(private fb: FormBuilder, private toastr: ToastrService) {}
+  constructor(private fb: FormBuilder, private toastr: ToastrService, private accountService: AccountService, private router: Router) {}
 
   loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
@@ -17,8 +19,15 @@ export class LoginComponent {
   })
 
   onSubmit() {
-    this.toastr.success('Toast');
+    this.accountService.login(this.loginForm.value).subscribe({
+      next: () => {
+        this.router.navigateByUrl('/products');
+        this.toastr.success('Login successfull')
+      },
+      error: error => {
+        console.log(error);
+        this.toastr.error('Login failed');
+      }
+    })
   }
-
-
 }
