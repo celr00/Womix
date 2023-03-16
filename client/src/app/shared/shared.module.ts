@@ -5,6 +5,7 @@ import { TextInputComponent } from './components/text-input/text-input.component
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 
 
@@ -19,12 +20,14 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     FormsModule,
     RouterModule,
     BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
   ],
   exports: [
     TextInputComponent,
     DatePickerComponent,
     ReactiveFormsModule,
     BsDatepickerModule,
+    BsDropdownModule,
   ]
 })
 export class SharedModule { }
