@@ -14,9 +14,36 @@
         <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link">Bolsa de Trabajo</a>
       </li>
     </ul>
-    <div>
-      <a routerLink="/sign-in" class="btn btn-outline-primary me-2">Iniciar sesión</a>
-      <a routerLink="/sign-up" class="btn btn-primary">Crear cuenta</a>
+    <ng-container *ngIf="(accountService.currentUser$ | async) === null">
+      <div>
+        <a routerLink="/sign-in" class="btn btn-outline-primary me-2">Iniciar sesión</a>
+        <a routerLink="/sign-up" class="btn btn-primary">Crear cuenta</a>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="accountService.currentUser$ | async as user">
+      <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
+        <a dropdownToggle class="dropdown-toggle text-decoration-none">
+            <strong>{{user.email}}</strong>
+        </a>
+        <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+            <li class="py-1">
+                <a routerLink="/" class="dropdown-item">
+                    <i class="fa fa-circle me-3"></i> Example 1
+                </a>
+            </li>
+            <li class="py-1">
+                <a routerLink="/" class="dropdown-item">
+                    <i class="fa fa-circle me-3"></i> Example 2
+                </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li class="py-1">
+                <a (click)="accountService.logout()" class="dropdown-item">
+                    <i class="fa fa-sign-out me-3"></i> Logout
+                </a>
+            </li>
+        </ul>
     </div>
+    </ng-container>
   </div>
 </nav>

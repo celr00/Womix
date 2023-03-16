@@ -12,4 +12,7 @@
   <div *ngIf="control.errors?.['email']" class="invalid-feedback">Invalid email address</div>
   <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">Password not complex enough</div>
   <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">Email address is taken</div>
+  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">
+    Las contraseñas no son iguales
+</div>
 </div>

@@ -8,38 +8,38 @@
       <div class="card-body">
         <div class="d-flex row mb-5">
           <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
-            <app-text-input [formControl]="registerForm.controls['firstName']" [label]="'Nombre'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['firstName'])" [label]="'Nombre'"></app-text-input>
           </div>
           <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
-            <app-text-input [formControl]="registerForm.controls['lastName']" [label]="'Apellido'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['lastName'])" [label]="'Apellido'"></app-text-input>
           </div>
           <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4">
-            <app-text-input [formControl]="registerForm.controls['email']" [label]="'Correo'" [type]="'email'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['email'])" [label]="'Correo'" [type]="'email'"></app-text-input>
           </div>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <app-date-picker [formControl]="registerForm.controls['dateOfBirth']" [label]="'Fecha de nacimiento'"
+            <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Fecha de nacimiento'"
               [maxDate]="maxDate"></app-date-picker>
           </div>
         </div>
         <div class="row d-flex">
           <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <app-text-input [formControl]="registerForm.controls['password']" [label]="'Contraseña'" [type]="'password'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Contraseña'" [type]="'password'"></app-text-input>
           </div>
         </div>
         <div class="row d-flex mb-5">
           <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <app-text-input [formControl]="registerForm.controls['confirmPassword']" [label]="'Repetir contraseña'" [type]="'password'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Repetir contraseña'" [type]="'password'"></app-text-input>
           </div>
         </div>
         <div class="row d-flex">
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="registerForm.controls['phone']" [label]="'Teléfono'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['phoneNumber'])" [label]="'Teléfono'"></app-text-input>
           </div>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="registerForm.controls['facebook']" [label]="'Facebook'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['facebook'])" [label]="'Facebook'"></app-text-input>
           </div>
           <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="registerForm.controls['instagram']" [label]="'Instagram'"></app-text-input>
+            <app-text-input [formControl]="$any(registerForm.controls['instagram'])" [label]="'Instagram'"></app-text-input>
           </div>
         </div>
       </div>
