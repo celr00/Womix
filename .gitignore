@@ -9,3 +9,7 @@ wwwroot
 *.db
 *.db-shm
 *.db-wal
+API/entities.db
+localhost-key.pem
+localhost.pem
+.*pem
