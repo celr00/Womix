@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../account.service';
+import { debounceTime, finalize, map, switchMap, take } from 'rxjs';
 
 @Component({
   selector: 'app-register',
@@ -25,15 +26,15 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.pattern(this.complexPassword)]],
-      confirmPassword: ['', [Validators.required, this.matchValues('password')]],
-      phoneNumber: ['', Validators.required],
-      dateOfBirth: ['', Validators.required],
-      facebook: ['', Validators.required],
-      instagram: ['', Validators.required],
+      firstName: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
+      lastName: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
+      email: ['', [Validators.required, Validators.email], [this.validateEmailNotTaken()]],
+      password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(60), Validators.pattern(this.complexPassword)]],
+      confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(60), this.matchValues('password')]],
+      phoneNumber: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+      dateOfBirth: ['', [Validators.required]],
+      facebook: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      instagram: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
     });
     this.registerForm.controls['password'].valueChanges.subscribe({
       next: () => this.registerForm.controls['confirmPassword'].updateValueAndValidity()
@@ -66,6 +67,22 @@ export class RegisterComponent implements OnInit {
     let theDob = new Date(dob);
     return new Date(theDob.setMinutes(theDob.getMinutes()-theDob.getTimezoneOffset()))
       .toISOString().slice(0,10);
+  }
+
+  validateEmailNotTaken(): AsyncValidatorFn {
+    return (control: AbstractControl) => {
+      return control.valueChanges.pipe(
+        debounceTime(1000),
+        take(1),
+        switchMap(() => {
+          return this.accountService.checkEmailExists(control.value).pipe(
+            map(result => result ? {emailExists: true} : null),
+            finalize(() => control.markAsTouched())
+          )
+        })
+      )
+
+    }
   }
 
 }
