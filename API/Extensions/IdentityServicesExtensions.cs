@@ -1,9 +1,8 @@
 using System.Text;
-using Core.Entities.Identity;
-using Infrastructure.Data.Identity;
+using Core.Entities;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 
 namespace API.Extensions
@@ -12,18 +11,13 @@ namespace API.Extensions
     {
         public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<IdentityContext>(opt =>
-            {
-                opt.UseSqlite(config.GetConnectionString("IdentityConnection"));
-            });
-            
             services.AddIdentityCore<AppUser>(opt =>
             {
                 opt.Password.RequireNonAlphanumeric = false;
             })
                 .AddRoles<AppRole>()
                 .AddRoleManager<RoleManager<AppRole>>()
-                .AddEntityFrameworkStores<IdentityContext>()
+                .AddEntityFrameworkStores<DataContext>()
                 .AddSignInManager<SignInManager<AppUser>>();
 
 
