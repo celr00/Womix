@@ -1,8 +1,6 @@
 using API.Extensions;
-using Core.Entities.Identity;
+using Core.Entities;
 using Infrastructure.Data;
-using Infrastructure.Data.Identity;
-using Infrastructure.Identity;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -27,16 +25,13 @@ app.MapFallbackToController("Index", "Fallback");
 using var scope = app.Services.CreateScope();
 var services = scope.ServiceProvider;
 var context = services.GetRequiredService<DataContext>();
-var identityContext = services.GetRequiredService<IdentityContext>();
 var userManager = services.GetRequiredService<UserManager<AppUser>>();
 var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try
 {
     await context.Database.MigrateAsync();
-    await identityContext.Database.MigrateAsync();
-    await DataContextSeed.SeedAsync(context);
-    await IdentityContextSeed.SeedUsersAsync(userManager, roleManager);
+    await DataContextSeed.SeedAsync(context, userManager, roleManager);
 }
 catch (Exception ex)
 {
