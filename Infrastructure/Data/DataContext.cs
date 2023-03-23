@@ -15,6 +15,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<AppUserProduct> UserProducts { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -10,7 +10,7 @@ namespace Infrastructure.Data
         public static async Task SeedAsync(DataContext context, UserManager<AppUser> userManager, RoleManager<AppRole> roleManager)
         {
             // Identity
-            
+
             if (await userManager.Users.AnyAsync()) return;
 
             var users = new List<AppUser>()
@@ -52,19 +52,32 @@ namespace Infrastructure.Data
 
             var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
 
-            if (!context.Products.Any())
+            if (!context.UserProducts.Any())
             {
-                var products = new List<Product>()
+                var userProducts = new List<AppUserProduct>()
                 {
-                    new Product { Name = "Producto 1"},
-                    new Product { Name = "Producto 2"},
-                    new Product { Name = "Producto 3"},
-                    new Product { Name = "Producto 4"},
-                    new Product { Name = "Producto 5"},
-                    new Product { Name = "Producto 6"},
-                    new Product { Name = "Producto 7"},
+                    new AppUserProduct
+                    {
+                        OwnerId = 1,
+                        Product = new Product
+                        {
+                            Name = "Surface Laptop 4",
+                            Description = "Intel Core i5 8GB RAM",
+                            Price = 15499,
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 1,
+                        Product = new Product
+                        {
+                            Name = "AW17R4",
+                            Description = "Intel Core i7 16GB RAM",
+                            Price = 35499,
+                        },
+                    },
                 };
-                context.Products.AddRange(products);
+                context.UserProducts.AddRange(userProducts);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();

@@ -121,14 +121,6 @@ ng g help
 
 #### To create Entity Framework Migrations
 
-##### For the Identity Database Context
-
-```
-/c/Projects/Womix
-
-dotnet-ef migrations add IdentityMigrationName -p Infrastructure -s API -c IdentityContext -o Identity/Migrations
-```
-
 ##### For the Entities Database Context
 
 ```

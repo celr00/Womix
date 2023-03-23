@@ -8,7 +8,16 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
-            builder.HasMany(u => u.UserRoles).WithOne().OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasMany(u => u.UserRoles)
+                .WithOne()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasMany(u => u.UserProducts)
+                .WithOne(x => x.Owner)
+                .HasForeignKey(x => x.OwnerId).IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

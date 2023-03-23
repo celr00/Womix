@@ -8,5 +8,6 @@ namespace Core.Entities
         public ICollection<AppUserRole> UserRoles { get; set; }
         public string Facebook { get; set; }
         public string Instagram { get; set; }
+        public List<AppUserProduct> UserProducts { get; set; }
     }
 }
