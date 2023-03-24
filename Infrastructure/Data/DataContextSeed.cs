@@ -64,6 +64,25 @@ namespace Infrastructure.Data
                             Name = "Surface Laptop 4",
                             Description = "Intel Core i5 8GB RAM",
                             Price = 15499,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://photo.com"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://photo.com"
+                                    }
+                                }
+                            }
                         },
                     },
                     new AppUserProduct
@@ -79,8 +98,6 @@ namespace Infrastructure.Data
                 };
                 context.UserProducts.AddRange(userProducts);
             }
-
-            if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }
 }

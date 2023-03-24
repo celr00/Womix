@@ -9,6 +9,8 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<RegisterDto, AppUser>();
+            CreateMap<Product, ProductToReturnDto>().ReverseMap();
+            CreateMap<ProductPhoto, ProductPhotoDto>().ReverseMap();
         }
     }
 }

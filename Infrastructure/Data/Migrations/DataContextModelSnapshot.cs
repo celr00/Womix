@@ -158,6 +158,20 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.Photo", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Photos");
+                });
+
             modelBuilder.Entity("Core.Entities.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -179,6 +193,21 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductPhoto", b =>
+                {
+                    b.Property<int>("PhotoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("PhotoId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("ProductPhotos");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -313,6 +342,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.ProductPhoto", b =>
+                {
+                    b.HasOne("Core.Entities.Photo", "Photo")
+                        .WithMany()
+                        .HasForeignKey("PhotoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithMany("ProductPhotos")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Photo");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Core.Entities.AppRole", null)
@@ -359,6 +407,11 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("UserProducts");
 
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("Core.Entities.Product", b =>
+                {
+                    b.Navigation("ProductPhotos");
                 });
 #pragma warning restore 612, 618
         }
