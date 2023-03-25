@@ -10,3 +10,4 @@ export class ProductItemComponent {
   @Input() product?: Product;
 
 }
+

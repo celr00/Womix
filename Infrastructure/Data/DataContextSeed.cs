@@ -71,7 +71,7 @@ namespace Infrastructure.Data
                 {
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 2,
                         Product = new Product
                         {
                             Name = "Brownie",
@@ -106,7 +106,7 @@ namespace Infrastructure.Data
                     },
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 2,
                         Product = new Product
                         {
                             Name = "Red Velvet Cake",
@@ -141,7 +141,7 @@ namespace Infrastructure.Data
                     },
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 4,
                         Product = new Product
                         {
                             Name = "Red Shirt",
@@ -211,7 +211,7 @@ namespace Infrastructure.Data
                     },
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 3,
                         Product = new Product
                         {
                             Name = "Golden Earings",
@@ -246,7 +246,7 @@ namespace Infrastructure.Data
                     },
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 3,
                         Product = new Product
                         {
                             Name = "Silver Necklace",
@@ -281,7 +281,7 @@ namespace Infrastructure.Data
                     },
                     new AppUserProduct
                     {
-                        OwnerId = 1,
+                        OwnerId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
