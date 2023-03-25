@@ -17,8 +17,10 @@ namespace API.Controllers
         private readonly UserManager<AppUser> _userManager;
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
-        public ProductsController(IGenericRepository<Product> productsRepo, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper)
+        private readonly IGenericRepository<ItemClass> _itemClassesRepository;
+        public ProductsController(IGenericRepository<Product> productsRepo, IGenericRepository<ItemClass> itemClassesRepository, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper)
         {
+            _itemClassesRepository = itemClassesRepository;
             _mapper = mapper;
             _uow = uow;
             _userManager = userManager;
@@ -46,9 +48,9 @@ namespace API.Controllers
 
             var product = await _productsRepo.GetEntityWithSpec(spec);
 
-            if (product == null) return NotFound();
+            if (product == null) return NotFound("This product might not exist");
 
-            return Ok(product);
+            return _mapper.Map<Product, ProductToReturnDto>(product);
         }
 
         [HttpPost]
@@ -81,6 +83,16 @@ namespace API.Controllers
             await _uow.Complete();
 
             return Ok();
+        }
+
+        [HttpGet("types")]
+        public async Task<ActionResult<IEnumerable<ItemClass>>> GetItemClasses()
+        {
+            var itemClasses = await _itemClassesRepository.ListAllAsync();
+
+            if (itemClasses == null) return BadRequest("An error occurred loading product types");
+
+            return Ok(itemClasses);
         }
     }
 }

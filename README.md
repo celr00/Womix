@@ -126,5 +126,7 @@ ng g help
 ```
 /c/Projects/Womix
 
-dotnet-ef migrations add EntityMigrationName -p Infrastructure -s API -c DataContext -o Data/Migrations
+dotnet-ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -o Data/Migrations
 ```
+
+To run angular in another port ng s --port 4201

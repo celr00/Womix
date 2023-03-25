@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Infrastructure.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class EntityMigrationName : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,6 +32,8 @@ namespace Infrastructure.Data.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
+                    FirstName = table.Column<string>(type: "TEXT", nullable: true),
+                    LastName = table.Column<string>(type: "TEXT", nullable: true),
                     DateOfBirth = table.Column<DateOnly>(type: "TEXT", nullable: false),
                     Facebook = table.Column<string>(type: "TEXT", nullable: true),
                     Instagram = table.Column<string>(type: "TEXT", nullable: true),
@@ -56,6 +58,19 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ItemClasses",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ItemClasses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Photos",
                 columns: table => new
                 {
@@ -76,7 +91,8 @@ namespace Infrastructure.Data.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
                     Price = table.Column<double>(type: "decimal(18,2)", nullable: false),
-                    Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true)
+                    Description = table.Column<string>(type: "TEXT", maxLength: 500, nullable: true),
+                    StockQuantity = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -204,6 +220,29 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "ProductItemClasses",
+                columns: table => new
+                {
+                    ProductId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ItemClassId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ProductItemClasses", x => new { x.ProductId, x.ItemClassId });
+                    table.ForeignKey(
+                        name: "FK_ProductItemClasses_ItemClasses_ItemClassId",
+                        column: x => x.ItemClassId,
+                        principalTable: "ItemClasses",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ProductItemClasses_Products_ProductId",
+                        column: x => x.ProductId,
+                        principalTable: "Products",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductPhotos",
                 columns: table => new
                 {
@@ -299,6 +338,17 @@ namespace Infrastructure.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_ProductItemClasses_ItemClassId",
+                table: "ProductItemClasses",
+                column: "ItemClassId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ProductItemClasses_ProductId",
+                table: "ProductItemClasses",
+                column: "ProductId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_ProductPhotos_ProductId",
                 table: "ProductPhotos",
                 column: "ProductId");
@@ -306,7 +356,8 @@ namespace Infrastructure.Data.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_UserProducts_ProductId",
                 table: "UserProducts",
-                column: "ProductId");
+                column: "ProductId",
+                unique: true);
         }
 
         /// <inheritdoc />
@@ -328,6 +379,9 @@ namespace Infrastructure.Data.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "ProductItemClasses");
+
+            migrationBuilder.DropTable(
                 name: "ProductPhotos");
 
             migrationBuilder.DropTable(
@@ -335,6 +389,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "ItemClasses");
 
             migrationBuilder.DropTable(
                 name: "Photos");

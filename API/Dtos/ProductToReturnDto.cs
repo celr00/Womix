@@ -7,6 +7,8 @@ namespace API.Dtos
         public decimal Price { get; set; }
         public string Description { get; set; }
         public List<ProductPhotoDto> ProductPhotos { get; set; }
-        
+        public string ProductItemClass { get; set; }
+        public SellerDto Seller { get; set; }
+        public int StockQuantity { get; set; }
     }
 }

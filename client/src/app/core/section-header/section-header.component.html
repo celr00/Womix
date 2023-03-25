@@ -1,18 +1,19 @@
 <ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
   <section *ngIf="breadcrumbs[breadcrumbs.length-1].label !== 'Home'" class="bg-white shadow-sm m-3 rounded-3 p-2">
-      <div class="container-md">
-          <div class="row d-flex align-items-center">
-              <div class="col-9">
-                  <h1 class="text-primary fw-semibold fs-2 fst-italic">{{breadcrumbs[breadcrumbs.length-1].label | titlecase}}</h1>
-              </div>
-              <div class="col-3">
-                  <xng-breadcrumb>
-                      <ng-container *xngBreadcrumbItem="let breadcrumb">
-                          {{breadcrumb | titlecase}}
-                      </ng-container>
-                  </xng-breadcrumb>
-              </div>
-          </div>
+    <div class="container-md">
+      <div class="row d-flex align-items-center">
+        <div class="col-auto">
+          <xng-breadcrumb>
+            <ng-container *xngBreadcrumbItem="let breadcrumb">
+              {{breadcrumb | titlecase}}
+            </ng-container>
+          </xng-breadcrumb>
+        </div>
+        <div class="col d-flex justify-content-end">
+          <h1 class="text-primary fw-semibold fs-2 fst-italic">{{breadcrumbs[breadcrumbs.length-1].label | titlecase}}
+          </h1>
+        </div>
       </div>
+    </div>
   </section>
 </ng-container>

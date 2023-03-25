@@ -3,3 +3,31 @@
 .bs-datepicker-container {
   padding: 0 !important;
 }
+
+.list-group-item.active {
+  border: none !important;
+}
+
+.list-group-item {
+  background-color: white;
+  color: black;
+
+  &.active {
+    background-color: #593196 !important;
+    color: white;
+    &:hover {
+      color: white;
+    }
+  }
+
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+
+}
+
+label.xng-breadcrumb-trail {
+  color: #593196 !important;
+  text-decoration: underline !important;
+}

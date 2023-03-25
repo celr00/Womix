@@ -20,6 +20,10 @@ namespace Infrastructure.Data.Config
                 .HasForeignKey(x => x.ProductId)
                 .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne(x => x.ProductItemClass)
+                .WithOne(x => x.Product);
         }
     }
 }

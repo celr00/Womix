@@ -70,7 +70,13 @@ namespace Infrastructure.Data.Migrations
                     b.Property<string>("Facebook")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("FirstName")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("Instagram")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("LastName")
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("LockoutEnabled")
@@ -128,7 +134,8 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("OwnerId", "ProductId");
 
-                    b.HasIndex("ProductId");
+                    b.HasIndex("ProductId")
+                        .IsUnique();
 
                     b.ToTable("UserProducts");
                 });
@@ -156,6 +163,20 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Core.Entities.ItemClass", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ItemClasses");
                 });
 
             modelBuilder.Entity("Core.Entities.Photo", b =>
@@ -190,9 +211,30 @@ namespace Infrastructure.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("StockQuantity")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductItemClass", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ItemClassId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ProductId", "ItemClassId");
+
+                    b.HasIndex("ItemClassId");
+
+                    b.HasIndex("ProductId")
+                        .IsUnique();
+
+                    b.ToTable("ProductItemClasses");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductPhoto", b =>
@@ -303,8 +345,8 @@ namespace Infrastructure.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("Core.Entities.Product", "Product")
-                        .WithMany()
-                        .HasForeignKey("ProductId")
+                        .WithOne("AppUserProduct")
+                        .HasForeignKey("Core.Entities.AppUserProduct", "ProductId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -340,6 +382,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Role");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("Core.Entities.ProductItemClass", b =>
+                {
+                    b.HasOne("Core.Entities.ItemClass", "ItemClass")
+                        .WithMany("ProductItemClasses")
+                        .HasForeignKey("ItemClassId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Product", "Product")
+                        .WithOne("ProductItemClass")
+                        .HasForeignKey("Core.Entities.ProductItemClass", "ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ItemClass");
+
+                    b.Navigation("Product");
                 });
 
             modelBuilder.Entity("Core.Entities.ProductPhoto", b =>
@@ -409,8 +470,17 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("UserRoles");
                 });
 
+            modelBuilder.Entity("Core.Entities.ItemClass", b =>
+                {
+                    b.Navigation("ProductItemClasses");
+                });
+
             modelBuilder.Entity("Core.Entities.Product", b =>
                 {
+                    b.Navigation("AppUserProduct");
+
+                    b.Navigation("ProductItemClass");
+
                     b.Navigation("ProductPhotos");
                 });
 #pragma warning restore 612, 618

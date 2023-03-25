@@ -13,6 +13,8 @@ namespace Infrastructure.Data.Config
                 x.PhotoId,
                 x.ProductId
             });
+
+            builder.Navigation(x => x.Photo).AutoInclude();
         }
     }
 }

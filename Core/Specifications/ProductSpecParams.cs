@@ -12,7 +12,7 @@ namespace Core.Specifications
             set => _pageSize = (value > MaxPageSize) ? MaxPageSize : value;
         }
 
-
+        public int? ItemClassId { get; set; }
         
 
         public string Sort { get; set; }
