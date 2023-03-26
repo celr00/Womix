@@ -15,6 +15,9 @@
       Products</a>
     <div class="collapse show" id="collapseProducts">
       <nav class="nav nav-pills flex-column">
+        <a routerLink="/account/products/list" routerLinkActive="active" class="nav-link ms-3 my-1">
+          <i class="fa fa-list me-2"></i>
+          My products</a>
         <a routerLink="/account/products/new" routerLinkActive="active" class="nav-link ms-3 my-1">
           <i class="fa fa-plus-square-o me-2"></i>
           New product</a>
@@ -22,9 +25,19 @@
     </div>
   </li>
   <li class="nav-item">
-    <a class="nav-link" routerLink="/account/services" routerLinkActive="active">
+    <a class="nav-link" data-bs-toggle="collapse" href="#collapseServices">
       <i class="fa fa-address-book-o me-2"></i>
       Services</a>
+      <div class="collapse show" id="collapseServices">
+        <nav class="nav nav-pills flex-column">
+          <a routerLink="/account/services/list" routerLinkActive="active" class="nav-link ms-3 my-1">
+            <i class="fa fa-list me-2"></i>
+            My services</a>
+          <a routerLink="/account/services/new" routerLinkActive="active" class="nav-link ms-3 my-1">
+            <i class="fa fa-plus-square-o me-2"></i>
+            New service</a>
+        </nav>
+      </div>
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="/account/saved-profiles" routerLinkActive="active">

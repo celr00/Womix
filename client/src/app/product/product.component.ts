@@ -22,6 +22,7 @@ export class ProductComponent implements OnInit {
   ];
 
   constructor(private productService: ProductService) {
+    this.productService.resetParams();
     this.params = productService.getParams();
   }
 

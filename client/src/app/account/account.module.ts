@@ -6,9 +6,10 @@ import { AccountComponent } from './account.component';
 import { SharedModule } from '../shared/shared.module';
 import { AccountEditComponent } from './account-edit/account-edit.component';
 import { AccountHomeComponent } from './account-home/account-home.component';
-import { AccountServicesComponent } from './account-services/account-services.component';
 import { AccountChangePasswordComponent } from './account-change-password/account-change-password.component';
 import { AccountNavComponent } from './account-nav/account-nav.component';
+import { AccountMessagesComponent } from './account-messages/account-messages.component';
+import { AccountSavedProfilesComponent } from './account-saved-profiles/account-saved-profiles.component';
 
 
 @NgModule({
@@ -16,9 +17,10 @@ import { AccountNavComponent } from './account-nav/account-nav.component';
     AccountComponent,
     AccountEditComponent,
     AccountHomeComponent,
-    AccountServicesComponent,
     AccountChangePasswordComponent,
     AccountNavComponent,
+    AccountMessagesComponent,
+    AccountSavedProfilesComponent,
   ],
   imports: [
     CommonModule,

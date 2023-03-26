@@ -1,0 +1,47 @@
+import { Component, OnInit } from '@angular/core';
+import { AccountService } from 'src/app/landing/account.service';
+import { ProductService } from 'src/app/product/product.service';
+import { AppUser } from 'src/app/shared/models/app-user';
+import { Product } from 'src/app/shared/models/product';
+import { ProductsParams } from 'src/app/shared/models/productsParams';
+
+@Component({
+  selector: 'app-account-products-list',
+  templateUrl: './account-products-list.component.html',
+  styleUrls: ['./account-products-list.component.scss']
+})
+export class AccountProductsListComponent implements OnInit {
+  user: AppUser = {} as AppUser;
+  products: Product[] = [];
+  params: ProductsParams;
+
+  constructor(private productService: ProductService, private accountService: AccountService) {
+    this.productService.resetParams();
+    this.params = this.productService.getParams();
+  }
+
+  ngOnInit(): void {
+    this.loadUser();
+  }
+
+  loadUser() {
+    this.accountService.getUser().subscribe({
+      next: user => {
+        this.user = user;
+      },
+      complete: () => {
+        this.params.userId = this.user.id;
+        this.productService.setParams(this.params);
+        this.loadProducts();
+      }
+    })
+  }
+
+  loadProducts() {
+    this.productService.getAll().subscribe({
+      next: response => {
+        this.products = response.data
+      }
+    })
+  }
+}

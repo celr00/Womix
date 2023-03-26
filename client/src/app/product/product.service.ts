@@ -52,4 +52,8 @@ export class ProductService {
     return this.params;
   }
 
+  resetParams() {
+    this.params = new ProductsParams();
+  }
+
 }
