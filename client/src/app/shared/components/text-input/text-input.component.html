@@ -9,11 +9,13 @@
   <div *ngIf="control.status === 'PENDING'" class="fa fa-spinner fa-spin loader"></div>
   <label for="floatingInput">{{label}}</label>
 
-  <div *ngIf="control.errors?.['required']" class="invalid-feedback">Ingrese su {{label | lowercase}}</div>
-  <div *ngIf="control.errors?.['email']" class="invalid-feedback">Dirección de correo inválida</div>
-  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">La contraseña no es lo suficientemente compleja</div>
-  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">Ya existe un usuario con esta dirección de correo</div>
-  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Las contraseñas no son iguales</div>
-  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} requiere al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
-  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} debe tener un máximo de {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
+  <div *ngIf="control.errors?.['required']" class="invalid-feedback">Please enter a {{label | lowercase}}</div>
+  <div *ngIf="control.errors?.['email']" class="invalid-feedback">
+    Invalid email address
+  </div>
+  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">Password is not complex enouph</div>
+  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">This email address is already linked to an account</div>
+  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Passwords do not match</div>
+  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} must be at least {{control.errors?.['minlength'].requiredLength}} characters long</div>
+  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters long</div>
 </div>

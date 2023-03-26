@@ -26,14 +26,19 @@
       <a dropdownToggle class="dropdown-toggle text-decoration-none">
         <strong>{{user.email}}</strong>
       </a>
-      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right">
+      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
         <li class="py-1">
-          <a routerLink="/" class="dropdown-item">
-            <i class="fa fa-circle me-3"></i> Example 1
+          <a routerLink="/account/saved-profiles" class="dropdown-item">
+            <i class="fa fa-bookmark me-3"></i> Saved profiles
           </a>
         </li>
         <li class="py-1">
-          <a routerLink="/account" class="dropdown-item">
+          <a routerLink="/account/messages" class="dropdown-item">
+            <i class="fa fa-envelope me-3"></i> Messages
+          </a>
+        </li>
+        <li class="py-1">
+          <a routerLink="/account/summary" class="dropdown-item">
             <i class="fa fa-user me-3"></i> Account
           </a>
         </li>

@@ -21,7 +21,7 @@ export class LoginComponent {
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigateByUrl('/account');
+        this.router.navigateByUrl('/account/summary');
       },
       error: error => {
         console.log(error);

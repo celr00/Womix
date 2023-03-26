@@ -22,6 +22,8 @@ namespace Infrastructure.Data
         public DbSet<ItemClass> ItemClasses { get; set; }
         public DbSet<AppUserPhoto> AppUserPhotos { get; set; }
         public DbSet<AppUserAddress> AppUserAddresses { get; set; }
+        public DbSet<UserLike> Likes { get; set; }
+        public DbSet<Message> Messages { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

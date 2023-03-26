@@ -3,6 +3,7 @@
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text">{{product.description}}</p>
+    <a routerLink="/user/{{product.seller.id}}" class="card-link">{{product.seller.fullName}}</a>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{product.price | currency}}</li>
@@ -12,6 +13,5 @@
   </ul>
   <div class="card-body">
     <a routerLink="/products/{{product.id}}" class="card-link">View product</a>
-    <a routerLink="/user/{{product.seller.id}}" class="card-link">View seller</a>
   </div>
 </div>

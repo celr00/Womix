@@ -10,7 +10,7 @@ import { AppUser } from '../shared/models/app-user';
 export class AccountComponent implements OnInit {
   user: AppUser = {} as AppUser;
 
-  constructor(private accountService: AccountService) {
+  constructor(public accountService: AccountService) {
   }
 
   ngOnInit(): void {
@@ -21,8 +21,6 @@ export class AccountComponent implements OnInit {
     this.accountService.getUser().subscribe({
       next: user => {
         this.user = user;
-        console.log(user);
-
       }
     })
   }

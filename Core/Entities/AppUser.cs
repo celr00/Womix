@@ -13,5 +13,11 @@ namespace Core.Entities
         public List<AppUserProduct> UserProducts { get; set; }
         public AppUserPhoto AppUserPhoto { get; set; }
         public AppUserAddress AppUserAddress { get; set; }
+        
+        public List<UserLike> LikedUsers { get; set; }
+        public List<UserLike> LikedByUsers { get; set; }
+
+        public List<Message> MessagesSent { get; set; }
+        public List<Message> MessagesReceived { get; set; }
     }
 }
