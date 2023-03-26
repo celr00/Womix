@@ -23,6 +23,7 @@ export class ProductService {
     let params = new HttpParams();
 
     if (this.params.itemClassId > 0) params = params.append('itemClassId', this.params.itemClassId);
+    if (this.params.userId > 0) params = params.append('userId', this.params.userId);
     params = params.append('sort', this.params.sort);
     params = params.append('pageIndex', this.params.pageNumber);
     params = params.append('pageSize', this.params.pageSize);

@@ -1,6 +1,7 @@
 using API.Dtos;
 using AutoMapper;
 using Core.Entities;
+using API.Extensions;
 
 namespace API.Helpers
 {
@@ -16,15 +17,6 @@ namespace API.Helpers
                 .ForMember(dest => dest.Seller,
                     opt => opt.MapFrom(src =>
                     src.AppUserProduct.Owner));
-                // .ForMember(dest => dest.Seller.Facebook,
-                //     opt => opt.MapFrom(src => 
-                //         src.AppUserProduct.Owner.Facebook))
-                // .ForMember(dest => dest.Seller.Instagram,
-                //     opt => opt.MapFrom(src => 
-                //         src.AppUserProduct.Owner.Instagram))
-                // .ForMember(dest => dest.Seller.FullName,
-                //     opt => opt.MapFrom(src => 
-                //         src.AppUserProduct.Owner.FirstName + " " + src.AppUserProduct.Owner.LastName));
 
             CreateMap<ProductPhoto, ProductPhotoDto>().ReverseMap();
             CreateMap<Photo, PhotoDto>().ReverseMap();
@@ -41,6 +33,25 @@ namespace API.Helpers
                 .ForMember(dest => dest.Id,
                     opt => opt.MapFrom(src =>
                     src.Id));
+
+            CreateMap<AppUser, UserToReturnDto>()
+                .ForMember(dest => dest.FullName, opt =>
+                    opt.MapFrom(src => src.FirstName + " " + src.LastName))
+                .ForMember(dest => dest.PhotoUrl, opt =>
+                    opt.MapFrom(src => src.AppUserPhoto.Photo.Url))
+                .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()))
+                .ForPath(dest => dest.Address.City, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.City))
+                .ForPath(dest => dest.Address.Id, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.Id))
+                .ForPath(dest => dest.Address.Number, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.Number))
+                .ForPath(dest => dest.Address.State, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.State))
+                .ForPath(dest => dest.Address.Street, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.Street))
+                .ForPath(dest => dest.Address.Zipcode, opt =>
+                    opt.MapFrom(src => src.AppUserAddress.Address.Zipcode));
         }
     }
 }

@@ -1,9 +1,10 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { ReplaySubject, of, map } from 'rxjs';
+import { ReplaySubject, of, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../shared/models/user';
+import { AppUser } from '../shared/models/app-user';
 
 @Injectable({
   providedIn: 'root'
@@ -14,6 +15,10 @@ export class AccountService {
   currentUser$ = this.currentUserSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
+
+  getUser(): Observable<AppUser> {
+    return this.http.get<AppUser>(this.baseUrl + 'users');
+  }
 
   loadCurrentUser(token: string | null) {
     if (token == null) {

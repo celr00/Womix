@@ -15,10 +15,54 @@ namespace Infrastructure.Data
 
             var users = new List<AppUser>()
             {
-                new AppUser { Facebook="ramiro_castellanos", Instagram="ramiro_castellanos",FirstName = "Ramiro", LastName = "Castellanos", Email = "ramiro@castellanosbarron.com", UserName = "ramiro@castellanosbarron.com"},
-                new AppUser { Facebook="dulce_trevinio", Instagram="dulce_trevinio",FirstName = "Dulce", LastName = "Treviño", Email = "dulce.trevino@udem.edu", UserName = "dulce.trevino@udem.edu"},
-                new AppUser { Facebook="vero_barron_castellanos", Instagram="vero_barron_castellanos",FirstName = "Vero", LastName = "Barrón", Email = "vero.castellanos@castelec.com.mx", UserName = "vero.castellanos@castelec.com.mx"},
-                new AppUser { Facebook="a_castellanos_leal", Instagram="a_castellanos_leal",FirstName = "Alejandro", LastName = "Castellanos", Email = "alejandro.castellanos@castelec.com.mx", UserName = "alejandro.castellanos@castelec.com.mx"},
+                new AppUser 
+                {
+                    PhoneNumber="8120800336",
+                    AppUserPhoto = new AppUserPhoto { UserId = 1, Photo = new Photo {Url = "https://res.cloudinary.com/dmjdskgd4/image/upload/v1675982651/aztpqt3s3mesxfzmnj4a.jpg"}},
+                    AppUserAddress = new AppUserAddress{
+                        UserId = 1,
+                        Address = new Address { City = "San Pedro Garza García", Number = "220", State = "Nuevo León", Street="La Gloria", Zipcode="66247"}
+                    },
+                    Facebook="ramiro_castellanos",
+                    Instagram="ramiro_castellanos_barron",
+                    FirstName = "Ramiro", LastName = "Castellanos", Email = "ramiro@castellanosbarron.com",
+                    UserName = "ramiro@castellanosbarron.com"},
+                new AppUser 
+                {
+                    PhoneNumber="8441106618",
+                    AppUserPhoto = new AppUserPhoto { UserId = 2, Photo = new Photo {Url = "https://res.cloudinary.com/dmjdskgd4/image/upload/v1679779808/Dulce_Mar%C3%ADa_evllph.png"}},
+                    AppUserAddress = new AppUserAddress{
+                        UserId = 2,
+                        Address = new Address { City = "Santa Catarina", Number = "111", State = "Nuevo León", Street="Bugambilias", Zipcode="66362"}
+                    },
+                    Facebook="dulce_trevinio",
+                    Instagram="dulcetleal",
+                    FirstName = "Dulce", LastName = "Treviño", Email = "dm.trevino05@gmail.com",
+                    UserName = "dm.trevino05@gmail.com"},
+                new AppUser 
+                {
+                    PhoneNumber="8111068751",
+                    AppUserPhoto = new AppUserPhoto { UserId = 3, Photo = new Photo {Url = "https://res.cloudinary.com/dmjdskgd4/image/upload/v1679779808/Mam%C3%A1_rrpy0j.png"}},
+                    AppUserAddress = new AppUserAddress{
+                        UserId = 3,
+                        Address = new Address { City = "San Pedro Garza García", Number = "220", State = "Nuevo León", Street="La Gloria", Zipcode="66247"}
+                    },
+                    Facebook="vero_barron_castellanos",
+                    Instagram="vero.barrondecastellanos",
+                    FirstName = "Vero", LastName = "Barrón", Email = "vero.castellanos@castelec.com.mx",
+                    UserName = "vero.castellanos@castelec.com.mx"},
+                new AppUser 
+                {
+                    PhoneNumber="8111068749",
+                    AppUserPhoto = new AppUserPhoto { UserId = 4, Photo = new Photo {Url = "https://res.cloudinary.com/dmjdskgd4/image/upload/v1679779808/Pap%C3%A1_bhkji8.png"}},
+                    AppUserAddress = new AppUserAddress{
+                        UserId = 4,
+                        Address = new Address { City = "San Pedro Garza García", Number = "220", State = "Nuevo León", Street="La Gloria", Zipcode="66247"}
+                    },
+                    Facebook="a_castellanos_leal",
+                    Instagram="alexcastellanosl",
+                    FirstName = "Alejandro", LastName = "Castellanos", Email = "alejandro.castellanos@castelec.com.mx",
+                    UserName = "alejandro.castellanos@castelec.com.mx"},
             };
 
             var roles = new List<AppRole>

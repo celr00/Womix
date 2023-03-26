@@ -6,6 +6,8 @@ const routes: Routes = [
   data: {breadcrumb: 'Home'}},
   {path: 'products', loadChildren: () => import('./product/product.module').then(m => m.ProductModule)},
   {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
+  {path: 'account', loadChildren: () => import('./account/account.module').then(m => m.AccountModule)},
+  {path: 'messages', loadChildren: () => import('./messages/messages.module').then(m => m.MessagesModule)},
 ];
 
 @NgModule({

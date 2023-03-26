@@ -4,4 +4,5 @@ export class ProductsParams {
   pageSize = 8;
   search = '';
   itemClassId = 0;
+  userId = 0;
 }

@@ -4,15 +4,15 @@
   <a routerLink="/" class="navbar-brand">
     <img src="../../../assets/Womix Nav Logo.svg" height="40">
   </a>
-  <ul class="navbar-nav d-none d-lg-flex">
+  <ul class="navbar-nav d-none d-lg-flex links-list">
     <li class="nav-item">
-      <a routerLink="/products" routerLinkActive="active" class="nav-link">Products</a>
+      <a routerLink="/products" routerLinkActive="active" class="nav-link text-uppercase">Products</a>
     </li>
     <li class="nav-item">
-      <a routerLink="/services" routerLinkActive="active" class="nav-link">Services</a>
+      <a routerLink="/services" routerLinkActive="active" class="nav-link text-uppercase">Services</a>
     </li>
     <li class="nav-item">
-      <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link">Labor Exange</a>
+      <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link text-uppercase">Labor Exange</a>
     </li>
   </ul>
   <ng-container *ngIf="(accountService.currentUser$ | async) === null">
@@ -33,8 +33,8 @@
           </a>
         </li>
         <li class="py-1">
-          <a routerLink="/" class="dropdown-item">
-            <i class="fa fa-circle me-3"></i> Example 2
+          <a routerLink="/account" class="dropdown-item">
+            <i class="fa fa-user me-3"></i> Account
           </a>
         </li>
         <div class="dropdown-divider"></div>

@@ -20,6 +20,8 @@ namespace Infrastructure.Data
         public DbSet<ProductPhoto> ProductPhotos { get; set; }
         public DbSet<ProductItemClass> ProductItemClasses { get; set; }
         public DbSet<ItemClass> ItemClasses { get; set; }
+        public DbSet<AppUserPhoto> AppUserPhotos { get; set; }
+        public DbSet<AppUserAddress> AppUserAddresses { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

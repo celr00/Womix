@@ -9,16 +9,10 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<AppUserRole> builder)
         {
             builder
-                .HasOne(ur => ur.User)
-                .WithMany()
-                .HasForeignKey(u => u.UserId)
-                .OnDelete(DeleteBehavior.Restrict);
-                
-            builder
-                .HasOne(ur => ur.Role)
-                .WithMany()
-                .HasForeignKey(r => r.RoleId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasKey(x => new {
+                    x.RoleId,
+                    x.UserId
+                });
         }
     }
 }

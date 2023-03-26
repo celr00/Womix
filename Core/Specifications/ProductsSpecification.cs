@@ -7,7 +7,8 @@ namespace Core.Specifications
         public ProductsSpecification(ProductSpecParams productParams)
             : base(x =>
             (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search)) &&
-            (!productParams.ItemClassId.HasValue || x.ProductItemClass.ItemClassId == productParams.ItemClassId)
+            (!productParams.ItemClassId.HasValue || x.ProductItemClass.ItemClassId == productParams.ItemClassId) &&
+            (!productParams.UserId.HasValue || x.AppUserProduct.OwnerId == productParams.UserId)
             )
         {
             AddInclude(x => x.ProductPhotos);

@@ -13,6 +13,7 @@ namespace Core.Specifications
         }
 
         public int? ItemClassId { get; set; }
+        public int? UserId { get; set; }
         
 
         public string Sort { get; set; }

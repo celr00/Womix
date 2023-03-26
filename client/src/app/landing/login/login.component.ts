@@ -21,12 +21,10 @@ export class LoginComponent {
   onSubmit() {
     this.accountService.login(this.loginForm.value).subscribe({
       next: () => {
-        this.router.navigateByUrl('/products');
-        this.toastr.success('Login successfull')
+        this.router.navigateByUrl('/account');
       },
       error: error => {
         console.log(error);
-        this.toastr.error('Login failed');
       }
     })
   }

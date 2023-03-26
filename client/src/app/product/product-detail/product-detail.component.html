@@ -9,7 +9,7 @@
       <h3 class="fw-demibold">
         {{product.name}}
       </h3>
-      <a class="text-decoration-none text-info" routerLink="/sellers/{{product.seller.id}}">
+      <a class="text-decoration-none text-info" routerLink="/user/{{product.seller.id}}">
         Visit {{product.seller.fullName}}
       </a>
       <hr class="text-muted my-4">
@@ -25,4 +25,5 @@
       </ng-container>
     </div>
   </div>
+  <app-user-card [user]="owner"></app-user-card>
 </div>

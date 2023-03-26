@@ -8,6 +8,10 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PagerComponent } from './pager/pager.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { ProductModule } from '../product/product.module';
+import { UserModule } from '../user/user.module';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { UserCardComponent } from './components/user-card/user-card.component';
 
 
 
@@ -15,7 +19,9 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
   declarations: [
     DatePickerComponent,
     TextInputComponent,
-    PagerComponent
+    PagerComponent,
+    ProductCardComponent,
+    UserCardComponent
   ],
   imports: [
     CommonModule,
@@ -34,6 +40,8 @@ import { PaginationModule } from 'ngx-bootstrap/pagination';
     BsDropdownModule,
     PagerComponent,
     PaginationModule,
+    ProductCardComponent,
+    UserCardComponent,
   ]
 })
 export class SharedModule { }

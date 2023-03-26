@@ -11,5 +11,7 @@ namespace Core.Entities
         public string Facebook { get; set; }
         public string Instagram { get; set; }
         public List<AppUserProduct> UserProducts { get; set; }
+        public AppUserPhoto AppUserPhoto { get; set; }
+        public AppUserAddress AppUserAddress { get; set; }
     }
 }

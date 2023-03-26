@@ -10,7 +10,9 @@ namespace Infrastructure.Data.Config
         {
             builder
                 .HasMany(u => u.UserRoles)
-                .WithOne()
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
+                .IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
@@ -18,6 +20,18 @@ namespace Infrastructure.Data.Config
                 .WithOne(x => x.Owner)
                 .HasForeignKey(x => x.OwnerId).IsRequired()
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.HasOne(x => x.AppUserPhoto)
+                .WithOne(x => x.User)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne(x => x.AppUserAddress)
+                .WithOne(x => x.User)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Navigation(x => x.AppUserPhoto).AutoInclude();
+            builder.Navigation(x => x.AppUserAddress).AutoInclude();
         }
     }
 }
