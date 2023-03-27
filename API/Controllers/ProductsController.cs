@@ -58,6 +58,8 @@ namespace API.Controllers
         {
             var user = await _userManager.Users
                 .Include(x => x.UserProducts)
+                .Include(x => x.AppUserPhoto)
+                .ThenInclude(x => x.Photo)
                 .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
 
             user.UserProducts.Add(new AppUserProduct
@@ -65,6 +67,15 @@ namespace API.Controllers
                 OwnerId = user.Id,
                 Product = product
             });
+
+            user.AppUserPhoto = new AppUserPhoto
+            {
+                UserId = user.Id,
+                Photo = new Photo
+                {
+                    Url="",
+                }
+            };
             
             await _userManager.UpdateAsync(user);
                         
