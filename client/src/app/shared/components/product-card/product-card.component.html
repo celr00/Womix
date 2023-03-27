@@ -1,5 +1,5 @@
 <div class="card mb-4" *ngIf="product">
-  <img src="{{product.productPhotos[0].photo.url}}" class="card-img-top" alt="...">
+  <img src="{{product.productPhotos[0].photo.url || './assets/placeholder-image.png' }}" class="card-img-top" alt="...">
   <div class="card-body">
     <h5 class="card-title">{{product.name}}</h5>
     <p class="card-text">{{product.description}}</p>
@@ -14,4 +14,7 @@
   <div class="card-body">
     <a routerLink="/products/{{product.id}}" class="card-link">View product</a>
   </div>
+
+  
+
 </div>

@@ -1,3 +1,4 @@
+using Core.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Services;
@@ -12,6 +13,9 @@ namespace API.Extensions
             services.AddDbContext<DataContext>(opt => {
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
+
+            services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+            
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPhotoService, PhotoService>();

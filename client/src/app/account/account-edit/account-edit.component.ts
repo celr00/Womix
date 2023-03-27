@@ -44,7 +44,6 @@ export class AccountEditComponent implements OnInit {
   loadUser() {
     this.accountService.getUserEntity().subscribe({
       next: user => {
-        console.log(user);
         this.user = user;
       },
       complete: () => {
@@ -54,14 +53,13 @@ export class AccountEditComponent implements OnInit {
   }
 
   initForm(dob: Date) {
-    console.log(dob);
-
     this.userForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
       dateOfBirth: [dob, [Validators.required]],
       facebook: ['', [Validators.required]],
       instagram: ['', [Validators.required]],
+      phoneNumber: ['', [Validators.required]],
       appUserPhoto: this.fb.group({
         userId: ['', [Validators.required]],
         photoId: ['', [Validators.required]],

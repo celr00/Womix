@@ -25,6 +25,12 @@ namespace Infrastructure.Data
         public DbSet<UserLike> Likes { get; set; }
         public DbSet<Message> Messages { get; set; }
 
+        public DbSet<UserService> UserServices { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<ServiceCategory> ServiceCategories { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<ServicePhoto> ServicePhotos { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

@@ -68,4 +68,13 @@ export class ProductService {
     this.params = new ProductsParams();
   }
 
+  deletePhoto(photoId: number, productId: number): Observable<Product> {
+    let params = new HttpParams();
+
+    params = params.append('photoId', photoId);
+    params = params.append('productId', productId);
+
+    return this.http.delete<Product>(this.baseUrl + 'products/photo/delete', {params});
+  }
+
 }

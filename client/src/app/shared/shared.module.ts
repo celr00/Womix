@@ -8,10 +8,11 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PagerComponent } from './pager/pager.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { ProductModule } from '../product/product.module';
-import { UserModule } from '../user/user.module';
 import { ProductCardComponent } from './components/product-card/product-card.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
+import { NgxGalleryModule } from '@kolkov/ngx-gallery';
+import { FileUploadModule } from 'ng2-file-upload';
+import { ProductPhotoUploadComponent } from './components/product-photo-upload/product-photo-upload.component';
 
 
 
@@ -21,7 +22,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     TextInputComponent,
     PagerComponent,
     ProductCardComponent,
-    UserCardComponent
+    UserCardComponent,
+    ProductPhotoUploadComponent
   ],
   imports: [
     CommonModule,
@@ -31,6 +33,8 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     RouterModule,
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
+    FileUploadModule,
+    NgxGalleryModule,
   ],
   exports: [
     TextInputComponent,
@@ -42,6 +46,9 @@ import { UserCardComponent } from './components/user-card/user-card.component';
     PaginationModule,
     ProductCardComponent,
     UserCardComponent,
+    FileUploadModule,
+    NgxGalleryModule,
+    ProductPhotoUploadComponent,
   ]
 })
 export class SharedModule { }

@@ -3,6 +3,7 @@ export interface UserEntity {
   lastName: string
   dateOfBirth: Date
   facebook: string
+  phoneNumber: string
   instagram: string
   appUserPhoto: AppUserPhoto
   appUserAddress: AppUserAddress

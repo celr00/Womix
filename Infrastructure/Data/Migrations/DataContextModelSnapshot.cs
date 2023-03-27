@@ -219,6 +219,20 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.Category", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Categories");
+                });
+
             modelBuilder.Entity("Core.Entities.ItemClass", b =>
                 {
                     b.Property<int>("Id")
@@ -348,6 +362,62 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("ProductPhotos");
                 });
 
+            modelBuilder.Entity("Core.Entities.Service", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Services");
+                });
+
+            modelBuilder.Entity("Core.Entities.ServiceCategory", b =>
+                {
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("ServiceId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ServiceId")
+                        .IsUnique();
+
+                    b.ToTable("ServiceCategories");
+                });
+
+            modelBuilder.Entity("Core.Entities.ServicePhoto", b =>
+                {
+                    b.Property<int>("PhotoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("PhotoId", "ServiceId");
+
+                    b.HasIndex("PhotoId")
+                        .IsUnique();
+
+                    b.HasIndex("ServiceId");
+
+                    b.ToTable("ServicePhotos");
+                });
+
             modelBuilder.Entity("Core.Entities.UserLike", b =>
                 {
                     b.Property<int>("SourceUserId")
@@ -361,6 +431,22 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("TargetUserId");
 
                     b.ToTable("Likes");
+                });
+
+            modelBuilder.Entity("Core.Entities.UserService", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ServiceId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserId", "ServiceId");
+
+                    b.HasIndex("ServiceId")
+                        .IsUnique();
+
+                    b.ToTable("UserServices");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -580,6 +666,44 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Product");
                 });
 
+            modelBuilder.Entity("Core.Entities.ServiceCategory", b =>
+                {
+                    b.HasOne("Core.Entities.Category", "Category")
+                        .WithMany("ServiceCategories")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Service", "Service")
+                        .WithOne("ServiceCategory")
+                        .HasForeignKey("Core.Entities.ServiceCategory", "ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("Core.Entities.ServicePhoto", b =>
+                {
+                    b.HasOne("Core.Entities.Photo", "Photo")
+                        .WithOne()
+                        .HasForeignKey("Core.Entities.ServicePhoto", "PhotoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Service", "Service")
+                        .WithMany("ServicePhotos")
+                        .HasForeignKey("ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Photo");
+
+                    b.Navigation("Service");
+                });
+
             modelBuilder.Entity("Core.Entities.UserLike", b =>
                 {
                     b.HasOne("Core.Entities.AppUser", "SourceUser")
@@ -597,6 +721,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("SourceUser");
 
                     b.Navigation("TargetUser");
+                });
+
+            modelBuilder.Entity("Core.Entities.UserService", b =>
+                {
+                    b.HasOne("Core.Entities.Service", "Service")
+                        .WithOne()
+                        .HasForeignKey("Core.Entities.UserService", "ServiceId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.AppUser", "User")
+                        .WithMany("Services")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("Service");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -654,9 +797,16 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("MessagesSent");
 
+                    b.Navigation("Services");
+
                     b.Navigation("UserProducts");
 
                     b.Navigation("UserRoles");
+                });
+
+            modelBuilder.Entity("Core.Entities.Category", b =>
+                {
+                    b.Navigation("ServiceCategories");
                 });
 
             modelBuilder.Entity("Core.Entities.ItemClass", b =>
@@ -671,6 +821,13 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("ProductItemClass");
 
                     b.Navigation("ProductPhotos");
+                });
+
+            modelBuilder.Entity("Core.Entities.Service", b =>
+                {
+                    b.Navigation("ServiceCategory");
+
+                    b.Navigation("ServicePhotos");
                 });
 #pragma warning restore 612, 618
         }

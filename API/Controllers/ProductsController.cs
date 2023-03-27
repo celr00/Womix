@@ -7,7 +7,6 @@ using Core.Interfaces;
 using Core.Specifications;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -18,8 +17,10 @@ namespace API.Controllers
         private readonly IUnitOfWork _uow;
         private readonly IMapper _mapper;
         private readonly IGenericRepository<ItemClass> _itemClassesRepository;
-        public ProductsController(IGenericRepository<Product> productsRepo, IGenericRepository<ItemClass> itemClassesRepository, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper)
+        private readonly IPhotoService _photoService;
+        public ProductsController(IGenericRepository<Product> productsRepo, IGenericRepository<ItemClass> itemClassesRepository, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper, IPhotoService photoService)
         {
+            _photoService = photoService;
             _itemClassesRepository = itemClassesRepository;
             _mapper = mapper;
             _uow = uow;
@@ -54,31 +55,12 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Product product)
+        public async Task<ActionResult> Add(Product request)
         {
-            var user = await _userManager.Users
-                .Include(x => x.UserProducts)
-                .Include(x => x.AppUserPhoto)
-                .ThenInclude(x => x.Photo)
-                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+            _productsRepo.Add(request);
 
-            user.UserProducts.Add(new AppUserProduct
-            {
-                OwnerId = user.Id,
-                Product = product
-            });
+            if (await _uow.Complete() < 0) return BadRequest();
 
-            user.AppUserPhoto = new AppUserPhoto
-            {
-                UserId = user.Id,
-                Photo = new Photo
-                {
-                    Url="",
-                }
-            };
-            
-            await _userManager.UpdateAsync(user);
-                        
             return Ok();
         }
 
@@ -86,6 +68,11 @@ namespace API.Controllers
         public async Task<ActionResult> Update(ProductUpdateDto request)
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(request.Id));
+
+            product.ProductItemClass = new ProductItemClass
+            {
+                ItemClassId = request.ProductItemClass.ItemClassId
+            };
 
             _mapper.Map<ProductUpdateDto, Product>(request, product);
 
@@ -118,5 +105,40 @@ namespace API.Controllers
             return Ok(itemClasses);
         }
 
+        [HttpPost("photo/{id}")]
+        public async Task<ActionResult<ProductToReturnDto>> AddPhoto(IFormFile file, int id)
+        {
+            var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(id));
+
+            if (product == null) return NotFound();
+
+            var result = await _photoService.AddPhoto(file);
+
+            if (result.Error != null) return BadRequest(result.Error.Message);
+            
+            product.ProductPhotos.Add(new ProductPhoto {
+                Photo = new Photo {
+                    Url = result.SecureUrl.AbsoluteUri
+                }
+            });
+
+            if (await _uow.Complete() < 0) return BadRequest();
+            
+            return Ok(_mapper.Map<Product, ProductToReturnDto>(await _productsRepo.GetByIdAsync(id)));
+        }
+
+        [HttpDelete("photo/delete")]
+        public async Task<ActionResult<ProductToReturnDto>> DeletePhoto(int productId, int photoId)
+        {
+            var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(productId));
+
+            if (product == null) return NotFound();
+
+            product.ProductPhotos.Remove(product.ProductPhotos.Find(x => x.PhotoId == photoId));
+
+            if (await _uow.Complete() < 0) return BadRequest();
+            
+            return Ok(_mapper.Map<Product, ProductToReturnDto>(await _productsRepo.GetByIdAsync(productId)));
+        }
     }
 }

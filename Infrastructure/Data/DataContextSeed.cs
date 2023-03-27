@@ -19,7 +19,7 @@ namespace Infrastructure.Data
                 {
                     PhoneNumber="8120800336",
                     AppUserPhoto = new AppUserPhoto { UserId = 1, Photo = new Photo {Url = "https://res.cloudinary.com/dmjdskgd4/image/upload/v1675982651/aztpqt3s3mesxfzmnj4a.jpg"}},
-                    AppUserAddress = new AppUserAddress{
+                    AppUserAddress = new AppUserAddress {
                         UserId = 1,
                         Address = new Address { City = "San Pedro Garza García", Number = "220", State = "Nuevo León", Street="La Gloria", Zipcode="66247"}
                     },
@@ -105,6 +105,17 @@ namespace Infrastructure.Data
                     new ItemClass { Name = "Clothing Accessories"},
                 };
                 context.ItemClasses.AddRange(classes);
+            }
+
+            if(!context.Categories.Any())
+            {
+                var categories = new List<Category>()
+                {
+                    new Category { Name = "Cleaning"},
+                    new Category { Name = "Cooking"},
+                    new Category { Name = "Baby Sitting"},
+                };
+                context.Categories.AddRange(categories);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
@@ -360,6 +371,48 @@ namespace Infrastructure.Data
                     },
                 };
                 context.UserProducts.AddRange(userProducts);
+            }
+
+            if (!context.UserServices.Any())
+            {
+                var userServices = new List<UserService>()
+                {
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 1,
+                                CategoryId = 1
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 1,
+                                    Photo = new Photo
+                                    {
+                                        Url = "photourl1"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 1,
+                                    Photo = new Photo
+                                    {
+                                        Url = "photourl2"
+                                    }
+                                },
+                            }
+                        }
+                    }
+                };
+                context.UserServices.AddRange(userServices);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();

@@ -10,7 +10,10 @@ namespace Core.Entities
         public ICollection<AppUserRole> UserRoles { get; set; }
         public string Facebook { get; set; }
         public string Instagram { get; set; }
+        
         public List<AppUserProduct> UserProducts { get; set; }
+        public List<UserService> Services { get; set; }
+        
         public AppUserPhoto AppUserPhoto { get; set; }
         public AppUserAddress AppUserAddress { get; set; }
         

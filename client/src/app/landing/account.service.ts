@@ -51,6 +51,10 @@ export class AccountService {
     )
   }
 
+  getUserToken(): string {
+    return localStorage.getItem('token')!;
+  }
+
   login(values: any) {
     return this.http.post<User>(this.baseUrl + 'account/login', values).pipe(
       map(user => {

@@ -32,7 +32,6 @@ export class AccountProductEditComponent implements OnInit {
     this.productService.getProduct(this.id).subscribe({
       next: product => {
         this.product = product;
-        console.log(product);
         this.bcService.set('@productName', product.name);
         this.bcService.set('@editTitle', 'Edit ' + product.name);
       },
@@ -77,6 +76,10 @@ export class AccountProductEditComponent implements OnInit {
         this.loadProduct();
       }
     })
+  }
+
+  receiveProduct(event: Product) {
+    this.product = event;
   }
 
 }

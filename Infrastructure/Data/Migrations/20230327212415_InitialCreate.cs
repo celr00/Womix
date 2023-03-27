@@ -75,6 +75,19 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Categories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ItemClasses",
                 columns: table => new
                 {
@@ -114,6 +127,21 @@ namespace Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Products", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Services",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Price = table.Column<double>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Services", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -397,6 +425,76 @@ namespace Infrastructure.Data.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "ServiceCategories",
+                columns: table => new
+                {
+                    ServiceId = table.Column<int>(type: "INTEGER", nullable: false),
+                    CategoryId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServiceCategories", x => new { x.ServiceId, x.CategoryId });
+                    table.ForeignKey(
+                        name: "FK_ServiceCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_ServiceCategories_Services_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "Services",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ServicePhotos",
+                columns: table => new
+                {
+                    PhotoId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ServiceId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ServicePhotos", x => new { x.PhotoId, x.ServiceId });
+                    table.ForeignKey(
+                        name: "FK_ServicePhotos_Photos_PhotoId",
+                        column: x => x.PhotoId,
+                        principalTable: "Photos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_ServicePhotos_Services_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "Services",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserServices",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    ServiceId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserServices", x => new { x.UserId, x.ServiceId });
+                    table.ForeignKey(
+                        name: "FK_UserServices_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_UserServices_Services_ServiceId",
+                        column: x => x.ServiceId,
+                        principalTable: "Services",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AppUserAddresses_AddressId",
                 table: "AppUserAddresses",
@@ -490,9 +588,37 @@ namespace Infrastructure.Data.Migrations
                 column: "ProductId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_ServiceCategories_CategoryId",
+                table: "ServiceCategories",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServiceCategories_ServiceId",
+                table: "ServiceCategories",
+                column: "ServiceId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServicePhotos_PhotoId",
+                table: "ServicePhotos",
+                column: "PhotoId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_ServicePhotos_ServiceId",
+                table: "ServicePhotos",
+                column: "ServiceId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserProducts_ProductId",
                 table: "UserProducts",
                 column: "ProductId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_UserServices_ServiceId",
+                table: "UserServices",
+                column: "ServiceId",
                 unique: true);
         }
 
@@ -533,7 +659,16 @@ namespace Infrastructure.Data.Migrations
                 name: "ProductPhotos");
 
             migrationBuilder.DropTable(
+                name: "ServiceCategories");
+
+            migrationBuilder.DropTable(
+                name: "ServicePhotos");
+
+            migrationBuilder.DropTable(
                 name: "UserProducts");
+
+            migrationBuilder.DropTable(
+                name: "UserServices");
 
             migrationBuilder.DropTable(
                 name: "Address");
@@ -545,13 +680,19 @@ namespace Infrastructure.Data.Migrations
                 name: "ItemClasses");
 
             migrationBuilder.DropTable(
+                name: "Categories");
+
+            migrationBuilder.DropTable(
                 name: "Photos");
+
+            migrationBuilder.DropTable(
+                name: "Products");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
 
             migrationBuilder.DropTable(
-                name: "Products");
+                name: "Services");
         }
     }
 }
