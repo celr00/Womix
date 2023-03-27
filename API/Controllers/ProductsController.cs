@@ -71,6 +71,18 @@ namespace API.Controllers
             return Ok();
         }
 
+        [HttpPut]
+        public async Task<ActionResult> Update(ProductUpdateDto request)
+        {
+            var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(request.Id));
+
+            _mapper.Map<ProductUpdateDto, Product>(request, product);
+
+            if (await _uow.Complete() < 0) return BadRequest("Failed to edit the product");
+
+            return Ok();
+        }
+
         [HttpDelete("{id}")]
         public async Task<ActionResult> Delete(int id)
         {
@@ -94,5 +106,6 @@ namespace API.Controllers
 
             return Ok(itemClasses);
         }
+
     }
 }

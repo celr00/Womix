@@ -18,6 +18,18 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
+  add(product: any) {
+    return this.http.post(this.baseUrl + 'products', product);
+  }
+
+  delete(id: number) {
+    return this.http.delete(this.baseUrl + 'products/' + id);
+  }
+
+  edit(product: any) {
+    return this.http.put(this.baseUrl + 'products', product);
+  }
+
   getAll(): Observable<Pagination<Product[]>> {
 
     let params = new HttpParams();

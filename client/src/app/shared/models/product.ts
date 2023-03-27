@@ -4,6 +4,7 @@ export interface Product {
   price: number
   description: string
   productPhotos: ProductPhoto[]
+  productItemClassId: number
   productItemClass: string
   seller: Seller
   stockQuantity: number

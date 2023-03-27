@@ -29,12 +29,24 @@ namespace API.Controllers
             return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));
         }
 
+        [HttpGet("entity")]
+        public async Task<ActionResult<AppUserEntityDto>> GetEntity()
+        {
+            var user = await _userManager.Users
+                .AsNoTracking()
+                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+            
+            if (user == null) return NotFound("This user was not found");
+
+            return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<UserToReturnDto>> GetUserById(int id)
         {
             var user = await _userManager.Users
                 .SingleOrDefaultAsync(x => x.Id == id);
-            
+
             if (user == null) return NotFound("This user was not found");
             
             return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));

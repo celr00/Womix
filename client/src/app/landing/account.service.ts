@@ -5,6 +5,7 @@ import { ReplaySubject, of, map, Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { User } from '../shared/models/user';
 import { AppUser } from '../shared/models/app-user';
+import { UserEntity } from '../shared/models/app-user-entity';
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +19,14 @@ export class AccountService {
 
   getUser(): Observable<AppUser> {
     return this.http.get<AppUser>(this.baseUrl + 'users');
+  }
+
+  getUserEntity(): Observable<UserEntity> {
+    return this.http.get<UserEntity>(this.baseUrl + 'users/entity');
+  }
+
+  update(user: any): Observable<UserEntity> {
+    return this.http.put<UserEntity>(this.baseUrl + 'account', user);
   }
 
   loadCurrentUser(token: string | null) {

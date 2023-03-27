@@ -1,10 +1,19 @@
-<div class="container-fluid container-md">
+<div class="container-fluid container-xxl">
   <div class="row">
-    <div class="col-2">
+    <div class="col d-block d-md-none mb-3">
+      <button class="btn btn-outline-primary" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample">
+        <i class="fa fa-list"></i>
+      </button>
+    </div>
+    <div class="d-none d-md-block col-4 col-lg-3">
       <app-account-nav></app-account-nav>
     </div>
-    <div class="col-10">
+    <div class="col-12 col-md-8 col-lg-9">
       <router-outlet></router-outlet>
     </div>
   </div>
+</div>
+
+<div class="offcanvas offcanvas-start p-3" style="max-width: 250px;" tabindex="-1" id="offcanvasExample">
+  <app-account-off-canvas></app-account-off-canvas>
 </div>

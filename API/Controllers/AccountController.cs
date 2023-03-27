@@ -84,5 +84,21 @@ namespace API.Controllers
         {
             return await _userManager.FindByEmailAsync(email) != null;
         }
+
+        [HttpPut]
+        public async Task<ActionResult<AppUserEntityDto>> Update(AppUserEntityDto request)
+        {
+            var user = await _userManager.Users
+                .Include(x => x.AppUserAddress)
+                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+
+            _mapper.Map<AppUserEntityDto, AppUser>(request, user);
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest("Could not update user");
+
+            return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
+        }
     }
 }

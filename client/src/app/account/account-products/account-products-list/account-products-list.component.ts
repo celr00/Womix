@@ -4,6 +4,7 @@ import { ProductService } from 'src/app/product/product.service';
 import { AppUser } from 'src/app/shared/models/app-user';
 import { Product } from 'src/app/shared/models/product';
 import { ProductsParams } from 'src/app/shared/models/productsParams';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-account-products-list',
@@ -15,9 +16,11 @@ export class AccountProductsListComponent implements OnInit {
   products: Product[] = [];
   params: ProductsParams;
 
-  constructor(private productService: ProductService, private accountService: AccountService) {
+  constructor(private productService: ProductService, private accountService: AccountService,
+    private bcService: BreadcrumbService) {
     this.productService.resetParams();
     this.params = this.productService.getParams();
+    this.bcService.set('@productListTitle', 'My products')
   }
 
   ngOnInit(): void {

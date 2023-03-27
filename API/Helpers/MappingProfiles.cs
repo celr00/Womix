@@ -16,7 +16,10 @@ namespace API.Helpers
                         src.ProductItemClass.ItemClass.Name))
                 .ForMember(dest => dest.Seller,
                     opt => opt.MapFrom(src =>
-                    src.AppUserProduct.Owner));
+                    src.AppUserProduct.Owner))
+                .ForMember(dest => dest.ProductItemClassId,
+                    opt => opt.MapFrom(src =>
+                    src.ProductItemClass.ItemClassId));
 
             CreateMap<ProductPhoto, ProductPhotoDto>().ReverseMap();
             CreateMap<Photo, PhotoDto>().ReverseMap();
@@ -52,6 +55,16 @@ namespace API.Helpers
                     opt.MapFrom(src => src.AppUserAddress.Address.Street))
                 .ForPath(dest => dest.Address.Zipcode, opt =>
                     opt.MapFrom(src => src.AppUserAddress.Address.Zipcode));
+
+            CreateMap<ProductUpdateDto, Product>()
+                .ForPath(dest => dest.ProductItemClass.ItemClassId, opt =>
+                    opt.MapFrom(src => src.ProductItemClass.ItemClassId));
+
+            CreateMap<AppUser, AppUserEntityDto>().ReverseMap();
+            CreateMap<AppUserPhoto, AppUserPhotoDto>().ReverseMap();
+            CreateMap<AppUserAddress, AppUserAddressDto>().ReverseMap();
+            CreateMap<Address, AddressDto>().ReverseMap();
+
         }
     }
 }

@@ -1,7 +1,13 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="types && productForm && user">
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="types && productForm">
   <div class="container-fluid container-md">
     <div class="row">
       <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+        <div class="mb-4">
+          <a routerLink="/account/products/list/{{product.id}}" class="text-decoration-none">
+            <i class="fa fa-angle-left me-2"></i>
+            Back
+          </a>
+        </div>
         <app-text-input [label]="'Name'" [formControl]="$any(productForm.controls['name'])"></app-text-input>
       </div>
     </div>
@@ -36,10 +42,14 @@
     </div>
     <div class="row">
       <div class="col d-flex">
-      <button type="submit" [disabled]="productForm.invalid" class="btn btn-success">Add product
-        <i class="fa fa-check ms-2"></i>
+      <button type="submit" [disabled]="productForm.invalid || !productForm.dirty" class="btn btn-success">Confirm changes
+        <i class="fa fa-floppy-o ms-2"></i>
       </button>
       </div>
     </div>
+    <!-- <code>
+      {{productForm.value | json}}
+    </code> -->
   </div>
 </form>
+
