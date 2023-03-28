@@ -1,0 +1,36 @@
+<div *ngIf="service">
+  <div class="container-fluid container-md">
+    <div class="row mb-3">
+      <div class="col-12 col-sm-6 col-md-8 col-lg-9">
+        <div class="mb-4">
+          <a routerLink="/account/services/list" class="text-decoration-none">
+            <i class="fa fa-angle-left me-2"></i>
+            Back
+          </a>
+        </div>
+        <h1>
+          {{service.name}}
+        </h1>
+        <p>
+          {{service.description}}
+        </p>
+        <p class="fw-bold fs-5 text-success">
+          {{service.price | currency}}
+        </p>
+      </div>
+      <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+        <img src="{{service.servicePhotos[0].photo.url}}" *ngIf="service.servicePhotos" alt="{{service.description}}" class="img-fluid">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex justify-content-end">
+        <a routerLink="edit" class="btn btn-outline-info me-2">
+          <i class="fa fa-pencil me-2"></i>
+          Edit</a>
+        <button class="btn btn-outline-danger me-2" (click)="delete()">
+          <i class="fa fa-trash me-2"></i>
+          Delete</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="bg-white shadow-sm rounded-3 p-3 mb-4">
+  <div class="row">
+    <div class="col-3 col-sm-2 d-flex align-items-center">
+      <img src="{{user.photoUrl}}" alt="{{user.fullName}}" class="img-fluid rounded-circle shadow-sm">
+    </div>
+    <div class="col-9 col-sm-10 d-flex align-items-center">
+      <div>
+        <a routerLink="/user/{{user.id}}">
+          <h3>
+            {{user.fullName}}
+          </h3>
+        </a>
+        <p>
+          {{user.dateOfBirth | date: 'longDate'}} | {{user.age}} years old
+        </p>
+        <p *ngIf="user.address">
+          {{user.address.street}} {{user.address.number}}, {{user.address.zipcode}}, {{user.address.city}},
+          {{user.address.state}}
+        </p>
+        <div class="d-flex icons">
+          <a target="_blank" href="https://instagram.com/{{user.instagram}}" class="me-2">
+            <img src="../../../assets/social-media-icons/instagram.svg" alt="{{user.fullName}} Instagram">
+          </a>
+          <a target="_blank" href="https://facebook.com/{{user.facebook}}" class="me-2">
+            <img src="../../../assets/social-media-icons/facebook.svg" alt="{{user.fullName}} Instagram">
+          </a>
+          <a target="_blank" href="https://wa.me/{{user.phoneNumber}}" class="me-2">
+            <img src="../../../assets/social-media-icons/whatsapp.svg" style="color: #3ab54b;"
+              alt="{{user.fullName}} Instagram">
+          </a>
+          <a routerLink="/messages" class="btn btn-outline-primary ms-2">
+            Message <i class="fa fa-envelope-o ms-2"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<table class="table" *ngIf="user">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Description</th>
+      <th scope="col">Price</th>
+      <th scope="col">Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let service of services" class="pointer" routerLink="/account/services/list/{{service.id}}">
+      <td>
+        {{service.id}}
+      </td>
+      <td>
+        {{service.name}}
+      </td>
+      <td>
+        {{service.description}}
+      </td>
+      <td>
+        {{service.price | currency}}
+      </td>
+      <td>
+        {{service.serviceCategory.category.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>

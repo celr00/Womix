@@ -121,18 +121,12 @@ ng g help
 
 #### To create Entity Framework Migrations
 
-##### For the Identity Database Context
-
-```
-/c/Projects/Womix
-
-dotnet-ef migrations add IdentityMigrationName -p Infrastructure -s API -c IdentityContext -o Identity/Migrations
-```
-
 ##### For the Entities Database Context
 
 ```
 /c/Projects/Womix
 
-dotnet-ef migrations add EntityMigrationName -p Infrastructure -s API -c DataContext -o Data/Migrations
+dotnet-ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -o Data/Migrations
 ```
+
+To run angular in another port ng s --port 4201

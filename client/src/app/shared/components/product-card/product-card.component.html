@@ -1,0 +1,17 @@
+<div class="card mb-4" *ngIf="product">
+  <img src="{{product.productPhotos[0].photo.url || './assets/placeholder-image.png' }}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">{{product.name}}</h5>
+    <p class="card-text">{{product.description}}</p>
+    <a routerLink="/user/{{product.seller.id}}" class="card-link">{{product.seller.fullName}}</a>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{product.price | currency}}</li>
+    <li class="list-group-item">
+      {{product.stockQuantity}} in stock
+    </li>
+  </ul>
+  <div class="card-body">
+    <a routerLink="/products/{{product.id}}" class="card-link">View product</a>
+  </div>
+</div>

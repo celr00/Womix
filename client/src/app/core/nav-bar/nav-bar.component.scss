@@ -1,0 +1,22 @@
+.links-list {
+  a {
+    position: relative;
+    letter-spacing: 1px;
+  }
+  a:after {
+    content: "";
+    position: absolute;
+    background-color: #83005c;
+    height: 3px;
+    width: 0;
+    left: 0;
+    bottom: -3px;
+    transition: 0.3s;
+  }
+  a:hover {
+    color: black;
+  }
+  a:hover:after, a.active:after {
+    width: 100%;
+  }
+}

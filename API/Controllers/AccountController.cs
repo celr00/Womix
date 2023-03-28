@@ -26,11 +26,11 @@ namespace API.Controllers
 
         [Authorize]
         [HttpGet]
-        public async Task<ActionResult<UserDto>> GetCurrentUser()
+        public async Task<ActionResult<AccountDto>> GetCurrentUser()
         {
             var user = await _userManager.Users.SingleOrDefaultAsync(x => x.Id == User.GetUserId());
 
-            return new UserDto
+            return new AccountDto
             {
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
@@ -38,7 +38,7 @@ namespace API.Controllers
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<UserDto>> Login(LoginDto loginDto)
+        public async Task<ActionResult<AccountDto>> Login(LoginDto loginDto)
         {
             var user = await _userManager.FindByEmailAsync(loginDto.Email);
 
@@ -48,7 +48,7 @@ namespace API.Controllers
 
             if (!result.Succeeded) return Unauthorized("Incorrect password");
 
-            return new UserDto
+            return new AccountDto
             {
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
@@ -56,7 +56,7 @@ namespace API.Controllers
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<UserDto>> Register(RegisterDto registerDto)
+        public async Task<ActionResult<AccountDto>> Register(RegisterDto registerDto)
         {
             if (CheckEmailExistsAsync(registerDto.Email).Result.Value) return BadRequest("Email address already in use");
 
@@ -72,7 +72,7 @@ namespace API.Controllers
 
             if (!roleResult.Succeeded) return BadRequest(result.Errors);
 
-            return new UserDto
+            return new AccountDto
             {
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
@@ -83,6 +83,22 @@ namespace API.Controllers
         public async Task<ActionResult<bool>> CheckEmailExistsAsync([FromQuery] string email)
         {
             return await _userManager.FindByEmailAsync(email) != null;
+        }
+
+        [HttpPut]
+        public async Task<ActionResult<AppUserEntityDto>> Update(AppUserEntityDto request)
+        {
+            var user = await _userManager.Users
+                .Include(x => x.AppUserAddress)
+                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+
+            _mapper.Map<AppUserEntityDto, AppUser>(request, user);
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest("Could not update user");
+
+            return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
     }
 }

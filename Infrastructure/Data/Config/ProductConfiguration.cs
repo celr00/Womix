@@ -11,6 +11,19 @@ namespace Infrastructure.Data.Config
             builder.Property(p => p.Id).IsRequired();
             builder.Property(p => p.Name).IsRequired()
                 .HasMaxLength(100);
+            builder.Property(p => p.Description).IsRequired(false).HasMaxLength(500);
+            builder.Property(p => p.Price).HasColumnType("decimal(18,2)");
+
+            builder
+                .HasMany(x => x.ProductPhotos)
+                .WithOne(x => x.Product)
+                .HasForeignKey(x => x.ProductId)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne(x => x.ProductItemClass)
+                .WithOne(x => x.Product);
         }
     }
 }

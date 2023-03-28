@@ -4,9 +4,9 @@ namespace Core.Specifications
 {
     public class ProductsWithFiltersForCountSpecification : BaseSpecification<Product>
     {
-        public ProductsWithFiltersForCountSpecification(ProductSpecParams productParams) : base
+        public ProductsWithFiltersForCountSpecification(ProductSpecParams specParams) : base
         (x =>
-            (string.IsNullOrEmpty(productParams.Search) || x.Name.ToLower().Contains(productParams.Search))
+            (string.IsNullOrEmpty(specParams.Search) || x.Name.ToLower().Contains(specParams.Search))
         )
         {
 

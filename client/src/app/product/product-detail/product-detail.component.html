@@ -1,11 +1,29 @@
-<div class="container">
-    <div class="card shadow-sm mb-5">
-        <h5 class="card-header text-center fs-italic text-success">
-            {{product.id}}
-        </h5>
-        <div class="card-body">
-            <div class="card-text">{{product.name}}</div>
-        </div>
+<div class="container" *ngIf="product">
+  <div class="row">
+    <div class="col-12 col-sm-6 col-md-4">
+      <div class="bg-white p-3 shadow-sm rounded-3">
+        <img class="img-fluid" src="{{product.productPhotos[0].photo.url}}" alt="">
+      </div>
     </div>
-    <a routerLink="/products" class="btn btn-outline-info btn-lg shadow-sm">Atrás</a>
+    <div class="col-12 col-sm-6 col-md-8">
+      <h3 class="fw-demibold">
+        {{product.name}}
+      </h3>
+      <a class="text-decoration-none text-info" routerLink="/user/{{product.seller.id}}">
+        Visit {{product.seller.fullName}}
+      </a>
+      <hr class="text-muted my-4">
+      <ng-container *ngIf="product.stockQuantity === 0">
+        <p class="text-danger fs-5">
+            This product is currently unavailable.
+        </p>
+      </ng-container>
+      <ng-container *ngIf="product.stockQuantity > 0">
+        <p class="fw-light text-muted fs-5">
+            {{product.stockQuantity}} available.
+        </p>
+      </ng-container>
+    </div>
+  </div>
+  <app-user-card [user]="owner"></app-user-card>
 </div>
