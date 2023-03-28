@@ -401,3 +401,7 @@ EXPOSE 8080  <--
 ```
 
 List secrets --> `fly secrets list`
+
+## Update dotnet ef globally
+
+`dotnet tool update --global dotnet-ef`
