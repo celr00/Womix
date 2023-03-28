@@ -130,3 +130,274 @@ dotnet-ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -
 ```
 
 To run angular in another port ng s --port 4201
+
+## Deploy to Dev Server
+
+### Change Angular Build Configuration
+
+Change it to 1mb for maximumWarning and 2mb for maximumError.
+
+```
+{
+  "projects": {
+    "client": {
+      "architect": {
+        "build": {
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
+```
+
+### Build Angular Application
+
+```
+/c/Projects/Womix/client
+
+ng build
+```
+
+### Add Fallback controller and add this to the `Program.cs` file
+
+#### `FallbackController.cs`
+
+```
+public class FallbackController : Controller
+{
+    public IActionResult Index()
+    {
+        return PhysicalFile(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "index.html"), "text/HTML");
+    }
+}
+```
+
+#### `Program.cs`
+
+```
+app.MapControllers();
+app.MapFallbackToController("Index", "Fallback");
+```
+
+### Start Postgres Instance in Docker
+
+```
+/c/Projects/Womix
+
+docker run --name postgres -e POSTGRES_PASSWORD=postgrespw -p 5432:5432 -d postgres:latest
+```
+
+### Visual Studio Code Extension for PostgreSQL
+
+Name: PostgreSQL
+Developer: Chris Kolkman
+
+### Add the Following Package to `Infrastructure.csproj` with NuGet
+
+```
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.3" />
+  </ItemGroup>
+</Project>
+```
+
+### Drop the current database (It should be named `womix.db`)
+
+```
+/c/Projects/Womix/API
+
+dotnet ef database drop
+```
+
+### Change `ConnectionStrings` inside `appsettings.Development.json`
+
+#### Currently (For SQLite)
+
+```
+{
+  ...
+  "ConnectionStrings": {
+    "DefaultConnection": "Data source=womix.db"
+  }
+  ...
+}
+```
+
+#### New for PostgreSQL
+
+```
+{
+  ...
+  "ConnectionStrings": {
+    "DefaultConnection": "Server=localhost; Port=5432; User Id=postgres; Password=postgrespw; Database=womix;"
+  }
+  ...
+}
+```
+
+#### Change DB Context Service inside `ApplicationServicesExtensions.cs` to `UseNpgsql`
+
+```
+services.AddDbContext<DataContext>(opt => {
+    opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+});
+```
+
+### Delete current Migrations Folder
+
+### Create new migration to user PostgreSQL DB Provider
+
+```
+/c/Projects/Womix
+
+dotnet-ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext -o Data/Migrations
+```
+
+### Configure PostgreSQL VSCode Extension
+
+1. Add Database Connection
+2. The hostname of the database --> `localhost`
+3. The PostgreSQL user to authenticate --> `postgres`
+4. The password of the PostgreSQL user --> `postgrespw`
+5. The port number to connect to --> `5432`
+6. Use an SSL connection? --> `Standard Connection`
+7. Type --> `womix`
+8. The display name of the database connection --> `localhost`
+
+### Create `Dockerfile` in the `/API` Folder
+
+```
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /app
+
+# copy .csproj and restore as distinct layers
+# COPY *.csproj ./
+# RUN dotnet restore
+
+# copy everything else and build
+COPY . ./
+RUN dotnet publish API -c Release -o out
+
+# build runtime image
+FROM mcr.microsoft.com/dotnet/aspnet:7.0
+WORKDIR /app
+COPY --from=build-env /app/out .
+ENTRYPOINT [ "dotnet", "API.dll" ]
+```
+
+### Inside root create file named `.dockerignore`
+
+```
+**/bin
+**/obj
+```
+
+### Create docker build
+
+This step requires a `docker hub` account.
+
+This builds an image named `womix`
+
+```
+/c/Projects/Womix
+
+docker build -f API/Dockerfile -t ramirocaste/womix .
+```
+
+### Run the docker image
+
+`--rm` --> Removes it from the local containers when it quits from running
+`-it` --> **Interactive mode**: to see the logs from `dotnet`
+`-p` --> port
+
+```
+/c/Projects/Womix
+
+docker run --rm -it -p 8080:80 ramirocaste/womix:latest
+```
+
+Running this produces an error.
+
+To fix it paste configuration inside `appsettings.json`
+
+#### `appsettings.json`
+
+```
+"ConnectionStrings": {
+    "DefaultConnection": "Server=host.docker.internal; Port=5432; User Id=postgres; Password=postgrespw; Database=womix;"
+},
+"Token": {
+    "Key": "super secret key",
+    "Issuer": "https://localhost:5001"
+},
+```
+
+Rebuild the image.
+
+It should be successfull.
+
+In http://localhost:8080 the application should be running.
+
+### Push the image to Docker Hub
+
+This requires to be logged in `docker login`
+
+```
+/c/Projects/Womix
+
+docker push ramirocaste/womix:latest
+```
+
+### Install flyctl
+
+#### Windows Powershell (admin mode not needed)
+
+```
+powershell -Command "iwr https://fly.io/install.ps1 -useb | iex"
+```
+
+#### Sign in to fly.io
+
+```
+fly auth login
+```
+
+#### Launch Application with Fly
+
+```
+/c/Projects/Womix
+
+fly launch --image ramirocaste/womix:latest
+
+? Choose an app name (leave blank to generate one): womix
+
+? Choose a region for deployment: Guadalajara, Mexico (gdl)
+
+? Would you like to set up a Postgresql database now? Yes
+
+? Select configuration: Development - Single node, 1x shared CPU, 256MB RAM, 1GB disk
+
+? Would you like to set up an Upstash Redis database now? No
+
+? Would you like to deploy now? No
+```
+
+`fly.toml`
+
+```
+[env]
+  ASPNETCORE_URLS="http://+:8080"  <-- 
+```
+
+`Dockerfile`
+
+```
+FROM mcr.microsoft.com/dotnet/sdk:7.0 AS build-env
+WORKDIR /app
+EXPOSE 8080  <--
+```
+
+List secrets --> `fly secrets list`
