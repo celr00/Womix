@@ -29,21 +29,21 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<Pagination<ProductToReturnDto>>> GetProducts([FromQuery] ProductSpecParams productParams)
+        public async Task<ActionResult<Pagination<ProductDto>>> GetProducts([FromQuery] ProductSpecParams specParams)
         {
-            var spec = new ProductsSpecification(productParams);
-            var countSpec = new ProductsWithFiltersForCountSpecification(productParams);
+            var spec = new ProductsSpecification(specParams);
+            var countSpec = new ProductsWithFiltersForCountSpecification(specParams);
 
             var totalItems = await _productsRepo.CountAsync(countSpec);
             var products = await _productsRepo.ListAsync(spec);
 
-            var data = _mapper.Map<IReadOnlyList<ProductToReturnDto>>(products);
+            var data = _mapper.Map<IReadOnlyList<ProductDto>>(products);
 
-            return Ok(new Pagination<ProductToReturnDto>(productParams.PageIndex, productParams.PageIndex, totalItems, data));
+            return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageIndex, totalItems, data));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
+        public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
             var spec = new ProductsSpecification(id);
 
@@ -51,7 +51,7 @@ namespace API.Controllers
 
             if (product == null) return NotFound("This product might not exist");
 
-            return _mapper.Map<Product, ProductToReturnDto>(product);
+            return _mapper.Map<Product, ProductDto>(product);
         }
 
         [HttpPost]
@@ -106,7 +106,7 @@ namespace API.Controllers
         }
 
         [HttpPost("photo/{id}")]
-        public async Task<ActionResult<ProductToReturnDto>> AddPhoto(IFormFile file, int id)
+        public async Task<ActionResult<ProductDto>> AddPhoto(IFormFile file, int id)
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(id));
 
@@ -124,11 +124,11 @@ namespace API.Controllers
 
             if (await _uow.Complete() < 0) return BadRequest();
             
-            return Ok(_mapper.Map<Product, ProductToReturnDto>(await _productsRepo.GetByIdAsync(id)));
+            return Ok(_mapper.Map<Product, ProductDto>(product));
         }
 
         [HttpDelete("photo/delete")]
-        public async Task<ActionResult<ProductToReturnDto>> DeletePhoto(int productId, int photoId)
+        public async Task<ActionResult<ProductDto>> DeletePhoto(int productId, int photoId)
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(productId));
 
@@ -138,7 +138,7 @@ namespace API.Controllers
 
             if (await _uow.Complete() < 0) return BadRequest();
             
-            return Ok(_mapper.Map<Product, ProductToReturnDto>(await _productsRepo.GetByIdAsync(productId)));
+            return Ok(_mapper.Map<Product, ProductDto>(product));
         }
     }
 }

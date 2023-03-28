@@ -102,7 +102,13 @@ namespace Infrastructure.Data
                 {
                     new ItemClass { Name = "Food"},
                     new ItemClass { Name = "Clothing"},
-                    new ItemClass { Name = "Clothing Accessories"},
+                    new ItemClass { Name = "Accessories"},
+                    new ItemClass { Name = "Desserts"},
+                    new ItemClass { Name = "Electronics"},
+                    new ItemClass { Name = "Laptop"},
+                    new ItemClass { Name = "Smartphone"},
+                    new ItemClass { Name = "TV"},
+                    new ItemClass { Name = "Book"},
                 };
                 context.ItemClasses.AddRange(classes);
             }
@@ -113,6 +119,11 @@ namespace Infrastructure.Data
                 {
                     new Category { Name = "Cleaning"},
                     new Category { Name = "Cooking"},
+                    new Category { Name = "Vacation planning"},
+                    new Category { Name = "Event planning"},
+                    new Category { Name = "Dental cleaning"},
+                    new Category { Name = "Event DJ"},
+                    new Category { Name = "Party Entertainment"},
                     new Category { Name = "Baby Sitting"},
                 };
                 context.Categories.AddRange(categories);
@@ -347,7 +358,7 @@ namespace Infrastructure.Data
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 7,
+                                    ProductId = 8,
                                     Photo = new Photo 
                                     {
                                         Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
@@ -355,7 +366,7 @@ namespace Infrastructure.Data
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 7,
+                                    ProductId = 8,
                                     Photo = new Photo 
                                     {
                                         Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
@@ -365,7 +376,392 @@ namespace Infrastructure.Data
                             ProductItemClass = new ProductItemClass
                             {
                                 ItemClassId = 3,
-                                ProductId = 7
+                                ProductId = 8
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 9,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 9,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 9
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 10,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 10,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 10
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 11,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 11,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 11
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 12,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 12,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 12
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 13,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 13,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 13
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 14,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 14,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 14
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 15,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 15,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 15
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 16,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 16,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 16
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 17,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 17,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 17
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 18,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 18,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 18
+                            }
+                        },
+                    },
+                    new AppUserProduct
+                    {
+                        OwnerId = 4,
+                        Product = new Product
+                        {
+                            Name = "Obsidian Necklace",
+                            Description = "Obsidian Necklace with Green Gem",
+                            Price = 1299,
+                            StockQuantity = 10,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 19,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 19,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                }
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 3,
+                                ProductId = 19
                             }
                         },
                     },
@@ -397,7 +793,7 @@ namespace Infrastructure.Data
                                     ServiceId = 1,
                                     Photo = new Photo
                                     {
-                                        Url = "photourl1"
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
                                     }
                                 },
                                 new ServicePhoto
@@ -405,12 +801,692 @@ namespace Infrastructure.Data
                                     ServiceId = 1,
                                     Photo = new Photo
                                     {
-                                        Url = "photourl2"
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
                                     }
                                 },
                             }
                         }
-                    }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 2,
+                                CategoryId = 2
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 2,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 2,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 3,
+                                CategoryId = 3
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 3,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 3,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 4,
+                                CategoryId = 4
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 4,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 4,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 5,
+                                CategoryId = 5
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 5,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 5,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 6,
+                                CategoryId = 6
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 6,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 6,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 7,
+                                CategoryId = 1
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 7,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 7,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 8,
+                                CategoryId = 2
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 8,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 8,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 9,
+                                CategoryId = 3
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 9,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 9,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 10,
+                                CategoryId = 4
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 10,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 10,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 11,
+                                CategoryId = 5
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 11,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 11,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 12,
+                                CategoryId = 6
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 12,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 12,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 13,
+                                CategoryId = 7
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 13,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 13,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 14,
+                                CategoryId = 1
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 14,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 14,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 15,
+                                CategoryId = 2
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 15,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 15,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 16,
+                                CategoryId = 3
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 16,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 16,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 17,
+                                CategoryId = 4
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 17,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 17,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 18,
+                                CategoryId = 5
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 18,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 18,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 19,
+                                CategoryId = 6
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 19,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 19,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 20,
+                                CategoryId = 7
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 20,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 20,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
+                    new UserService
+                    {
+                        UserId = 1,
+                        Service = new Service
+                        {
+                            Name = "Cleaning",
+                            Description = "House deep clean",
+                            Price = 249,
+                            ServiceCategory = new ServiceCategory
+                            {
+                                ServiceId = 21,
+                                CategoryId = 8
+                            },
+                            ServicePhotos = new List<ServicePhoto>()
+                            {
+                                new ServicePhoto
+                                {
+                                    ServiceId = 21,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 21,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                    }
+                                },
+                            }
+                        }
+                    },
                 };
                 context.UserServices.AddRange(userServices);
             }

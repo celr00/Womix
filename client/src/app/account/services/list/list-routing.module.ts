@@ -18,7 +18,7 @@ const routes: Routes = [
       .then(x => x.ItemModule),
     data: {
       breadcrumb: {
-        alias: 'servicesItemTitle'
+        alias: 'serviceNameTitle'
       }
     }
   },

@@ -1,9 +1,9 @@
-<ng-container *ngIf="product">
+<ng-container *ngIf="object">
   <div class="row mb-3">
-    <div class="col-6 col-sm-4 col-md-3" *ngFor="let photo of product.productPhotos">
-      <img src="{{ photo.photo.url }}" class="img-thumbnail mb-1" />
+    <div class="col-6 col-sm-4 col-md-3" *ngFor="let photo of photos">
+      <img src="{{ photo.url }}" class="img-thumbnail mb-1" />
       <div class="text-center">
-        <button class="btn btn-close" (click)="removePhoto(photo.photo.id)" ></button>
+        <button class="btn btn-close" (click)="delete(photo.id)" ></button>
       </div>
     </div>
   </div>

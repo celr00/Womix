@@ -726,13 +726,13 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.UserService", b =>
                 {
                     b.HasOne("Core.Entities.Service", "Service")
-                        .WithOne()
+                        .WithOne("UserService")
                         .HasForeignKey("Core.Entities.UserService", "ServiceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("Core.Entities.AppUser", "User")
-                        .WithMany("Services")
+                        .WithMany("UserServices")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
@@ -797,11 +797,11 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("MessagesSent");
 
-                    b.Navigation("Services");
-
                     b.Navigation("UserProducts");
 
                     b.Navigation("UserRoles");
+
+                    b.Navigation("UserServices");
                 });
 
             modelBuilder.Entity("Core.Entities.Category", b =>
@@ -828,6 +828,8 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("ServiceCategory");
 
                     b.Navigation("ServicePhotos");
+
+                    b.Navigation("UserService");
                 });
 #pragma warning restore 612, 618
         }

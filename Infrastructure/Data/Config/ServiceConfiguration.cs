@@ -19,6 +19,11 @@ namespace Infrastructure.Data.Config
                 .WithOne(x => x.Service)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder
+                .HasOne(x => x.UserService)
+                .WithOne(x => x.Service)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.Navigation(x => x.ServicePhotos).AutoInclude();
             builder.Navigation(x => x.ServiceCategory).AutoInclude();
         }

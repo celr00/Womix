@@ -10,7 +10,7 @@ namespace API.Helpers
         public MappingProfiles()
         {
             CreateMap<RegisterDto, AppUser>();
-            CreateMap<Product, ProductToReturnDto>()
+            CreateMap<Product, ProductDto>()
                 .ForMember(dest => dest.ProductItemClass,
                     opt => opt.MapFrom(src => 
                         src.ProductItemClass.ItemClass.Name))
@@ -64,6 +64,14 @@ namespace API.Helpers
             CreateMap<AppUserPhoto, AppUserPhotoDto>().ReverseMap();
             CreateMap<AppUserAddress, AppUserAddressDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
+
+            CreateMap<Service, ServiceDto>().ReverseMap();
+            CreateMap<ServiceUpdateDto, Service>().ReverseMap();
+            CreateMap<ServiceCategory, ServiceCategoryDto>().ReverseMap();
+            CreateMap<ServicePhoto, ServicePhotoDto>().ReverseMap();
+            CreateMap<Category, CategoryDto>().ReverseMap();
+            CreateMap<UserService, UserServiceDto>().ReverseMap();
+            CreateMap<AppUser, UserDto>().ReverseMap();
 
         }
     }

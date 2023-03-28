@@ -7,5 +7,6 @@ namespace Core.Entities
         public decimal Price { get; set; }
         public List<ServicePhoto> ServicePhotos { get; set; }
         public ServiceCategory ServiceCategory { get; set; }
+        public UserService UserService { get; set; }
     }
 }

@@ -12,7 +12,6 @@ import { Type } from '../shared/models/type';
 })
 export class ProductService {
   baseUrl = environment.apiUrl;
-  products: Product[] | undefined;
   params = new ProductsParams();
   types: Type[] = [];
 

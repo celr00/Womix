@@ -1,34 +1,30 @@
-<table class="table" *ngIf="">
+<table class="table" *ngIf="user">
   <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Name</th>
       <th scope="col">Description</th>
       <th scope="col">Price</th>
-      <th scope="col">Item class</th>
-      <th scope="col">Quantity</th>
+      <th scope="col">Category</th>
     </tr>
   </thead>
   <tbody>
-    <!-- <tr *ngFor="let product of products" class="pointer" routerLink="/account/products/list/{{product.id}}">
+    <tr *ngFor="let service of services" class="pointer" routerLink="/account/services/list/{{service.id}}">
       <td>
-        {{product.id}}
+        {{service.id}}
       </td>
       <td>
-        {{product.name}}
+        {{service.name}}
       </td>
       <td>
-        {{product.description}}
+        {{service.description}}
       </td>
       <td>
-        {{product.price | currency}}
+        {{service.price | currency}}
       </td>
       <td>
-        {{product.productItemClass}}
+        {{service.serviceCategory.category.name}}
       </td>
-      <td>
-        {{product.stockQuantity}}
-      </td>
-    </tr> -->
+    </tr>
   </tbody>
 </table>

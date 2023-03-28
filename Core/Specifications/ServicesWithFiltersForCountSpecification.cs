@@ -2,9 +2,9 @@ using Core.Entities;
 
 namespace Core.Specifications
 {
-    public class ProductsWithFiltersForCountSpecification : BaseSpecification<Product>
+    public class ServicesWithFiltersForCountSpecification: BaseSpecification<Service>
     {
-        public ProductsWithFiltersForCountSpecification(ProductSpecParams specParams) : base
+        public ServicesWithFiltersForCountSpecification(ServiceSpecParams specParams) : base
         (x =>
             (string.IsNullOrEmpty(specParams.Search) || x.Name.ToLower().Contains(specParams.Search))
         )

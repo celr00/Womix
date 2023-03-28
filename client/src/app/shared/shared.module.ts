@@ -12,7 +12,8 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
-import { ProductPhotoUploadComponent } from './components/product-photo-upload/product-photo-upload.component';
+import { CardComponent } from './components/card/card.component';
+import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 
 
 
@@ -23,7 +24,8 @@ import { ProductPhotoUploadComponent } from './components/product-photo-upload/p
     PagerComponent,
     ProductCardComponent,
     UserCardComponent,
-    ProductPhotoUploadComponent
+    CardComponent,
+    PhotoUploadComponent,
   ],
   imports: [
     CommonModule,
@@ -48,7 +50,8 @@ import { ProductPhotoUploadComponent } from './components/product-photo-upload/p
     UserCardComponent,
     FileUploadModule,
     NgxGalleryModule,
-    ProductPhotoUploadComponent,
+    CardComponent,
+    PhotoUploadComponent,
   ]
 })
 export class SharedModule { }
