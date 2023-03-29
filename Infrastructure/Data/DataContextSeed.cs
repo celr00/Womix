@@ -80,17 +80,11 @@ namespace Infrastructure.Data
             {
                 user.UserName = user.UserName.ToLower();
                 await userManager.CreateAsync(user, "Pa$$w0rd");
-                await userManager.AddToRoleAsync(user, "Member");
+                if(user.Email =="ramiro@castellanosbarron.com")
+                    await userManager.AddToRoleAsync(user, "Admin");
+                else
+                    await userManager.AddToRoleAsync(user, "Member");
             }
-
-            var admin = new AppUser
-            {
-                UserName = "admin@admin.com",
-                Email = "admin@admin.com"
-            };
-
-            await userManager.CreateAsync(admin, "Pa$$w0rd");
-            await userManager.AddToRolesAsync(admin, new[] { "Admin" });
 
             // Products
 

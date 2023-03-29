@@ -12,8 +12,8 @@ namespace Infrastructure.Data.Config
                 .HasMany(r => r.UserRoles)
                 .WithOne(x => x.Role)
                 .HasForeignKey(x => x.RoleId)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
