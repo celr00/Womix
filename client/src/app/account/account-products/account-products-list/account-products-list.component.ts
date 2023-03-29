@@ -15,6 +15,7 @@ export class AccountProductsListComponent implements OnInit {
   user: AppUser = {} as AppUser;
   products: Product[] = [];
   params: ProductsParams;
+  totalCount = 0;
 
   constructor(private productService: ProductService, private accountService: AccountService,
     private bcService: BreadcrumbService) {
@@ -43,8 +44,20 @@ export class AccountProductsListComponent implements OnInit {
   loadProducts() {
     this.productService.getAll().subscribe({
       next: response => {
-        this.products = response.data
+        this.products = response.data;
+        this.totalCount = response.count;
       }
     })
   }
+
+  onPageChanged(event: any) {
+    const params = this.productService.getParams();
+    if (params.pageNumber !== event) {
+      params.pageNumber = event;
+      this.productService.setParams(params);
+      this.params = params;
+      this.loadProducts();
+    }
+  }
+
 }

@@ -6,14 +6,20 @@ namespace Core.Specifications
     {
         public ProductsSpecification(ProductSpecParams productParams)
             : base(x =>
-            (string.IsNullOrEmpty(productParams.Search) || 
-            x.Name.ToLower().Contains(productParams.Search) ||
-            x.Description.ToLower().Contains(productParams.Search) ||
-            x.AppUserProduct.Owner.FirstName.ToLower().Contains(productParams.Search) ||
-            x.AppUserProduct.Owner.LastName.ToLower().Contains(productParams.Search)
+            (
+                string.IsNullOrEmpty(productParams.Search) || 
+                x.Name.ToLower().Contains(productParams.Search) ||
+                x.Description.ToLower().Contains(productParams.Search) ||
+                x.AppUserProduct.Owner.FirstName.ToLower().Contains(productParams.Search) ||
+                x.AppUserProduct.Owner.LastName.ToLower().Contains(productParams.Search)
             ) &&
-            (!productParams.ItemClassId.HasValue || x.ProductItemClass.ItemClassId == productParams.ItemClassId) &&
-            (!productParams.UserId.HasValue || x.AppUserProduct.OwnerId == productParams.UserId)
+            (
+                !productParams.ItemClassId.HasValue ||
+                    x.ProductItemClass.ItemClassId == productParams.ItemClassId
+            ) &&
+            (
+                !productParams.UserId.HasValue || x.AppUserProduct.OwnerId == productParams.UserId
+            )
             )
         {
             AddInclude(x => x.ProductPhotos);

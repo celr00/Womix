@@ -126,7 +126,7 @@ ng g help
 ```
 /c/Projects/Womix
 
-dotnet-ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -o Data/Migrations
+dotnet ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -o Data/Migrations
 ```
 
 To run angular in another port ng s --port 4201
@@ -253,7 +253,7 @@ services.AddDbContext<DataContext>(opt => {
 ```
 /c/Projects/Womix
 
-dotnet-ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext -o Data/Migrations
+dotnet ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext -o Data/Migrations
 ```
 
 ### Configure PostgreSQL VSCode Extension
@@ -404,4 +404,6 @@ List secrets --> `fly secrets list`
 
 ## Update dotnet ef globally
 
-`dotnet tool update --global dotnet-ef`
+```
+dotnet tool update --global dotnet ef
+```
