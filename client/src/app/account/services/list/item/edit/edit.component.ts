@@ -60,7 +60,7 @@ export class EditComponent implements OnInit {
         this.router.navigateByUrl('/account/services/list/' + this.id);
       },
       error: () => {
-        this.toastr.error('Failed to update service');
+        
       }
     })
   }

@@ -36,7 +36,7 @@ export class NewComponent implements OnInit {
         this.router.navigateByUrl('/account/services/list');
       },
       error: () => {
-        this.toastr.error('Failed to add service');
+        
       }
     })
   }

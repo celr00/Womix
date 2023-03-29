@@ -58,7 +58,7 @@ export class AccountProductDetailComponent implements OnInit {
         this.toastr.success('Product deleted successfully');
       },
       error: () => {
-        this.toastr.error('Failed to delete product');
+        
       }
     })
   }

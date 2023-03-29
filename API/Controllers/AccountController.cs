@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Errors;
 using API.Extensions;
 using AutoMapper;
 using Core.Entities;
@@ -66,7 +67,11 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<AccountDto>> Register(RegisterDto registerDto)
         {
-            if (CheckEmailExistsAsync(registerDto.Email).Result.Value) return BadRequest("Email address already in use");
+            if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
+            {
+                return new BadRequestObjectResult(new ApiValidationErrorResponse 
+                    { Errors = new[] { "Email address is in use" } });
+            }
 
             var user = _mapper.Map<RegisterDto, AppUser>(registerDto);
 
@@ -74,11 +79,11 @@ namespace API.Controllers
 
             var result = await _userManager.CreateAsync(user, registerDto.Password);
 
-            if (!result.Succeeded) return BadRequest(result.Errors);
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to create the user"));
 
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");
 
-            if (!roleResult.Succeeded) return BadRequest(result.Errors);
+            if (!roleResult.Succeeded) return BadRequest(new ApiResponse(400, "Failed to add the user to the role"));
 
             return new AccountDto
             {
@@ -104,7 +109,7 @@ namespace API.Controllers
 
             var result = await _userManager.UpdateAsync(user);
 
-            if (!result.Succeeded) return BadRequest("Could not update user");
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
 
             return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
@@ -160,11 +165,11 @@ namespace API.Controllers
                 }
             }
 
-            if (user == null) return NotFound();
+            if (user == null) return NotFound(new ApiResponse(404));
             
             var result = await _userManager.DeleteAsync(user);
 
-            if (!result.Succeeded) return BadRequest();
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to delete the user"));
             
             return Ok();
         }

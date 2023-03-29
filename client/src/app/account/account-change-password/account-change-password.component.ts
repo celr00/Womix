@@ -47,7 +47,7 @@ export class AccountChangePasswordComponent implements OnInit {
         this.passwordForm.reset();
       },
       error: () => {
-        this.toastr.error('Failed to update password');
+        
       }
     })
   }

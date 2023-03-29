@@ -36,7 +36,7 @@ export class AccountProductsNewComponent implements OnInit {
         this.router.navigateByUrl('/account/products/list');
       },
       error: () => {
-        this.toastr.error('Failed to add product');
+        
       }
     })
   }

@@ -93,7 +93,9 @@ export class PhotoUploadComponent implements OnInit {
             this.send.emit(service);
             this.toastr.success('Photo deleted successfully');
           },
-          error: () => this.toastr.error('Failed to delete photo')
+          error: () => {
+
+          }
         })
         break;
       case "products":
@@ -107,7 +109,9 @@ export class PhotoUploadComponent implements OnInit {
             this.send.emit(product);
             this.toastr.success('Photo deleted successfully');
           },
-          error: () => this.toastr.error('Failed to delete photo')
+          error: () => {
+            
+          }
         })
         break;
 

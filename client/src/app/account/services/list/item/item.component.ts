@@ -58,7 +58,7 @@ export class ItemComponent implements OnInit {
         this.toastr.success('Service deleted successfully');
       },
       error: () => {
-        this.toastr.error('Failed to delete service');
+        
       }
     })
   }
