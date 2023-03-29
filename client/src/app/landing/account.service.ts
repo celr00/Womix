@@ -83,4 +83,8 @@ export class AccountService {
     return this.http.get<boolean>(this.baseUrl + 'account/emailExists?email=' + email);
   }
 
+  resetPassword(obj: any): Observable<void> {
+    return this.http.put<void>(this.baseUrl + 'account/password-reset', obj);
+  }
+
 }

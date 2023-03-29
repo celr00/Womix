@@ -100,5 +100,22 @@ namespace API.Controllers
 
             return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
+
+        [HttpPut("password-reset")]
+        public async Task<ActionResult> ResetPassword(PasswordResetDto password)
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(u => u.Id == User.GetUserId());
+
+            var result = await _signInManager.CheckPasswordSignInAsync(user, password.CurrentPassword, false);
+
+            if (!result.Succeeded) return Unauthorized("The current password is incorrect");
+
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+
+            await _userManager.ResetPasswordAsync(user, token, password.NewPassword);
+
+            return Ok();
+        }
     }
 }

@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   user: AppUser = {} as AppUser;
   services: Service[] = [];
   params: ServiceParams;
+  totalCount = 0;
 
   constructor(private serviceService: ServicesService, private accountService: AccountService,
     private bcService: BreadcrumbService) {
@@ -34,6 +35,7 @@ export class ListComponent implements OnInit {
       },
       complete: () => {
         this.params.userId = this.user.id;
+        this.params.pageSize = 12;
         this.serviceService.setParams(this.params);
         this.loadServices();
       }
@@ -43,8 +45,20 @@ export class ListComponent implements OnInit {
   loadServices() {
     this.serviceService.getAll().subscribe({
       next: response => {
-        this.services = response.data
+        this.services = response.data;
+        this.totalCount = response.count;
       }
     })
   }
+
+  onPageChanged(event: any) {
+    const params = this.serviceService.getParams();
+    if (params.pageNumber !== event) {
+      params.pageNumber = event;
+      this.serviceService.setParams(params);
+      this.params = params;
+      this.loadServices();
+    }
+  }
+
 }

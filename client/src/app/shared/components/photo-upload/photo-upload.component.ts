@@ -33,9 +33,6 @@ export class PhotoUploadComponent implements OnInit {
 
   ngOnInit(): void {
     this.initializeUploader();
-    console.log(this.controller + ' ' + this.object);
-    console.log('photos', this.photos);
-    console.log('controller', this.controller, 'service id', this.id);
   }
 
   initializeUploader() {

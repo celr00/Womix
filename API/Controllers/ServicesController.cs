@@ -67,7 +67,8 @@ namespace API.Controllers
 
             service.ServiceCategory = new ServiceCategory
             {
-                CategoryId = request.ServiceCategory.CategoryId
+                CategoryId = request.ServiceCategory.CategoryId,
+                ServiceId = service.Id
             };
 
             _mapper.Map<ServiceUpdateDto, Service>(request, service);
