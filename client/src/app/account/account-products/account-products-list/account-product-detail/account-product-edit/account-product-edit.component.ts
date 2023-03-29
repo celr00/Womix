@@ -62,7 +62,7 @@ export class AccountProductEditComponent implements OnInit {
         this.router.navigateByUrl('/account/products/list/' + this.product.id);
       },
       error: () => {
-        this.toastr.error('Failed to update product');
+        
       }
     })
   }

@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Errors;
 using API.Helpers;
 using AutoMapper;
 using Core.Entities;
@@ -47,7 +48,7 @@ namespace API.Controllers
 
             var service = await _servicesRepo.GetEntityWithSpec(spec);
 
-            if (service == null) return NotFound("This service might not exist");
+            if (service == null) return NotFound(new ApiResponse(404));
 
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
@@ -57,7 +58,7 @@ namespace API.Controllers
         {
             _servicesRepo.Add(request);
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the service"));
 
             return Ok();
         }
@@ -75,7 +76,7 @@ namespace API.Controllers
 
             _mapper.Map<ServiceUpdateDto, Service>(request, service);
 
-            if (await _uow.Complete() < 0) return BadRequest("Failed to edit the service");
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to edit the service"));
 
             return Ok();
         }
@@ -85,7 +86,7 @@ namespace API.Controllers
         {
             var service = await _servicesRepo.GetEntityWithSpec(new ServicesSpecification(id));
 
-            if (service == null) return NotFound("Service not found");
+            if (service == null) return NotFound(new ApiResponse(404));
 
             foreach (var servicePhoto in service.ServicePhotos)
             {
@@ -94,7 +95,7 @@ namespace API.Controllers
 
             _servicesRepo.Delete(service);
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the service"));
 
             return Ok();
         }
@@ -104,7 +105,7 @@ namespace API.Controllers
         {
             var categories = await _categoriesRepo.ListAllAsync();
 
-            if (categories == null) return BadRequest("An error occurred loading the categories");
+            if (categories == null) return BadRequest(new ApiResponse(400, "An error occurred loading the categories"));
 
             return Ok(categories);
         }
@@ -114,11 +115,11 @@ namespace API.Controllers
         {
             var service = await _servicesRepo.GetEntityWithSpec(new ServicesSpecification(id));
 
-            if (service == null) return NotFound();
+            if (service == null) return NotFound(new ApiResponse(404));
 
             var result = await _photoService.AddPhoto(file);
 
-            if (result.Error != null) return BadRequest(result.Error.Message);
+            if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
             
             service.ServicePhotos.Add(new ServicePhoto {
                 Photo = new Photo {
@@ -126,7 +127,7 @@ namespace API.Controllers
                 }
             });
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the photo to the service"));
             
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
@@ -136,11 +137,11 @@ namespace API.Controllers
         {
             var service = await _servicesRepo.GetEntityWithSpec(new ServicesSpecification(serviceId));
 
-            if (service == null) return NotFound();
+            if (service == null) return NotFound(new ApiResponse(404));
 
             service.ServicePhotos.Remove(service.ServicePhotos.Find(x => x.PhotoId == photoId));
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo of the service"));
             
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }

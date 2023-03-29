@@ -36,7 +36,7 @@ export class AccountEditComponent implements OnInit {
         this.toastr.success('User updated successfully');
       },
       error: () => {
-        this.toastr.error('Failed to update user');
+        
       }
     })
   }

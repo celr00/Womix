@@ -21,7 +21,7 @@ export class AccountNavComponent {
         this.router.navigateByUrl('/sign-in');
       },
       error: () => {
-        this.toastr.error('Failed to delete the account');
+        
       }
     })
   }

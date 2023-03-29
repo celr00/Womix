@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Errors;
 using API.Extensions;
 using API.Helpers;
 using AutoMapper;
@@ -51,9 +52,9 @@ namespace API.Controllers
 
             var product = await _productsRepo.GetEntityWithSpec(spec);
 
-            if (product == null) return NotFound("This product might not exist");
+            if (product == null) return NotFound(new ApiResponse(404));
 
-            return _mapper.Map<Product, ProductDto>(product);
+            return Ok(_mapper.Map<Product, ProductDto>(product));
         }
 
         [HttpPost]
@@ -61,7 +62,7 @@ namespace API.Controllers
         {
             _productsRepo.Add(request);
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the product"));
 
             return Ok();
         }
@@ -78,7 +79,7 @@ namespace API.Controllers
 
             _mapper.Map<ProductUpdateDto, Product>(request, product);
 
-            if (await _uow.Complete() < 0) return BadRequest("Failed to edit the product");
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to edit the product"));
 
             return Ok();
         }
@@ -88,7 +89,7 @@ namespace API.Controllers
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(id));
 
-            if (product == null) return NotFound("Product not found");
+            if (product == null) return NotFound(new ApiResponse(404));
 
             _productsRepo.Delete(product);
 
@@ -102,7 +103,7 @@ namespace API.Controllers
         {
             var itemClasses = await _itemClassesRepository.ListAllAsync();
 
-            if (itemClasses == null) return BadRequest("An error occurred loading product types");
+            if (itemClasses == null) return BadRequest(new ApiResponse(400, "An error occurred loading product types"));
 
             return Ok(itemClasses);
         }
@@ -112,11 +113,11 @@ namespace API.Controllers
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(id));
 
-            if (product == null) return NotFound();
+            if (product == null) return NotFound(new ApiResponse(404));
 
             var result = await _photoService.AddPhoto(file);
 
-            if (result.Error != null) return BadRequest(result.Error.Message);
+            if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
             
             product.ProductPhotos.Add(new ProductPhoto {
                 Photo = new Photo {
@@ -124,7 +125,7 @@ namespace API.Controllers
                 }
             });
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the photo to the product"));
             
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }
@@ -134,7 +135,7 @@ namespace API.Controllers
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(productId));
 
-            if (product == null) return NotFound();
+            if (product == null) return NotFound(new ApiResponse(404));
 
             foreach (var productPhoto in product.ProductPhotos)
             {
@@ -143,7 +144,7 @@ namespace API.Controllers
 
             product.ProductPhotos.Remove(product.ProductPhotos.Find(x => x.PhotoId == photoId));
 
-            if (await _uow.Complete() < 0) return BadRequest();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo"));
             
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }

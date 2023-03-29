@@ -1,4 +1,5 @@
 using API.Dtos;
+using API.Errors;
 using API.Extensions;
 using AutoMapper;
 using Core.Entities;
@@ -24,7 +25,7 @@ namespace API.Controllers
             var user = await _userManager.Users
                 .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
             
-            if (user == null) return NotFound("This user was not found");
+            if (user == null) return NotFound(new ApiResponse(404));
             
             return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));
         }
@@ -36,7 +37,7 @@ namespace API.Controllers
                 .AsNoTracking()
                 .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
             
-            if (user == null) return NotFound("This user was not found");
+            if (user == null) return NotFound(new ApiResponse(404));
 
             return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
@@ -47,7 +48,7 @@ namespace API.Controllers
             var user = await _userManager.Users
                 .SingleOrDefaultAsync(x => x.Id == id);
 
-            if (user == null) return NotFound("This user was not found");
+            if (user == null) return NotFound(new ApiResponse(404));
             
             return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));
         }
