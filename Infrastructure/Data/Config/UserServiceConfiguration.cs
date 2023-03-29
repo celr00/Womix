@@ -14,16 +14,16 @@ namespace Infrastructure.Data.Config
                     x.ServiceId
                 });
             
-            builder
-                .HasOne(x => x.User)
-                .WithMany(x => x.UserServices)
-                .HasForeignKey(x => x.UserId)
-                .OnDelete(DeleteBehavior.NoAction);
+            // builder
+            //     .HasOne(x => x.User)
+            //     .WithMany(x => x.UserServices)
+            //     .HasForeignKey(x => x.UserId)
+            //     .OnDelete(DeleteBehavior.Cascade);
 
-            builder
-                .HasOne(x => x.Service)
-                .WithOne(x => x.UserService)
-                .OnDelete(DeleteBehavior.Cascade);
+            // builder
+            //     .HasOne(x => x.Service)
+            //     .WithOne(x => x.UserService)
+            //     .OnDelete(DeleteBehavior.Cascade);
 
             builder.Property(x => x.UserId).IsRequired();
             builder.Property(x => x.ServiceId).IsRequired();

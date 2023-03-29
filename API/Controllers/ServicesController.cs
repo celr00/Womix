@@ -15,8 +15,10 @@ namespace API.Controllers
         private readonly IGenericRepository<Service> _servicesRepo;
         private readonly IGenericRepository<Category> _categoriesRepo;
         private readonly IUnitOfWork _uow;
-        public ServicesController(IGenericRepository<Service> servicesRepo, IGenericRepository<Category> categoriesRepo, IMapper mapper, IPhotoService photoService, IUnitOfWork uow)
+        private readonly IGenericRepository<Photo> _photoRepo;
+        public ServicesController(IGenericRepository<Service> servicesRepo, IGenericRepository<Category> categoriesRepo, IMapper mapper, IPhotoService photoService, IUnitOfWork uow, IGenericRepository<Photo> photoRepo)
         {
+            _photoRepo = photoRepo;
             _uow = uow;
             _categoriesRepo = categoriesRepo;
             _servicesRepo = servicesRepo;
@@ -84,6 +86,11 @@ namespace API.Controllers
             var service = await _servicesRepo.GetEntityWithSpec(new ServicesSpecification(id));
 
             if (service == null) return NotFound("Service not found");
+
+            foreach (var servicePhoto in service.ServicePhotos)
+            {
+                _photoRepo.Delete(servicePhoto.Photo);
+            }
 
             _servicesRepo.Delete(service);
 

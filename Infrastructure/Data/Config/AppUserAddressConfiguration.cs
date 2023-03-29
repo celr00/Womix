@@ -14,19 +14,19 @@ namespace Infrastructure.Data.Config
                     x.AddressId
                 });
 
-            builder
-                .HasOne(x => x.User)
-                .WithOne(x => x.AppUserAddress)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.NoAction);
+            // builder
+            //     .HasOne(x => x.User)
+            //     .WithOne(x => x.AppUserAddress)
+            //     .IsRequired()
+            //     .OnDelete(DeleteBehavior.Cascade);
 
-            builder
-                .HasOne(x => x.Address)
-                .WithOne()
-                .OnDelete(DeleteBehavior.Cascade);
+            // builder
+            //     .HasOne(x => x.Address)
+            //     .WithOne()
+            //     .OnDelete(DeleteBehavior.Cascade);
 
-            builder.Property(x => x.UserId).IsRequired();
-            builder.Property(x => x.AddressId).IsRequired();
+            // builder.Property(x => x.UserId).IsRequired();
+            // builder.Property(x => x.AddressId).IsRequired();
 
             builder.Navigation(x => x.Address).AutoInclude();
         }

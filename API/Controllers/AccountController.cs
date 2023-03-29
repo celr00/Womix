@@ -16,8 +16,16 @@ namespace API.Controllers
         private readonly ITokenService _tokenService;
         private readonly IMapper _mapper;
         private readonly SignInManager<AppUser> _signInManager;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper)
+        private readonly IGenericRepository<Address> _addressRepo;
+        private readonly IGenericRepository<Product> _productRepo;
+        private readonly IGenericRepository<Service> _serviceRepo;
+        private readonly IGenericRepository<Photo> _photoRepo;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, IGenericRepository<Photo> photoRepo)
         {
+            _photoRepo = photoRepo;
+            _serviceRepo = serviceRepo;
+            _productRepo = productRepo;
+            _addressRepo = addressRepo;
             _signInManager = signInManager;
             _mapper = mapper;
             _tokenService = tokenService;
@@ -115,6 +123,49 @@ namespace API.Controllers
 
             await _userManager.ResetPasswordAsync(user, token, password.NewPassword);
 
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> Delete()
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+
+            var userProducts = user.UserProducts;
+            var userServices = user.UserServices;
+
+            _addressRepo.Delete(user.AppUserAddress.Address);
+            _photoRepo.Delete(user.AppUserPhoto.Photo);
+
+            foreach (var product in userProducts)
+                _productRepo.Delete(product.Product);
+
+            foreach (var service in userServices)
+                _serviceRepo.Delete(service.Service);
+
+            foreach(var userProduct in userProducts)
+            {
+                foreach (var photo in userProduct.Product.ProductPhotos)
+                {
+                    _photoRepo.Delete(photo.Photo);
+                }
+            }
+
+            foreach(var userService in userServices)
+            {
+                foreach (var photo in userService.Service.ServicePhotos)
+                {
+                    _photoRepo.Delete(photo.Photo);
+                }
+            }
+
+            if (user == null) return NotFound();
+            
+            var result = await _userManager.DeleteAsync(user);
+
+            if (!result.Succeeded) return BadRequest();
+            
             return Ok();
         }
     }

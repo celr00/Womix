@@ -12,6 +12,8 @@ namespace Infrastructure.Data.Config
                 x.OwnerId,
                 x.ProductId
             });
+
+            builder.Navigation(x => x.Product).AutoInclude();
         }
     }
 }

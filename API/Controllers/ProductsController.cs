@@ -18,8 +18,10 @@ namespace API.Controllers
         private readonly IMapper _mapper;
         private readonly IGenericRepository<ItemClass> _itemClassesRepository;
         private readonly IPhotoService _photoService;
-        public ProductsController(IGenericRepository<Product> productsRepo, IGenericRepository<ItemClass> itemClassesRepository, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper, IPhotoService photoService)
+        private readonly IGenericRepository<Photo> _photoRepo;
+        public ProductsController(IGenericRepository<Product> productsRepo, IGenericRepository<ItemClass> itemClassesRepository, UserManager<AppUser> userManager, IUnitOfWork uow, IMapper mapper, IPhotoService photoService, IGenericRepository<Photo> photoRepo)
         {
+            _photoRepo = photoRepo;
             _photoService = photoService;
             _itemClassesRepository = itemClassesRepository;
             _mapper = mapper;
@@ -133,6 +135,11 @@ namespace API.Controllers
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(productId));
 
             if (product == null) return NotFound();
+
+            foreach (var productPhoto in product.ProductPhotos)
+            {
+                _photoRepo.Delete(productPhoto.Photo);
+            }
 
             product.ProductPhotos.Remove(product.ProductPhotos.Find(x => x.PhotoId == photoId));
 
