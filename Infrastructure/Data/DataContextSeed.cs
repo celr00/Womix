@@ -1047,7 +1047,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1081,7 +1081,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1115,7 +1115,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1149,7 +1149,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1183,7 +1183,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1217,7 +1217,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1251,7 +1251,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 2,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1285,7 +1285,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1319,7 +1319,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1353,7 +1353,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1387,7 +1387,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1421,7 +1421,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",
@@ -1455,7 +1455,7 @@ namespace Infrastructure.Data
                     },
                     new UserService
                     {
-                        UserId = 1,
+                        UserId = 3,
                         Service = new Service
                         {
                             Name = "Cleaning",

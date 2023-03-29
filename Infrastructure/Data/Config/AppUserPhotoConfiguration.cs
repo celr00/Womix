@@ -13,17 +13,17 @@ namespace Infrastructure.Data.Config
                 x.UserId
             });
             
-            builder
-                .HasOne(x => x.Photo)
-                .WithOne()
-                .IsRequired()
-                .OnDelete(DeleteBehavior.Cascade);
+            // builder
+            //     .HasOne(x => x.Photo)
+            //     .WithOne()
+            //     .IsRequired()
+            //     .OnDelete(DeleteBehavior.Cascade);
 
-            builder
-                .HasOne(x => x.User)
-                .WithOne(x => x.AppUserPhoto)
-                .IsRequired()
-                .OnDelete(DeleteBehavior.NoAction);
+            // builder
+            //     .HasOne(x => x.User)
+            //     .WithOne(x => x.AppUserPhoto)
+            //     .IsRequired()
+            //     .OnDelete(DeleteBehavior.Cascade);
 
             builder.Navigation(x => x.Photo).AutoInclude();
         }

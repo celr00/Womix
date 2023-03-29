@@ -24,6 +24,8 @@ namespace Infrastructure.Data.Config
             builder
                 .HasOne(x => x.ProductItemClass)
                 .WithOne(x => x.Product);
+
+            builder.Navigation(x => x.ProductPhotos).AutoInclude();
         }
     }
 }

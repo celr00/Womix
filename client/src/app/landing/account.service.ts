@@ -87,4 +87,8 @@ export class AccountService {
     return this.http.put<void>(this.baseUrl + 'account/password-reset', obj);
   }
 
+  deleteAccount(): Observable<void> {
+    return this.http.delete<void>(this.baseUrl + 'account');
+  }
+
 }
