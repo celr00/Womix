@@ -1,1 +1,23 @@
-<p>detail works!</p>
+<div class="container-fluid container-xxl" *ngIf="service">
+  <div class="row">
+    <div class="col-12 col-sm-6 mb-3">
+      <div class="gallery-viewer" *ngIf="showGallery()">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 mb-3">
+      <h3 class="fw-demibold">
+        {{service.name}}
+      </h3>
+      <a class="text-decoration-none text-info" routerLink="/user/{{service.userService.userId}}">
+        Visit {{service.userService.user.firstName + ' ' + service.userService.user.lastName}}
+      </a>
+      <hr class="text-muted my-4">
+      <p>
+        {{service.description}}
+      </p>
+    </div>
+  </div>
+  <h3>Service Provider</h3>
+  <app-user-card [user]="user"></app-user-card>
+</div>

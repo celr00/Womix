@@ -1,11 +1,11 @@
-<div class="container" *ngIf="product">
+<div class="container-fluid container-xxl" *ngIf="product">
   <div class="row">
-    <div class="col-12 col-sm-6 col-md-4">
-      <div class="bg-white p-3 shadow-sm rounded-3">
-        <img class="img-fluid" src="{{product.productPhotos[0].photo.url}}" alt="">
+    <div class="col-12 col-sm-6 mb-3">
+      <div class="gallery-viewer" *ngIf="showGallery()">
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
       </div>
     </div>
-    <div class="col-12 col-sm-6 col-md-8">
+    <div class="col-12 col-sm-6 mb-3">
       <h3 class="fw-demibold">
         {{product.name}}
       </h3>
@@ -23,7 +23,11 @@
             {{product.stockQuantity}} available.
         </p>
       </ng-container>
+      <p>
+        {{product.description}}
+      </p>
     </div>
   </div>
+  <h3>Seller</h3>
   <app-user-card [user]="owner"></app-user-card>
 </div>
