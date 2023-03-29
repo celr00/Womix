@@ -8,11 +8,7 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<AppUserRole> builder)
         {
-            builder
-                .HasKey(x => new {
-                    x.RoleId,
-                    x.UserId
-                });
+            builder.Navigation(x => x.Role).AutoInclude();
         }
     }
 }

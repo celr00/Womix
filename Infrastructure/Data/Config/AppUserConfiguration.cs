@@ -9,10 +9,9 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<AppUser> builder)
         {
             builder
-                .HasMany(u => u.UserRoles)
+                .HasOne(u => u.UserRole)
                 .WithOne(x => x.User)
-                .HasForeignKey(x => x.UserId)
-                .IsRequired()
+                .HasForeignKey<AppUserRole>(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
@@ -44,7 +43,7 @@ namespace Infrastructure.Data.Config
             builder.Navigation(x => x.AppUserAddress).AutoInclude();
             builder.Navigation(x => x.UserServices).AutoInclude();
             builder.Navigation(x => x.UserProducts).AutoInclude();
-            builder.Navigation(x => x.UserRoles).AutoInclude();
+            builder.Navigation(x => x.UserRole).AutoInclude();
         }
     }
 }

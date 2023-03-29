@@ -4,6 +4,8 @@ import { AccountComponent } from './account/account.component';
 import { NotFoundComponent } from './core/not-found/not-found.component';
 import { ServerErrorComponent } from './core/server-error/server-error.component';
 import { TestErrorComponent } from './core/test-error/test-error.component';
+import { AuthGuard } from './core/guards/auth.guard';
+import { DevGuard } from './core/guards/dev.guard';
 
 const routes: Routes = [
   {
@@ -16,15 +18,18 @@ const routes: Routes = [
   },
   {
     path: 'test-error',
-    component: TestErrorComponent
+    component: TestErrorComponent,
+    canActivate: [ DevGuard ],
   },
   {
     path: 'not-found',
-    component: NotFoundComponent
+    component: NotFoundComponent,
+    canActivate: [ DevGuard ],
   },
   {
     path: 'server-error',
-    component: ServerErrorComponent
+    component: ServerErrorComponent,
+    canActivate: [ DevGuard ],
   },
   {
     path: 'products',
@@ -36,13 +41,18 @@ const routes: Routes = [
       loadChildren: () => import('./services/services.module')
         .then(m => m.ServicesModule)
   },
-  {path: 'user', loadChildren: () => import('./user/user.module').then(m => m.UserModule)},
+  {
+    path: 'user',
+    loadChildren: () => import('./user/user.module')
+      .then(m => m.UserModule)
+  },
   {
     path: 'account',
+    canActivate: [AuthGuard],
     component: AccountComponent,
-    loadChildren: () => import('./account/account.module').then(m => m.AccountModule)
+    loadChildren: () => import('./account/account.module')
+      .then(m => m.AccountModule)
   },
-  {path: 'messages', loadChildren: () => import('./messages/messages.module').then(m => m.MessagesModule)},
 ];
 
 @NgModule({
