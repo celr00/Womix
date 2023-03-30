@@ -10,18 +10,43 @@ namespace API.Extensions
 {
     public static class ApplicationServicesExtensions
     {
-        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config)
+        public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
         {
-            services.AddDbContext<DataContext>(opt => {
-                opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-            });
-
             // services.AddDbContext<DataContext>(opt => {
-            //     opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
+            //     opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             // });
 
+            /* In http://localhost:8080 the application should be running. */
+
+            /* */
+
+            var connString = "";
+            if (env.IsDevelopment())
+                connString = config.GetConnectionString("DefaultConnection");
+            else
+            {
+                var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+                connUrl = connUrl.Replace("postgres://", string.Empty);
+                var pgUserPass = connUrl.Split("@")[0];
+                var pgHostPortDb = connUrl.Split("@")[1];
+                var pgHostPort = pgHostPortDb.Split("/")[0];
+                var pgDb = pgHostPortDb.Split("/")[1];
+                var pgUser = pgUserPass.Split(":")[0];
+                var pgPass = pgUserPass.Split(":")[1];
+                var pgHost = pgHostPort.Split(":")[0];
+                var pgPort = pgHostPort.Split(":")[1];
+
+                connString = $"Server={pgHost};Port={pgPort};User Id={pgUser};Password={pgPass};Database={pgDb};";
+            }
+            services.AddDbContext<DataContext>(opt =>
+            {
+                opt.UseNpgsql(connString);
+            });
+
+            /**/
+
             services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
-            
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<ITokenService, TokenService>();
             services.AddScoped<IPhotoService, PhotoService>();
@@ -48,7 +73,7 @@ namespace API.Extensions
 
             services.AddCors(opt =>
             {
-                opt.AddPolicy("CorsPolicy", policy => 
+                opt.AddPolicy("CorsPolicy", policy =>
                 {
                     policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
                 });

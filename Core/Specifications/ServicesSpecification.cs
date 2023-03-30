@@ -28,6 +28,30 @@ namespace Core.Specifications
             {
                 switch (serviceParams.Sort)
                 {
+                    case "idAsc":
+                        AddOrderBy(x => x.Id);
+                        break;
+                    case "idDesc":
+                        AddOrderByDescending(x => x.Id);
+                        break;
+                    case "nameAsc":
+                        AddOrderBy(x => x.Name);
+                        break;
+                    case "nameDesc":
+                        AddOrderByDescending(x => x.Name);
+                        break;
+                    case "descriptionAsc":
+                        AddOrderBy(x => x.Description);
+                        break;
+                    case "descriptionDesc":
+                        AddOrderByDescending(x => x.Description);
+                        break;
+                    case "categoryAsc":
+                        AddOrderBy(x => x.ServiceCategory.Category.Name);
+                        break;
+                    case "categoryDesc":
+                        AddOrderByDescending(x => x.ServiceCategory.Category.Name);
+                        break;
                     case "priceAsc":
                         AddOrderBy(p => p.Price);
                         break;

@@ -29,29 +29,33 @@ export class AccountService {
     return this.http.put<UserEntity>(this.baseUrl + 'account', user);
   }
 
-  loadCurrentUser(token: string | null) {
-    if (token == null) {
-      this.currentAccountSource.next(null);
-      return of(null);
-    }
-
-    let headers = new HttpHeaders();
-    headers = headers.set('Authorization', `Bearer ${token}`);
-
-    return this.http.get<Account>(this.baseUrl + 'account', {headers}).pipe(
-      map(res => {
-        if (res) {
-          localStorage.setItem('account', JSON.stringify(res));
-          this.currentAccountSource.next(res);
-          return res;
-        } else {
-          return null;
-        }
-      })
-    )
+  setCurrentAccount(account: Account) {
+    this.currentAccountSource.next(account);
   }
 
-  getUserToken(): string {
+  // loadCurrentUser(token: string | null) {
+  //   if (token == null) {
+  //     this.currentAccountSource.next(null);
+  //     return of(null);
+  //   }
+
+  //   let headers = new HttpHeaders();
+  //   headers = headers.set('Authorization', `Bearer ${token}`);
+
+  //   return this.http.get<Account>(this.baseUrl + 'account', {headers}).pipe(
+  //     map(res => {
+  //       if (res) {
+  //         localStorage.setItem('account', JSON.stringify(res));
+  //         this.currentAccountSource.next(res);
+  //         return res;
+  //       } else {
+  //         return null;
+  //       }
+  //     })
+  //   )
+  // }
+
+  getAccountToken(): string {
     const token = JSON.parse(localStorage.getItem('account')!);
     return localStorage.getItem(token)!;
   }

@@ -13,6 +13,7 @@ export class CardComponent implements OnInit {
   galleryImages: NgxGalleryImage[] = [];
   photos: Photo[] = [];
   @Input() isProduct = true;
+  @Input() showSellerName = true;
 
   constructor() {
     this.galleryOptions = [

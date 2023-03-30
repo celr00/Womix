@@ -1,11 +1,17 @@
+<div class="d-flex mt-2 mb-3">
+  <input (keyup.enter)="onSearch()" category="text" placeholder="Search" class="form-control me-2 bg-transparent" #search>
+  <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
+  <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+</div>
+
 <table class="table" *ngIf="user">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">Name</th>
-      <th scope="col">Description</th>
-      <th scope="col">Price</th>
-      <th scope="col">Category</th>
+      <th scope="col pointer" (click)="onIdClick()">#</th>
+      <th scope="col pointer" (click)="onNameClick()">Name</th>
+      <th scope="col pointer" (click)="onDescriptionClick()">Description</th>
+      <th scope="col pointer" (click)="onPriceClick()">Price</th>
+      <th scope="col pointer" (click)="onCategoryClick()">Category</th>
     </tr>
   </thead>
   <tbody>

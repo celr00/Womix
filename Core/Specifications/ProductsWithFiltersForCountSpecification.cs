@@ -13,6 +13,10 @@ namespace Core.Specifications
             (
                 !specParams.UserId.HasValue ||
                     x.UserProduct.UserId == specParams.UserId
+            ) &&
+            (
+                !specParams.ItemClassId.HasValue ||
+                    x.ProductItemClass.ItemClassId == specParams.ItemClassId
             )
         )
         {

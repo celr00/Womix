@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { AccountService } from 'src/app/landing/account.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { AppUser } from 'src/app/shared/models/app-user';
@@ -16,6 +16,7 @@ export class ListComponent implements OnInit {
   services: Service[] = [];
   params: ServiceParams;
   totalCount = 0;
+  @ViewChild('search') searchTerm?: ElementRef;
 
   constructor(private serviceService: ServicesService, private accountService: AccountService,
     private bcService: BreadcrumbService) {
@@ -59,6 +60,117 @@ export class ListComponent implements OnInit {
       this.params = params;
       this.loadServices();
     }
+  }
+
+  onIdClick() {
+    switch (this.params.sort) {
+      case 'idDesc':
+        this.params.sort = 'idAsc';
+        this.serviceService.setParams(this.params);
+        break;
+      case 'idAsc':
+        this.params.sort = 'idDesc';
+        this.serviceService.setParams(this.params);
+        break;
+
+      default:
+        this.params.sort = 'idAsc';
+        this.serviceService.setParams(this.params);
+        break;
+    }
+    this.loadServices();
+  }
+
+  onNameClick() {
+    switch (this.params.sort) {
+      case 'nameDesc':
+        this.params.sort = 'nameAsc';
+        this.serviceService.setParams(this.params);
+        break;
+      case 'nameAsc':
+        this.params.sort = 'nameDesc';
+        this.serviceService.setParams(this.params);
+        break;
+
+      default:
+        this.params.sort = 'nameAsc';
+        this.serviceService.setParams(this.params);
+        break;
+    }
+    this.loadServices();
+  }
+
+  onDescriptionClick() {
+    switch (this.params.sort) {
+      case 'descriptionDesc':
+        this.params.sort = 'descriptionAsc';
+        this.serviceService.setParams(this.params);
+        break;
+      case 'descriptionAsc':
+        this.params.sort = 'descriptionDesc';
+        this.serviceService.setParams(this.params);
+        break;
+
+      default:
+        this.params.sort = 'descriptionAsc';
+        this.serviceService.setParams(this.params);
+        break;
+    }
+    this.loadServices();
+  }
+
+  onCategoryClick() {
+    switch (this.params.sort) {
+      case 'categoryDesc':
+        this.params.sort = 'categoryAsc';
+        this.serviceService.setParams(this.params);
+        break;
+      case 'categoryAsc':
+        this.params.sort = 'categoryDesc';
+        this.serviceService.setParams(this.params);
+        break;
+
+      default:
+        this.params.sort = 'categoryAsc';
+        this.serviceService.setParams(this.params);
+        break;
+    }
+    this.loadServices();
+  }
+
+  onPriceClick() {
+    switch (this.params.sort) {
+      case 'priceDesc':
+        this.params.sort = 'priceAsc';
+        this.serviceService.setParams(this.params);
+        break;
+      case 'priceAsc':
+        this.params.sort = 'priceDesc';
+        this.serviceService.setParams(this.params);
+        break;
+
+      default:
+        this.params.sort = 'priceAsc';
+        this.serviceService.setParams(this.params);
+        break;
+    }
+    this.loadServices();
+  }
+
+  onSearch() {
+    const params = this.serviceService.getParams();
+    params.search = this.searchTerm?.nativeElement.value;
+    params.pageNumber = 1;
+    this.serviceService.setParams(params);
+    this.params = params;
+    this.loadServices();
+  }
+
+  onReset() {
+    if (this.searchTerm) this.searchTerm.nativeElement.value = '';
+    this.params = new ServiceParams();
+    this.serviceService.setParams(this.params);
+    this.loadServices();
   }
 
 }

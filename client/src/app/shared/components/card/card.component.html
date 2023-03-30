@@ -5,8 +5,8 @@
   <div class="card-body">
     <h5 class="card-title">{{item.name}}</h5>
     <p class="card-text">{{item.description}}</p>
-    <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
-    <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a>
+    <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct && showSellerName">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
+    <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct && showSellerName">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a>
   </div>
   <ul class="list-group list-group-flush">
     <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{item.price | currency}}</li>

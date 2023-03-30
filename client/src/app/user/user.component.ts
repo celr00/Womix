@@ -31,6 +31,12 @@ export class UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadUser();
+    this.productParams.userId = this.id;
+    this.productService.setParams(this.productParams);
+    this.serviceParams.userId = this.id;
+    this.serviceService.setParams(this.serviceParams);
+    this.loadProducts();
+    this.loadServices();
   }
 
   loadUser() {
@@ -39,14 +45,6 @@ export class UserComponent implements OnInit {
         this.user = user;
         this.bcService.set('@userName', user.fullName);
       },
-      complete: () => {
-        this.productParams.userId = this.user.id;
-        this.productService.setParams(this.productParams);
-        this.serviceParams.userId = this.user.id;
-        this.serviceService.setParams(this.serviceParams);
-        this.loadProducts();
-        this.loadServices();
-      }
     })
   }
 

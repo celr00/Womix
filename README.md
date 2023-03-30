@@ -310,7 +310,9 @@ docker build -f API/Dockerfile -t ramirocaste/womix .
 ### Run the docker image
 
 `--rm` --> Removes it from the local containers when it quits from running
+
 `-it` --> **Interactive mode**: to see the logs from `dotnet`
+
 `-p` --> port
 
 ```
@@ -389,7 +391,9 @@ fly launch --image ramirocaste/womix:latest
 
 ```
 [env]
-  ASPNETCORE_URLS="http://+:8080"  <-- 
+  ASPNETCORE_URLS="http://+:8080"
+  CloudinarySettings__CloudName="dmjdskgd4"
+  CloudinarySettings__ApiKey="318856679489316"
 ```
 
 `Dockerfile`
@@ -407,3 +411,11 @@ List secrets --> `fly secrets list`
 ```
 dotnet tool update --global dotnet ef
 ```
+
+### Add API secrets to fly.io hosting
+
+fly secrets set CloudinarySettings__ApiSecret=VkhhhKr7Ure-pLCmaAS66n-FSu0
+
+fly secrets set TokenKey=estaeslacontraseniamasecretadelmundo
+
+fly deploy

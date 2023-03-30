@@ -36,7 +36,7 @@ export class PhotoUploadComponent implements OnInit {
   }
 
   initializeUploader() {
-    const token = this.accountService.getUserToken();
+    const token = this.accountService.getAccountToken();
     this.uploader = new FileUploader({
       url: this.baseUrl + `${this.controller}/photo/` + this.id,
       authToken: 'Bearer ' + token,
@@ -110,7 +110,7 @@ export class PhotoUploadComponent implements OnInit {
             this.toastr.success('Photo deleted successfully');
           },
           error: () => {
-            
+
           }
         })
         break;

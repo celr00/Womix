@@ -12,6 +12,10 @@ namespace Core.Specifications
             (
                 !specParams.UserId.HasValue ||
                     specParams.UserId == x.UserService.UserId
+            ) &&
+            (
+                !specParams.CategoryId.HasValue ||
+                    specParams.CategoryId == x.ServiceCategory.CategoryId
             )
         )
         {

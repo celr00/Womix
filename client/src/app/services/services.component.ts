@@ -9,11 +9,11 @@ import { ServicesService } from './services.service';
   styleUrls: ['./services.component.scss']
 })
 export class ServicesComponent implements OnInit {
-  services: Service[] = [];
+  services?: Service[];
   @ViewChild('search') searchTerm?: ElementRef;
   totalCount = 0;
   params: ServiceParams;
-  categories: Category[] = [];
+  categories?: Category[];
   sortOptions = [
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low to high', value: 'priceAsc'},
@@ -35,8 +35,7 @@ export class ServicesComponent implements OnInit {
       next: res => {
         this.services = res.data;
         this.totalCount = res.count;
-      },
-      error: (error) => console.log(error),
+      }
     });
   }
 
