@@ -415,7 +415,80 @@ dotnet tool update --global dotnet ef
 ### Add API secrets to fly.io hosting
 
 fly secrets set CloudinarySettings__ApiSecret=VkhhhKr7Ure-pLCmaAS66n-FSu0
-
 fly secrets set TokenKey=estaeslacontraseniamasecretadelmundo
 
 fly deploy
+
+https://womix.fly.dev 
+
+
+https://fly.io/docs/postgres/connecting/connecting-external/ 
+
+
+List PostgreSQL Database Application Public IP Address
+
+`fly ips list --app womix-db`
+
+Find IPv4 Address
+
+`fly ips allocate-v4 --app womix-db`
+
+```
+VERSION IP              TYPE    REGION  CREATED AT 
+v4      137.66.6.188    public  global  27s ago
+```
+
+Make a fly.toml file for the DB App
+
+```
+fly config save --app womix-db
+```
+
+Current fly.toml file
+
+```
+# fly.toml file generated for womix on 2023-03-29T21:32:56-06:00
+
+app = "womix"
+kill_signal = "SIGINT"
+kill_timeout = 5
+processes = []
+
+[build]
+  image = "ramirocaste/womix:latest"
+
+[env]
+  ASPNETCORE_URLS="http://+:8080"
+  CloudinarySettings__CloudName="dmjdskgd4"
+  CloudinarySettings__ApiKey="318856679489316"
+
+[experimental]
+  auto_rollback = true
+
+[[services]]
+  http_checks = []
+  internal_port = 8080
+  processes = ["app"]
+  protocol = "tcp"
+  script_checks = []
+  [services.concurrency]
+    hard_limit = 25
+    soft_limit = 20
+    type = "connections"
+
+  [[services.ports]]
+    force_https = true
+    handlers = ["http"]
+    port = 80
+
+  [[services.ports]]
+    handlers = ["tls", "http"]
+    port = 443
+
+  [[services.tcp_checks]]
+    grace_period = "1s"
+    interval = "15s"
+    restart_limit = 0
+    timeout = "2s"
+
+```

@@ -1,5 +1,6 @@
 using API.Dtos;
 using API.Errors;
+using API.Extensions;
 using API.Helpers;
 using AutoMapper;
 using Core.Entities;
@@ -104,7 +105,7 @@ namespace API.Controllers
 
             if (itemClasses == null) return BadRequest(new ApiResponse(400, "An error occurred loading product types"));
 
-            return Ok(itemClasses);
+            return Ok(_mapper.Map<IReadOnlyList<ItemClassDto>>(itemClasses));
         }
 
         [HttpPost("photo/{id}")]

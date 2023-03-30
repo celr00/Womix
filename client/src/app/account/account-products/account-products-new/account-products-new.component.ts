@@ -35,20 +35,17 @@ export class AccountProductsNewComponent implements OnInit {
         this.toastr.success('Product added successfully');
         this.router.navigateByUrl('/account/products/list');
       },
-      error: () => {
-        
-      }
     })
   }
 
-  initForm(itemClassId: number, ownerId: number) {
+  initForm(itemClassId: number, userId: number) {
     this.productForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
       price: ['', [Validators.required]],
       stockQuantity: ['', [Validators.required]],
-      appUserProduct: this.fb.group({
-        ownerId: [ownerId, [Validators.required]]
+      userProduct: this.fb.group({
+        userId: [userId, [Validators.required]]
       }),
       productItemClass: this.fb.group({
         itemClassId: [itemClassId, [Validators.required]]
@@ -62,12 +59,12 @@ export class AccountProductsNewComponent implements OnInit {
         this.types = types;
       },
       complete: () => {
-        this.loadOwner();
+        this.loadUser();
       }
     })
   }
 
-  loadOwner() {
+  loadUser() {
     this.accountService.getUser().subscribe({
       next: user => {
         this.user = user;

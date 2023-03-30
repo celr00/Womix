@@ -1,5 +1,6 @@
 using API.Dtos;
 using API.Errors;
+using API.Extensions;
 using API.Helpers;
 using AutoMapper;
 using Core.Entities;
@@ -56,6 +57,8 @@ namespace API.Controllers
         [HttpPost]
         public async Task<ActionResult> Add(Service request)
         {
+            request.UserService.UserId = User.GetUserId();
+            
             _servicesRepo.Add(request);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the service"));
@@ -101,13 +104,13 @@ namespace API.Controllers
         }
 
         [HttpGet("categories")]
-        public async Task<ActionResult<IEnumerable<Category>>> GetCategories()
+        public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {
             var categories = await _categoriesRepo.ListAllAsync();
 
             if (categories == null) return BadRequest(new ApiResponse(400, "An error occurred loading the categories"));
 
-            return Ok(categories);
+            return Ok(_mapper.Map<IReadOnlyList<CategoryDto>>(categories));
         }
 
         [HttpPost("photo/{id}")]

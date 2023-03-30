@@ -1,4 +1,4 @@
-# fly.toml file generated for womix on 2023-03-29T21:32:56-06:00
+# fly.toml file generated for womix on 2023-03-30T12:33:48-06:00
 
 app = "womix"
 kill_signal = "SIGINT"
@@ -9,9 +9,9 @@ processes = []
   image = "ramirocaste/womix:latest"
 
 [env]
-  ASPNETCORE_URLS="http://+:8080"
-  CloudinarySettings__CloudName="dmjdskgd4"
-  CloudinarySettings__ApiKey="318856679489316"
+  ASPNETCORE_URLS = "http://+:8080"
+  CloudinarySettings__ApiKey = "318856679489316"
+  CloudinarySettings__CloudName = "dmjdskgd4"
 
 [experimental]
   auto_rollback = true

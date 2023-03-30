@@ -23,7 +23,13 @@ namespace Infrastructure.Data.Config
 
             builder
                 .HasOne(x => x.ProductItemClass)
-                .WithOne(x => x.Product);
+                .WithOne(x => x.Product)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne(x => x.UserProduct)
+                .WithOne(x => x.Product)
+                .OnDelete(DeleteBehavior.Cascade);
 
             builder.Navigation(x => x.ProductPhotos).AutoInclude();
         }
