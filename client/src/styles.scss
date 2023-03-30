@@ -1,35 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
-
 .bs-datepicker-container {
   padding: 0 !important;
-}
-
-.list-group-item.active {
-  border: none !important;
-}
-
-.list-group-item {
-  background-color: white;
-  color: black;
-
-  &.active {
-    background-color: #593196 !important;
-    color: white;
-    &:hover {
-      color: white;
-    }
-  }
-
-  &:hover {
-    background-color: white;
-    color: black;
-  }
-
-}
-
-label.xng-breadcrumb-trail {
-  color: #593196 !important;
-  text-decoration: underline !important;
 }
 
 .pointer {
@@ -65,3 +35,14 @@ ngx-gallery {
   padding-top: 100% !important;
   position: relative !important;
 }
+
+
+$primary: #83005c;
+$info: #006a8c;
+
+label.xng-breadcrumb-trail {
+  color: $primary;
+  text-decoration: underline !important;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
