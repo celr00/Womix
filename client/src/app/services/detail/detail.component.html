@@ -1,11 +1,11 @@
 <div class="container-fluid container-xxl" *ngIf="service">
   <div class="row">
-    <div class="col-12 col-sm-6 mb-3">
+    <div class="col-12 col-sm-6 col-lg-4 mb-3">
       <div class="gallery-viewer" *ngIf="showGallery()">
         <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
       </div>
     </div>
-    <div class="col-12 col-sm-6 mb-3">
+    <div class="col-12 col-sm-6 col-lg-8 mb-3">
       <h3 class="fw-demibold">
         {{service.name}}
       </h3>

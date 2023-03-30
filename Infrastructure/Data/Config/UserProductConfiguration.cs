@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace Infrastructure.Data.Config
 {
-    public class AppUserProductConfiguration : IEntityTypeConfiguration<AppUserProduct>
+    public class UserProductConfiguration : IEntityTypeConfiguration<UserProduct>
     {
-        public void Configure(EntityTypeBuilder<AppUserProduct> builder)
+        public void Configure(EntityTypeBuilder<UserProduct> builder)
         {
             builder.HasKey(x => new {
-                x.OwnerId,
+                x.UserId,
                 x.ProductId
             });
 

@@ -6,8 +6,8 @@ namespace Core.Entities
         public decimal Price { get; set; }
         public string Description { get; set; }
         public int StockQuantity { get; set; }
-        public List<ProductPhoto> ProductPhotos { get; set; } = new List<ProductPhoto>();
+        public List<ProductPhoto> ProductPhotos { get; set; }
         public ProductItemClass ProductItemClass { get; set; }
-        public AppUserProduct AppUserProduct { get; set; }
+        public UserProduct UserProduct { get; set; }
     }
 }

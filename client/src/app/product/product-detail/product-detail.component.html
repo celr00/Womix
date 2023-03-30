@@ -1,6 +1,6 @@
 <div class="container-fluid container-xxl" *ngIf="product">
   <div class="row">
-    <div class="col-12 col-sm-6 mb-3">
+    <div class="col-12 col-sm-6 col-lg-4 mb-3">
       <div class="gallery-viewer" *ngIf="showGallery()">
         <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
       </div>
@@ -9,8 +9,8 @@
       <h3 class="fw-demibold">
         {{product.name}}
       </h3>
-      <a class="text-decoration-none text-info" routerLink="/user/{{product.seller.id}}">
-        Visit {{product.seller.fullName}}
+      <a class="text-decoration-none text-info" routerLink="/user/{{product.userProduct.userId}}">
+        Visit {{product.userProduct.user.firstName}} {{product.userProduct.user.lastName}}
       </a>
       <hr class="text-muted my-4">
       <ng-container *ngIf="product.stockQuantity === 0">

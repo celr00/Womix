@@ -3,11 +3,10 @@ export interface Product {
   name: string
   price: number
   description: string
-  productPhotos: ProductPhoto[]
-  productItemClassId: number
-  productItemClass: string
-  seller: Seller
   stockQuantity: number
+  productPhotos: ProductPhoto[]
+  productItemClass: ProductItemClass
+  userProduct: UserProduct
 }
 
 interface ProductPhoto {
@@ -20,9 +19,29 @@ interface Photo {
   url: string
 }
 
-interface Seller {
+interface ProductItemClass {
+  productId: number
+  itemClassId: number
+  itemClass: ItemClass
+}
+
+interface ItemClass {
   id: number
-  fullName: string
+  name: string
+}
+
+interface UserProduct {
+  userId: number
+  user: User
+  productId: number
+}
+
+interface User {
+  id: number
+  phoneNumber: string
+  email: string
+  firstName: string
+  lastName: string
   dateOfBirth: string
   facebook: string
   instagram: string

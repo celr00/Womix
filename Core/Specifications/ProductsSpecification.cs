@@ -10,22 +10,22 @@ namespace Core.Specifications
                 string.IsNullOrEmpty(productParams.Search) || 
                 x.Name.ToLower().Contains(productParams.Search) ||
                 x.Description.ToLower().Contains(productParams.Search) ||
-                x.AppUserProduct.Owner.FirstName.ToLower().Contains(productParams.Search) ||
-                x.AppUserProduct.Owner.LastName.ToLower().Contains(productParams.Search)
+                x.UserProduct.User.FirstName.ToLower().Contains(productParams.Search) ||
+                x.UserProduct.User.LastName.ToLower().Contains(productParams.Search)
             ) &&
             (
                 !productParams.ItemClassId.HasValue ||
                     x.ProductItemClass.ItemClassId == productParams.ItemClassId
             ) &&
             (
-                !productParams.UserId.HasValue || x.AppUserProduct.OwnerId == productParams.UserId
+                !productParams.UserId.HasValue || x.UserProduct.UserId == productParams.UserId
             )
             )
         {
             AddInclude(x => x.ProductPhotos);
             AddInclude(x => x.ProductItemClass);
-            AddInclude(x => x.AppUserProduct);
-            AddInclude(x => x.AppUserProduct.Owner);
+            AddInclude(x => x.UserProduct);
+            AddInclude(x => x.UserProduct.User);
             AddOrderBy(x => x.Name);
             ApplyPaging(productParams.PageSize * (productParams.PageIndex - 1),
                 productParams.PageSize);
@@ -51,8 +51,8 @@ namespace Core.Specifications
         {
             AddInclude(x => x.ProductPhotos);
             AddInclude(x => x.ProductItemClass);
-            AddInclude(x => x.AppUserProduct);
-            AddInclude(x => x.AppUserProduct.Owner);
+            AddInclude(x => x.UserProduct);
+            AddInclude(x => x.UserProduct.User);
         }
     }
 }

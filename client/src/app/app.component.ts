@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from './landing/account.service';
+import { Account } from './shared/models/account';
 
 @Component({
   selector: 'app-root',
@@ -16,8 +17,8 @@ export class AppComponent implements OnInit {
   }
 
   loadCurrentUser() {
-    const token = localStorage.getItem('token');
-    this.accountService.loadCurrentUser(token).subscribe();
+    const account: Account = JSON.parse(localStorage.getItem('account')!);
+    this.accountService.loadCurrentUser(account.token).subscribe();
   }
 
 }

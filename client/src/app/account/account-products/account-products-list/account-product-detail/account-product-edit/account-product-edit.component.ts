@@ -62,7 +62,7 @@ export class AccountProductEditComponent implements OnInit {
         this.router.navigateByUrl('/account/products/list/' + this.product.id);
       },
       error: () => {
-        
+
       }
     })
   }
@@ -75,7 +75,7 @@ export class AccountProductEditComponent implements OnInit {
       price: ['', [Validators.required]],
       stockQuantity: ['', [Validators.required]],
       productItemClass: this.fb.group({
-        itemClassId: [product.productItemClassId, [Validators.required]]
+        itemClassId: [product.productItemClass.itemClassId, [Validators.required]]
       }),
     })
     this.productForm.patchValue(this.product);

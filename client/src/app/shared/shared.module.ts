@@ -8,7 +8,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { PagerComponent } from './pager/pager.component';
 import { PaginationModule } from 'ngx-bootstrap/pagination';
-import { ProductCardComponent } from './components/product-card/product-card.component';
 import { UserCardComponent } from './components/user-card/user-card.component';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
@@ -22,7 +21,6 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     DatePickerComponent,
     TextInputComponent,
     PagerComponent,
-    ProductCardComponent,
     UserCardComponent,
     CardComponent,
     PhotoUploadComponent,
@@ -46,7 +44,6 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     BsDropdownModule,
     PagerComponent,
     PaginationModule,
-    ProductCardComponent,
     UserCardComponent,
     FileUploadModule,
     NgxGalleryModule,

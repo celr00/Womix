@@ -36,6 +36,8 @@ export class ProductDetailComponent implements OnInit {
         thumbnailMargin: 0,
         thumbnailsMargin: 0,
         previewKeyboardNavigation: true,
+        imageAutoPlay: true,
+        imageAutoPlayInterval: 5000,
       },
     ];
   }
@@ -52,12 +54,12 @@ export class ProductDetailComponent implements OnInit {
         this.galleryImages = this.defineGalleryImages();
       },
       complete: () => {
-        this.loadOwner(this.product.seller.id);
+        this.loadUser(this.product.userProduct.userId);
       }
     })
   }
 
-  loadOwner(ownerId: number) {
+  loadUser(ownerId: number) {
     this.userService.getUser(ownerId).subscribe({
       next: owner => {
         this.owner = owner;

@@ -1,30 +1,30 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm m-3 rounded-3">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm m-3 rounded-5">
   <div class="container-fluid">
 
-  <a routerLink="/" class="navbar-brand">
+  <a routerLink="/" class="navbar-brand ms-4">
     <img src="../../../assets/Womix Nav Logo.svg" height="40">
   </a>
   <ul class="navbar-nav d-none d-lg-flex links-list">
-    <li class="nav-item">
+    <li class="nav-item me-3">
       <a routerLink="/products" routerLinkActive="active" class="nav-link text-uppercase">Products</a>
     </li>
-    <li class="nav-item">
+    <li class="nav-item me-3">
       <a routerLink="/services" routerLinkActive="active" class="nav-link text-uppercase">Services</a>
     </li>
     <li class="nav-item">
-      <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link text-uppercase">Labor Exange</a>
+      <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link text-uppercase">Jobs</a>
     </li>
   </ul>
-  <ng-container *ngIf="(accountService.currentUser$ | async) === null">
-    <div class="d-none d-lg-flex">
-      <a routerLink="/sign-in" class="btn btn-outline-primary me-2">Sign in</a>
-      <a routerLink="/sign-up" class="btn btn-primary">Sign up</a>
+  <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
+    <div class="d-none d-lg-flex me-3">
+      <a routerLink="/sign-in" class="btn btn-outline-primary me-2 rounded-4">Sign in</a>
+      <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
     </div>
   </ng-container>
-  <ng-container *ngIf="accountService.currentUser$ | async as user">
+  <ng-container *ngIf="accountService.currentAccount$ | async as account">
     <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
       <a dropdownToggle class="dropdown-toggle text-decoration-none">
-        <strong>{{user.email}}</strong>
+        <strong>{{account.firstName}}</strong>
       </a>
       <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
         <li class="py-1">

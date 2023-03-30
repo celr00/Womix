@@ -36,6 +36,15 @@ label.xng-breadcrumb-trail {
   cursor: pointer;
 }
 
+.gallery-card-img {
+  display: inline-block;
+width: 100% !important;
+}
+
+ngx-gallery {
+  height: 200px!important;
+}
+
 .ngx-gallery {
   display: inline-block;
 }

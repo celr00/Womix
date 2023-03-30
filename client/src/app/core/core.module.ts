@@ -26,7 +26,8 @@ import { TestErrorComponent } from './test-error/test-error.component';
     SharedModule,
     RouterModule,
     ToastrModule.forRoot({
-      positionClass: 'toast-top-right'
+      positionClass: 'toast-top-right',
+      newestOnTop: false
     }),
     BreadcrumbModule,
     NgxSpinnerModule,

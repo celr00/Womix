@@ -12,7 +12,7 @@ namespace Core.Specifications
             ) &&
             (
                 !specParams.UserId.HasValue ||
-                    x.AppUserProduct.OwnerId == specParams.UserId
+                    x.UserProduct.UserId == specParams.UserId
             )
         )
         {

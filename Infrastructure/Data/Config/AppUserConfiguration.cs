@@ -16,8 +16,8 @@ namespace Infrastructure.Data.Config
 
             builder
                 .HasMany(u => u.UserProducts)
-                .WithOne(x => x.Owner)
-                .HasForeignKey(x => x.OwnerId)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
             

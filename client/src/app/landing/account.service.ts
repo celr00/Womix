@@ -12,8 +12,8 @@ import { Account } from '../shared/models/account';
 })
 export class AccountService {
   baseUrl = environment.apiUrl;
-  private currentUserSource = new ReplaySubject<Account | null>(1);
-  currentUser$ = this.currentUserSource.asObservable();
+  private currentAccountSource = new ReplaySubject<Account | null>(1);
+  currentAccount$ = this.currentAccountSource.asObservable();
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -31,7 +31,7 @@ export class AccountService {
 
   loadCurrentUser(token: string | null) {
     if (token == null) {
-      this.currentUserSource.next(null);
+      this.currentAccountSource.next(null);
       return of(null);
     }
 
@@ -41,8 +41,8 @@ export class AccountService {
     return this.http.get<Account>(this.baseUrl + 'account', {headers}).pipe(
       map(res => {
         if (res) {
-          localStorage.setItem('user', JSON.stringify(res));
-          this.currentUserSource.next(res);
+          localStorage.setItem('account', JSON.stringify(res));
+          this.currentAccountSource.next(res);
           return res;
         } else {
           return null;
@@ -52,15 +52,15 @@ export class AccountService {
   }
 
   getUserToken(): string {
-    const token = JSON.parse(localStorage.getItem('user')!);
+    const token = JSON.parse(localStorage.getItem('account')!);
     return localStorage.getItem(token)!;
   }
 
   login(values: any) {
     return this.http.post<Account>(this.baseUrl + 'account/login', values).pipe(
       map(res => {
-        localStorage.setItem('user', JSON.stringify(res));
-        this.currentUserSource.next(res);
+        localStorage.setItem('account', JSON.stringify(res));
+        this.currentAccountSource.next(res);
       })
     )
   }
@@ -68,15 +68,15 @@ export class AccountService {
   register(values: any) {
     return this.http.post<Account>(this.baseUrl + 'account/register', values).pipe(
       map(res => {
-        localStorage.setItem('user', JSON.stringify(res));
-        this.currentUserSource.next(res);
+        localStorage.setItem('account', JSON.stringify(res));
+        this.currentAccountSource.next(res);
       })
     )
   }
 
   logout() {
-    localStorage.removeItem('user');
-    this.currentUserSource.next(null);
+    localStorage.removeItem('account');
+    this.currentAccountSource.next(null);
     this.router.navigateByUrl('/');
   }
 

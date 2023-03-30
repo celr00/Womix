@@ -1,6 +1,5 @@
 using API.Dtos;
 using API.Errors;
-using API.Extensions;
 using API.Helpers;
 using AutoMapper;
 using Core.Entities;

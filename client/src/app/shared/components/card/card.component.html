@@ -1,14 +1,18 @@
-<div class="card mb-4" *ngIf="service">
-  <img src="{{service.servicePhotos[0].photo.url || './assets/placeholder-image.png' }}" class="card-img-top" alt="...">
+<div class="card mb-4 overflow-hidden">
+  <div>
+  <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="gallery-card-img"></ngx-gallery>
+  </div>
   <div class="card-body">
-    <h5 class="card-title">{{service.name}}</h5>
-    <p class="card-text">{{service.description}}</p>
-    <a routerLink="/user/{{service.userService.userId}}" class="card-link">{{service.userService.user.firstName}} {{service.userService.user.lastName}}</a>
+    <h5 class="card-title">{{item.name}}</h5>
+    <p class="card-text">{{item.description}}</p>
+    <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
+    <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{service.price | currency}}</li>
+    <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{item.price | currency}}</li>
   </ul>
   <div class="card-body">
-    <a routerLink="/services/{{service.id}}" class="card-link">View service</a>
+    <a *ngIf="!isProduct" routerLink="/services/{{item.id}}" class="card-link">View item</a>
+    <a *ngIf="isProduct" routerLink="/products/{{item.id}}" class="card-link">View item</a>
   </div>
 </div>

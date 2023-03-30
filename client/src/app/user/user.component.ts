@@ -6,6 +6,9 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product/product.service';
 import { Product } from '../shared/models/product';
 import { ProductsParams } from '../shared/models/productsParams';
+import { ServicesService } from '../services/services.service';
+import { Service } from '../shared/models/service';
+import { ServiceParams } from '../shared/models/service-params';
 
 @Component({
   selector: 'app-user',
@@ -16,12 +19,14 @@ export class UserComponent implements OnInit {
   user: AppUser = {} as AppUser;
   id: number;
   products: Product[] = [];
-  params: ProductsParams;
+  services: Service[] = [];
+  productParams: ProductsParams;
+  serviceParams: ServiceParams;
 
-  constructor(private bcService: BreadcrumbService, private userService: UserService, private route: ActivatedRoute,
-    private productService: ProductService) {
+  constructor(private bcService: BreadcrumbService, private userService: UserService, private route: ActivatedRoute, private productService: ProductService, private serviceService: ServicesService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
-    this.params = this.productService.getParams();
+    this.productParams = this.productService.getParams();
+    this.serviceParams = this.serviceService.getParams();
   }
 
   ngOnInit(): void {
@@ -35,17 +40,28 @@ export class UserComponent implements OnInit {
         this.bcService.set('@userName', user.fullName);
       },
       complete: () => {
-        this.params.userId = this.user.id;
-        this.productService.setParams(this.params);
-        this.loadUserProducts();
+        this.productParams.userId = this.user.id;
+        this.productService.setParams(this.productParams);
+        this.serviceParams.userId = this.user.id;
+        this.serviceService.setParams(this.serviceParams);
+        this.loadProducts();
+        this.loadServices();
       }
     })
   }
 
-  loadUserProducts() {
+  loadProducts() {
     this.productService.getAll().subscribe({
       next: response => {
         this.products = response.data;
+      }
+    })
+  }
+
+  loadServices() {
+    this.serviceService.getAll().subscribe({
+      next: res => {
+        this.services = res.data;
       }
     })
   }

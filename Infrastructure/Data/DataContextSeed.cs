@@ -127,11 +127,11 @@ namespace Infrastructure.Data
 
             if (!context.UserProducts.Any())
             {
-                var userProducts = new List<AppUserProduct>()
+                var userProducts = new List<UserProduct>()
                 {
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 2,
+                        UserId = 2,
                         Product = new Product
                         {
                             Name = "Brownie",
@@ -164,9 +164,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 2,
+                        UserId = 2,
                         Product = new Product
                         {
                             Name = "Red Velvet Cake",
@@ -199,9 +199,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Red Shirt",
@@ -234,9 +234,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 1,
+                        UserId = 1,
                         Product = new Product
                         {
                             Name = "Black Shirt",
@@ -269,9 +269,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 3,
+                        UserId = 3,
                         Product = new Product
                         {
                             Name = "Golden Earings",
@@ -304,9 +304,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 3,
+                        UserId = 3,
                         Product = new Product
                         {
                             Name = "Silver Necklace",
@@ -339,9 +339,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -374,9 +374,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -409,9 +409,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -444,9 +444,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -479,9 +479,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -514,9 +514,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -549,9 +549,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -584,9 +584,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -619,9 +619,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -654,9 +654,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -689,9 +689,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",
@@ -724,9 +724,9 @@ namespace Infrastructure.Data
                             }
                         },
                     },
-                    new AppUserProduct
+                    new UserProduct
                     {
-                        OwnerId = 4,
+                        UserId = 4,
                         Product = new Product
                         {
                             Name = "Obsidian Necklace",

@@ -1,9 +1,9 @@
 namespace Core.Entities
 {
-    public class AppUserProduct
+    public class UserProduct
     {
-        public int OwnerId { get; set; }
-        public AppUser Owner { get; set; }
+        public int UserId { get; set; }
+        public AppUser User { get; set; }
         public int ProductId { get; set; }
         public Product Product { get; set; }
     }
