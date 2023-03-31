@@ -1,4 +1,4 @@
-<div class="card mb-4 overflow-hidden">
+<div class="card mb-4 overflow-hidden border border-4 border-info-subtle rounded-4">
   <img *ngIf="galleryImages.length === 0" src="../../../../assets/placeholder-image.png">
   <ngx-gallery *ngIf="galleryImages.length > 0" [options]="galleryOptions" [images]="galleryImages" class="gallery-card-img"></ngx-gallery>
   <div class="card-body">
