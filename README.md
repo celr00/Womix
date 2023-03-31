@@ -493,5 +493,26 @@ processes = []
 
 ```
 
-git clone https://github.com/celr00/Womix.git
 
+
+docker build -f API/Dockerfile -t ramirocaste/womix .
+
+docker push ramirocaste/womix:latest
+
+docker run --rm -it -p 8080:80 ramirocaste/womix:latest
+
+fly launch --image ramirocaste/womix:latest
+
+fly secrets set CloudinarySettings__ApiSecret=VkhhhKr7Ure-pLCmaAS66n-FSu0
+
+fly secrets set TokenKey=estaeslacontraseniamasecretadelmundo
+
+fly secrets list
+
+fly deploy
+
+https://womix.fly.dev 
+
+DATABASE_URL=postgres://womix:vEAV7yqTEXaJqxL@top2.nearest.of.womix-db.internal:5432/womix?sslmode=disable
+
+git clone https://github.com/celr00/Womix.git
