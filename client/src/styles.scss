@@ -36,9 +36,18 @@ ngx-gallery {
   position: relative !important;
 }
 
+.shadow-info {
+  box-shadow: 0 0.5rem 1rem rgba(0, 106, 140, 0.15) !important;
+}
+
+.shadow-warning {
+  box-shadow: 0 0.5rem 1rem rgba(131, 0, 92, 0.15) !important;
+}
 
 $primary: #83005c;
 $info: #006a8c;
+$danger: #ecf0f6;
+$warning: #f3ebf4;
 
 label.xng-breadcrumb-trail {
   color: $primary;
