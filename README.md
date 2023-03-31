@@ -492,3 +492,24 @@ processes = []
     timeout = "2s"
 
 ```
+
+
+docker build -f API/Dockerfile -t ramirocaste/womix .
+
+docker push ramirocaste/womix:latest
+
+docker run --rm -it -p 8080:80 ramirocaste/womix:latest
+
+fly launch --image ramirocaste/womix:latest
+
+fly secrets set CloudinarySettings__ApiSecret=VkhhhKr7Ure-pLCmaAS66n-FSu0
+
+fly secrets set TokenKey=estaeslacontraseniamasecretadelmundo
+
+fly secrets list
+
+fly deploy
+
+https://womix.fly.dev 
+
+

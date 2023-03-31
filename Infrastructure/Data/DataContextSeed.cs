@@ -103,6 +103,7 @@ namespace Infrastructure.Data
                     new ItemClass { Name = "Smartphone"},
                     new ItemClass { Name = "TV"},
                     new ItemClass { Name = "Book"},
+                    new ItemClass { Name = "Vehicle"},
                 };
                 context.ItemClasses.AddRange(classes);
             }
@@ -131,13 +132,13 @@ namespace Infrastructure.Data
                 {
                     new UserProduct
                     {
-                        UserId = 2,
+                        UserId = 1,
                         Product = new Product
                         {
-                            Name = "Brownie",
-                            Description = "Yummy Brownies with dark chocolate",
-                            Price = 129,
-                            StockQuantity = 10,
+                            Name = "Surface Laptop 4",
+                            Description = "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
+                            Price = 11870,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
@@ -145,7 +146,7 @@ namespace Infrastructure.Data
                                     ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                        Url = "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
                                     }
                                 },
                                 new ProductPhoto
@@ -153,26 +154,42 @@ namespace Infrastructure.Data
                                     ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71yC2B6zmEL._AC_SL1500_.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 1,
+                                ItemClassId = 6,
                                 ProductId = 1
                             }
                         },
                     },
                     new UserProduct
                     {
-                        UserId = 2,
+                        UserId = 1,
                         Product = new Product
                         {
-                            Name = "Red Velvet Cake",
-                            Description = "Red Velved Cake with Flour",
-                            Price = 599,
-                            StockQuantity = 10,
+                            Name = "Alienware AW17R4",
+                            Description = "Alienware 15 R4 AW15R4-7712SLV-PUS 15.6\" Full HD Gaming Laptop (8th Generation Intel Core i7-8750H, 16GB DDR4 RAM, 256GB SSD/1TB HDD) with NVIDIA GTX 1060",
+                            Price = 57350,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
@@ -180,7 +197,7 @@ namespace Infrastructure.Data
                                     ProductId = 2,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://www.recipetineats.com/wp-content/uploads/2016/06/Red-Velvet-Layer-Cake_4.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71Cwk-wa8+L._AC_SY355_.jpg"
                                     }
                                 },
                                 new ProductPhoto
@@ -188,26 +205,42 @@ namespace Infrastructure.Data
                                     ProductId = 2,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://www.recipetineats.com/wp-content/uploads/2016/06/Red-Velvet-Layer-Cake_4.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71j3ERDIjzL._AC_SY355_.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://q7g5k9w5.rocketcdn.me/wp-content/uploads/2022/03/41WgwKBfp2L._AC_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.notebookcheck.org/uploads/tx_nbc2/aw17r4.png"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 1,
+                                ItemClassId = 6,
                                 ProductId = 2
                             }
                         },
                     },
                     new UserProduct
                     {
-                        UserId = 4,
+                        UserId = 1,
                         Product = new Product
                         {
-                            Name = "Red Shirt",
-                            Description = "Red Polo T-Shirt",
+                            Name = "Apple Watch Series SE",
+                            Description = "Apple Watch SE (2a Generación) (GPS) Smartwatch con Caja de Aluminio Color Medianoche de 40 mm y Correa Deportiva Color Medianoche. Seguimiento del Sueño, Detección de Choques, Resistente al Agua",
                             Price = 1000,
-                            StockQuantity = 10,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
@@ -215,7 +248,7 @@ namespace Infrastructure.Data
                                     ProductId = 3,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://needles.com.pk/image/cache/catalog/Polo/red-500x500.jpg"
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUQ3_VW_34FR+watch-44-alum-midnight-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171067000%2C1661467213478"
                                     }
                                 },
                                 new ProductPhoto
@@ -223,13 +256,29 @@ namespace Infrastructure.Data
                                     ProductId = 3,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://needles.com.pk/image/cache/catalog/Polo/red-500x500.jpg"
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUU3_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171096000%2C1661467372120"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPGN3ref_VW_34FR+watch-40-alum-starlight-nc-se_VW_34FR_WF_CO_GEO_MX+watch-face-41-nike7s-desertberry-spruceaura_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660757980710%2C1661754116175%2C1662143398264"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_PF+watch-40-alum-silver-cell-se_VW_PF_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171032000%2C1661469403393"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 2,
+                                ItemClassId = 5,
                                 ProductId = 3
                             }
                         },
@@ -239,10 +288,10 @@ namespace Infrastructure.Data
                         UserId = 1,
                         Product = new Product
                         {
-                            Name = "Black Shirt",
-                            Description = "Black Shirt with Long Sleeves",
-                            Price = 1000,
-                            StockQuantity = 10,
+                            Name = "iPhone 11",
+                            Description = "Apple iPhone 11, Totalmente Desbloqueado, 128 GB, Negro (Reacondicionado)",
+                            Price = 7670,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
@@ -250,7 +299,7 @@ namespace Infrastructure.Data
                                     ProductId = 4,
                                     Photo = new Photo 
                                     {
-                                        Url = "http://cdn.shopify.com/s/files/1/0210/9734/products/nayked-apparel-men-men-s-ridiculously-soft-long-sleeve-100-cotton-t-shirt-black-small-na0136-20865725431957_1178x.jpg?v=1628441771"
+                                        Url = "https://m.media-amazon.com/images/I/612kg3rGyYL._AC_SL1500_.jpg"
                                     }
                                 },
                                 new ProductPhoto
@@ -258,26 +307,42 @@ namespace Infrastructure.Data
                                     ProductId = 4,
                                     Photo = new Photo 
                                     {
-                                        Url = "http://cdn.shopify.com/s/files/1/0210/9734/products/nayked-apparel-men-men-s-ridiculously-soft-long-sleeve-100-cotton-t-shirt-black-small-na0136-20865725431957_1178x.jpg?v=1628441771"
+                                        Url = "https://cdn1.coppel.com/images/catalog/mkp/776/5000/7763042-1.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.shopify.com/s/files/1/0329/7096/5129/products/ventiapp-image--84f1a1e0-9fc0-4e2b-bdff-b9e5707f3860_27_5_2022_13_15_43_683_720x720.jpg?v=1671490096"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.apple.com/newsroom/images/tile-images/Apple_iPhone-11-Pro_Most-Powerful-Advanced_091019.jpg.news_app_ed.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 2,
+                                ItemClassId = 7,
                                 ProductId = 4
                             }
                         },
                     },
                     new UserProduct
                     {
-                        UserId = 3,
+                        UserId = 1,
                         Product = new Product
                         {
-                            Name = "Golden Earings",
+                            Name = "Toyota Corolla 2015",
                             Description = "Gold Earings with Blue Saphire",
                             Price = 2499,
-                            StockQuantity = 10,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
@@ -285,7 +350,7 @@ namespace Infrastructure.Data
                                     ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://media6.ppl-media.com/tr:h-750,w-750,c-at_max,dpr-2/static/img/product/301376/belleza-jewels-round-halo-detachable-earings_3_display_1656406449_547cd1ae.jpg"
+                                        Url = "https://www.telemundodeportes.com/sites/default/files/2015/07/13/toyota-corolla-2015-4.jpg"
                                     }
                                 },
                                 new ProductPhoto
@@ -293,13 +358,284 @@ namespace Infrastructure.Data
                                     ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://media6.ppl-media.com/tr:h-750,w-750,c-at_max,dpr-2/static/img/product/301376/belleza-jewels-round-halo-detachable-earings_3_display_1656406449_547cd1ae.jpg"
+                                        Url = "https://cdn.autoproyecto.com/wp-content/uploads/2015/04/62794.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://mediaracing.files.wordpress.com/2015/05/2014_toyota_corolla_s_010_52203_2524_low.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://autoprice.com.mx/imgs/fotos/3566/989ae165eac546c9_ap.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
+                                ItemClassId = 10,
+                                ProductId = 5
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 2,
+                        Product = new Product
+                        {
+                            Name = "Surface Laptop 4",
+                            Description = "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
+                            Price = 11870,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/71yC2B6zmEL._AC_SL1500_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 6,
+                                ProductId = 1
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 2,
+                        Product = new Product
+                        {
+                            Name = "Alienware AW17R4",
+                            Description = "Alienware 15 R4 AW15R4-7712SLV-PUS 15.6\" Full HD Gaming Laptop (8th Generation Intel Core i7-8750H, 16GB DDR4 RAM, 256GB SSD/1TB HDD) with NVIDIA GTX 1060",
+                            Price = 57350,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/71Cwk-wa8+L._AC_SY355_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/71j3ERDIjzL._AC_SY355_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://q7g5k9w5.rocketcdn.me/wp-content/uploads/2022/03/41WgwKBfp2L._AC_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.notebookcheck.org/uploads/tx_nbc2/aw17r4.png"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 6,
+                                ProductId = 2
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 2,
+                        Product = new Product
+                        {
+                            Name = "Apple Watch Series SE",
+                            Description = "Apple Watch SE (2a Generación) (GPS) Smartwatch con Caja de Aluminio Color Medianoche de 40 mm y Correa Deportiva Color Medianoche. Seguimiento del Sueño, Detección de Choques, Resistente al Agua",
+                            Price = 1000,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUQ3_VW_34FR+watch-44-alum-midnight-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171067000%2C1661467213478"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUU3_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171096000%2C1661467372120"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPGN3ref_VW_34FR+watch-40-alum-starlight-nc-se_VW_34FR_WF_CO_GEO_MX+watch-face-41-nike7s-desertberry-spruceaura_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660757980710%2C1661754116175%2C1662143398264"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_PF+watch-40-alum-silver-cell-se_VW_PF_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171032000%2C1661469403393"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 5,
+                                ProductId = 3
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 2,
+                        Product = new Product
+                        {
+                            Name = "iPhone 11",
+                            Description = "Apple iPhone 11, Totalmente Desbloqueado, 128 GB, Negro (Reacondicionado)",
+                            Price = 7670,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/612kg3rGyYL._AC_SL1500_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn1.coppel.com/images/catalog/mkp/776/5000/7763042-1.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.shopify.com/s/files/1/0329/7096/5129/products/ventiapp-image--84f1a1e0-9fc0-4e2b-bdff-b9e5707f3860_27_5_2022_13_15_43_683_720x720.jpg?v=1671490096"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.apple.com/newsroom/images/tile-images/Apple_iPhone-11-Pro_Most-Powerful-Advanced_091019.jpg.news_app_ed.jpg"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 7,
+                                ProductId = 4
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 2,
+                        Product = new Product
+                        {
+                            Name = "Toyota Corolla 2015",
+                            Description = "Gold Earings with Blue Saphire",
+                            Price = 2499,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.telemundodeportes.com/sites/default/files/2015/07/13/toyota-corolla-2015-4.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.autoproyecto.com/wp-content/uploads/2015/04/62794.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://mediaracing.files.wordpress.com/2015/05/2014_toyota_corolla_s_010_52203_2524_low.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://autoprice.com.mx/imgs/fotos/3566/989ae165eac546c9_ap.jpg"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 10,
                                 ProductId = 5
                             }
                         },
@@ -309,33 +645,253 @@ namespace Infrastructure.Data
                         UserId = 3,
                         Product = new Product
                         {
-                            Name = "Silver Necklace",
-                            Description = "Silver Necklace with Green Gem",
-                            Price = 1349,
-                            StockQuantity = 10,
+                            Name = "Surface Laptop 4",
+                            Description = "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
+                            Price = 11870,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 6,
+                                    ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/813AXUIUywL._UF1000,1000_QL80_.jpg"
+                                        Url = "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 6,
+                                    ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/813AXUIUywL._UF1000,1000_QL80_.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71yC2B6zmEL._AC_SL1500_.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 6
+                                ItemClassId = 6,
+                                ProductId = 1
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 3,
+                        Product = new Product
+                        {
+                            Name = "Alienware AW17R4",
+                            Description = "Alienware 15 R4 AW15R4-7712SLV-PUS 15.6\" Full HD Gaming Laptop (8th Generation Intel Core i7-8750H, 16GB DDR4 RAM, 256GB SSD/1TB HDD) with NVIDIA GTX 1060",
+                            Price = 57350,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/71Cwk-wa8+L._AC_SY355_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/71j3ERDIjzL._AC_SY355_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://q7g5k9w5.rocketcdn.me/wp-content/uploads/2022/03/41WgwKBfp2L._AC_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.notebookcheck.org/uploads/tx_nbc2/aw17r4.png"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 6,
+                                ProductId = 2
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 3,
+                        Product = new Product
+                        {
+                            Name = "Apple Watch Series SE",
+                            Description = "Apple Watch SE (2a Generación) (GPS) Smartwatch con Caja de Aluminio Color Medianoche de 40 mm y Correa Deportiva Color Medianoche. Seguimiento del Sueño, Detección de Choques, Resistente al Agua",
+                            Price = 1000,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUQ3_VW_34FR+watch-44-alum-midnight-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171067000%2C1661467213478"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUU3_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171096000%2C1661467372120"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPGN3ref_VW_34FR+watch-40-alum-starlight-nc-se_VW_34FR_WF_CO_GEO_MX+watch-face-41-nike7s-desertberry-spruceaura_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660757980710%2C1661754116175%2C1662143398264"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_PF+watch-40-alum-silver-cell-se_VW_PF_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171032000%2C1661469403393"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 5,
+                                ProductId = 3
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 3,
+                        Product = new Product
+                        {
+                            Name = "iPhone 11",
+                            Description = "Apple iPhone 11, Totalmente Desbloqueado, 128 GB, Negro (Reacondicionado)",
+                            Price = 7670,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/I/612kg3rGyYL._AC_SL1500_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn1.coppel.com/images/catalog/mkp/776/5000/7763042-1.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.shopify.com/s/files/1/0329/7096/5129/products/ventiapp-image--84f1a1e0-9fc0-4e2b-bdff-b9e5707f3860_27_5_2022_13_15_43_683_720x720.jpg?v=1671490096"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.apple.com/newsroom/images/tile-images/Apple_iPhone-11-Pro_Most-Powerful-Advanced_091019.jpg.news_app_ed.jpg"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 7,
+                                ProductId = 4
+                            }
+                        },
+                    },
+                    new UserProduct
+                    {
+                        UserId = 3,
+                        Product = new Product
+                        {
+                            Name = "Toyota Corolla 2015",
+                            Description = "Gold Earings with Blue Saphire",
+                            Price = 2499,
+                            StockQuantity = 1,
+                            ProductPhotos = new List<ProductPhoto>()
+                            {
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.telemundodeportes.com/sites/default/files/2015/07/13/toyota-corolla-2015-4.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.autoproyecto.com/wp-content/uploads/2015/04/62794.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://mediaracing.files.wordpress.com/2015/05/2014_toyota_corolla_s_010_52203_2524_low.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 5,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://autoprice.com.mx/imgs/fotos/3566/989ae165eac546c9_ap.jpg"
+                                    }
+                                },
+                            },
+                            ProductItemClass = new ProductItemClass
+                            {
+                                ItemClassId = 10,
+                                ProductId = 5
                             }
                         },
                     },
@@ -344,33 +900,49 @@ namespace Infrastructure.Data
                         UserId = 4,
                         Product = new Product
                         {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
+                            Name = "Surface Laptop 4",
+                            Description = "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
+                            Price = 11870,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 8,
+                                    ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 8,
+                                    ProductId = 1,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71yC2B6zmEL._AC_SL1500_.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 1,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 8
+                                ItemClassId = 6,
+                                ProductId = 1
                             }
                         },
                     },
@@ -379,33 +951,49 @@ namespace Infrastructure.Data
                         UserId = 4,
                         Product = new Product
                         {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
+                            Name = "Alienware AW17R4",
+                            Description = "Alienware 15 R4 AW15R4-7712SLV-PUS 15.6\" Full HD Gaming Laptop (8th Generation Intel Core i7-8750H, 16GB DDR4 RAM, 256GB SSD/1TB HDD) with NVIDIA GTX 1060",
+                            Price = 57350,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 9,
+                                    ProductId = 2,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71Cwk-wa8+L._AC_SY355_.jpg"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 9,
+                                    ProductId = 2,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/71j3ERDIjzL._AC_SY355_.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://q7g5k9w5.rocketcdn.me/wp-content/uploads/2022/03/41WgwKBfp2L._AC_.jpg"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 2,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.notebookcheck.org/uploads/tx_nbc2/aw17r4.png"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 9
+                                ItemClassId = 6,
+                                ProductId = 2
                             }
                         },
                     },
@@ -414,33 +1002,49 @@ namespace Infrastructure.Data
                         UserId = 4,
                         Product = new Product
                         {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
+                            Name = "Apple Watch Series SE",
+                            Description = "Apple Watch SE (2a Generación) (GPS) Smartwatch con Caja de Aluminio Color Medianoche de 40 mm y Correa Deportiva Color Medianoche. Seguimiento del Sueño, Detección de Choques, Resistente al Agua",
+                            Price = 1000,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 10,
+                                    ProductId = 3,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUQ3_VW_34FR+watch-44-alum-midnight-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171067000%2C1661467213478"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 10,
+                                    ProductId = 3,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKUU3_VW_34FR+watch-44-alum-silver-nc-se_VW_34FR_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171096000%2C1661467372120"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MPGN3ref_VW_34FR+watch-40-alum-starlight-nc-se_VW_34FR_WF_CO_GEO_MX+watch-face-41-nike7s-desertberry-spruceaura_VW_34FR_WF_CO?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1660757980710%2C1661754116175%2C1662143398264"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 3,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/MKU93_VW_PF+watch-40-alum-silver-cell-se_VW_PF_WF_CO_GEO_MX?wid=1400&hei=1400&trim=1%2C0&fmt=p-jpg&qlt=95&.v=1632171032000%2C1661469403393"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 10
+                                ItemClassId = 5,
+                                ProductId = 3
                             }
                         },
                     },
@@ -449,33 +1053,49 @@ namespace Infrastructure.Data
                         UserId = 4,
                         Product = new Product
                         {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
+                            Name = "iPhone 11",
+                            Description = "Apple iPhone 11, Totalmente Desbloqueado, 128 GB, Negro (Reacondicionado)",
+                            Price = 7670,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 11,
+                                    ProductId = 4,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://m.media-amazon.com/images/I/612kg3rGyYL._AC_SL1500_.jpg"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 11,
+                                    ProductId = 4,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://cdn1.coppel.com/images/catalog/mkp/776/5000/7763042-1.jpg"
                                     }
-                                }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://cdn.shopify.com/s/files/1/0329/7096/5129/products/ventiapp-image--84f1a1e0-9fc0-4e2b-bdff-b9e5707f3860_27_5_2022_13_15_43_683_720x720.jpg?v=1671490096"
+                                    }
+                                },
+                                new ProductPhoto
+                                {
+                                    ProductId = 4,
+                                    Photo = new Photo 
+                                    {
+                                        Url = "https://www.apple.com/newsroom/images/tile-images/Apple_iPhone-11-Pro_Most-Powerful-Advanced_091019.jpg.news_app_ed.jpg"
+                                    }
+                                },
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 11
+                                ItemClassId = 7,
+                                ProductId = 4
                             }
                         },
                     },
@@ -484,278 +1104,49 @@ namespace Infrastructure.Data
                         UserId = 4,
                         Product = new Product
                         {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
+                            Name = "Toyota Corolla 2015",
+                            Description = "Gold Earings with Blue Saphire",
+                            Price = 2499,
+                            StockQuantity = 1,
                             ProductPhotos = new List<ProductPhoto>()
                             {
                                 new ProductPhoto
                                 {
-                                    ProductId = 12,
+                                    ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://www.telemundodeportes.com/sites/default/files/2015/07/13/toyota-corolla-2015-4.jpg"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 12,
+                                    ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 12
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 13,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://cdn.autoproyecto.com/wp-content/uploads/2015/04/62794.jpg"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 13,
+                                    ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 13
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 14,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://mediaracing.files.wordpress.com/2015/05/2014_toyota_corolla_s_010_52203_2524_low.jpg"
                                     }
                                 },
                                 new ProductPhoto
                                 {
-                                    ProductId = 14,
+                                    ProductId = 5,
                                     Photo = new Photo 
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 14
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 15,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://autoprice.com.mx/imgs/fotos/3566/989ae165eac546c9_ap.jpg"
                                     }
                                 },
-                                new ProductPhoto
-                                {
-                                    ProductId = 15,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 3,
-                                ProductId = 15
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 16,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ProductPhoto
-                                {
-                                    ProductId = 16,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 16
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 17,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ProductPhoto
-                                {
-                                    ProductId = 17,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 17
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 18,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ProductPhoto
-                                {
-                                    ProductId = 18,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 18
-                            }
-                        },
-                    },
-                    new UserProduct
-                    {
-                        UserId = 4,
-                        Product = new Product
-                        {
-                            Name = "Obsidian Necklace",
-                            Description = "Obsidian Necklace with Green Gem",
-                            Price = 1299,
-                            StockQuantity = 10,
-                            ProductPhotos = new List<ProductPhoto>()
-                            {
-                                new ProductPhoto
-                                {
-                                    ProductId = 19,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ProductPhoto
-                                {
-                                    ProductId = 19,
-                                    Photo = new Photo 
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                }
-                            },
-                            ProductItemClass = new ProductItemClass
-                            {
-                                ItemClassId = 3,
-                                ProductId = 19
+                                ItemClassId = 10,
+                                ProductId = 5
                             }
                         },
                     },
@@ -772,9 +1163,9 @@ namespace Infrastructure.Data
                         UserId = 1,
                         Service = new Service
                         {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
+                            Name = "House deep clean",
+                            Description = "House deep clean with electric vacum cleaner",
+                            Price = 699,
                             ServiceCategory = new ServiceCategory
                             {
                                 ServiceId = 1,
@@ -787,7 +1178,7 @@ namespace Infrastructure.Data
                                     ServiceId = 1,
                                     Photo = new Photo
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://thumbs.dreamstime.com/b/building-cleaning-service-dust-removal-vacuum-cleaner-worker-cleaning-removing-construction-dust-vacuum-cleaner-109337471.jpg"
                                     }
                                 },
                                 new ServicePhoto
@@ -795,7 +1186,23 @@ namespace Infrastructure.Data
                                     ServiceId = 1,
                                     Photo = new Photo
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                        Url = "https://previews.123rf.com/images/luckybusiness/luckybusiness1603/luckybusiness160300059/54016312-housewife-from-cleaning-service-cleans-carpet-with-vacuum-cleaner.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 1,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://shinycarpetcleaning.com/wp-content/uploads/2020/07/Benefits-of-Hiring-Professional-Carpet-Cleaning-Services-768x540-1.jpg"
+                                    }
+                                },
+                                new ServicePhoto
+                                {
+                                    ServiceId = 1,
+                                    Photo = new Photo
+                                    {
+                                        Url = "https://s3.envato.com/files/269465229/DSC_1762%20copy.jpg"
                                     }
                                 },
                             }
@@ -806,9 +1213,9 @@ namespace Infrastructure.Data
                         UserId = 1,
                         Service = new Service
                         {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
+                            Name = "One night baby sitting",
+                            Description = "From the afternoon to the next day morning baby sitting up to 2 children below ages of 5",
+                            Price = 1099,
                             ServiceCategory = new ServiceCategory
                             {
                                 ServiceId = 2,
@@ -821,7 +1228,7 @@ namespace Infrastructure.Data
                                     ServiceId = 2,
                                     Photo = new Photo
                                     {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://images.prismic.io/netmums/ff95d4c1fe1345359f02e2c50836740deb3b8e4b_babysitter.jpg?auto=compress,format"
                                     }
                                 },
                                 new ServicePhoto
@@ -829,653 +1236,23 @@ namespace Infrastructure.Data
                                     ServiceId = 2,
                                     Photo = new Photo
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 3,
-                                CategoryId = 3
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 3,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://www.liveabout.com/thmb/bAGLHfIisyJspCsmr1_ZYwkkGmg=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/girl-feeding-baby-brother-at-table-145064470-5ac1e6ee642dca00363ebd0c.jpg"
                                     }
                                 },
                                 new ServicePhoto
                                 {
-                                    ServiceId = 3,
+                                    ServiceId = 2,
                                     Photo = new Photo
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 4,
-                                CategoryId = 4
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 4,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
+                                        Url = "https://images.ctfassets.net/xf6mqlbz6glx/2mWl3wWE59kyF9R0x586oX/eea99dd7f31a58cddd314b46c5758709/Newborns-babysitter_coloring_with_girl_on_couch-Babysitter.jpg.jpg?fm=jpg&fl=progressive&w=960&q=80"
                                     }
                                 },
                                 new ServicePhoto
                                 {
-                                    ServiceId = 4,
+                                    ServiceId = 2,
                                     Photo = new Photo
                                     {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 5,
-                                CategoryId = 5
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 5,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 5,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 6,
-                                CategoryId = 6
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 6,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 6,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 7,
-                                CategoryId = 1
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 7,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 7,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 1,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 8,
-                                CategoryId = 2
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 8,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 8,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 9,
-                                CategoryId = 3
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 9,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 9,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 10,
-                                CategoryId = 4
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 10,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 10,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 11,
-                                CategoryId = 5
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 11,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 11,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 12,
-                                CategoryId = 6
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 12,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 12,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 13,
-                                CategoryId = 7
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 13,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 13,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 14,
-                                CategoryId = 1
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 14,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 14,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 2,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 15,
-                                CategoryId = 2
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 15,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 15,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 16,
-                                CategoryId = 3
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 16,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 16,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 17,
-                                CategoryId = 4
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 17,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 17,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 18,
-                                CategoryId = 5
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 18,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 18,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 19,
-                                CategoryId = 6
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 19,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 19,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 20,
-                                CategoryId = 7
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 20,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 20,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
-                                    }
-                                },
-                            }
-                        }
-                    },
-                    new UserService
-                    {
-                        UserId = 3,
-                        Service = new Service
-                        {
-                            Name = "Cleaning",
-                            Description = "House deep clean",
-                            Price = 249,
-                            ServiceCategory = new ServiceCategory
-                            {
-                                ServiceId = 21,
-                                CategoryId = 8
-                            },
-                            ServicePhotos = new List<ServicePhoto>()
-                            {
-                                new ServicePhoto
-                                {
-                                    ServiceId = 21,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/41f5enyZWnL.jpg"
-                                    }
-                                },
-                                new ServicePhoto
-                                {
-                                    ServiceId = 21,
-                                    Photo = new Photo
-                                    {
-                                        Url = "https://assets.epicurious.com/photos/5fca6f8d9014cc9a8df3d074/5:4/w_2500,h_2000,c_limit/Malted_Forever_Brownies_VOG_final.jpg"
+                                        Url = "https://bloximages.newyork1.vip.townnews.com/postandcourier.com/content/tncms/assets/v3/editorial/f/94/f94af1b0-06e7-11ed-8db1-b3b2c74f528d/62d5dd35a1404.image.jpg?resize=1200%2C800"
                                     }
                                 },
                             }
