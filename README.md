@@ -494,6 +494,7 @@ processes = []
 ```
 
 
+
 docker build -f API/Dockerfile -t ramirocaste/womix .
 
 docker push ramirocaste/womix:latest
@@ -513,3 +514,5 @@ fly deploy
 https://womix.fly.dev 
 
 DATABASE_URL=postgres://womix:vEAV7yqTEXaJqxL@top2.nearest.of.womix-db.internal:5432/womix?sslmode=disable
+
+git clone https://github.com/celr00/Womix.git
