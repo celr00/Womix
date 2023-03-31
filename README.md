@@ -512,4 +512,4 @@ fly deploy
 
 https://womix.fly.dev 
 
-
+DATABASE_URL=postgres://womix:vEAV7yqTEXaJqxL@top2.nearest.of.womix-db.internal:5432/womix?sslmode=disable
