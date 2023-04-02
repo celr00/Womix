@@ -1,62 +1,72 @@
-<nav class="navbar navbar-expand-lg bg-white shadow-sm m-3 rounded-5">
+<nav class="navbar navbar-expand-lg bg-white shadow-sm m-3 rounded-5 p-3">
   <div class="container-fluid">
-
-  <a routerLink="/" class="navbar-brand ms-4">
-    <img src="../../../assets/Womix Nav Logo.svg" height="40">
-  </a>
-  <ul class="navbar-nav d-none d-lg-flex links-list">
-    <li class="nav-item me-3">
-      <a routerLink="/products" routerLinkActive="active" class="nav-link text-uppercase">Products</a>
-    </li>
-    <li class="nav-item me-3">
-      <a routerLink="/services" routerLinkActive="active" class="nav-link text-uppercase">Services</a>
-    </li>
-    <li class="nav-item">
-      <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link text-uppercase">Jobs</a>
-    </li>
-  </ul>
-  <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
-    <div class="d-none d-lg-flex me-3">
-      <a routerLink="/sign-in" class="btn btn-outline-primary me-2 rounded-4">Sign in</a>
-      <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="accountService.currentAccount$ | async as account">
-    <div class="dropdown ms-3 me-5" style="cursor: pointer;" dropdown>
-      <a dropdownToggle class="dropdown-toggle text-decoration-none">
-        <strong>{{account.firstName}}</strong>
+    <div class="col-auto d-flex justify-content-start align-items-center">
+      <a routerLink="/" class="navbar-brand p-0">
+        <img src="../../../assets/Womix Nav Logo.svg" height="40">
       </a>
-      <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
-        <li class="py-1">
-          <a routerLink="/account/saved-profiles" class="dropdown-item">
-            <i class="fa fa-bookmark me-3"></i> Saved profiles
-          </a>
+    </div>
+    <div class="col d-none d-md-flex justify-content-center">
+      <ul class="nav links-list">
+        <li class="nav-item me-3">
+          <a routerLink="/products" routerLinkActive="active" class="nav-link text-uppercase text-dark">Products</a>
         </li>
-        <li class="py-1">
-          <a routerLink="/account/messages" class="dropdown-item">
-            <i class="fa fa-envelope me-3"></i> Messages
-          </a>
+        <li class="nav-item me-3">
+          <a routerLink="/services" routerLinkActive="active" class="nav-link text-uppercase text-dark">Services</a>
         </li>
-        <li class="py-1">
-          <a routerLink="/account/summary" class="dropdown-item">
-            <i class="fa fa-user me-3"></i> Account
-          </a>
-        </li>
-        <div class="dropdown-divider"></div>
-        <li class="py-1">
-          <a routerLink="/test-error" class="dropdown-item">
-            <i class="fa fa-bug me-3"></i> Test errors
-          </a>
-        </li>
-        <div class="dropdown-divider"></div>
-        <li class="py-1">
-          <a (click)="accountService.logout()" class="dropdown-item">
-            <i class="fa fa-sign-out me-3"></i> Logout
-          </a>
+        <li class="nav-item">
+          <a routerLink="/labour-exange" routerLinkActive="active" class="nav-link text-uppercase text-dark">Jobs</a>
         </li>
       </ul>
     </div>
-  </ng-container>
-
+    <div class="col-auto d-flex justify-content-end">
+      <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
+        <div class="d-none d-lg-flex me-3">
+          <a routerLink="/sign-in" class="btn btn-outline-primary me-2 rounded-4">Sign in</a>
+          <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="accountService.currentAccount$ | async as account">
+        <div class="dropdown ms-3" style="cursor: pointer;" dropdown>
+          <a dropdownToggle class="dropdown-toggle text-decoration-none">
+            <strong>{{account.firstName}}</strong>
+          </a>
+          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
+            <li class="py-1">
+              <a routerLink="/products" class="dropdown-item">
+                <i class="fa fa-bookmark me-3"></i> Products
+              </a>
+            </li>
+            <li class="py-1">
+              <a routerLink="/services" class="dropdown-item">
+                <i class="fa fa-envelope me-3"></i> Services
+              </a>
+            </li>
+            <li class="py-1">
+              <a routerLink="/jobs" class="dropdown-item">
+                <i class="fa fa-envelope me-3"></i> Jobs
+              </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li class="py-1">
+              <a routerLink="/account/summary" class="dropdown-item">
+                <i class="fa fa-user me-3"></i> Account
+              </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li class="py-1">
+              <a routerLink="/test-error" class="dropdown-item">
+                <i class="fa fa-bug me-3"></i> Test errors
+              </a>
+            </li>
+            <div class="dropdown-divider"></div>
+            <li class="py-1">
+              <a (click)="accountService.logout()" class="dropdown-item">
+                <i class="fa fa-sign-out me-3"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </ng-container>
+    </div>
   </div>
 </nav>

@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from 'src/app/shared/models/product';
 import { BreadcrumbService } from 'xng-breadcrumb';
-import { AppUser } from 'src/app/shared/models/app-user';
 import { UserService } from 'src/app/user/user.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 import { Photo } from 'src/app/shared/models/service';
@@ -15,8 +14,7 @@ import { Photo } from 'src/app/shared/models/service';
 })
 export class ProductDetailComponent implements OnInit {
   id: number;
-  product: Product = {} as Product;
-  owner: AppUser = {} as AppUser;
+  product?: Product;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
 
@@ -53,21 +51,11 @@ export class ProductDetailComponent implements OnInit {
         this.bcService.set('@productDetails', product.name);
         this.galleryImages = this.defineGalleryImages();
       },
-      complete: () => {
-        this.loadUser(this.product.userProduct.userId);
-      }
-    })
-  }
-
-  loadUser(ownerId: number) {
-    this.userService.getUser(ownerId).subscribe({
-      next: owner => {
-        this.owner = owner;
-      }
     })
   }
 
   private defineGalleryImages(): any[] {
+    if (!this.product) return [];
     if (this.product.productPhotos.length === 0) return [];
     const imageUrls = [];
     const photos: Photo[] = [];

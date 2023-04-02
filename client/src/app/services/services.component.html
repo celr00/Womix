@@ -1,6 +1,6 @@
 <div class="container-fluid container-xxl">
   <div class="row" *ngIf="categories && services">
-    <div class="col-12 col-md-5 col-lg-3">
+    <div class="col-12 col-sm-4 col-md-3 col-lg-2">
       <h5 class="text-info ms-3">Sort</h5>
       <select class="form-select mb-4" (change)="onSortSelected($event)">
         <option *ngFor="let sort of sortOptions" [selected]="params.sort === sort.value" [value]="sort.value">
@@ -13,14 +13,14 @@
           [value]="category.id" (click)="onCategorySelected(category.id)">{{category.name}}</li>
       </ul>
     </div>
-    <div class="col-12 col-md-7 col-lg-9">
+    <div class="col-12 col-sm-8 col-md-9 col-lg-10">
       <div class="d-flex mt-2 mb-3">
         <input (keyup.enter)="onSearch()" category="text" placeholder="Search" class="form-control me-2 bg-transparent" #search>
         <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
         <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
       </div>
       <div class="row">
-        <div class="col-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let service of services">
+        <div class="col-6 col-md-4 col-lg-3" *ngFor="let service of services">
           <app-card [item]="service" [isProduct]="false"></app-card>
         </div>
       </div>

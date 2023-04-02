@@ -5,8 +5,8 @@ node_modules
 .angular
 .vscode
 package-lock.json
-Migrations
-wwwroot
+#Migrations
+#wwwroot
 *.db
 *.db-shm
 *.db-wal

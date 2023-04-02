@@ -1,33 +1,12 @@
 <div class="container-fluid container-xxl" *ngIf="product">
   <div class="row">
-    <div class="col-12 col-sm-6 col-lg-4 mb-3">
+    <div class="col-12 col-sm-6 col-lg-5 mb-3">
       <div class="gallery-viewer" *ngIf="showGallery()">
-        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery rounded-4 shadow-info overflow-hidden"></ngx-gallery>
       </div>
     </div>
-    <div class="col-12 col-sm-6 mb-3">
-      <h3 class="fw-demibold">
-        {{product.name}}
-      </h3>
-      <a class="text-decoration-none text-info" routerLink="/user/{{product.userProduct.userId}}">
-        Visit {{product.userProduct.user.firstName}} {{product.userProduct.user.lastName}}
-      </a>
-      <hr class="text-muted my-4">
-      <ng-container *ngIf="product.stockQuantity === 0">
-        <p class="text-danger fs-5">
-            This product is currently unavailable.
-        </p>
-      </ng-container>
-      <ng-container *ngIf="product.stockQuantity > 0">
-        <p class="fw-light text-muted fs-5">
-            {{product.stockQuantity}} available.
-        </p>
-      </ng-container>
-      <p>
-        {{product.description}}
-      </p>
+    <div class="col-12 col-sm-6 col-lg-7 mb-3">
+      <app-detail [item]="product"></app-detail>
     </div>
   </div>
-  <h3>Seller</h3>
-  <app-user-card [user]="owner"></app-user-card>
 </div>

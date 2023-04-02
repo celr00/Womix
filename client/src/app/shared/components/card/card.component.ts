@@ -14,6 +14,7 @@ export class CardComponent implements OnInit {
   photos: Photo[] = [];
   @Input() isProduct = true;
   @Input() showSellerName = true;
+  url: string = '';
 
   constructor() {
     this.galleryOptions = [
@@ -39,6 +40,8 @@ export class CardComponent implements OnInit {
 
   ngOnInit(): void {
     this.galleryImages = this.defineGalleryImages(this.isProduct);
+    if (this.isProduct) this.url = `/products/${this.item.id}`;
+    if (!this.isProduct) this.url = `/services/${this.item.id}`;
   }
 
   private defineGalleryImages(isProduct: boolean): any[] {

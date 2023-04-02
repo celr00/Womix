@@ -36,13 +36,40 @@ ngx-gallery {
   position: relative !important;
 }
 
+.shadow-info {
+  box-shadow: 0 0.5rem 1rem rgba(0, 106, 140, 0.30) !important;
+}
+
+.shadow-info {
+  box-shadow: 0 0.3rem 0.5rem rgba(0, 106, 140, 0.30) !important;
+}
+
+.shadow-warning {
+  box-shadow: 0 0.5rem 1rem rgba(131, 0, 92, 0.30) !important;
+}
+
+.shadow-warning-sm {
+  box-shadow: 0 0.3rem 0.5rem rgba(131, 0, 92, 0.30) !important;
+}
 
 $primary: #83005c;
 $info: #006a8c;
+$border-info-subtle: $info;
+
+.bg-info-light {
+ background-color: #ecf0f6!important;
+}
+.bg-primary-light {
+  background-color: #f3ebf4 !important;
+}
 
 label.xng-breadcrumb-trail {
   color: $primary;
   text-decoration: underline !important;
+}
+
+.ngx-gallery-thumbnail {
+  box-shadow: 0 0.5rem 1rem rgba(0, 106, 140, 0.30) !important;
 }
 
 @import "../node_modules/bootstrap/scss/bootstrap";

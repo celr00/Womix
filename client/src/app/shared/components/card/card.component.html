@@ -1,17 +1,20 @@
-<div class="card mb-4 overflow-hidden">
+<div class="card mb-4 overflow-hidden border border-4 rounded-4"
+  [ngClass]="{'border-info': isProduct, 'border-primary': !isProduct}">
   <img *ngIf="galleryImages.length === 0" src="../../../../assets/placeholder-image.png">
   <ngx-gallery *ngIf="galleryImages.length > 0" [options]="galleryOptions" [images]="galleryImages" class="gallery-card-img"></ngx-gallery>
   <div class="card-body">
     <h5 class="card-title">{{item.name}}</h5>
-    <p class="card-text">{{item.description}}</p>
-    <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct && showSellerName">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
-    <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct && showSellerName">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a>
+    <p class="card-text" *ngIf="item.description.length > 70">{{item.description | slice: 0:70}} ...</p>
+    <p class="card-text" *ngIf="item.description <= 70">{{item.description}}</p>
+    <!-- <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct && showSellerName">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
+    <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct && showSellerName">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a> -->
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item text-success fw-bold fs-5 fst-italic">{{item.price | currency}}</li>
+    <li class="list-group-item text-success fw-bold fs-5 text-center">{{item.price | currency}}</li>
   </ul>
-  <div class="card-body">
-    <a *ngIf="!isProduct" routerLink="/services/{{item.id}}" class="card-link">View item</a>
-    <a *ngIf="isProduct" routerLink="/products/{{item.id}}" class="card-link">View item</a>
+  <div class="card-footer text-center pointer"
+    routerLink="{{url}}"
+    [ngClass]="{'bg-info': isProduct, 'bg-primary': !isProduct}">
+    <a class="card-link text-decoration-none text-white fw-bold" routerLink="{{url}}">View item</a>
   </div>
 </div>
