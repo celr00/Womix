@@ -137,11 +137,6 @@ namespace API.Controllers
 
             if (product == null) return NotFound(new ApiResponse(404));
 
-            foreach (var productPhoto in product.ProductPhotos)
-            {
-                _photoRepo.Delete(productPhoto.Photo);
-            }
-
             product.ProductPhotos.Remove(product.ProductPhotos.Find(x => x.PhotoId == photoId));
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo"));

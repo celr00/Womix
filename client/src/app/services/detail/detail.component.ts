@@ -8,14 +8,13 @@ import { UserService } from 'src/app/user/user.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
-  selector: 'app-detail',
+  // selector: 'app-detail',
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.scss']
 })
 export class DetailComponent implements OnInit {
   id: number;
-  service: Service = {} as Service;
-  user: AppUser = {} as AppUser;
+  service?: Service;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
 
@@ -50,21 +49,11 @@ export class DetailComponent implements OnInit {
         this.bcService.set('@servicesDetailPage', service.name);
         this.galleryImages = this.defineGalleryImages();
       },
-      complete: () => {
-        this.loadUser(this.service.userService.userId);
-      }
-    })
-  }
-
-  loadUser(ownerId: number) {
-    this.userService.getUser(ownerId).subscribe({
-      next: user => {
-        this.user = user;
-      }
     })
   }
 
   private defineGalleryImages(): any[] {
+    if (!this.service) return [];
     if (this.service.servicePhotos.length === 0) return [];
     const imageUrls = [];
     const photos: Photo[] = [];

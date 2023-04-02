@@ -12,13 +12,18 @@ namespace API.Extensions
     {
         public static IServiceCollection AddApplicationServices(this IServiceCollection services, IConfiguration config, IWebHostEnvironment env)
         {
-            // services.AddDbContext<DataContext>(opt => {
-            //     opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
-            // });
+            /**/
+            services.AddDbContext<DataContext>(opt => {
+                opt.UseSqlite(config.GetConnectionString("DefaultConnectionSqlite"));
+            });
+            /**/
 
-            /* In http://localhost:8080 the application should be running. */
+/*
+dotnet ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -o Data/Migrations
+dotnet ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext -o Data/Migrations
+*/
 
-            /* */
+            /* *//*
 
             var connString = "";
             if (env.IsDevelopment())

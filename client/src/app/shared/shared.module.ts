@@ -13,6 +13,7 @@ import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { FileUploadModule } from 'ng2-file-upload';
 import { CardComponent } from './components/card/card.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
+import { DetailComponent } from './components/detail/detail.component';
 
 
 
@@ -24,6 +25,7 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     UserCardComponent,
     CardComponent,
     PhotoUploadComponent,
+    DetailComponent,
   ],
   imports: [
     CommonModule,
@@ -49,6 +51,7 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
     NgxGalleryModule,
     CardComponent,
     PhotoUploadComponent,
+    DetailComponent,
   ]
 })
 export class SharedModule { }
