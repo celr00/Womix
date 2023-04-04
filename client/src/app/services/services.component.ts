@@ -1,14 +1,15 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewChecked, AfterViewInit, Component, ContentChild, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { Category, Service } from '../shared/models/service';
 import { ServiceParams } from '../shared/models/service-params';
 import { ServicesService } from './services.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
   styleUrls: ['./services.component.scss']
 })
-export class ServicesComponent implements OnInit {
+export class ServicesComponent implements OnInit, AfterViewChecked {
   services?: Service[];
   @ViewChild('search') searchTerm?: ElementRef;
   totalCount = 0;
@@ -20,14 +21,19 @@ export class ServicesComponent implements OnInit {
     {name: 'Price: High to low', value: 'priceDesc'},
   ];
 
-  constructor(private serviceService: ServicesService) {
+  constructor(private serviceService: ServicesService, private route: ActivatedRoute, private renderer: Renderer2) {
     this.serviceService.resetParams();
     this.params = serviceService.getParams();
+    this.params.categoryId = this.route.snapshot.queryParams['category'] || 0;
   }
 
   ngOnInit(): void {
     this.loadServices();
     this.loadCategories();
+  }
+
+  ngAfterViewChecked(): void {
+
   }
 
   loadServices() {

@@ -94,16 +94,14 @@ namespace Infrastructure.Data
             {
                 var classes = new List<ItemClass>()
                 {
-                    new ItemClass { Name = "Food"},
-                    new ItemClass { Name = "Clothing"},
-                    new ItemClass { Name = "Accessories"},
-                    new ItemClass { Name = "Desserts"},
+                    new ItemClass { Name = "Clothing & Accesories"},
+                    new ItemClass { Name = "Travel"},
+                    new ItemClass { Name = "Home & Garden"},
+                    new ItemClass { Name = "Food & Beverages"},
+                    new ItemClass { Name = "Health & Beauty"},
+                    new ItemClass { Name = "Sports & Outdoors"},
                     new ItemClass { Name = "Electronics"},
-                    new ItemClass { Name = "Laptop"},
-                    new ItemClass { Name = "Smartphone"},
-                    new ItemClass { Name = "TV"},
-                    new ItemClass { Name = "Book"},
-                    new ItemClass { Name = "Vehicle"},
+                    new ItemClass { Name = "Toys & Entertainment"},
                 };
                 context.ItemClasses.AddRange(classes);
             }
@@ -113,13 +111,13 @@ namespace Infrastructure.Data
                 var categories = new List<Category>()
                 {
                     new Category { Name = "Cleaning"},
-                    new Category { Name = "Cooking"},
-                    new Category { Name = "Vacation planning"},
-                    new Category { Name = "Event planning"},
-                    new Category { Name = "Dental cleaning"},
-                    new Category { Name = "Event DJ"},
-                    new Category { Name = "Party Entertainment"},
-                    new Category { Name = "Baby Sitting"},
+                    new Category { Name = "Event Planning & Coordinator"},
+                    new Category { Name = "Cooking & Meal Preparation"},
+                    new Category { Name = "Babysitting"},
+                    new Category { Name = "Home Improvement"},
+                    new Category { Name = "Errand & Concierge"},
+                    new Category { Name = "Pet Care"},
+                    new Category { Name = "Health & Fitness"},
                 };
                 context.Categories.AddRange(categories);
             }
@@ -380,7 +378,7 @@ namespace Infrastructure.Data
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 10,
+                                ItemClassId = 3,
                                 ProductId = 5
                             }
                         },
@@ -635,7 +633,7 @@ namespace Infrastructure.Data
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 10,
+                                ItemClassId = 3,
                                 ProductId = 5
                             }
                         },
@@ -890,7 +888,7 @@ namespace Infrastructure.Data
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 10,
+                                ItemClassId = 3,
                                 ProductId = 5
                             }
                         },
@@ -1145,7 +1143,7 @@ namespace Infrastructure.Data
                             },
                             ProductItemClass = new ProductItemClass
                             {
-                                ItemClassId = 10,
+                                ItemClassId = 3,
                                 ProductId = 5
                             }
                         },

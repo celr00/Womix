@@ -23,7 +23,7 @@ dotnet ef migrations add InitialCreate -p Infrastructure -s API -c DataContext -
 dotnet ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext -o Data/Migrations
 */
 
-            /* *//*
+            /* *
 
             var connString = "";
             if (env.IsDevelopment())

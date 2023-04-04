@@ -8,7 +8,7 @@
         </option>
       </select>
       <h5 class="text-info ms-3">Categories</h5>
-      <ul class="list-group my-3 rounded-3 shadow-sm">
+      <ul class="list-group my-3 rounded-3 shadow-sm" #categoryList>
         <li class="list-group-item pointer" *ngFor="let category of categories" [class.active]="category.id === params.categoryId"
           [value]="category.id" (click)="onCategorySelected(category.id)">{{category.name}}</li>
       </ul>

@@ -3,6 +3,7 @@ import { Product } from '../shared/models/product';
 import { ProductService } from './product.service';
 import { ProductsParams } from '../shared/models/productsParams';
 import { Type } from '../shared/models/type';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-product',
@@ -21,9 +22,10 @@ export class ProductComponent implements OnInit {
     {name: 'Price: High to low', value: 'priceDesc'},
   ];
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
     this.productService.resetParams();
     this.params = productService.getParams();
+    this.params.itemClassId = this.route.snapshot.queryParams['category'] || 0;
   }
 
   ngOnInit(): void {
@@ -44,9 +46,9 @@ export class ProductComponent implements OnInit {
       next: res => {
         this.products = res.data;
         this.totalCount = res.count;
-      },
-      error: (error) => console.log(error),
+      }
     });
+
   }
 
   onPageChanged(event: any) {

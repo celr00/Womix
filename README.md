@@ -516,3 +516,23 @@ https://womix.fly.dev
 DATABASE_URL=postgres://womix:vEAV7yqTEXaJqxL@top2.nearest.of.womix-db.internal:5432/womix?sslmode=disable
 
 git clone https://github.com/celr00/Womix.git
+
+### Publish Application
+
+```
+/c/Projects/Womix
+
+dotnet publish -c Release -o publish [app].sln
+```
+
+### Delete specific database
+
+- -s Startup
+- -p Project
+- -c Context
+
+```
+/c/Projects/Womix
+
+dotnet ef database drop -s API -p Infrastructure -c DataContext
+```
