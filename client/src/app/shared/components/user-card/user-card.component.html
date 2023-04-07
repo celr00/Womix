@@ -5,11 +5,9 @@
     </div>
     <div class="col-9 col-sm-10 d-flex align-items-center">
       <div>
-        <a routerLink="/user/{{user.id}}">
-          <h3>
-            {{user.fullName}}
-          </h3>
-        </a>
+        <h3>
+          {{user.fullName}}
+        </h3>
         <p>
           {{user.dateOfBirth | date: 'longDate'}} | {{user.age}} years old
         </p>
@@ -28,9 +26,13 @@
             <img src="../../../assets/social-media-icons/whatsapp.svg" style="color: #3ab54b;"
               alt="{{user.fullName}} Instagram">
           </a>
-          <a routerLink="/messages" class="btn btn-outline-primary ms-2">
+          <a routerLink="/messages" class="btn btn-outline-primary ms-2 d-flex align-items-center">
             Message <i class="fa fa-envelope-o ms-2"></i>
           </a>
+          <button class="btn"
+            [ngClass]="{}">
+            <i class="fa fa-bookmark-o"></i>
+          </button>
         </div>
       </div>
     </div>

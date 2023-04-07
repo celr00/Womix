@@ -35,11 +35,11 @@ namespace API.Controllers
             var countSpec = new ServicesWithFiltersForCountSpecification(specParams);
 
             var totalItems = await _servicesRepo.CountAsync(countSpec);
-            var products = await _servicesRepo.ListAsync(spec);
+            var services = await _servicesRepo.ListAsync(spec);
 
-            var data = _mapper.Map<IReadOnlyList<ServiceDto>>(products);
+            var data = _mapper.Map<IReadOnlyList<ServiceDto>>(services);
 
-            return Ok(new Pagination<ServiceDto>(specParams.PageIndex, specParams.PageIndex, totalItems, data));
+            return Ok(new Pagination<ServiceDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]

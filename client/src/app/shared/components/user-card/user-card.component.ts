@@ -8,6 +8,7 @@ import { AppUser } from '../../models/app-user';
 })
 export class UserCardComponent {
   @Input() user: AppUser = {} as AppUser;
+  @Input() fromAccount: boolean = false;
 
   constructor() {}
 }

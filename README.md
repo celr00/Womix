@@ -406,6 +406,12 @@ EXPOSE 8080  <--
 
 List secrets --> `fly secrets list`
 
+## Install dotnet ef globally
+
+```
+dotnet tool install --global dotnet-ef
+```
+
 ## Update dotnet ef globally
 
 ```
@@ -535,4 +541,12 @@ dotnet publish -c Release -o publish [app].sln
 /c/Projects/Womix
 
 dotnet ef database drop -s API -p Infrastructure -c DataContext
+```
+
+# Install Angular CLI Globally
+
+```
+/c/Projects/Womix
+
+npm install -g @angular/cli
 ```

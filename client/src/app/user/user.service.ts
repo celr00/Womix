@@ -15,5 +15,4 @@ export class UserService {
   getUser(id: number): Observable<AppUser> {
     return this.http.get<AppUser>(this.baseUrl + 'users/' + id);
   }
-
 }

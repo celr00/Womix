@@ -42,7 +42,7 @@ namespace API.Controllers
 
             var data = _mapper.Map<IReadOnlyList<ProductDto>>(products);
 
-            return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageIndex, totalItems, data));
+            return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]

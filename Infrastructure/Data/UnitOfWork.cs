@@ -13,6 +13,8 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        public ILikesRepository LikesRepository => new LikesRepository(_context);
+
         public async Task<int> Complete()
         {
             return await _context.SaveChangesAsync();
