@@ -7,7 +7,8 @@ img {
 }
 
 .card-body {
-  max-height: 60vh !important;
+  max-height: 55vh !important;
+  min-height: 55vh !important;
   overflow-x: hidden !important;
 }
 
@@ -30,5 +31,14 @@ img {
   *::-webkit-scrollbar-thumb {
     background-color: #969696;
     border-radius: 10px;
-    border: 3px solid white;
+    border: 4px solid #e8e9e9 !important;
+  }
+
+  .bg-messenger {
+    background-color: #e8e9e9 !important;
+  }
+  // 08a9d9
+
+  .text-blue {
+    color: #08a9d9 !important;
   }

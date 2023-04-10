@@ -1,27 +1,49 @@
 <div class="card shadow-sm rounded-4" *ngIf="recipient">
   <div class="card-header">
     <div class="d-flex align-items-center">
-      <img src="{{recipient.photoUrl}}" class="img-fluid rounded-circle me-3">
-      <span class="fs-3 fw-semibold">
-        {{recipient.fullName}}
-      </span>
+      <div class="row">
+        <div class="col-auto">
+          <img src="{{recipient.photoUrl}}" class="img-fluid rounded-circle">
+        </div>
+        <div class="col d-flex align-items-center">
+          <div>
+            <h3 class="lh-1">
+              <a routerLink="/user/{{recipient.id}}" class="text-decoration-none text-dark">
+                {{recipient.fullName}}
+              </a>
+            </h3>
+            <ng-container *ngIf="(presenceService.onlineUsers$ | async)?.includes(recipient.userName)">
+              <p class="lh-1 mb-0">online</p>
+            </ng-container>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="card-body bg-dark bg-opacity-10 overflow-scroll mh-50">
+  <div class="card-body bg-messenger overflow-scroll">
     <div *ngFor="let message of (messageService.messageThread$ | async)">
       <div class="row d-flex"
-        [ngClass]="{'justify-content-start': message.recipientUsername !== recipientEmail, 'justify-content-end': message.recipientUsername === recipientEmail}">
+        [ngClass]="{'justify-content-start': !isMyChat(message), 'justify-content-end': isMyChat(message)}">
         <div class="col-auto">
-          <div class="px-3 py-2 mb-2 rounded-4 shadow-sm"
-            [ngClass]="{'bg-white': message.recipientUsername !== recipientEmail, 'bg-success': message.recipientUsername === recipientEmail}">
+          <div class="px-3 py-2 mb-2 rounded-4 shadow-sm dropdown"
+            [ngClass]="{'bg-white': !isMyChat(message), 'bg-success': isMyChat(message)}">
             <div>
               {{message.content}}
             </div>
-            <div class="text-end text-muted">
-              <span style="font-size: 12px;">
+            <div class="text-end text-muted pointer d-flex align-items-center justify-content-end" type="button" data-bs-toggle="dropdown">
+              <span style="font-size: 12px;" class="me-1">
                 {{message.messageSent | date: 'shortTime'}}
               </span>
+              <span *ngIf="isMyChat(message)">
+                <i class="bi bi-check-all"
+                  [ngClass]="{'text-blue': message.dateRead !== undefined, 'text-muted': !message.dateRead === undefined}"></i>
+              </span>
             </div>
+            <ul class="dropdown-menu dropdown-menu-dark shadow">
+              <li><a class="dropdown-item pointer" (click)="deleteMessage(message.id)">
+                <i class="fa fa-trash me-2 text-danger"></i>
+                Delete message</a></li>
+            </ul>
           </div>
         </div>
       </div>

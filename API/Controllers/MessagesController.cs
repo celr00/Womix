@@ -71,9 +71,10 @@ namespace API.Controllers
                 _messageRepository.Delete(message);
             }
 
-            if (await _uow.Complete() < 0) return Ok();
-
-            return BadRequest(new ApiResponse(400, "Problem deleting the message"));
+            if (await _uow.Complete() < 0) 
+                return BadRequest(new ApiResponse(400, "Problem deleting the message"));
+            
+            return Ok();
         }
     }
 }
