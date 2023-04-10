@@ -550,3 +550,9 @@ dotnet ef database drop -s API -p Infrastructure -c DataContext
 
 npm install -g @angular/cli
 ```
+
+# Install Dev Cert for dotnet
+
+```
+dotnet dev-certs https --trust
+```

@@ -69,6 +69,9 @@ namespace API.Helpers
             CreateMap<UserProduct, UserProductDto>().ReverseMap();
 
             CreateMap<Photo, PhotoDto>().ReverseMap();
+            CreateMap<Message, Core.Dtos.MessageDto>()
+                .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.AppUserPhoto.Photo.Url))
+                .ForMember(d => d.RecipientPhotoUrl, o => o.MapFrom(s => s.Recipient.AppUserPhoto.Photo.Url));
         }
     }
 }

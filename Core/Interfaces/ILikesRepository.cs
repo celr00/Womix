@@ -9,5 +9,6 @@ namespace Core.Interfaces
         Task<UserLike> GetUserLike(int sourceUserId, int targetUserId);
         Task<AppUser> GetUserWithLikes(int userId);
         Task<PagedList<LikeDto>> GetUserLikes(LikesParams likesParams);
+        Task<List<UserLike>> GetLikedUsers(int sourceUserId);
     }
 }

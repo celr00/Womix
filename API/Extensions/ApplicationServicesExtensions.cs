@@ -1,4 +1,6 @@
 using API.Errors;
+using API.Helpers;
+using API.SignalR;
 using Core.Helpers;
 using Core.Interfaces;
 using Infrastructure.Data;
@@ -57,6 +59,9 @@ dotnet ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext
             services.AddScoped<IPhotoService, PhotoService>();
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddScoped<LogUserActivity>();
+            services.AddSignalR();
+            services.AddSingleton<PresenceTracker>();
 
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -80,7 +85,11 @@ dotnet ef migrations add PostgresInitial -p Infrastructure -s API -c DataContext
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("https://localhost:4200");
+                    policy
+                    .AllowAnyHeader()
+                    .AllowAnyMethod()
+                    .AllowCredentials()
+                    .WithOrigins("https://localhost:4200");
                 });
             });
 

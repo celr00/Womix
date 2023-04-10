@@ -1,4 +1,5 @@
 using System.Collections;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 
@@ -8,12 +9,15 @@ namespace Infrastructure.Data
     {
         private readonly DataContext _context;
         private Hashtable _repositories;
-        public UnitOfWork(DataContext context)
+        private readonly IMapper _mapper;
+        public UnitOfWork(DataContext context, IMapper mapper)
         {
+            _mapper = mapper;
             _context = context;
         }
 
         public ILikesRepository LikesRepository => new LikesRepository(_context);
+        public IMessageRepository MessageRepository => new MessageRepository(_context, _mapper);
 
         public async Task<int> Complete()
         {
@@ -40,6 +44,10 @@ namespace Infrastructure.Data
             }
 
             return (IGenericRepository<TEntity>) _repositories[type];
+        }
+        public bool HasChanges()
+        {
+            return _context.ChangeTracker.HasChanges();
         }
     }
 }

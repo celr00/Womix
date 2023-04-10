@@ -1,21 +1,31 @@
-<div class="bg-white shadow-sm rounded-3 p-3 mb-4">
+<div class="bg-white shadow-sm rounded-5 p-3 mb-4" *ngIf="user !== undefined">
   <div class="row">
     <div class="col-3 col-sm-2 d-flex align-items-center">
       <img src="{{user.photoUrl}}" alt="{{user.fullName}}" class="img-fluid rounded-circle shadow-sm">
     </div>
     <div class="col-9 col-sm-10 d-flex align-items-center">
       <div>
-        <h3>
-          {{user.fullName}}
-        </h3>
-        <p>
-          {{user.dateOfBirth | date: 'longDate'}} | {{user.age}} years old
+        <div class="mb-3">
+          <ng-container *ngIf="isSaved !== undefined && !fromAccount">
+            <i class="fa fa-bookmark pointer text-warning fs-3 me-2" *ngIf="isSaved === true" (click)="clickUnsave()"></i>
+            <i class="fa fa-bookmark-o pointer text-warning fs-3 me-2" *ngIf="isSaved === false" (click)="clickSave()"></i>
+          </ng-container>
+          <span class="fs-3 fw-light me-2">
+            {{user.fullName}}
+          </span>
+          <span *ngIf="(presenceService.onlineUsers$ | async)?.includes(user.userName)">
+            <i class="fa fa-user me-2 is-online"></i>
+            <span class="fs-6 fw-light text-muted ms-2">online</span>
+          </span>
+        </div>
+        <p class="text-info">
+          {{user.age}} years old
         </p>
-        <p *ngIf="user.address">
+        <p *ngIf="user.address" class="fw-light text-muted fst-italic">
           {{user.address.street}} {{user.address.number}}, {{user.address.zipcode}}, {{user.address.city}},
           {{user.address.state}}
         </p>
-        <div class="d-flex icons">
+        <div class="d-flex icons align-items-center">
           <a target="_blank" href="https://instagram.com/{{user.instagram}}" class="me-2">
             <img src="../../../assets/social-media-icons/instagram.svg" alt="{{user.fullName}} Instagram">
           </a>
@@ -26,13 +36,9 @@
             <img src="../../../assets/social-media-icons/whatsapp.svg" style="color: #3ab54b;"
               alt="{{user.fullName}} Instagram">
           </a>
-          <a routerLink="/messages" class="btn btn-outline-primary ms-2 d-flex align-items-center">
+          <a *ngIf="!fromAccount" routerLink="/account/messages/{{user.userName}}" class="btn btn-outline-primary ms-2 d-flex align-items-center">
             Message <i class="fa fa-envelope-o ms-2"></i>
           </a>
-          <button class="btn"
-            [ngClass]="{}">
-            <i class="fa fa-bookmark-o"></i>
-          </button>
         </div>
       </div>
     </div>

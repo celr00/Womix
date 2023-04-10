@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { AppUser } from '../shared/models/app-user';
 import { UserEntity } from '../shared/models/app-user-entity';
 import { Account } from '../shared/models/account';
+import { PresenceService } from '../_services/presence.service';
 
 @Injectable({
   providedIn: 'root'
@@ -15,73 +16,35 @@ export class AccountService {
   private currentAccountSource = new ReplaySubject<Account | null>(1);
   currentAccount$ = this.currentAccountSource.asObservable();
 
-  constructor(private http: HttpClient, private router: Router) { }
-
-  getUser(): Observable<AppUser> {
-    return this.http.get<AppUser>(this.baseUrl + 'users');
-  }
-
-  getUserEntity(): Observable<UserEntity> {
-    return this.http.get<UserEntity>(this.baseUrl + 'users/entity');
-  }
-
-  update(user: any): Observable<UserEntity> {
-    return this.http.put<UserEntity>(this.baseUrl + 'account', user);
-  }
-
-  setCurrentAccount(account: Account) {
-    this.currentAccountSource.next(account);
-  }
-
-  // loadCurrentUser(token: string | null) {
-  //   if (token == null) {
-  //     this.currentAccountSource.next(null);
-  //     return of(null);
-  //   }
-
-  //   let headers = new HttpHeaders();
-  //   headers = headers.set('Authorization', `Bearer ${token}`);
-
-  //   return this.http.get<Account>(this.baseUrl + 'account', {headers}).pipe(
-  //     map(res => {
-  //       if (res) {
-  //         localStorage.setItem('account', JSON.stringify(res));
-  //         this.currentAccountSource.next(res);
-  //         return res;
-  //       } else {
-  //         return null;
-  //       }
-  //     })
-  //   )
-  // }
-
-  getAccountToken(): string {
-    const token = JSON.parse(localStorage.getItem('account')!);
-    return localStorage.getItem(token)!;
-  }
+  constructor(private http: HttpClient, private router: Router, private presenceService: PresenceService) { }
 
   login(values: any) {
     return this.http.post<Account>(this.baseUrl + 'account/login', values).pipe(
-      map(res => {
-        localStorage.setItem('account', JSON.stringify(res));
-        this.currentAccountSource.next(res);
+      map(account => {
+        this.setCurrentAccount(account);
       })
     )
   }
 
   register(values: any) {
     return this.http.post<Account>(this.baseUrl + 'account/register', values).pipe(
-      map(res => {
-        localStorage.setItem('account', JSON.stringify(res));
-        this.currentAccountSource.next(res);
+      map(account => {
+        this.setCurrentAccount(account);
       })
     )
+  }
+
+  setCurrentAccount(account: Account) {
+    localStorage.setItem('account', JSON.stringify(account));
+    this.currentAccountSource.next(account);
+    this.presenceService.createHubConnection(account);
   }
 
   logout() {
     localStorage.removeItem('account');
     this.currentAccountSource.next(null);
     this.router.navigateByUrl('/');
+    this.presenceService.stopHubConnection();
   }
 
   checkEmailExists(email: string) {
@@ -96,4 +59,20 @@ export class AccountService {
     return this.http.delete<void>(this.baseUrl + 'account');
   }
 
+  getUser(): Observable<AppUser> {
+    return this.http.get<AppUser>(this.baseUrl + 'users');
+  }
+
+  getUserEntity(): Observable<UserEntity> {
+    return this.http.get<UserEntity>(this.baseUrl + 'users/entity');
+  }
+
+  update(user: any): Observable<UserEntity> {
+    return this.http.put<UserEntity>(this.baseUrl + 'account', user);
+  }
+
+  getAccountToken(): string {
+    const token = JSON.parse(localStorage.getItem('account')!);
+    return localStorage.getItem(token)!;
+  }
 }

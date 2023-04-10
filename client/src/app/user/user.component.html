@@ -1,4 +1,4 @@
-<div class="container-fluid container-md" *ngIf="user && products && services">
+<div class="container-fluid container-md" *ngIf="user !== undefined && products && services">
   <app-user-card [user]="user"></app-user-card>
   <div class="row">
     <h3>Products</h3>

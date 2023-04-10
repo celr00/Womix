@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Helpers;
+using API.Errors;
+using API.Dtos;
 
 namespace API.Controllers
 {
@@ -23,20 +25,23 @@ namespace API.Controllers
             _userManager = userManager;
         }
 
-        [HttpPost("{username}")]
-        public async Task<ActionResult> AddLike(string username)
+        [HttpPost("save/{email}")]
+        public async Task<ActionResult> Save(string email)
         {
             var sourceUserId = User.GetUserId();
-            var likedUser = await _userManager.Users.SingleOrDefaultAsync(x => x.UserName == username);
-            var sourceUser = await _uow.LikesRepository.GetUserWithLikes(sourceUserId);
 
-            if (likedUser == null) return NotFound();
+            var likedUser = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Email == email);
 
-            if (sourceUser.UserName == username) return BadRequest("You cannot like yourself");
+            var sourceUser = await _userManager.Users
+                .Include(x => x.LikedUsers)
+                .SingleOrDefaultAsync(x => x.Id == sourceUserId);
+
+            if (likedUser == null) return NotFound(new ApiResponse(404, "Could not find the liked user"));
+
+            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "You cannot like yourself"));
 
             var userLike = await _uow.LikesRepository.GetUserLike(sourceUserId, likedUser.Id);
-
-            if (userLike != null) return BadRequest("You already like this user");
 
             userLike = new UserLike
             {
@@ -46,22 +51,69 @@ namespace API.Controllers
 
             sourceUser.LikedUsers.Add(userLike);
 
-            if (await _uow.Complete() < 0) return Ok();
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to like user"));
+            
+            return Ok();
+        }
 
-            return BadRequest("Failed to like user");
+        [HttpPost("unsave/{email}")]
+        public async Task<ActionResult> Unsave(string email)
+        {
+            var sourceUserId = User.GetUserId();
+
+            var likedUser = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Email == email);
+
+            var sourceUser = await _userManager.Users
+                .Include(x => x.LikedUsers)
+                .SingleOrDefaultAsync(x => x.Id == sourceUserId);
+
+            if (likedUser == null) return NotFound(new ApiResponse(404, "Could not find the liked user"));
+
+            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "You cannot like yourself"));
+
+            var userLike = await _uow.LikesRepository.GetUserLike(sourceUserId, likedUser.Id);
+
+            sourceUser.LikedUsers.Remove(userLike);
+
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to remove user"));
+            
+            return Ok();
+        }
+
+        [HttpGet("{email}")]
+        public async Task<ActionResult<bool>> IsLiked(string email)
+        {
+            var sourceUserId = User.GetUserId();
+            
+            var likedUsers = await _uow.LikesRepository.GetLikedUsers(sourceUserId);
+
+            if (!likedUsers.Any()) return Ok(false);
+
+            foreach (var user in likedUsers)
+            {
+                if(user.TargetUser.Email == email)
+                    return Ok(true);
+            }
+            
+            return Ok(false);
         }
 
         [HttpGet]
-        public async Task<ActionResult<Core.Helpers.PagedList<LikeDto>>> GetUserLikes([FromQuery] Core.Helpers.LikesParams likesParams)
+        public async Task<ActionResult<IReadOnlyList<UserToReturnDto>>> GetLikedUsers() 
         {
-            likesParams.UserId = User.GetUserId();
+            var sourceUserId = User.GetUserId();
+            
+            var likedUsers = await _uow.LikesRepository.GetLikedUsers(sourceUserId);
 
-            var users = await _uow.LikesRepository.GetUserLikes(likesParams);
+            var usersToReturn = new List<UserToReturnDto>();
 
-            Response.AddPaginationHeader(new PaginationHeader(users.CurrentPage, 
-                users.PageSize, users.TotalCount, users.TotalPages));
+            foreach(var user in likedUsers)
+            {
+                usersToReturn.Add(_mapper.Map<AppUser, UserToReturnDto>(user.TargetUser));
+            }
 
-            return Ok(users);
+            return Ok(usersToReturn);
         }
     }
 }

@@ -1,0 +1,46 @@
+<div class="card shadow-sm rounded-4" *ngIf="recipient">
+  <div class="card-header">
+    <div class="d-flex align-items-center">
+      <img src="{{recipient.photoUrl}}" class="img-fluid rounded-circle me-3">
+      <span class="fs-3 fw-semibold">
+        {{recipient.fullName}}
+      </span>
+    </div>
+  </div>
+  <div class="card-body bg-dark bg-opacity-10 overflow-scroll mh-50">
+    <div *ngFor="let message of (messageService.messageThread$ | async)">
+      <div class="row d-flex"
+        [ngClass]="{'justify-content-start': message.recipientUsername !== recipientEmail, 'justify-content-end': message.recipientUsername === recipientEmail}">
+        <div class="col-auto">
+          <div class="px-3 py-2 mb-2 rounded-4 shadow-sm"
+            [ngClass]="{'bg-white': message.recipientUsername !== recipientEmail, 'bg-success': message.recipientUsername === recipientEmail}">
+            <div>
+              {{message.content}}
+            </div>
+            <div class="text-end text-muted">
+              <span style="font-size: 12px;">
+                {{message.messageSent | date: 'shortTime'}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card-footer">
+    <form #messageForm="ngForm" (ngSubmit)="sendMessage()" autocomplete="off">
+      <div class="row d-flex justify-content-between">
+        <div class="col">
+          <input name="messageContent" required [(ngModel)]="messageContent" type="text"
+          class="form-control form-control-info input-sm rounded-pill" placeholder="Send a private message">
+        </div>
+        <div class="col-auto">
+          <button [disabled]="!messageForm.valid || loading" class="btn btn-info rounded-circle" type="submit">
+            <i *ngIf="!loading" class="fa fa-send"></i>
+            <i *ngIf="loading" class="fa fa-spinner fa-spin"></i>
+        </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

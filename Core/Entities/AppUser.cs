@@ -6,6 +6,7 @@ namespace Core.Entities
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        public DateTime LastActive { get; set; } = DateTime.UtcNow;
         public DateOnly DateOfBirth { get; set; }
         public AppUserRole UserRole { get; set; }
         public string Facebook { get; set; }

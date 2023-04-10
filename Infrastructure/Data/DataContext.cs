@@ -23,13 +23,16 @@ namespace Infrastructure.Data
         public DbSet<AppUserPhoto> AppUserPhotos { get; set; }
         public DbSet<AppUserAddress> AppUserAddresses { get; set; }
         public DbSet<UserLike> Likes { get; set; }
-        public DbSet<Message> Messages { get; set; }
 
         public DbSet<UserService> UserServices { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<ServiceCategory> ServiceCategories { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServicePhoto> ServicePhotos { get; set; }
+
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<Group> Groups { get; set; }
+        public DbSet<Connection> Connections { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

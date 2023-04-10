@@ -9,6 +9,7 @@ import { ProductsParams } from '../shared/models/productsParams';
 import { ServicesService } from '../services/services.service';
 import { Service } from '../shared/models/service';
 import { ServiceParams } from '../shared/models/service-params';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-user',
@@ -16,14 +17,16 @@ import { ServiceParams } from '../shared/models/service-params';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user: AppUser = {} as AppUser;
+  user: AppUser | undefined;
   id: number;
   products: Product[] = [];
   services: Service[] = [];
   productParams: ProductsParams;
   serviceParams: ServiceParams;
 
-  constructor(private bcService: BreadcrumbService, private userService: UserService, private route: ActivatedRoute, private productService: ProductService, private serviceService: ServicesService) {
+  constructor(private bcService: BreadcrumbService, private userService: UserService,
+    private route: ActivatedRoute, private productService: ProductService, private serviceService: ServicesService,
+    private toastr: ToastrService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.productParams = this.productService.getParams();
     this.serviceParams = this.serviceService.getParams();
@@ -63,4 +66,5 @@ export class UserComponent implements OnInit {
       }
     })
   }
+
 }

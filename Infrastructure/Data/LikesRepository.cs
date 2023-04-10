@@ -14,6 +14,15 @@ namespace Infrastructure.Data
             _context = context;
         }
 
+        public async Task<List<UserLike>> GetLikedUsers(int sourceUserId)
+        {
+            return await _context.Likes
+                .AsNoTracking()
+                .Include(x => x.TargetUser)
+                .Where(x => x.SourceUserId == sourceUserId)
+                .ToListAsync();
+        }
+
         public async Task<UserLike> GetUserLike(int sourceUserId, int targetUserId)
         {
              return await _context.Likes.FindAsync(sourceUserId, targetUserId);

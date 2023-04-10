@@ -52,6 +52,17 @@ namespace API.Controllers
             
             return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));
         }
+
+        [HttpGet("email/{email}")]
+        public async Task<ActionResult<UserToReturnDto>> GetUserByEmail(string email)
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Email == email);
+
+            if (user == null) return NotFound(new ApiResponse(404));
+            
+            return Ok(_mapper.Map<AppUser, UserToReturnDto>(user));
+        }
     }
 
 }
