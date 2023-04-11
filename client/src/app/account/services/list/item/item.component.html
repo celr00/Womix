@@ -8,18 +8,7 @@
             Back
           </a>
         </div>
-        <h1>
-          {{service.name}}
-        </h1>
-        <p class="fst-italic text-muted">
-          {{service.serviceCategory.category.name}} service category
-        </p>
-        <p class="fs-5">
-          {{service.description}}
-        </p>
-        <p class="fw-bold fs-5 text-success">
-          {{service.price | currency}}
-        </p>
+        <app-detail [item]="service" [fromAccount]="true" [isProduct]="false"></app-detail>
       </div>
       <div class="col-12 col-lg-6 col-xl-5">
         <div class="gallery-viewer" *ngIf="showGallery()">
