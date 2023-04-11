@@ -8,11 +8,12 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DetailComponent implements OnInit {
   @Input() item: any;
   @Input() isProduct = true;
+  @Input() fromAccount = false;
   url: string = '';
   vendor: string = '';
 
   constructor() {
-    
+
   }
 
   ngOnInit(): void {
