@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
@@ -14,6 +14,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./new.component.scss']
 })
 export class NewComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+    if (this.serviceForm?.dirty) {
+      $event.returnValue = true;
+    }
+  }
   serviceForm: FormGroup = new FormGroup({})
   categories: Category[] = [];
   user: AppUser = {} as AppUser;
@@ -35,9 +40,6 @@ export class NewComponent implements OnInit {
         this.toastr.success('Service added successfully');
         this.router.navigateByUrl('/account/services/list');
       },
-      error: () => {
-        
-      }
     })
   }
 

@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { UserEntity } from 'src/app/shared/models/app-user-entity';
+import { Modal } from 'src/app/shared/models/modal';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -12,13 +14,19 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./account-edit.component.scss']
 })
 export class AccountEditComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+    if (this.userForm?.dirty) {
+      $event.returnValue = true;
+    }
+  }
   userForm: FormGroup = new FormGroup({})
   user: UserEntity = {} as UserEntity;
   maxDate: Date = new Date();
+  modal: Modal = new Modal;
 
   constructor(private accountService: AccountService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
-    private router: Router) {
+    private router: Router, private confirmService: ConfirmService) {
       this.bcService.set('@editProfileTitle', 'Edit Profile');
     }
 
@@ -28,15 +36,18 @@ export class AccountEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.accountService.update(this.userForm.value).subscribe({
-      next: user => {
-        this.user = user;
-        this.userForm.reset();
-        this.userForm.patchValue(user);
-        this.toastr.success('User updated successfully');
-      },
-      error: () => {
-        
+    this.modal.title = `${this.user.firstName} ${this.user.lastName} profile information`;
+    this.modal.message = 'Do you confirm changes made to your account information?';
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.accountService.update(this.userForm.value).subscribe({
+          next: user => {
+            this.user = user;
+            this.userForm.reset();
+            this.userForm.patchValue(user);
+            this.toastr.success('User updated successfully');
+          },
+        })
       }
     })
   }

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewComponent } from './new/new.component';
+import { PreventUnsavedChangesGuard } from './new/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
       breadcrumb: {
         alias: 'newServiceTitle'
       }
-    }
+    },
+    canDeactivate: [PreventUnsavedChangesGuard]
   },
   {
     path: 'list',

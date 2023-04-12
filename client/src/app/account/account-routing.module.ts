@@ -7,6 +7,8 @@ import { AccountSavedProfilesComponent } from './account-saved-profiles/account-
 import { AccountProductsComponent } from './account-products/account-products.component';
 import { ServicesComponent } from './services/services.component';
 import { MessagesComponent } from './messages/messages.component';
+import { PreventUnsavedChangesPasswordGuard } from './account-change-password/prevent-unsaved-changes-password.guard';
+import { PreventUnsavedChangesAccountGuard } from './account-edit/prevent-unsaved-changes-account.guard';
 
 const routes: Routes = [
   { path: 'summary', component: AccountHomeComponent },
@@ -17,7 +19,8 @@ const routes: Routes = [
       breadcrumb: {
         alias: 'editProfileTitle'
       }
-    }
+    },
+    canDeactivate: [PreventUnsavedChangesAccountGuard]
   },
   {
     path: 'products',
@@ -44,7 +47,12 @@ const routes: Routes = [
   {
     path: 'change-password',
     component: AccountChangePasswordComponent,
-    data: { breadcrumb: { alias: 'changePassword' } },
+    data: {
+      breadcrumb: {
+        alias: 'changePassword'
+      }
+    },
+    canDeactivate: [PreventUnsavedChangesPasswordGuard]
   },
 ];
 

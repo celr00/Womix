@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ItemComponent } from './item.component';
 import { EditComponent } from './edit/edit.component';
+import { PreventUnsavedChangesGuard } from './edit/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -15,7 +16,8 @@ const routes: Routes = [
       breadcrumb: {
         alias: 'serviceEditTitle'
       }
-    }
+    },
+    canDeactivate: [PreventUnsavedChangesGuard]
   },
 ];
 

@@ -5,7 +5,7 @@
   <div class="card-body">
     <h5 class="card-title">{{item.name}}</h5>
     <p class="card-text" *ngIf="item.description.length > 70">{{item.description | slice: 0:70}} ...</p>
-    <p class="card-text" *ngIf="item.description <= 70">{{item.description}}</p>
+    <p class="card-text" *ngIf="item.description.length <= 70">{{item.description}}</p>
     <!-- <a routerLink="/user/{{item.userService.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="!isProduct && showSellerName">{{item.userService.user.firstName}} {{item.userService.user.lastName}}</a>
     <a routerLink="/user/{{item.userProduct.userId}}" class="card-link text-decoration-none text-info fw-semibold fs-5" *ngIf="isProduct && showSellerName">{{item.userProduct.user.firstName}} {{item.userProduct.user.lastName}}</a> -->
   </div>
