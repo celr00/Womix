@@ -6,6 +6,7 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { UserEntity } from 'src/app/shared/models/app-user-entity';
 import { Modal } from 'src/app/shared/models/modal';
+import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -23,6 +24,7 @@ export class AccountEditComponent implements OnInit {
   user: UserEntity = {} as UserEntity;
   maxDate: Date = new Date();
   modal: Modal = new Modal;
+  photo: Photo[] = [];
 
   constructor(private accountService: AccountService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
@@ -69,8 +71,7 @@ export class AccountEditComponent implements OnInit {
     this.accountService.getUserEntity().subscribe({
       next: user => {
         this.user = user;
-        console.log(user);
-
+        this.photo.push(user.appUserPhoto.photo);
       },
       complete: () => {
         const dob = new Date(this.user.dateOfBirth);

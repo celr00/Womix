@@ -1,10 +1,19 @@
 <div class="modal-header">
-  <h4 class="modal-title pull-left">{{title}}</h4>
+  <h5 class="modal-title">
+    {{title}}
+  </h5>
+  <button type="button" class="btn-close" (click)="decline()"></button>
 </div>
 <div class="modal-body">
-  <p>{{message}}</p>
+  <p>
+    {{message}}
+  </p>
 </div>
 <div class="modal-footer">
-  <button class="btn btn-outline-secondary" (click)="decline()">{{btnCancelText}}</button>
-  <button class="btn btn-info" (click)="confirm()">{{btnOkText}}</button>
+  <button type="button" class="btn btn-outline-secondary" (click)="decline()">
+    {{btnCancelText}}
+  </button>
+  <button type="button" class="btn btn-info" (click)="confirm()">
+    {{btnOkText}}
+  </button>
 </div>
