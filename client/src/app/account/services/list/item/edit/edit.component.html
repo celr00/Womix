@@ -9,7 +9,7 @@
     <div class="col-12 col-sm-10 col-md-6 col-lg-4">
       <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" *ngIf="categories && serviceForm">
         <app-text-input [label]="'Name'" [formControl]="$any(serviceForm.controls['name'])"></app-text-input>
-        <app-text-input [label]="'Description'" [formControl]="$any(serviceForm.controls['description'])"></app-text-input>
+        <app-text-area [label]="'Description'" [formControl]="$any(serviceForm.controls['description'])"></app-text-area>
         <app-text-input [label]="'Price'" [type]="'number'" [formControl]="$any(serviceForm.controls['price'])"></app-text-input>
         <div class="form-floating" id="floatingSelect" *ngIf="serviceForm.get('serviceCategory')">
           <select class="form-select" [formControl]="$any(serviceForm.controls['serviceCategory'].get('categoryId'))">

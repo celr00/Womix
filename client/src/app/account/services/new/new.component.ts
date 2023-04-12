@@ -37,6 +37,7 @@ export class NewComponent implements OnInit {
     const value = this.serviceForm.value;
     this.serviceService.add(value).subscribe({
       next: () => {
+        this.serviceForm.reset(value);
         this.toastr.success('Service added successfully');
         this.router.navigateByUrl('/account/services/list');
       },
