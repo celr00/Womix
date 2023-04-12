@@ -38,9 +38,22 @@ export class AccountEditComponent implements OnInit {
   onSubmit() {
     this.modal.title = `${this.user.firstName} ${this.user.lastName} profile information`;
     this.modal.message = 'Do you confirm changes made to your account information?';
+    if (this.user.appUserAddress === null) {
+      this.userForm.controls['appUserAddress'].get('userId')?.setValue(0);
+      this.userForm.controls['appUserAddress'].get('addressId')?.setValue(0);
+    }
+    if (this.user.appUserPhoto === null) {
+      this.userForm.controls['appUserPhoto'].get('userId')?.setValue(0);
+      this.userForm.controls['appUserPhoto'].get('photoId')?.setValue(0);
+      this.userForm.controls['appUserPhoto'].get('photo')?.get('id')?.setValue(0);
+    }
+    const dateString = this.userForm.controls['dateOfBirth'].value;
+    this.userForm.controls['dateOfBirth'].setValue(this.getDateOnly(dateString));
+    const value = this.userForm.value;
+    console.log(value);
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
-        modal && this.accountService.update(this.userForm.value).subscribe({
+        modal && this.accountService.update(value).subscribe({
           next: user => {
             this.user = user;
             this.userForm.reset();
@@ -72,28 +85,34 @@ export class AccountEditComponent implements OnInit {
       instagram: ['', [Validators.required]],
       phoneNumber: ['', [Validators.required]],
       appUserPhoto: this.fb.group({
-        userId: ['', [Validators.required]],
-        photoId: ['', [Validators.required]],
+        userId: [''],
+        photoId: [''],
         photo: this.fb.group({
-          url: ['', [Validators.required]],
-          id: ['', [Validators.required]],
+          url: [''],
+          id: [''],
         })
       }),
       appUserAddress: this.fb.group({
-        userId: ['', [Validators.required]],
-        addressId: ['', [Validators.required]],
+        userId: [''],
+        addressId: [''],
         address: this.fb.group({
           number: ['', [Validators.required]],
           street: ['', [Validators.required]],
           city: ['', [Validators.required]],
           state: ['', [Validators.required]],
           zipcode: ['', [Validators.required]],
-          id: ['', [Validators.required]],
+          id: ['']
         })
       })
     })
-
     this.userForm.patchValue(this.user);
+  }
+
+  private getDateOnly(dob: string | undefined) {
+    if (!dob) return;
+    let theDob = new Date(dob);
+    return new Date(theDob.setMinutes(theDob.getMinutes()-theDob.getTimezoneOffset()))
+      .toISOString().slice(0,10);
   }
 
 }

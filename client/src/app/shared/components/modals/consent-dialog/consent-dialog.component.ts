@@ -1,12 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
-  selector: 'app-confirm-dialog',
-  templateUrl: './confirm-dialog.component.html',
-  styleUrls: ['./confirm-dialog.component.scss']
+  selector: 'app-consent-dialog',
+  templateUrl: './consent-dialog.component.html',
+  styleUrls: ['./consent-dialog.component.scss']
 })
-export class ConfirmDialogComponent implements OnInit {
+export class ConsentDialogComponent implements OnInit, AfterViewInit {
   title = '';
   message = '';
   btnOkText = '';
@@ -14,6 +14,10 @@ export class ConfirmDialogComponent implements OnInit {
   result = false;
 
   constructor(public bsModalRef: BsModalRef) { }
+
+  ngAfterViewInit(): void {
+
+  }
 
   ngOnInit(): void {
 
@@ -27,5 +31,4 @@ export class ConfirmDialogComponent implements OnInit {
   decline() {
     this.bsModalRef.hide();
   }
-
 }

@@ -15,7 +15,7 @@ import { FooterComponent } from './footer/footer.component';
     LandingComponent,
     RegisterComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
   ],
   imports: [
     CommonModule,

@@ -1,0 +1,16 @@
+<div class="modal-header">
+  <h4 class="modal-title pull-left">{{title}}</h4>
+</div>
+<div class="modal-body">
+  <p>{{message}}</p>
+  <div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" ngModel #checkbox>
+    <label class="form-check-label" for="flexCheckDefault">
+      I confirm to be a woman
+    </label>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-outline-secondary" (click)="decline()">{{btnCancelText}}</button>
+  <button class="btn btn-info" (click)="confirm()" [disabled]="!checkbox.checked">{{btnOkText}}</button>
+</div>

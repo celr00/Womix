@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { Observable, map } from 'rxjs';
-import { ConfirmDialogComponent } from 'src/app/shared/components/modals/confirm-dialog/confirm-dialog.component';
+import { ConsentDialogComponent } from 'src/app/shared/components/modals/consent-dialog/consent-dialog.component';
 import { Modal } from 'src/app/shared/models/modal';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ConfirmService {
-  bsModalRef?: BsModalRef<ConfirmDialogComponent>;
+export class RegisterConsentService {
+  bsModalRef?: BsModalRef<ConsentDialogComponent>;
 
   constructor(private modalService: BsModalService) { }
 
@@ -18,7 +18,7 @@ export class ConfirmService {
         ...modal
       }
     }
-    this.bsModalRef = this.modalService.show(ConfirmDialogComponent, config);
+    this.bsModalRef = this.modalService.show(ConsentDialogComponent, config);
     return this.bsModalRef.onHidden!.pipe(
       map(() => {
         return this.bsModalRef!.content!.result

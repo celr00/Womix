@@ -4,6 +4,7 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { ProductService } from 'src/app/product/product.service';
+import { Modal } from 'src/app/shared/models/modal';
 import { Product } from 'src/app/shared/models/product';
 import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -18,6 +19,7 @@ export class AccountProductDetailComponent implements OnInit {
   product: Product = {} as Product;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
+  modal: Modal = new Modal;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService, private productService: ProductService, private router: Router,
     private toastr: ToastrService, private confirmService: ConfirmService) {
@@ -54,7 +56,10 @@ export class AccountProductDetailComponent implements OnInit {
   }
 
   delete() {
-    this.confirmService.confirm().subscribe({
+    this.modal.title = `Delete ${this.product.name}`;
+    this.modal.message = `Are you sure to delete the product '${this.product.name}'?`;
+    this.modal.btnOkText = 'Delete';
+    this.confirmService.confirm(this.modal).subscribe({
       next: res => {
         res && this.productService.delete(this.id).subscribe({
           next: () => {

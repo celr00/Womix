@@ -41,6 +41,12 @@
         <app-text-input [label]="'Zipcode'" [formControl]="$any(userForm.controls['appUserAddress'].get('address')!.get('zipcode'))"></app-text-input>
       </div>
     </div>
+    <!-- <code>
+      {{userForm.value | json}}
+    </code> -->
+    <!-- <button class="btn btn-success" type="submit">Save changes
+        <i class="fa fa-floppy-o ms-2"></i>
+    </button> -->
     <button class="btn btn-success" type="submit" [disabled]="!userForm.dirty || userForm.invalid">Save changes
         <i class="fa fa-floppy-o ms-2"></i>
     </button>
