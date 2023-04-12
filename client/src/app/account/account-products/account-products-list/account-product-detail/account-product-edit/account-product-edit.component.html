@@ -9,7 +9,7 @@
     <div class="col-12 col-sm-10 col-md-6 col-lg-4">
       <form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="types && productForm">
         <app-text-input [label]="'Name'" [formControl]="$any(productForm.controls['name'])"></app-text-input>
-        <app-text-input [label]="'Description'" [formControl]="$any(productForm.controls['description'])"></app-text-input>
+        <app-text-area [label]="'Description'" [formControl]="$any(productForm.controls['description'])"></app-text-area>
         <div class="row">
           <div class="col-6">
             <app-text-input [label]="'Price'" [type]="'number'" [formControl]="$any(productForm.controls['price'])"></app-text-input>

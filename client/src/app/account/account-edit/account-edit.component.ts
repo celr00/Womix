@@ -69,9 +69,12 @@ export class AccountEditComponent implements OnInit {
     this.accountService.getUserEntity().subscribe({
       next: user => {
         this.user = user;
+        console.log(user);
+
       },
       complete: () => {
-        this.initForm(this.user.dateOfBirth);
+        const dob = new Date(this.user.dateOfBirth);
+        this.initForm(dob);
       }
     })
   }
@@ -108,7 +111,7 @@ export class AccountEditComponent implements OnInit {
     this.userForm.patchValue(this.user);
   }
 
-  private getDateOnly(dob: string | undefined) {
+  private getDateOnly(dob: string) {
     if (!dob) return;
     let theDob = new Date(dob);
     return new Date(theDob.setMinutes(theDob.getMinutes()-theDob.getTimezoneOffset()))
