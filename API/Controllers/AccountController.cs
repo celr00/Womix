@@ -115,6 +115,24 @@ namespace API.Controllers
                 .Include(x => x.AppUserAddress)
                 .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
 
+            if (request.AppUserPhoto == null)
+            {
+                request.AppUserPhoto = new AppUserPhotoDto
+                {
+                    UserId = user.Id,
+                    Photo = request.AppUserPhoto.Photo,
+                };
+            }
+
+            if (request.AppUserAddress == null)
+            {
+                request.AppUserAddress = new AppUserAddressDto
+                {
+                    UserId = user.Id,
+                    Address = request.AppUserAddress.Address
+                };
+            }
+
             _mapper.Map<AppUserEntityDto, AppUser>(request, user);
 
             var result = await _userManager.UpdateAsync(user);
@@ -150,8 +168,11 @@ namespace API.Controllers
             var userProducts = user.UserProducts;
             var userServices = user.UserServices;
 
-            _addressRepo.Delete(user.AppUserAddress.Address);
-            _photoRepo.Delete(user.AppUserPhoto.Photo);
+            if (user.AppUserAddress != null)
+                _addressRepo.Delete(user.AppUserAddress.Address);
+
+            if (user.AppUserPhoto != null)
+                _photoRepo.Delete(user.AppUserPhoto.Photo);
 
             foreach (var product in userProducts)
                 _productRepo.Delete(product.Product);

@@ -4,6 +4,7 @@ import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { ServicesService } from 'src/app/services/services.service';
+import { Modal } from 'src/app/shared/models/modal';
 import { Photo, Service } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -17,6 +18,7 @@ export class ItemComponent implements OnInit {
   service: Service = {} as Service;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
+  modal: Modal = new Modal;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService,
     private serviceService: ServicesService, private router: Router, private toastr: ToastrService,
@@ -54,7 +56,10 @@ export class ItemComponent implements OnInit {
   }
 
   delete() {
-    this.confirmService.confirm().subscribe({
+    this.modal.title = `Delete ${this.service.name}`;
+    this.modal.message = `Are you sure to delete the service '${this.service.name}'?`;
+    this.modal.btnOkText = 'Delete';
+    this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.serviceService.delete(this.id).subscribe({
           next: () => {

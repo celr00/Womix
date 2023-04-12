@@ -16,6 +16,7 @@ import { PhotoUploadComponent } from './components/photo-upload/photo-upload.com
 import { DetailComponent } from './components/detail/detail.component';
 import { ConfirmDialogComponent } from './components/modals/confirm-dialog/confirm-dialog.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ConsentDialogComponent } from './components/modals/consent-dialog/consent-dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     PhotoUploadComponent,
     DetailComponent,
     ConfirmDialogComponent,
+    ConsentDialogComponent,
   ],
   imports: [
     CommonModule,
