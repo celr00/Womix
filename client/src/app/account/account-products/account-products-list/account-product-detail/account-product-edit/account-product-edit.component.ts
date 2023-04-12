@@ -2,7 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { ProductService } from 'src/app/product/product.service';
+import { Modal } from 'src/app/shared/models/modal';
 import { Product } from 'src/app/shared/models/product';
 import { Photo } from 'src/app/shared/models/service';
 import { Type } from 'src/app/shared/models/type';
@@ -19,10 +21,11 @@ export class AccountProductEditComponent implements OnInit {
   id: number;
   product: Product = {} as Product;
   photos: Photo[] = [];
+  modal: Modal = new Modal;
 
   constructor(private productService: ProductService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
-    private router: Router) {
+    private router: Router, private confirmService: ConfirmService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
 
@@ -56,13 +59,18 @@ export class AccountProductEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.productService.edit(this.productForm.value).subscribe({
-      next: () => {
-        this.toastr.success('Product updated successfully');
-        this.router.navigateByUrl('/account/products/list/' + this.product.id);
-      },
-      error: () => {
-
+    this.modal.title = `Save changes for ${this.product.name}`;
+    this.modal.message = `Do you want to confirm changes made to your product ${this.product.name}`;
+    const value = this.productForm.value;
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.productService.edit(value).subscribe({
+          next: () => {
+            this.productForm.reset(value);
+            this.toastr.success('Product updated successfully');
+            this.router.navigateByUrl('/account/products/list/' + this.product.id);
+          },
+        })
       }
     })
   }

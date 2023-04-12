@@ -43,7 +43,7 @@ export class AccountService {
   logout() {
     localStorage.removeItem('account');
     this.currentAccountSource.next(null);
-    this.router.navigateByUrl('/');
+    this.router.navigateByUrl('/sign-in');
     this.presenceService.stopHubConnection();
   }
 

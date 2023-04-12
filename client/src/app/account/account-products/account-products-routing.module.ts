@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AccountProductsNewComponent } from './account-products-new/account-products-new.component';
+import { PreventUnsavedChangesGuard } from './account-products-new/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
       breadcrumb: {
         alias: 'newProductTitle'
       }
-    }
+    },
+    canDeactivate: [PreventUnsavedChangesGuard]
   },
   {
     path: 'list',

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { Photo, Service } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -18,7 +19,8 @@ export class ItemComponent implements OnInit {
   galleryImages: NgxGalleryImage[] = [];
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService,
-    private serviceService: ServicesService, private router: Router, private toastr: ToastrService) {
+    private serviceService: ServicesService, private router: Router, private toastr: ToastrService,
+    private confirmService: ConfirmService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.galleryOptions = [
       {
@@ -52,13 +54,14 @@ export class ItemComponent implements OnInit {
   }
 
   delete() {
-    this.serviceService.delete(this.id).subscribe({
-      next: () => {
-        this.router.navigateByUrl('/account/services/list');
-        this.toastr.success('Service deleted successfully');
-      },
-      error: () => {
-        
+    this.confirmService.confirm().subscribe({
+      next: modal => {
+        modal && this.serviceService.delete(this.id).subscribe({
+          next: () => {
+            this.router.navigateByUrl('/account/services/list');
+            this.toastr.success('Service deleted successfully');
+          },
+        })
       }
     })
   }

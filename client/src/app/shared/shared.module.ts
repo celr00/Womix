@@ -14,7 +14,8 @@ import { FileUploadModule } from 'ng2-file-upload';
 import { CardComponent } from './components/card/card.component';
 import { PhotoUploadComponent } from './components/photo-upload/photo-upload.component';
 import { DetailComponent } from './components/detail/detail.component';
-
+import { ConfirmDialogComponent } from './components/modals/confirm-dialog/confirm-dialog.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { DetailComponent } from './components/detail/detail.component';
     CardComponent,
     PhotoUploadComponent,
     DetailComponent,
+    ConfirmDialogComponent,
   ],
   imports: [
     CommonModule,
@@ -37,6 +39,7 @@ import { DetailComponent } from './components/detail/detail.component';
     BsDropdownModule.forRoot(),
     FileUploadModule,
     NgxGalleryModule,
+    ModalModule.forRoot(),
   ],
   exports: [
     TextInputComponent,
@@ -52,6 +55,7 @@ import { DetailComponent } from './components/detail/detail.component';
     CardComponent,
     PhotoUploadComponent,
     DetailComponent,
+    ModalModule,
   ]
 })
 export class SharedModule { }

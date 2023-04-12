@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { ServicesService } from 'src/app/services/services.service';
+import { Modal } from 'src/app/shared/models/modal';
 import { Category, Photo, Service } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -12,15 +14,21 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+    if (this.serviceForm?.dirty) {
+      $event.returnValue = true;
+    }
+  }
   serviceForm: FormGroup = new FormGroup({})
   categories?: Category[];
   id: number;
-  service?: Service;
+  service: Service = {} as Service;
   photos: Photo[] = [];
+  modal: Modal = new Modal;
 
   constructor(private serviceService: ServicesService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
-    private router: Router) {
+    private router: Router, private confirmService: ConfirmService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
   }
 
@@ -38,6 +46,8 @@ export class EditComponent implements OnInit {
         this.service.servicePhotos.forEach(x => {
           this.photos.push(x.photo)
         });
+        this.modal.title = `Service ${this.service.name}`;
+        this.modal.message = `Do you confirm changes made to the service '${this.service.name}'?`;
       },
     })
   }
@@ -54,13 +64,18 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.serviceService.edit(this.serviceForm.value).subscribe({
-      next: () => {
-        this.toastr.success('Service updated successfully');
-        this.router.navigateByUrl('/account/services/list/' + this.id);
-      },
-      error: () => {
-        
+    this.modal.title = `Save changes for ${this.service.name}`;
+    this.modal.message = `Do you want to confirm changes made to your service ${this.service.name}`;
+    const value = this.serviceForm.value;
+    this.confirmService.confirm(this.modal).subscribe({
+      next: (modal) => {
+        modal && this.serviceService.edit(value).subscribe({
+          next: () => {
+            this.serviceForm.reset(value);
+            this.toastr.success('Service updated successfully');
+            this.router.navigateByUrl('/account/services/list/' + this.id);
+          },
+        })
       }
     })
   }

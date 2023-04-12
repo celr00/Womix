@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/landing/account.service';
@@ -10,6 +10,11 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./account-change-password.component.scss']
 })
 export class AccountChangePasswordComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+    if (this.passwordForm?.touched) {
+      $event.returnValue = true;
+    }
+  }
   passwordForm: FormGroup = new FormGroup({});
   complexPassword = "(?=^.{6,255}$)((?=.*\d)(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[^A-Za-z0-9])(?=.*[a-z])|(?=.*[^A-Za-z0-9])(?=.*[A-Z])(?=.*[a-z])|(?=.*\d)(?=.*[A-Z])(?=.*[^A-Za-z0-9]))^.*"
 
@@ -47,7 +52,7 @@ export class AccountChangePasswordComponent implements OnInit {
         this.passwordForm.reset();
       },
       error: () => {
-        
+
       }
     })
   }

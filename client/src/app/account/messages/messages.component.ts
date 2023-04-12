@@ -4,9 +4,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { MessageService } from 'src/app/_services/message.service';
 import { PresenceService } from 'src/app/_services/presence.service';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { Account } from 'src/app/shared/models/account';
 import { AppUser } from 'src/app/shared/models/app-user';
 import { Message } from 'src/app/shared/models/message';
+import { Modal } from 'src/app/shared/models/modal';
 import { UserService } from 'src/app/user/user.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -22,10 +24,11 @@ export class MessagesComponent implements OnInit, OnDestroy {
   messageContent = '';
   loading = false;
   recipient?: AppUser;
+  modal: Modal = new Modal;
 
   constructor(public messageService: MessageService, private route: ActivatedRoute,
     public presenceService: PresenceService, private bcService: BreadcrumbService, private userService: UserService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, private confirmService: ConfirmService) {
     const accountString = localStorage.getItem('account');
     this.account = JSON.parse(accountString!);
     this.recipientEmail = this.route.snapshot.paramMap.get('username')!;
@@ -55,11 +58,16 @@ export class MessagesComponent implements OnInit, OnDestroy {
   }
 
   deleteMessage(messageId: number) {
-    this.messageService.deleteMessage(messageId).subscribe({
-      next: () => this.toastr.success('Message deleted'),
-      complete: () => this.ngOnInit()
+    this.modal.title = `Delete message`;
+    this.modal.message = `Are you sure to delete this message?`;
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.messageService.deleteMessage(messageId).subscribe({
+          next: () => this.toastr.success('Message deleted'),
+          complete: () => this.ngOnInit()
+        })
+      }
     })
-
   }
 
   isMyChat(message: Message): boolean {
