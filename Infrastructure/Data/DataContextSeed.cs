@@ -63,6 +63,18 @@ namespace Infrastructure.Data
                     Instagram="alexcastellanosl",
                     FirstName = "Alejandro", LastName = "Castellanos", Email = "alejandro.castellanos@castelec.com.mx",
                     UserName = "alejandro.castellanos@castelec.com.mx"},
+                new AppUser 
+                {
+                    PhoneNumber="8189893100",
+                    AppUserPhoto = new AppUserPhoto { UserId = 5, Photo = new Photo {Url = "https://upload.wikimedia.org/wikipedia/commons/thumb/3/32/Mercedes-Benz_Star_2022.svg/800px-Mercedes-Benz_Star_2022.svg.png"}},
+                    AppUserAddress = new AppUserAddress{
+                        UserId = 5,
+                        Address = new Address { City = "Monterrey", Number = "700", State = "Nuevo León", Street=" José Eleuterio Gonzalez", Zipcode="64640"}
+                    },
+                    Facebook="MercedesBenzMX",
+                    Instagram="mercedesbenz",
+                    FirstName = "Mercedes", LastName = "Benz", Email = "admin@mercedesbenz.com",
+                    UserName = "admin@mercedesbenz.com"},
             };
 
             var roles = new List<AppRole>
@@ -120,6 +132,24 @@ namespace Infrastructure.Data
                     new Category { Name = "Health & Fitness"},
                 };
                 context.Categories.AddRange(categories);
+            }
+
+            if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
+
+            if(!context.Areas.Any())
+            {
+                var areas = new List<Area>()
+                {
+                    new Area { Name = "Engineering"},
+                    new Area { Name = "Finance"},
+                    new Area { Name = "Marketing"},
+                    new Area { Name = "Customer Suppoert"},
+                    new Area { Name = "Human Resources"},
+                    new Area { Name = "Sales Manager"},
+                    new Area { Name = "Project Manager"},
+                    new Area { Name = "Administrative Assistant"},
+                };
+                context.Areas.AddRange(areas);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
@@ -1258,6 +1288,44 @@ namespace Infrastructure.Data
                     },
                 };
                 context.UserServices.AddRange(userServices);
+            }
+
+            if (!context.UserJobs.Any())
+            {
+                var userJobs = new List<UserJob>()
+                {
+                    new UserJob
+                    {
+                        UserId = 5,
+                        Job = new Job
+                        {
+                            Name = "Software Engineer",
+                            Description = "Full time software engineer with full-stack capabilities fluent in python and JS",
+                            Salary = 25349,
+                            JobArea = new JobArea
+                            {
+                                JobId = 1,
+                                AreaId = 1
+                            },
+                        }
+                    },
+                    new UserJob
+                    {
+                        UserId = 5,
+                        Job = new Job
+                        {
+                            Name = "Content Creator & Marketing",
+                            Description = "Marketing fulltime job with experience with Adobe suite",
+                            Salary = 14999,
+                            JobArea = new JobArea
+                            {
+                                JobId = 2,
+                                AreaId = 3
+                            },
+                        }
+                    },
+                };
+                context.UserJobs.AddRange(userJobs);
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();

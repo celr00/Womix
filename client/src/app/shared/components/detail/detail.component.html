@@ -1,5 +1,5 @@
 <div *ngIf="item" class="bg-white p-4 rounded-4"
-  [ngClass]="{'shadow-info' : isProduct, 'shadow-warning': !isProduct}">
+  [ngClass]="{'shadow-info' : type, 'shadow-warning': !type}">
   <h3 class="fw-bold">
     {{item.name}}
   </h3>
@@ -12,7 +12,7 @@
         </a>
       </p>
     </ng-container>
-    <ng-container *ngIf="isProduct">
+    <ng-container *ngIf="type">
       <p class="text-muted" *ngIf="item.stockQuantity > 0">
         {{item.stockQuantity}} Available
       </p>
@@ -25,7 +25,7 @@
     {{item.price | currency}}
   </h4>
   <hr class="my-4 text-info border border-2"
-    [ngClass]="{'border-info': isProduct, 'border-primary':!isProduct}">
+    [ngClass]="{'border-info': type, 'border-primary':!type}">
   <p>
     {{item.description}}
   </p>

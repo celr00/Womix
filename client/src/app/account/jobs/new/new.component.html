@@ -1,0 +1,38 @@
+<form [formGroup]="jobForm" (ngSubmit)="onSubmit()" *ngIf="areas && jobForm && user">
+  <div class="container-fluid container-md">
+    <div class="row">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+        <app-text-input [label]="'Name'" [formControl]="$any(jobForm.controls['name'])"></app-text-input>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+        <app-text-area [label]="'Description'" [formControl]="$any(jobForm.controls['description'])"></app-text-area>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+        <app-text-input [label]="'Salary'" [type]="'number'" [formControl]="$any(jobForm.controls['salary'])"></app-text-input>
+      </div>
+    </div>
+    <div class="row mb-3">
+      <div class="col-12 col-sm col-md-6 col-lg-4" *ngIf="jobForm.get('jobArea')">
+        <div class="form-floating" id="floatingSelect">
+          <select class="form-select" [formControl]="$any(jobForm.controls['jobArea'].get('areaId'))">
+            <option value="{{area.id | number}}" *ngFor="let area of areas">
+              {{area.name}}
+            </option>
+          </select>
+          <label for="floatingSelect">Job area</label>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col d-flex">
+      <button type="submit" [disabled]="jobForm.invalid" class="btn btn-success">Add job
+        <i class="fa fa-check ms-2"></i>
+      </button>
+      </div>
+    </div>
+  </div>
+</form>

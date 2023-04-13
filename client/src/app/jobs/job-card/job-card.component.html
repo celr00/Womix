@@ -1,0 +1,17 @@
+<div class="card bg-light rounded-4 shadow-sm border border-4 pointer"
+  [ngClass]="{'border-primary': isActive}">
+  <img src="../../../assets/placeholder-image.png" class="card-img-top">
+  <div class="card-body border-bottom border-top">
+    <h5>
+      {{job.name}}
+    </h5>
+    <p>
+      {{job.description}}
+    </p>
+  </div>
+  <div class="card-footer bg-success rounded-3">
+    <p class="text-white text-center">
+      {{job.salary | currency}}
+    </p>
+  </div>
+</div>

@@ -12,7 +12,7 @@ export class CardComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
   photos: Photo[] = [];
-  @Input() isProduct = true;
+  @Input() type = 'product';
   @Input() showSellerName = true;
   url: string = '';
 
@@ -39,22 +39,38 @@ export class CardComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.galleryImages = this.defineGalleryImages(this.isProduct);
-    if (this.isProduct) this.url = `/products/${this.item.id}`;
-    if (!this.isProduct) this.url = `/services/${this.item.id}`;
+    this.galleryImages = this.defineGalleryImages(this.type);
+    switch (this.type) {
+      case 'product':
+        this.url = `/products/${this.item.id}`;
+        break;
+        case 'service':
+        this.url = `/services/${this.item.id}`;
+        break;
+      case 'job':
+        this.url = `/jobs/${this.item.id}`;
+        break;
+      default:
+        break;
+    }
   }
 
-  private defineGalleryImages(isProduct: boolean): any[] {
-    if (isProduct && this.item.productPhotos.length === 0) return [];
-    if (!isProduct && this.item.servicePhotos.length === 0) return [];
+  private defineGalleryImages(type: string): any[] {
+    if (type === 'product' && this.item.productPhotos.length === 0) return [];
+    if (type === 'service' && this.item.servicePhotos.length === 0) return [];
+    if (type === 'job') return [];
     const imageUrls = [];
     const photos: Photo[] = [];
-    !isProduct && this.item.servicePhotos.forEach((x:any) => {
-      photos.push(x.photo)
-    });
-    isProduct && this.item.productPhotos.forEach((x:any) => {
-      photos.push(x.photo)
-    });
+    if (type === 'service') {
+      this.item.servicePhotos.forEach((x:any) => {
+        photos.push(x.photo)
+      });
+    }
+    if (type === 'product') {
+      this.item.productPhotos.forEach((x:any) => {
+        photos.push(x.photo)
+      });
+    }
     for (const photo of photos) {
       imageUrls.push({
         small: photo.url,

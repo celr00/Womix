@@ -20,9 +20,16 @@ namespace Infrastructure.Data.Config
                 .HasForeignKey(x => x.UserId)
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
-            
+
             builder
                 .HasMany(u => u.UserServices)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasMany(u => u.UserJobs)
                 .WithOne(x => x.User)
                 .HasForeignKey(x => x.UserId)
                 .IsRequired(false)

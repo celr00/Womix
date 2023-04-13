@@ -29,6 +29,19 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Areas",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Areas", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -110,6 +123,21 @@ namespace Infrastructure.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_ItemClasses", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Jobs",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Name = table.Column<string>(type: "TEXT", nullable: true),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
+                    Salary = table.Column<double>(type: "REAL", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jobs", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -361,6 +389,53 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "JobAreas",
+                columns: table => new
+                {
+                    JobId = table.Column<int>(type: "INTEGER", nullable: false),
+                    AreaId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_JobAreas", x => new { x.JobId, x.AreaId });
+                    table.ForeignKey(
+                        name: "FK_JobAreas_Areas_AreaId",
+                        column: x => x.AreaId,
+                        principalTable: "Areas",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_JobAreas_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserJobs",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    JobId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserJobs", x => new { x.UserId, x.JobId });
+                    table.ForeignKey(
+                        name: "FK_UserJobs_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserJobs_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AppUserPhotos",
                 columns: table => new
                 {
@@ -592,6 +667,17 @@ namespace Infrastructure.Data.Migrations
                 column: "GroupName");
 
             migrationBuilder.CreateIndex(
+                name: "IX_JobAreas_AreaId",
+                table: "JobAreas",
+                column: "AreaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_JobAreas_JobId",
+                table: "JobAreas",
+                column: "JobId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Likes_TargetUserId",
                 table: "Likes",
                 column: "TargetUserId");
@@ -645,6 +731,12 @@ namespace Infrastructure.Data.Migrations
                 column: "ServiceId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserJobs_JobId",
+                table: "UserJobs",
+                column: "JobId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserProducts_ProductId",
                 table: "UserProducts",
                 column: "ProductId",
@@ -685,6 +777,9 @@ namespace Infrastructure.Data.Migrations
                 name: "Connections");
 
             migrationBuilder.DropTable(
+                name: "JobAreas");
+
+            migrationBuilder.DropTable(
                 name: "Likes");
 
             migrationBuilder.DropTable(
@@ -703,6 +798,9 @@ namespace Infrastructure.Data.Migrations
                 name: "ServicePhotos");
 
             migrationBuilder.DropTable(
+                name: "UserJobs");
+
+            migrationBuilder.DropTable(
                 name: "UserProducts");
 
             migrationBuilder.DropTable(
@@ -718,6 +816,9 @@ namespace Infrastructure.Data.Migrations
                 name: "Groups");
 
             migrationBuilder.DropTable(
+                name: "Areas");
+
+            migrationBuilder.DropTable(
                 name: "ItemClasses");
 
             migrationBuilder.DropTable(
@@ -725,6 +826,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Photos");
+
+            migrationBuilder.DropTable(
+                name: "Jobs");
 
             migrationBuilder.DropTable(
                 name: "Products");

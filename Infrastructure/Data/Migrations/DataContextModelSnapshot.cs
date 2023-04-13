@@ -205,6 +205,20 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
 
+            modelBuilder.Entity("Core.Entities.Area", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Areas");
+                });
+
             modelBuilder.Entity("Core.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -259,6 +273,44 @@ namespace Infrastructure.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("ItemClasses");
+                });
+
+            modelBuilder.Entity("Core.Entities.Job", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("TEXT");
+
+                    b.Property<double>("Salary")
+                        .HasColumnType("REAL");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Jobs");
+                });
+
+            modelBuilder.Entity("Core.Entities.JobArea", b =>
+                {
+                    b.Property<int>("JobId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("AreaId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("JobId", "AreaId");
+
+                    b.HasIndex("AreaId");
+
+                    b.HasIndex("JobId")
+                        .IsUnique();
+
+                    b.ToTable("JobAreas");
                 });
 
             modelBuilder.Entity("Core.Entities.Message", b =>
@@ -430,6 +482,22 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("ServiceId");
 
                     b.ToTable("ServicePhotos");
+                });
+
+            modelBuilder.Entity("Core.Entities.UserJob", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("JobId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("UserId", "JobId");
+
+                    b.HasIndex("JobId")
+                        .IsUnique();
+
+                    b.ToTable("UserJobs");
                 });
 
             modelBuilder.Entity("Core.Entities.UserLike", b =>
@@ -624,6 +692,25 @@ namespace Infrastructure.Data.Migrations
                         .HasForeignKey("GroupName");
                 });
 
+            modelBuilder.Entity("Core.Entities.JobArea", b =>
+                {
+                    b.HasOne("Core.Entities.Area", "Area")
+                        .WithMany("JobAreas")
+                        .HasForeignKey("AreaId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Job", "Job")
+                        .WithOne("JobArea")
+                        .HasForeignKey("Core.Entities.JobArea", "JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Area");
+
+                    b.Navigation("Job");
+                });
+
             modelBuilder.Entity("Core.Entities.Message", b =>
                 {
                     b.HasOne("Core.Entities.AppUser", "Recipient")
@@ -717,6 +804,24 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("Photo");
 
                     b.Navigation("Service");
+                });
+
+            modelBuilder.Entity("Core.Entities.UserJob", b =>
+                {
+                    b.HasOne("Core.Entities.Job", "Job")
+                        .WithOne("UserJob")
+                        .HasForeignKey("Core.Entities.UserJob", "JobId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.AppUser", "User")
+                        .WithMany("UserJobs")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Job");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Core.Entities.UserLike", b =>
@@ -829,11 +934,18 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("MessagesSent");
 
+                    b.Navigation("UserJobs");
+
                     b.Navigation("UserProducts");
 
                     b.Navigation("UserRole");
 
                     b.Navigation("UserServices");
+                });
+
+            modelBuilder.Entity("Core.Entities.Area", b =>
+                {
+                    b.Navigation("JobAreas");
                 });
 
             modelBuilder.Entity("Core.Entities.Category", b =>
@@ -849,6 +961,13 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.ItemClass", b =>
                 {
                     b.Navigation("ProductItemClasses");
+                });
+
+            modelBuilder.Entity("Core.Entities.Job", b =>
+                {
+                    b.Navigation("JobArea");
+
+                    b.Navigation("UserJob");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>

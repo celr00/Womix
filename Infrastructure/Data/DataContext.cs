@@ -30,6 +30,11 @@ namespace Infrastructure.Data
         public DbSet<Service> Services { get; set; }
         public DbSet<ServicePhoto> ServicePhotos { get; set; }
 
+        public DbSet<UserJob> UserJobs { get; set; }
+        public DbSet<Area> Areas { get; set; }
+        public DbSet<JobArea> JobAreas { get; set; }
+        public DbSet<Job> Jobs { get; set; }
+
         public DbSet<Message> Messages { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Connection> Connections { get; set; }

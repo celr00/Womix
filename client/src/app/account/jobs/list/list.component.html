@@ -1,0 +1,41 @@
+<div class="d-flex mt-2 mb-3">
+  <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2 bg-transparent" #search>
+  <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
+  <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+</div>
+
+<table class="table" *ngIf="user">
+  <thead>
+    <tr>
+      <th scope="col pointer" (click)="onIdClick()">#</th>
+      <th scope="col pointer" (click)="onNameClick()">Name</th>
+      <th scope="col pointer" (click)="onDescriptionClick()">Description</th>
+      <th scope="col pointer" (click)="onSalaryClick()">Salary</th>
+      <th scope="col pointer" (click)="onAreaClick()">Area</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobs" class="pointer" routerLink="/account/jobs/list/{{job.id}}">
+      <td>
+        {{job.id}}
+      </td>
+      <td>
+        {{job.name}}
+      </td>
+      <td>
+        {{job.description}}
+      </td>
+      <td>
+        {{job.salary | currency}}
+      </td>
+      <td>
+        {{job.jobArea.area.name}}
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+  <app-pager [totalCount]="totalCount" [pageSize]="params.pageSize" [pageNumber]="params.pageNumber"
+    (pageChanged)="onPageChanged($event)"></app-pager>
+</div>
