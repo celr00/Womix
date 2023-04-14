@@ -22,7 +22,9 @@ namespace Infrastructure.Data
         public DbSet<ItemClass> ItemClasses { get; set; }
         public DbSet<AppUserPhoto> AppUserPhotos { get; set; }
         public DbSet<AppUserAddress> AppUserAddresses { get; set; }
+
         public DbSet<UserLike> Likes { get; set; }
+        public DbSet<UserJobInterest> UserJobInterests { get; set; }
 
         public DbSet<UserService> UserServices { get; set; }
         public DbSet<Category> Categories { get; set; }

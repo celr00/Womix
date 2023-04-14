@@ -6,7 +6,9 @@ using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -16,8 +18,10 @@ namespace API.Controllers
         private readonly IGenericRepository<Job> _jobsRepo;
         private readonly IGenericRepository<Area> _areasRepo;
         private readonly IUnitOfWork _uow;
-        public JobsController(IGenericRepository<Job> jobsRepo, IGenericRepository<Area> areasRepo, IMapper mapper, IUnitOfWork uow)
+        private readonly UserManager<AppUser> _userManager;
+        public JobsController(IGenericRepository<Job> jobsRepo, IGenericRepository<Area> areasRepo, IMapper mapper, IUnitOfWork uow, UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _uow = uow;
             _areasRepo = areasRepo;
             _jobsRepo = jobsRepo;
@@ -102,6 +106,30 @@ namespace API.Controllers
             if (areas == null) return BadRequest(new ApiResponse(400, "An error occurred loading the areas"));
 
             return Ok(_mapper.Map<IReadOnlyList<AreaDto>>(areas));
+        }
+
+        [HttpPost("follow/{id}")]
+        public async Task<ActionResult> Follow(int jobId)
+        {
+            var sourceUserId = User.GetUserId();
+            
+            var user = await _userManager.Users.SingleOrDefaultAsync(x => x.Id == sourceUserId);
+
+            if (user == null) return NotFound(new ApiResponse(404, "Error fetching source liker information"));
+
+            var job = await _jobsRepo.GetEntityWithSpec(new JobsSpecification(jobId));
+
+            if (job == null) return NotFound(new ApiResponse(404, "Error fetching job of target user"));
+
+            user.Following.Add(new UserJobInterest
+            {
+                SourceUserId = sourceUserId,
+                TargetUserId = job.UserJob.UserId
+            });
+
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error following job"));
+
+            return Ok();
         }
     }
 }

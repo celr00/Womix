@@ -45,6 +45,10 @@ export class JobsService {
     return this.http.get<Job>(this.baseUrl + 'jobs/' + id);
   }
 
+  follow(jobId: number) {
+    return this.http.post(this.baseUrl + `jobs/follow/${jobId}`, {});
+  }
+
   getAreas(): Observable<Area[]> {
     if (this.areas.length > 0) return of(this.areas);
 

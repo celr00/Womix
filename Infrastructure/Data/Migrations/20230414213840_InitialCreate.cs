@@ -371,6 +371,30 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "UserJobInterests",
+                columns: table => new
+                {
+                    SourceUserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    TargetUserId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserJobInterests", x => new { x.SourceUserId, x.TargetUserId });
+                    table.ForeignKey(
+                        name: "FK_UserJobInterests_AspNetUsers_SourceUserId",
+                        column: x => x.SourceUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserJobInterests_AspNetUsers_TargetUserId",
+                        column: x => x.TargetUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Connections",
                 columns: table => new
                 {
@@ -766,6 +790,11 @@ namespace Infrastructure.Data.Migrations
                 column: "ServiceId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_UserJobInterests_TargetUserId",
+                table: "UserJobInterests",
+                column: "TargetUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_UserJobs_JobId",
                 table: "UserJobs",
                 column: "JobId",
@@ -834,6 +863,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "ServicePhotos");
+
+            migrationBuilder.DropTable(
+                name: "UserJobInterests");
 
             migrationBuilder.DropTable(
                 name: "UserJobs");

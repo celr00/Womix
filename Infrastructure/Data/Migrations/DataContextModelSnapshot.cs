@@ -518,6 +518,21 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("UserJobs");
                 });
 
+            modelBuilder.Entity("Core.Entities.UserJobInterest", b =>
+                {
+                    b.Property<int>("SourceUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("TargetUserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("SourceUserId", "TargetUserId");
+
+                    b.HasIndex("TargetUserId");
+
+                    b.ToTable("UserJobInterests");
+                });
+
             modelBuilder.Entity("Core.Entities.UserLike", b =>
                 {
                     b.Property<int>("SourceUserId")
@@ -861,6 +876,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.UserJobInterest", b =>
+                {
+                    b.HasOne("Core.Entities.AppUser", "SourceUser")
+                        .WithMany("Following")
+                        .HasForeignKey("SourceUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.AppUser", "TargetUser")
+                        .WithMany("Followed")
+                        .HasForeignKey("TargetUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("SourceUser");
+
+                    b.Navigation("TargetUser");
+                });
+
             modelBuilder.Entity("Core.Entities.UserLike", b =>
                 {
                     b.HasOne("Core.Entities.AppUser", "SourceUser")
@@ -962,6 +996,10 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("AppUserAddress");
 
                     b.Navigation("AppUserPhoto");
+
+                    b.Navigation("Followed");
+
+                    b.Navigation("Following");
 
                     b.Navigation("LikedByUsers");
 
