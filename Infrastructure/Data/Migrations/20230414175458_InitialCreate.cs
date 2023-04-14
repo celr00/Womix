@@ -460,6 +460,30 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "AreaPhoto",
+                columns: table => new
+                {
+                    AreaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    PhotoId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AreaPhoto", x => new { x.AreaId, x.PhotoId });
+                    table.ForeignKey(
+                        name: "FK_AreaPhoto_Areas_AreaId",
+                        column: x => x.AreaId,
+                        principalTable: "Areas",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AreaPhoto_Photos_PhotoId",
+                        column: x => x.PhotoId,
+                        principalTable: "Photos",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "ProductItemClasses",
                 columns: table => new
                 {
@@ -619,6 +643,17 @@ namespace Infrastructure.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AreaPhoto_AreaId",
+                table: "AreaPhoto",
+                column: "AreaId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_AreaPhoto_PhotoId",
+                table: "AreaPhoto",
+                column: "PhotoId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
                 column: "RoleId");
@@ -757,6 +792,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "AppUserPhotos");
+
+            migrationBuilder.DropTable(
+                name: "AreaPhoto");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");

@@ -8,7 +8,13 @@ namespace Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Area> builder)
         {
-            
+            builder
+                .HasOne(x => x.AreaPhoto)
+                .WithOne(x => x.Area)
+                .IsRequired()
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Navigation(x => x.AreaPhoto).AutoInclude();
         }
     }
 }

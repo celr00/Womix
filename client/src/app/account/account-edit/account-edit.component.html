@@ -1,8 +1,6 @@
 <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="mb-4">
   <div class="container-fluid container-md" *ngIf="user">
-
     <app-photo-upload [photos]="photo" [controller]="'account'"></app-photo-upload>
-
     <div class="row">
       <div class="col-12 col-sm-6 col-md-4 col-lg-4">
         <app-text-input [label]="'First name'" [formControl]="$any(userForm.controls['firstName'])"></app-text-input>

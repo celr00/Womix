@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
-import { Job } from 'src/app/shared/models/job';
+import { Component, Input, OnInit, Self } from '@angular/core';
+import { Job, User } from 'src/app/shared/models/job';
 
 @Component({
   selector: 'app-job-info',
@@ -8,4 +8,5 @@ import { Job } from 'src/app/shared/models/job';
 })
 export class JobInfoComponent {
   @Input() job: Job = {} as Job;
+
 }

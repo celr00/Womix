@@ -219,6 +219,24 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("Areas");
                 });
 
+            modelBuilder.Entity("Core.Entities.AreaPhoto", b =>
+                {
+                    b.Property<int>("AreaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("PhotoId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("AreaId", "PhotoId");
+
+                    b.HasIndex("AreaId")
+                        .IsUnique();
+
+                    b.HasIndex("PhotoId");
+
+                    b.ToTable("AreaPhoto");
+                });
+
             modelBuilder.Entity("Core.Entities.Category", b =>
                 {
                     b.Property<int>("Id")
@@ -685,6 +703,25 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.AreaPhoto", b =>
+                {
+                    b.HasOne("Core.Entities.Area", "Area")
+                        .WithOne("AreaPhoto")
+                        .HasForeignKey("Core.Entities.AreaPhoto", "AreaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.Photo", "Photo")
+                        .WithMany()
+                        .HasForeignKey("PhotoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Area");
+
+                    b.Navigation("Photo");
+                });
+
             modelBuilder.Entity("Core.Entities.Connection", b =>
                 {
                     b.HasOne("Core.Entities.Group", null)
@@ -945,6 +982,8 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.Area", b =>
                 {
+                    b.Navigation("AreaPhoto");
+
                     b.Navigation("JobAreas");
                 });
 
