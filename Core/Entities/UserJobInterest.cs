@@ -2,9 +2,9 @@ namespace Core.Entities
 {
     public class UserJobInterest
     {
-        public AppUser SourceUser { get; set; }
-        public int SourceUserId { get; set; }
-        public AppUser TargetUser { get; set; }
-        public int TargetUserId { get; set; }
+        public AppUser User { get; set; }
+        public int UserId { get; set; }
+        public Job Job { get; set; }
+        public int JobId { get; set; }
     }
 }

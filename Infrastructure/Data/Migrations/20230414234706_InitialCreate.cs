@@ -371,30 +371,6 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "UserJobInterests",
-                columns: table => new
-                {
-                    SourceUserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    TargetUserId = table.Column<int>(type: "INTEGER", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_UserJobInterests", x => new { x.SourceUserId, x.TargetUserId });
-                    table.ForeignKey(
-                        name: "FK_UserJobInterests_AspNetUsers_SourceUserId",
-                        column: x => x.SourceUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                    table.ForeignKey(
-                        name: "FK_UserJobInterests_AspNetUsers_TargetUserId",
-                        column: x => x.TargetUserId,
-                        principalTable: "AspNetUsers",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Connections",
                 columns: table => new
                 {
@@ -429,6 +405,30 @@ namespace Infrastructure.Data.Migrations
                         principalColumn: "Id");
                     table.ForeignKey(
                         name: "FK_JobAreas_Jobs_JobId",
+                        column: x => x.JobId,
+                        principalTable: "Jobs",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "UserJobInterests",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "INTEGER", nullable: false),
+                    JobId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_UserJobInterests", x => new { x.JobId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_UserJobInterests_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_UserJobInterests_Jobs_JobId",
                         column: x => x.JobId,
                         principalTable: "Jobs",
                         principalColumn: "Id",
@@ -790,9 +790,9 @@ namespace Infrastructure.Data.Migrations
                 column: "ServiceId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_UserJobInterests_TargetUserId",
+                name: "IX_UserJobInterests_UserId",
                 table: "UserJobInterests",
-                column: "TargetUserId");
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_UserJobs_JobId",

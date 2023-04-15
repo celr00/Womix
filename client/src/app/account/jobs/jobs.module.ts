@@ -5,12 +5,14 @@ import { JobsRoutingModule } from './jobs-routing.module';
 import { JobsComponent } from './jobs.component';
 import { NewComponent } from './new/new.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { SavedComponent } from './saved/saved.component';
 
 
 @NgModule({
   declarations: [
     JobsComponent,
-    NewComponent
+    NewComponent,
+    SavedComponent
   ],
   imports: [
     CommonModule,

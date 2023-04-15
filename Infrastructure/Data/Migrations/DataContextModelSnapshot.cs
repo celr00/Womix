@@ -520,15 +520,15 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.UserJobInterest", b =>
                 {
-                    b.Property<int>("SourceUserId")
+                    b.Property<int>("JobId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("TargetUserId")
+                    b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
 
-                    b.HasKey("SourceUserId", "TargetUserId");
+                    b.HasKey("JobId", "UserId");
 
-                    b.HasIndex("TargetUserId");
+                    b.HasIndex("UserId");
 
                     b.ToTable("UserJobInterests");
                 });
@@ -878,21 +878,20 @@ namespace Infrastructure.Data.Migrations
 
             modelBuilder.Entity("Core.Entities.UserJobInterest", b =>
                 {
-                    b.HasOne("Core.Entities.AppUser", "SourceUser")
-                        .WithMany("Following")
-                        .HasForeignKey("SourceUserId")
+                    b.HasOne("Core.Entities.Job", "Job")
+                        .WithMany("UserJobInterests")
+                        .HasForeignKey("JobId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Core.Entities.AppUser", "TargetUser")
-                        .WithMany("Followed")
-                        .HasForeignKey("TargetUserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.HasOne("Core.Entities.AppUser", "User")
+                        .WithMany("FollowingJobs")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
-                    b.Navigation("SourceUser");
+                    b.Navigation("Job");
 
-                    b.Navigation("TargetUser");
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Core.Entities.UserLike", b =>
@@ -997,9 +996,7 @@ namespace Infrastructure.Data.Migrations
 
                     b.Navigation("AppUserPhoto");
 
-                    b.Navigation("Followed");
-
-                    b.Navigation("Following");
+                    b.Navigation("FollowingJobs");
 
                     b.Navigation("LikedByUsers");
 
@@ -1045,6 +1042,8 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("JobArea");
 
                     b.Navigation("UserJob");
+
+                    b.Navigation("UserJobInterests");
                 });
 
             modelBuilder.Entity("Core.Entities.Product", b =>

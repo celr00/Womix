@@ -4,6 +4,7 @@ import { Observable, map, of } from 'rxjs';
 import { Area, Job } from 'src/app/shared/models/job';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { Pagination } from 'src/app/shared/models/pagination';
+import { UserJobInterest } from 'src/app/shared/models/user-job-interest';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -45,8 +46,16 @@ export class JobsService {
     return this.http.get<Job>(this.baseUrl + 'jobs/' + id);
   }
 
-  follow(jobId: number) {
-    return this.http.post(this.baseUrl + `jobs/follow/${jobId}`, {});
+  getInterestedJobsList(): Observable<UserJobInterest[]> {
+    return this.http.get<UserJobInterest[]>(this.baseUrl + 'jobs/follow');
+  }
+
+  follow(jobId: number): Observable<void> {
+    return this.http.post<void>(this.baseUrl + `jobs/follow/${jobId}`, {});
+  }
+
+  unfollow(jobId: number): Observable<void> {
+    return this.http.post<void>(this.baseUrl + `jobs/unfollow/${jobId}`, {});
   }
 
   getAreas(): Observable<Area[]> {

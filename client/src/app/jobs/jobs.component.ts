@@ -3,6 +3,7 @@ import { Area, Job } from '../shared/models/job';
 import { JobsParams } from '../shared/models/jobs-params';
 import { JobsService } from '../account/jobs/jobs.service';
 import { ActivatedRoute } from '@angular/router';
+import { UserJobInterest } from '../shared/models/user-job-interest';
 
 @Component({
   selector: 'app-jobs',
@@ -11,11 +12,13 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class JobsComponent implements OnInit {
   jobs?: Job[];
+  myJobs?: UserJobInterest[];
   @ViewChild('search') searchTerm?: ElementRef;
   totalCount = 0;
   params: JobsParams;
   areas?: Area[];
   cardIndex = 1;
+  isIndexFollowed = false;
   sortOptions = [
     {name: 'Alphabetical', value: 'name'},
     {name: 'Price: Low to high', value: 'priceAsc'},
@@ -31,6 +34,15 @@ export class JobsComponent implements OnInit {
   ngOnInit(): void {
     this.loadJobs();
     this.loadAreas();
+    this.loadMyInterests();
+  }
+
+  loadMyInterests() {
+    this.jobService.getInterestedJobsList().subscribe({
+      next: res => {
+        this.myJobs = res
+      }
+    })
   }
 
   loadJobs() {
@@ -93,6 +105,11 @@ export class JobsComponent implements OnInit {
   }
 
   selectedCard(jobs: Job[]): Job {
+    this.myJobs?.forEach(x => {
+      if (x.jobId === this.cardIndex) {
+        this.isIndexFollowed = true;
+      }
+    })
     return jobs.filter(x => x.id === this.cardIndex)[0];
   }
 

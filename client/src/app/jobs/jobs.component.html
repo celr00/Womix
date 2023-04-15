@@ -1,5 +1,5 @@
 <div class="container-fluid container-xxl">
-  <div class="row" *ngIf="areas && jobs">
+  <div class="row" *ngIf="areas && jobs && myJobs">
       <div class="col-12">
           <div class="d-flex mt-2 mb-3">
               <input (keyup.enter)="onSearch()" area="text" placeholder="Search"
@@ -11,12 +11,17 @@
             <div class="col-5 col-sm-6 col-lg-8">
               <div class="row">
                 <div class="col-12 col-lg-6" *ngFor="let job of jobs">
-                  <app-job-card [job]="job" (click)="clickCard(job.id)" [isActive]="isCurrent(job)"></app-job-card>
+                  <app-job-card
+                    [job]="job"
+                    (click)="clickCard(job.id)"
+                    [isActive]="isCurrent(job)"></app-job-card>
                 </div>
               </div>
             </div>
               <div class="col-7 col-sm-6 col-lg-4 position-sticky info-static">
-                <app-job-info [job]="selectedCard(jobs)"></app-job-info>
+                <app-job-info
+                  [job]="selectedCard(jobs)"
+                  [myJobs]="myJobs"></app-job-info>
               </div>
           </div>
           <div class="d-flex justify-content-center" *ngIf="totalCount > 0">

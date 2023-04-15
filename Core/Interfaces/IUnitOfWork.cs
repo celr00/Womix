@@ -6,6 +6,7 @@ namespace Core.Interfaces
     {
         ILikesRepository LikesRepository { get; }
         IMessageRepository MessageRepository { get; }
+        IFollowRepository FollowRepository { get; }
         IGenericRepository<TEntity> Repository<TEntity>() where TEntity : BaseEntity;
         Task<int> Complete();
         bool HasChanges();

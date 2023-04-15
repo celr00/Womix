@@ -7,5 +7,6 @@ namespace Core.Entities
         public decimal Salary { get; set; }
         public JobArea JobArea { get; set; }
         public UserJob UserJob { get; set; }
+        public List<UserJobInterest> UserJobInterests { get; set; }
     }
 }

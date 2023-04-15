@@ -19,6 +19,8 @@ namespace Infrastructure.Data
         public ILikesRepository LikesRepository => new LikesRepository(_context);
         public IMessageRepository MessageRepository => new MessageRepository(_context, _mapper);
 
+        public IFollowRepository FollowRepository => new FollowRepository(_context, _mapper);
+
         public async Task<int> Complete()
         {
             return await _context.SaveChangesAsync();

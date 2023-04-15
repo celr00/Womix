@@ -39,8 +39,14 @@
   </div>
   <div class="my-4">
     <button class="btn btn-outline-success btn-lg d-flex mx-auto"
+      *ngIf="!isFollowed()"
       (click)="clickFollow()">
       I'm interested
+    </button>
+    <button class="btn btn-outline-warning btn-lg d-flex mx-auto"
+      *ngIf="isFollowed()"
+      (click)="clickUnfollow()">
+      Unfollow
     </button>
   </div>
 </div>

@@ -18,6 +18,12 @@ namespace Infrastructure.Data.Config
                 .WithOne(x => x.Job)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder
+                .HasMany(x => x.UserJobInterests)
+                .WithOne(x => x.Job)
+                .HasForeignKey(x => x.JobId)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.Navigation(x => x.JobArea).AutoInclude();
             builder.Navigation(x => x.UserJob).AutoInclude();
         }

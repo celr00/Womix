@@ -9,21 +9,23 @@ namespace Infrastructure.Data.Config
         public void Configure(EntityTypeBuilder<UserJobInterest> builder)
         {
             builder.HasKey(x => new {
-                x.SourceUserId,
-                x.TargetUserId
+                x.JobId,
+                x.UserId
             });
             
             builder
-                .HasOne(s => s.TargetUser)
-                .WithMany(l => l.Followed)
-                .HasForeignKey(s => s.TargetUserId)
+                .HasOne(x => x.Job)
+                .WithMany(x => x.UserJobInterests)
+                .HasForeignKey(x => x.JobId)
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder
-                .HasOne(s => s.SourceUser)
-                .WithMany(l => l.Following)
-                .HasForeignKey(s => s.SourceUserId)
+                .HasOne(x => x.User)
+                .WithMany(x => x.FollowingJobs)
+                .HasForeignKey(x => x.UserId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Navigation(x => x.Job).AutoInclude();
         }
     }
 }

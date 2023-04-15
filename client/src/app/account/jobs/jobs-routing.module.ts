@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NewComponent } from './new/new.component';
 import { PreventUnsavedChangesGuard } from './new/prevent-unsaved-changes.guard';
+import { SavedComponent } from './saved/saved.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,15 @@ const routes: Routes = [
     path: 'list',
     loadChildren: () => import('./list/list.module')
       .then(x => x.ListModule)
+  },
+  {
+    path: 'saved',
+    component: SavedComponent,
+    data: {
+      breadCrumb: {
+        alias: 'savedJobsBreadcrumbTitle'
+      }
+    }
   }
 ];
 

@@ -35,6 +35,13 @@ namespace Infrastructure.Data.Config
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder
+                .HasMany(x => x.FollowingJobs)
+                .WithOne(x => x.User)
+                .HasForeignKey(x => x.UserId)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder.HasOne(x => x.AppUserPhoto)
                 .WithOne(x => x.User)
                 .IsRequired(false)

@@ -108,26 +108,67 @@ namespace API.Controllers
             return Ok(_mapper.Map<IReadOnlyList<AreaDto>>(areas));
         }
 
-        [HttpPost("follow/{id}")]
+        [HttpGet("follow")]
+        public async Task<ActionResult<IReadOnlyList<UserJobInterestDto>>> GetInterestedJobsList()
+        {
+            var userId = User.GetUserId();
+            
+            var user = await _userManager.Users
+                .Include(x => x.FollowingJobs)
+                .ThenInclude(x => x.Job)
+                .ThenInclude(x => x.UserJob)
+                .ThenInclude(x => x.User)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+            
+            return Ok(_mapper.Map<IReadOnlyList<UserJobInterestDto>>(user.FollowingJobs));
+        }
+
+        [HttpPost("follow/{jobId}")]
         public async Task<ActionResult> Follow(int jobId)
         {
-            var sourceUserId = User.GetUserId();
-            
-            var user = await _userManager.Users.SingleOrDefaultAsync(x => x.Id == sourceUserId);
+            var userId = User.GetUserId();
 
-            if (user == null) return NotFound(new ApiResponse(404, "Error fetching source liker information"));
+            var user = await _userManager.Users
+                .Include(x => x.FollowingJobs)
+                .SingleOrDefaultAsync(x => x.Id == userId);
 
-            var job = await _jobsRepo.GetEntityWithSpec(new JobsSpecification(jobId));
+            var userJobInterest = await _uow.FollowRepository
+                .Get(userId, jobId);
 
-            if (job == null) return NotFound(new ApiResponse(404, "Error fetching job of target user"));
+            // if (user.UserJobs)
+            //     return BadRequest(new ApiResponse(400, "You cannot follow your own job offers"));
 
-            user.Following.Add(new UserJobInterest
+            if (userJobInterest != null) 
+                return BadRequest(new ApiResponse(400, "You already follow this job"));
+
+            userJobInterest = new UserJobInterest
             {
-                SourceUserId = sourceUserId,
-                TargetUserId = job.UserJob.UserId
-            });
+                JobId = jobId,
+                UserId = userId
+            };
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error following job"));
+            user.FollowingJobs.Add(userJobInterest);
+
+            if (await _uow.Complete() < 0) 
+                return BadRequest(new ApiResponse(400, "Failed to add job to your interests"));
+
+            return Ok();
+        }
+
+        [HttpPost("unfollow/{jobId}")]
+        public async Task<ActionResult> Unfollow(int jobId)
+        {
+            var userId = User.GetUserId();
+
+            var data = await _uow.FollowRepository.Get(userId, jobId);
+
+            if (data == null) 
+                return NotFound(new ApiResponse(404, "This was not found"));
+
+            _uow.FollowRepository.Remove(data);
+
+            if (await _uow.Complete() < 0) 
+                return BadRequest(new ApiResponse(400, "Error removing job"));
 
             return Ok();
         }
