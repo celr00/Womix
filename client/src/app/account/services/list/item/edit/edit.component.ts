@@ -84,7 +84,7 @@ export class EditComponent implements OnInit {
     this.serviceForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
       price: ['', [Validators.required]],
       serviceCategory: this.fb.group({
         categoryId: [service.serviceCategory.categoryId, [Validators.required]]

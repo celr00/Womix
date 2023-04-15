@@ -8,6 +8,7 @@ import { Modal } from 'src/app/shared/models/modal';
 import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Area, Job } from 'src/app/shared/models/job';
+import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
 
 @Component({
   selector: 'app-edit',
@@ -23,7 +24,7 @@ export class EditComponent implements OnInit {
   jobForm: FormGroup = new FormGroup({})
   areas?: Area[];
   id: number;
-  job: Job = {} as Job;
+  job: JobWithInterest = {} as JobWithInterest;
   photos: Photo[] = [];
   modal: Modal = new Modal;
 
@@ -78,11 +79,11 @@ export class EditComponent implements OnInit {
     })
   }
 
-  initForm(job: Job) {
+  initForm(job: JobWithInterest) {
     this.jobForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
       salary: ['', [Validators.required]],
       jobArea: this.fb.group({
         areaId: [job.jobArea.areaId, [Validators.required]]
@@ -91,7 +92,7 @@ export class EditComponent implements OnInit {
     this.jobForm.patchValue(job);
   }
 
-  receive(event: Job) {
+  receive(event: JobWithInterest) {
     this.job = event;
   }
 

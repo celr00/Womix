@@ -68,6 +68,8 @@ namespace API.Helpers
             CreateMap<UserJob, UserJobDto>().ReverseMap();
             CreateMap<AreaPhoto, AreaPhotoDto>().ReverseMap();
             CreateMap<UserJobInterest, UserJobInterestDto>().ReverseMap();
+            CreateMap<Job, JobWithInterestDto>().ReverseMap();
+            CreateMap<UserJobInterest, JobInterestWithUserDto>().ReverseMap();
 
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<ProductUpdateDto, Product>().ReverseMap();

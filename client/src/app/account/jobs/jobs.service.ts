@@ -2,6 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, of } from 'rxjs';
 import { Area, Job } from 'src/app/shared/models/job';
+import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { Pagination } from 'src/app/shared/models/pagination';
 import { UserJobInterest } from 'src/app/shared/models/user-job-interest';
@@ -42,8 +43,8 @@ export class JobsService {
     return this.http.put(this.baseUrl + 'jobs', service);
   }
 
-  getById(id: number) {
-    return this.http.get<Job>(this.baseUrl + 'jobs/' + id);
+  getById(id: number): Observable<JobWithInterest> {
+    return this.http.get<JobWithInterest>(this.baseUrl + 'jobs/' + id);
   }
 
   getInterestedJobsList(): Observable<UserJobInterest[]> {

@@ -10,6 +10,14 @@
         </div>
         <app-detail [item]="job" [fromAccount]="true" [type]="'job'"></app-detail>
       </div>
+      <div class="col-12 col-lg-6 col-xl-5">
+        <h4 class="text-muted fw-semibold">
+          Interested users
+        </h4>
+        <div class="" *ngFor="let userJobInterest of job.userJobInterests">
+          <app-user-card [user]="userJobInterest.user" [compact]="true"></app-user-card>
+        </div>
+      </div>
     </div>
     <div class="row">
       <div class="col d-flex justify-content-end">

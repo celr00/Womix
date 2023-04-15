@@ -43,15 +43,15 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<JobDto>> GetJob(int id)
+        public async Task<ActionResult<JobWithInterestDto>> GetJob(int id)
         {
-            var spec = new JobsSpecification(id);
+            var spec = new JobsWithUserJobInterestSpecification(id);
 
             var job = await _jobsRepo.GetEntityWithSpec(spec);
 
             if (job == null) return NotFound(new ApiResponse(404));
 
-            return Ok(_mapper.Map<Job, JobDto>(job));
+            return Ok(_mapper.Map<Job, JobWithInterestDto>(job));
         }
 
         [HttpPost]

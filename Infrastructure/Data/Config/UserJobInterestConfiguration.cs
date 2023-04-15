@@ -26,6 +26,7 @@ namespace Infrastructure.Data.Config
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Navigation(x => x.Job).AutoInclude();
+            builder.Navigation(x => x.User).AutoInclude();
         }
     }
 }

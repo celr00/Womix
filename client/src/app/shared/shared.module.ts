@@ -19,6 +19,7 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { ConsentDialogComponent } from './components/modals/consent-dialog/consent-dialog.component';
 import { TextAreaComponent } from './components/text-area/text-area.component';
 import { JobInfoComponent } from './components/job-info/job-info.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { JobInfoComponent } from './components/job-info/job-info.component';
     FileUploadModule,
     NgxGalleryModule,
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
   ],
   exports: [
     TextInputComponent,
@@ -64,6 +66,7 @@ import { JobInfoComponent } from './components/job-info/job-info.component';
     ModalModule,
     TextAreaComponent,
     JobInfoComponent,
+    TabsModule,
   ]
 })
 export class SharedModule { }

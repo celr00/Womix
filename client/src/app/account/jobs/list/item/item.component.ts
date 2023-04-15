@@ -6,6 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
+import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
 
 @Component({
   selector: 'app-item',
@@ -14,7 +15,7 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 })
 export class ItemComponent implements OnInit {
   id: number;
-  job: Job = {} as Job;
+  job: JobWithInterest = {} as JobWithInterest;
   modal: Modal = new Modal;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService,

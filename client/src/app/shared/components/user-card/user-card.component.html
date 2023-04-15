@@ -1,6 +1,6 @@
 <div class="bg-white shadow-sm rounded-5 p-3 mb-4" *ngIf="user !== undefined">
   <div class="row">
-    <div class="col-3 col-sm-2 d-flex align-items-center">
+    <div class="col-3 col-sm-2 d-flex align-items-center" *ngIf="!compact">
       <img src="{{user.photoUrl}}" alt="{{user.fullName}}" class="img-fluid rounded-circle shadow-sm">
     </div>
     <div class="col-9 col-sm-10 d-flex align-items-center">
@@ -10,6 +10,7 @@
             <i class="fa fa-bookmark pointer text-warning fs-3 me-2" *ngIf="isSaved === true" (click)="clickUnsave()"></i>
             <i class="fa fa-bookmark-o pointer text-warning fs-3 me-2" *ngIf="isSaved === false" (click)="clickSave()"></i>
           </ng-container>
+          <img src="{{user.photoUrl}}" class="img-fluid rounded-circle mx-3" style="max-width: 60px;" *ngIf="compact">
           <span class="fs-3 fw-light me-2">
             {{user.fullName}}
           </span>
@@ -36,8 +37,8 @@
             <img src="../../../assets/social-media-icons/whatsapp.svg" style="color: #3ab54b;"
               alt="{{user.fullName}} Instagram">
           </a>
-          <a *ngIf="!fromAccount" routerLink="/account/messages/{{user.userName}}" class="btn btn-outline-primary ms-2 d-flex align-items-center">
-            Message <i class="fa fa-envelope-o ms-2"></i>
+          <a *ngIf="!fromAccount" routerLink="/account/messages/{{user.userName}}" class="btn btn-info rounded-circle">
+            <i class="fa fa-envelope-o text-white"></i>
           </a>
         </div>
       </div>

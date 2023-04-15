@@ -47,7 +47,7 @@ export class NewComponent implements OnInit {
   initForm(areaId: number, userId: number) {
     this.jobForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
       salary: ['', [Validators.required]],
       userJob: this.fb.group({
         userId: [userId, [Validators.required]]
