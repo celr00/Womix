@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class DetailComponent implements OnInit {
   @Input() item: any;
-  @Input() isProduct = true;
+  @Input() type = 'product';
   @Input() fromAccount = false;
   url: string = '';
   vendor: string = '';
@@ -17,13 +17,20 @@ export class DetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.isProduct) {
-      this.url = `/user/${this.item.userProduct.userId}`;
-      this.vendor = `${this.item.userProduct.user.firstName} ${this.item.userProduct.user.lastName}`
-    }
-    if (!this.isProduct) {
-      this.url = `/user/${this.item.userService.userId}`;
-      this.vendor = `${this.item.userService.user.firstName} ${this.item.userService.user.lastName}`
+    switch (this.type) {
+      case 'product':
+        this.url = `/user/${this.item.userProduct.userId}`;
+        this.vendor = `${this.item.userProduct.user.firstName} ${this.item.userProduct.user.lastName}`
+        break;
+      case 'service':
+        this.url = `/user/${this.item.userService.userId}`;
+        this.vendor = `${this.item.userService.user.firstName} ${this.item.userService.user.lastName}`
+        break;
+      case 'job':
+
+        break;
+      default:
+        break;
     }
   }
 

@@ -1,12 +1,12 @@
 <div class="container-fluid container-xxl" *ngIf="service">
-  <div class="row">
-    <div class="col-12 col-sm-6 col-lg-5 mb-3">
-      <div class="gallery-viewer" *ngIf="showGallery()">
-        <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
-      </div>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-5 mb-3">
+            <div class="gallery-viewer" *ngIf="showGallery()">
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+            </div>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-7 mb-3">
+            <app-detail [item]="service" [type]="'service'"></app-detail>
+        </div>
     </div>
-    <div class="col-12 col-sm-6 col-lg-7 mb-3">
-      <app-detail [item]="service" [isProduct]="false"></app-detail>
-    </div>
-  </div>
 </div>

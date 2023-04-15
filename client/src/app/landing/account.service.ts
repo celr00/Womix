@@ -34,6 +34,10 @@ export class AccountService {
     )
   }
 
+  removePhoto() {
+    
+  }
+
   setCurrentAccount(account: Account) {
     localStorage.setItem('account', JSON.stringify(account));
     this.currentAccountSource.next(account);

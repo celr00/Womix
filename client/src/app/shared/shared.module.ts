@@ -18,6 +18,8 @@ import { ConfirmDialogComponent } from './components/modals/confirm-dialog/confi
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { ConsentDialogComponent } from './components/modals/consent-dialog/consent-dialog.component';
 import { TextAreaComponent } from './components/text-area/text-area.component';
+import { JobInfoComponent } from './components/job-info/job-info.component';
+import { TabsModule } from 'ngx-bootstrap/tabs';
 
 
 @NgModule({
@@ -32,6 +34,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
     ConfirmDialogComponent,
     ConsentDialogComponent,
     TextAreaComponent,
+    JobInfoComponent,
   ],
   imports: [
     CommonModule,
@@ -44,6 +47,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
     FileUploadModule,
     NgxGalleryModule,
     ModalModule.forRoot(),
+    TabsModule.forRoot(),
   ],
   exports: [
     TextInputComponent,
@@ -61,6 +65,8 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
     DetailComponent,
     ModalModule,
     TextAreaComponent,
+    JobInfoComponent,
+    TabsModule,
   ]
 })
 export class SharedModule { }

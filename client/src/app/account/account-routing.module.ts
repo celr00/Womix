@@ -9,6 +9,7 @@ import { ServicesComponent } from './services/services.component';
 import { MessagesComponent } from './messages/messages.component';
 import { PreventUnsavedChangesPasswordGuard } from './account-change-password/prevent-unsaved-changes-password.guard';
 import { PreventUnsavedChangesAccountGuard } from './account-edit/prevent-unsaved-changes-account.guard';
+import { JobsComponent } from './jobs/jobs.component';
 
 const routes: Routes = [
   { path: 'summary', component: AccountHomeComponent },
@@ -35,6 +36,13 @@ const routes: Routes = [
     loadChildren: () =>
       import('./services/services.module')
         .then(x => x.ServicesModule)
+  },
+  {
+    path: 'jobs',
+    component: JobsComponent,
+    loadChildren: () =>
+      import('./jobs/jobs.module')
+        .then(x => x.JobsModule)
   },
   {
     path: 'messages/:username',

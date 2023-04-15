@@ -79,7 +79,7 @@ export class AccountProductEditComponent implements OnInit {
     this.productForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
       price: ['', [Validators.required]],
       stockQuantity: ['', [Validators.required]],
       productItemClass: this.fb.group({

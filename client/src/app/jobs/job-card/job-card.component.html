@@ -1,0 +1,19 @@
+<div class="bg-transparent mb-3 p-3 border border-primary border-3 rounded-4 border-opacity-25 pointer"
+  [ngClass]="{'border-4 border-opacity-100': isActive}">
+  <div class="row">
+    <div class="col-12 col-sm-4 d-flex align-items-center mb-3 mb-sm-0">
+      <img src="{{photoUrl}}" class="img-fluid">
+    </div>
+    <div class="col-12 col-sm-8">
+      <h5>
+        {{fullName}}
+      </h5>
+      <p>
+        {{job.name}}
+      </p>
+      <p>
+        {{address}}
+      </p>
+    </div>
+  </div>
+</div>

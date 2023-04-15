@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
 import { Product } from '../../models/product';
 import { ActivatedRoute } from '@angular/router';
 import { Photo, Service } from '../../models/service';
-import { HttpClient, HttpParams } from '@angular/common/http';
 import { ServicesService } from 'src/app/services/services.service';
 
 @Component({
@@ -113,6 +112,22 @@ export class PhotoUploadComponent implements OnInit {
 
           }
         })
+        break;
+      case "account":
+        // this.accountService.removePhoto().subscribe({
+        //   next: product => {
+        //     this.object = product;
+        //     this.photos = [];
+        //     product.productPhotos.forEach(x => {
+        //       this.photos.push(x.photo)
+        //     });
+        //     this.send.emit(product);
+        //     this.toastr.success('Photo deleted successfully');
+        //   },
+        //   error: () => {
+
+        //   }
+        // })
         break;
 
       default:

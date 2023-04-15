@@ -1,5 +1,5 @@
 <div *ngIf="item" class="bg-white p-4 rounded-4"
-  [ngClass]="{'shadow-info' : isProduct, 'shadow-warning': !isProduct}">
+  [ngClass]="{'shadow-info' : type==='product' || type==='job', 'shadow-warning': type==='service'}">
   <h3 class="fw-bold">
     {{item.name}}
   </h3>
@@ -12,7 +12,7 @@
         </a>
       </p>
     </ng-container>
-    <ng-container *ngIf="isProduct">
+    <ng-container *ngIf="type ==='product'">
       <p class="text-muted" *ngIf="item.stockQuantity > 0">
         {{item.stockQuantity}} Available
       </p>
@@ -21,12 +21,30 @@
       </p>
     </ng-container>
   </div>
-  <h4 class="text-success text-center fw-bold">
+  <h4 class="text-success text-center fw-bold" *ngIf="type !== 'job'">
     {{item.price | currency}}
   </h4>
+  <h4 class="text-success text-center fw-bold" *ngIf="type === 'job'">
+    {{item.salary | currency}}
+  </h4>
   <hr class="my-4 text-info border border-2"
-    [ngClass]="{'border-info': isProduct, 'border-primary':!isProduct}">
-  <p>
-    {{item.description}}
-  </p>
+    [ngClass]="{'border-info': type === 'product' || type === 'job', 'border-primary':type==='service'}">
+    <p>
+      {{item.description}}
+    </p>
+  <hr class="my-4 text-info border border-2 border-info"
+    *ngIf="type === 'job'">
+  <div class="row" *ngIf="type === 'job'">
+    <div class="col-4">
+      <img src="{{item.jobArea.area.areaPhoto.photo.url}}" class="img-fluid rounded shadow-sm">
+    </div>
+    <div class="col-8">
+      <p class="text-muted fst-italic">
+        Job offer area
+      </p>
+      <h4 class="text-info fst-italic">
+        {{item.jobArea.area.name}}
+      </h4>
+    </div>
+  </div>
 </div>

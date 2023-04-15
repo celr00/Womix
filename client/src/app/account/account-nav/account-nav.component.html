@@ -40,6 +40,24 @@
       </div>
   </li>
   <li class="nav-item">
+    <a class="nav-link" data-bs-toggle="collapse" href="#collapseJobs">
+      <i class="fa fa-address-book-o me-2"></i>
+      Jobs</a>
+      <div class="collapse show" id="collapseJobs">
+        <nav class="nav nav-pills flex-column">
+          <a routerLink="/account/jobs/list" routerLinkActive="active" class="nav-link ms-3 my-1">
+            <i class="fa fa-list me-2"></i>
+            My jobs</a>
+          <a routerLink="/account/jobs/new" routerLinkActive="active" class="nav-link ms-3 my-1">
+            <i class="fa fa-plus-square-o me-2"></i>
+            New job</a>
+          <a routerLink="/account/jobs/saved" routerLinkActive="active" class="nav-link ms-3 my-1">
+            <i class="fa fa-bookmark-o me-2"></i>
+            Saved jobs</a>
+        </nav>
+      </div>
+  </li>
+  <li class="nav-item">
     <a class="nav-link" routerLink="/account/saved-profiles" routerLinkActive="active">
       <i class="fa fa-bookmark me-2"></i>
       Saved profiles</a>
