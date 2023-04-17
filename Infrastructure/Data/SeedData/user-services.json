@@ -1,0 +1,782 @@
+[
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 1,
+            "Name": "House deep clean",
+            "Description": "House deep clean with electric vacuum cleaner",
+            "Price": 699,
+            "ServiceCategory": {
+                "ServiceId": 1,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 2,
+            "Name": "Carpet cleaning",
+            "Description": "Professional carpet cleaning services",
+            "Price": 99,
+            "ServiceCategory": {
+                "ServiceId": 2,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 3,
+            "Name": "Window cleaning",
+            "Description": "Thorough window cleaning with streak-free results",
+            "Price": 149,
+            "ServiceCategory": {
+                "ServiceId": 3,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 4,
+            "Name": "Pressure washing",
+            "Description": "Powerful pressure washing for exterior surfaces",
+            "Price": 299,
+            "ServiceCategory": {
+                "ServiceId": 4,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 5,
+            "Name": "Gutter cleaning",
+            "Description": "Efficient cleaning of gutters and downspouts",
+            "Price": 199,
+            "ServiceCategory": {
+                "ServiceId": 5,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Service": {
+            "ServiceId": 6,
+            "Name": "Housekeeping",
+            "Description": "Professional housekeeping services for homes and apartments",
+            "Price": 399,
+            "ServiceCategory": {
+                "ServiceId": 6,
+                "CategoryId": 1
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 7,
+            "Name": "Corporate Event Planning",
+            "Description": "Plan and coordinate corporate events for businesses of all sizes.",
+            "Price": 2500,
+            "ServiceCategory": {
+                "ServiceId": 7,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 8,
+            "Name": "Wedding Planning",
+            "Description": "Plan and coordinate all aspects of your wedding, from the ceremony to the reception.",
+            "Price": 5000,
+            "ServiceCategory": {
+                "ServiceId": 8,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 9,
+            "Name": "Event Coordination",
+            "Description": "Coordinate and manage all aspects of your event, including vendors, timelines, and logistics.",
+            "Price": 1500,
+            "ServiceCategory": {
+                "ServiceId": 9,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 10,
+            "Name": "Conference Planning",
+            "Description": "Plan and coordinate conferences of all sizes, including venue selection, scheduling, and attendee management.",
+            "Price": 3000,
+            "ServiceCategory": {
+                "ServiceId": 10,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 11,
+            "Name": "Party Planning",
+            "Description": "Plan and coordinate parties of all types, from birthdays to corporate events.",
+            "Price": 1000,
+            "ServiceCategory": {
+                "ServiceId": 11,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 12,
+            "Name": "Fundraiser Planning",
+            "Description": "Plan and coordinate fundraisers for non-profits and other organizations.",
+            "Price": 2000,
+            "ServiceCategory": {
+                "ServiceId": 12,
+                "CategoryId": 2
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 13,
+            "Name": "Corporate Event Coordination",
+            "Description": "Let us help plan and coordinate your next corporate event to ensure a successful and stress-free experience. Our team will take care of everything from venue selection to catering to entertainment.",
+            "Price": 5000.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 13
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 14,
+            "Name": "Corporate Event Planning",
+            "Description": "Our team of experienced event planners will work with you to design and execute a flawless corporate event that meets all of your needs and exceeds your expectations.",
+            "Price": 7500.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 14
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 15,
+            "Name": "Team Building Events",
+            "Description": "Looking to improve team dynamics and morale? Our team building events are the perfect solution. We offer a variety of activities and challenges to help build teamwork and foster a positive workplace culture.",
+            "Price": 3500.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 15
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 16,
+            "Name": "Conference Coordination",
+            "Description": "Planning a conference can be overwhelming, but it doesn't have to be. Our team can handle all aspects of conference coordination, from venue selection to speaker management to attendee registration.",
+            "Price": 6500.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 16
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 17,
+            "Name": "Corporate Retreats",
+            "Description": "Take your team out of the office and into a more relaxed environment with a corporate retreat. Our team will handle all of the planning and logistics to ensure a successful and enjoyable experience for everyone involved.",
+            "Price": 8500.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 17
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Service": {
+            "ServiceId": 18,
+            "Name": "Product Launch Events",
+            "Description": "Launching a new product can be a daunting task, but our team can help make it a success. From event design to marketing and promotion, we can handle all aspects of your product launch event.",
+            "Price": 10000.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 18
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 19,
+            "Name": "European Trip Planning",
+            "Description": "Plan your next trip to Europe with us. Our team of experienced travel planners will help you create a customized itinerary based on your preferences and budget. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1000.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 19
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 20,
+            "Name": "Italy Trip Planning",
+            "Description": "Planning a trip to Italy? Let us help you create the perfect itinerary. Our team of travel planners has extensive knowledge of the best places to visit in Italy, including Rome, Florence, Venice, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1500.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 20
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 21,
+            "Name": "Spain Trip Planning",
+            "Description": "Discover the beauty of Spain with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in Spain, including Madrid, Barcelona, Seville, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1200.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 21
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 22,
+            "Name": "France Trip Planning",
+            "Description": "Experience the beauty of France with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in France, including Paris, Marseille, Nice, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1300.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 22
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 23,
+            "Name": "United Kingdom Trip Planning",
+            "Description": "Explore the United Kingdom with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in the UK, including London, Edinburgh, Dublin, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1400.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 23
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Service": {
+            "ServiceId": 24,
+            "Name": "Germany Trip Planning",
+            "Description": "Plan your next trip to Germany with us. Our team of experienced travel planners will help you create a customized itinerary based on your preferences and budget. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Price": 1100.00,
+            "ServiceCategory": {
+                "CategoryId": 2,
+                "ServiceId": 24
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 25,
+            "Name": "Meal Prep",
+            "Description": "Healthy meal prep for busy individuals",
+            "Price": 50,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 25
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 26,
+            "Name": "Private Chef",
+            "Description": "Hire a private chef for a special occasion",
+            "Price": 300,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 26
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 27,
+            "Name": "Cooking Classes",
+            "Description": "Learn to cook your favorite cuisine with our expert chefs",
+            "Price": 75,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 27
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 28,
+            "Name": "Catering Services",
+            "Description": "Delicious catering services for any event",
+            "Price": 150,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 28
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 29,
+            "Name": "Meal Delivery",
+            "Description": "Healthy meal delivery Service for busy individuals",
+            "Price": 100,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 29
+            }
+        }
+    },
+    {
+        "UserId": 5,
+        "Service": {
+            "ServiceId": 30,
+            "Name": "Event Catering",
+            "Description": "Delicious catering services for any event",
+            "Price": 200,
+            "ServiceCategory": {
+                "CategoryId": 3,
+                "ServiceId": 30
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 31,
+            "Name": "Babysitting services",
+            "Description": "Professional and reliable babysitting services",
+            "Price": 25,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 31
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 32,
+            "Name": "Nanny services",
+            "Description": "Experienced and trustworthy nanny services",
+            "Price": 40,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 32
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 33,
+            "Name": "After-school care",
+            "Description": "Fun and engaging after-school care services",
+            "Price": 30,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 33
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 34,
+            "Name": "Overnight babysitting",
+            "Description": "Safe and reliable overnight babysitting services",
+            "Price": 60,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 34
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 35,
+            "Name": "Emergency babysitting",
+            "Description": "Available 24/7 for emergency babysitting needs",
+            "Price": 50,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 35
+            }
+        }
+    },
+    {
+        "UserId": 6,
+        "Service": {
+            "ServiceId": 36,
+            "Name": "Babysitting and tutoring",
+            "Description": "Professional babysitting and tutoring services for children",
+            "Price": 45,
+            "ServiceCategory": {
+                "CategoryId": 4,
+                "ServiceId": 36
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 37,
+            "Name": "Kitchen Renovation",
+            "Description": "Complete kitchen renovation Service",
+            "Price": 5000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 37
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 38,
+            "Name": "Bathroom Remodeling",
+            "Description": "Complete bathroom remodeling Service",
+            "Price": 3000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 38
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 39,
+            "Name": "Deck Building",
+            "Description": "Professional deck building services",
+            "Price": 4000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 39
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 40,
+            "Name": "Interior Painting",
+            "Description": "Interior painting services for homes and businesses",
+            "Price": 1000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 40
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 41,
+            "Name": "Roof Repair",
+            "Description": "Professional roof repair services",
+            "Price": 2000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 41
+            }
+        }
+    },
+    {
+        "UserId": 7,
+        "Service": {
+            "ServiceId": 42,
+            "Name": "Window Replacement",
+            "Description": "High-quality window replacement services",
+            "Price": 3000,
+            "ServiceCategory": {
+                "CategoryId": 5,
+                "ServiceId": 42
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 43,
+            "Name": "Personal Shopping",
+            "Description": "Assistance with shopping and running errands",
+            "Price": 50,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 43
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 44,
+            "Name": "Pet Walking",
+            "Description": "Walking and exercising pets",
+            "Price": 20,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 44
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 45,
+            "Name": "Dry Cleaning",
+            "Description": "Pickup and delivery of dry cleaning",
+            "Price": 30,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 45
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 46,
+            "Name": "Mail and Package Delivery",
+            "Description": "Pickup and delivery of mail and packages",
+            "Price": 40,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 46
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 47,
+            "Name": "Personal Assistance",
+            "Description": "Assistance with various tasks and errands",
+            "Price": 75,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 47
+            }
+        }
+    },
+    {
+        "UserId": 8,
+        "Service": {
+            "ServiceId": 48,
+            "Name": "Event Planning",
+            "Description": "Assistance with planning and coordinating events",
+            "Price": 150,
+            "ServiceCategory": {
+                "CategoryId": 6,
+                "ServiceId": 48
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 49,
+            "Name": "Dog Walking",
+            "Description": "Dog walking services for busy pet owners",
+            "Price": 20,
+            "ServiceCategory": {
+                "ServiceId": 49,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 50,
+            "Name": "Pet Grooming",
+            "Description": "Professional grooming services for pets",
+            "Price": 50,
+            "ServiceCategory": {
+                "ServiceId": 50,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 51,
+            "Name": "Pet Sitting",
+            "Description": "In-home pet sitting services for pets",
+            "Price": 35,
+            "ServiceCategory": {
+                "ServiceId": 51,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 52,
+            "Name": "Pet Training",
+            "Description": "Professional training services for pets",
+            "Price": 75,
+            "ServiceCategory": {
+                "ServiceId": 52,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 53,
+            "Name": "Dog Boarding",
+            "Description": "Boarding services for dogs",
+            "Price": 50,
+            "ServiceCategory": {
+                "ServiceId": 53,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 9,
+        "Service": {
+            "ServiceId": 54,
+            "Name": "Pet Transportation",
+            "Description": "Transportation services for pets",
+            "Price": 25,
+            "ServiceCategory": {
+                "ServiceId": 54,
+                "CategoryId": 7
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 55,
+            "Name": "Personal Training",
+            "Description": "Customized personal training sessions to achieve your fitness goals",
+            "Price": 80,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 55
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 56,
+            "Name": "Nutrition Counseling",
+            "Description": "Tailored nutrition plans to meet your dietary requirements and health goals",
+            "Price": 120,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 56
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 57,
+            "Name": "Yoga Classes",
+            "Description": "Individual or group yoga sessions to improve flexibility, strength, and balance",
+            "Price": 60,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 57
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 58,
+            "Name": "Personalized Running Plan",
+            "Description": "Customized running plans to help you reach your fitness goals and improve performance",
+            "Price": 100,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 58
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 59,
+            "Name": "Group Fitness Classes",
+            "Description": "Fun and motivating group fitness classes to improve overall health and fitness",
+            "Price": 40,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 59
+            }
+        }
+    },
+    {
+        "UserId": 10,
+        "Service": {
+            "ServiceId": 60,
+            "Name": "Mental Health Counseling",
+            "Description": "Professional counseling to improve mental health and well-being",
+            "Price": 150,
+            "ServiceCategory": {
+                "CategoryId": 8,
+                "ServiceId": 60
+            }
+        }
+    }
+]

@@ -1,0 +1,596 @@
+[
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "Software Engineer",
+            "Description": "Full time software engineer with full-stack capabilities fluent in python and JS",
+            "Salary": 25349,
+            "JobArea": {
+                "JobId": 1,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "Front-end Developer",
+            "Description": "Experienced front-end developer with expertise in React and Angular",
+            "Salary": 22500,
+            "JobArea": {
+                "JobId": 2,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "Back-end Developer",
+            "Description": "Full-time back-end developer with experience in Node.js and PHP",
+            "Salary": 23500,
+            "JobArea": {
+                "JobId": 3,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "Data Analyst",
+            "Description": "Data analyst with proficiency in SQL and Excel",
+            "Salary": 19000,
+            "JobArea": {
+                "JobId": 4,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "DevOps Engineer",
+            "Description": "DevOps engineer with expertise in AWS and Docker",
+            "Salary": 26000,
+            "JobArea": {
+                "JobId": 5,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 11,
+        "Job": {
+            "Name": "Full Stack Developer",
+            "Description": "Full Stack developer with experience in React, Node.js and MongoDB",
+            "Salary": 24500,
+            "JobArea": {
+                "JobId": 6,
+                "AreaId": 1
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Financial Analyst",
+            "Description": "Analyze financial data and create financial models",
+            "Salary": 60000,
+            "JobArea": {
+                "JobId": 7,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Investment Banker",
+            "Description": "Advise clients on investment opportunities",
+            "Salary": 90000,
+            "JobArea": {
+                "JobId": 8,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Tax Accountant",
+            "Description": "Prepare tax returns and advise clients on tax matters",
+            "Salary": 55000,
+            "JobArea": {
+                "JobId": 9,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Financial Planner",
+            "Description": "Help clients plan for their financial future",
+            "Salary": 70000,
+            "JobArea": {
+                "JobId": 10,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Credit Analyst",
+            "Description": "Evaluate credit applications and assess risk",
+            "Salary": 55000,
+            "JobArea": {
+                "JobId": 11,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 12,
+        "Job": {
+            "Name": "Financial Controller",
+            "Description": "Oversee financial operations and reporting",
+            "Salary": 80000,
+            "JobArea": {
+                "JobId": 12,
+                "AreaId": 2
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Marketing Manager",
+            "Description": "Experienced marketing manager with proven track record in increasing sales and customer engagement.",
+            "Salary": 80000,
+            "JobArea": {
+                "JobId": 13,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Social Media Specialist",
+            "Description": "Social media specialist with expertise in creating and implementing social media campaigns to increase brand awareness and engagement.",
+            "Salary": 50000,
+            "JobArea": {
+                "JobId": 14,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Market Research Analyst",
+            "Description": "Market research analyst with experience in conducting research, analyzing data, and presenting insights to inform marketing strategies.",
+            "Salary": 60000,
+            "JobArea": {
+                "JobId": 15,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Brand Manager",
+            "Description": "Brand manager with experience in developing and executing branding strategies to increase brand recognition and loyalty.",
+            "Salary": 75000,
+            "JobArea": {
+                "JobId": 16,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Advertising Account Executive",
+            "Description": "Advertising account executive with experience in managing client accounts and developing and executing advertising campaigns.",
+            "Salary": 65000,
+            "JobArea": {
+                "JobId": 17,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 13,
+        "Job": {
+            "Name": "Marketing Coordinator",
+            "Description": "Marketing coordinator with experience in supporting marketing campaigns and coordinating marketing activities.",
+            "Salary": 45000,
+            "JobArea": {
+                "JobId": 18,
+                "AreaId": 3
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 19,
+            "Name": "Customer Service Representative",
+            "Description": "Assist customers with their inquiries through phone, email, and chat",
+            "Salary": 28000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 19
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 20,
+            "Name": "Customer Support Specialist",
+            "Description": "Provide exceptional customer support and resolve issues in a timely manner",
+            "Salary": 32000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 20
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 21,
+            "Name": "Customer Service Manager",
+            "Description": "Lead a team of customer service representatives to ensure customer satisfaction",
+            "Salary": 50000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 21
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 22,
+            "Name": "Technical Support Representative",
+            "Description": "Assist customers with technical issues related to products and services",
+            "Salary": 30000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 22
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 23,
+            "Name": "Customer Experience Representative",
+            "Description": "Provide a positive customer experience by understanding their needs and providing solutions",
+            "Salary": 28000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 23
+            }
+        }
+    },
+    {
+        "UserId": 14,
+        "Job": {
+            "JobId": 24,
+            "Name": "Customer Service Trainer",
+            "Description": "Train new customer service representatives and ensure their success",
+            "Salary": 45000,
+            "JobArea": {
+                "AreaId": 4,
+                "JobId": 24
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 25,
+            "Name": "Human Resources Manager",
+            "Description": "Responsible for recruitment, hiring, and staff management",
+            "Salary": 65000,
+            "JobArea": {
+                "JobId": 25,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 26,
+            "Name": "HR Specialist",
+            "Description": "Assist with recruitment, training and development, and employee relations",
+            "Salary": 45000,
+            "JobArea": {
+                "JobId": 26,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 27,
+            "Name": "Compensation and Benefits Manager",
+            "Description": "Oversee compensation, benefits, and job analysis programs",
+            "Salary": 75000,
+            "JobArea": {
+                "JobId": 27,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 28,
+            "Name": "HR Generalist",
+            "Description": "Provide support in all areas of HR including recruitment, training, benefits, and employee relations",
+            "Salary": 50000,
+            "JobArea": {
+                "JobId": 28,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 29,
+            "Name": "Training and Development Manager",
+            "Description": "Responsible for employee training and development programs",
+            "Salary": 70000,
+            "JobArea": {
+                "JobId": 29,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 15,
+        "Job": {
+            "JobId": 30,
+            "Name": "Employee Relations Specialist",
+            "Description": "Responsible for managing employee relations, including conflict resolution and grievance procedures",
+            "Salary": 50000,
+            "JobArea": {
+                "JobId": 30,
+                "AreaId": 5
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 31,
+            "Name": "Sales Representative",
+            "Description": "Seeking a Sales Representative to drive growth and manage key accounts.",
+            "Salary": 50000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 31
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 32,
+            "Name": "Inside Sales Representative",
+            "Description": "Looking for an experienced Inside Sales Representative to help grow our business.",
+            "Salary": 45000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 32
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 33,
+            "Name": "Sales Manager",
+            "Description": "We are looking for a Sales Manager to lead our team to success.",
+            "Salary": 75000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 33
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 34,
+            "Name": "Sales Director",
+            "Description": "We are seeking a Sales Director to oversee our sales operations and drive revenue growth.",
+            "Salary": 100000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 34
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 35,
+            "Name": "Business Development Manager",
+            "Description": "We are looking for a Business Development Manager to help us expand our customer base and revenue streams.",
+            "Salary": 80000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 35
+            }
+        }
+    },
+    {
+        "UserId": 16,
+        "Job": {
+            "JobId": 36,
+            "Name": "Account Executive",
+            "Description": "We are seeking an Account Executive to manage key accounts and drive new business growth.",
+            "Salary": 60000,
+            "JobArea": {
+                "AreaId": 6,
+                "JobId": 36
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "Project Manager",
+            "Description": "Responsible for overseeing and coordinating projects from start to finish, ensuring they are completed on time and within budget.",
+            "Salary": 75000,
+            "JobArea": {
+                "JobId": 37,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "Product Manager",
+            "Description": "Responsible for managing the entire lifecycle of a product, from conception to launch and beyond.",
+            "Salary": 90000,
+            "JobArea": {
+                "JobId": 38,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "IT Project Manager",
+            "Description": "Responsible for overseeing and coordinating all aspects of IT projects, from planning to implementation.",
+            "Salary": 80000,
+            "JobArea": {
+                "JobId": 39,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "Construction Project Manager",
+            "Description": "Responsible for overseeing construction projects from start to finish, ensuring they are completed on time and within budget.",
+            "Salary": 85000,
+            "JobArea": {
+                "JobId": 40,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "Agile Project Manager",
+            "Description": "Responsible for overseeing and coordinating agile software development projects.",
+            "Salary": 95000,
+            "JobArea": {
+                "JobId": 41,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 17,
+        "Job": {
+            "Name": "Technical Project Manager",
+            "Description": "Responsible for managing technical projects, including software development, hardware installation, and network upgrades.",
+            "Salary": 90000,
+            "JobArea": {
+                "JobId": 42,
+                "AreaId": 7
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Assistant",
+            "Description": "Full-time assistant to provide administrative and clerical support",
+            "Salary": 35000,
+            "JobArea": {
+                "JobId": 43,
+                "AreaId": 8
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Corporate Assistant",
+            "Description": "Full-time corporate assistant to provide executive level administrative support",
+            "Salary": 55000,
+            "JobArea": {
+                "JobId": 44,
+                "AreaId": 8
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Office Assistant",
+            "Description": "Full-time office assistant to provide general administrative support",
+            "Salary": 30000,
+            "JobArea": {
+                "JobId": 45,
+                "AreaId": 8
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Administrative Assistant",
+            "Description": "Full-time administrative assistant to support management",
+            "Salary": 40000,
+            "JobArea": {
+                "JobId": 46,
+                "AreaId": 8
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Executive Assistant",
+            "Description": "Full-time executive assistant to support high-level executives",
+            "Salary": 60000,
+            "JobArea": {
+                "JobId": 47,
+                "AreaId": 8
+            }
+        }
+    },
+    {
+        "UserId": 19,
+        "Job": {
+            "Name": "Personal Assistant",
+            "Description": "Full-time personal assistant to provide support to an individual",
+            "Salary": 50000,
+            "JobArea": {
+                "JobId": 48,
+                "AreaId": 8
+            }
+        }
+    }
+]

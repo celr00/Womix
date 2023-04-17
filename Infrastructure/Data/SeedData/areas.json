@@ -1,0 +1,74 @@
+[
+    {
+        "Name": "Engineering",
+        "AreaPhoto": {
+            "AreaId": 1,
+            "Photo": {
+                "Url": "https://static.vecteezy.com/system/resources/previews/000/129/874/original/vector-free-engineering-icons.jpg"
+            }
+        }
+    },
+    {
+        "Name": "Finance",
+        "AreaPhoto": {
+            "AreaId": 2,
+            "Photo": {
+                "Url": "https://www.pngkit.com/png/detail/296-2967118_conclusion-finance-icon.png"
+            }
+        }
+    },
+    {
+        "Name": "Marketing",
+        "AreaPhoto": {
+            "AreaId": 3,
+            "Photo": {
+                "Url": "https://image.similarpng.com/very-thumbnail/2020/08/Marketing-with-like-and-star-icons-on-transparent-background-PNG.png"
+            }
+        }
+    },
+    {
+        "Name": "Customer Suppoert",
+        "AreaPhoto": {
+            "AreaId": 4,
+            "Photo": {
+                "Url": "https://static.vecteezy.com/system/resources/previews/001/222/490/original/customer-service-concept-in-flat-style-design-vector.jpg"
+            }
+        }
+    },
+    {
+        "Name": "Human Resources",
+        "AreaPhoto": {
+            "AreaId": 5,
+            "Photo": {
+                "Url": "https://thumbs.dreamstime.com/b/flat-design-icon-human-resources-management-searching-professional-staff-analyzing-resume-recruitment-work-hr-vector-65253654.jpg"
+            }
+        }
+    },
+    {
+        "Name": "Sales Manager",
+        "AreaPhoto": {
+            "AreaId": 6,
+            "Photo": {
+                "Url": "https://img.freepik.com/premium-vector/flat-design-concept-sales-social-media-digital-marketing_18660-487.jpg"
+            }
+        }
+    },
+    {
+        "Name": "Project Manager",
+        "AreaPhoto": {
+            "AreaId": 7,
+            "Photo": {
+                "Url": "https://media.istockphoto.com/id/1399269037/vector/business-roadmap-flat-design-vector-illustration-with-white-background.jpg?s=612x612&w=0&k=20&c=6bEX7_lmVOrR0ry-zeOB0Pldgz7DbN32unDp6DUJhqg="
+            }
+        }
+    },
+    {
+        "Name": "Administrative Assistant",
+        "AreaPhoto": {
+            "AreaId": 8,
+            "Photo": {
+                "Url": "https://img.freepik.com/premium-vector/assistant-manager-bussiness-woman-flat-design-concept_578300-289.jpg"
+            }
+        }
+    }
+]

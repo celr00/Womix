@@ -1,0 +1,398 @@
+[
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Surface Laptop 4",
+            "Description": "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
+            "Price": 11870,
+            "StockQuantity": 1,
+            "ProductPhotos": [
+                {
+                    "ProductId": 1,
+                    "Photo": {
+                        "Url": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
+                    }
+                },
+                {
+                    "ProductId": 1,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71yC2B6zmEL.AC_SL1500.jpg"
+                    }
+                },
+                {
+                    "ProductId": 1,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 1,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 6,
+                "ProductId": 1
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
+            "Description": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
+            "Price": 89.5,
+            "StockQuantity": 10,
+            "ProductPhotos": [
+                {
+                    "ProductId": 2,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71Xra0EjsaL.AC_UL320.jpg"
+                    }
+                },
+                {
+                    "ProductId": 2,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71TtBlmjqCL.AC_UL320.jpg"
+                    }
+                },
+                {
+                    "ProductId": 2,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71cjgjYb-vL.AC_UL320.jpg"
+                    }
+                },
+                {
+                    "ProductId": 2,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71iP0oMKPFL.AC_UL320.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 2
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "ProductId": 3,
+            "Name": "Babolat Pure Aero",
+            "Description": "La raqueta Babolat Pure Aero es una de las raquetas más utilizadas por los tenistas profesionales. Esta raqueta es ideal para los jugadores que buscan potencia y efectos en cada golpe.",
+            "Price": 280,
+            "StockQuantity": 10,
+            "ProductPhotos": [
+                {
+                    "ProductId": 3,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71x0bd5j2SL._AC_SX466_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 3,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71-xbGmYH3S._AC_SX466_.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 6,
+                "ProductId": 3
+            }
+        }
+    },
+    {
+        "UserId": 2,
+        "Product": {
+            "ProductId": 4,
+            "Name": "Wilson Pro Staff RF97 Autograph Tennis Racquet",
+            "Description": "The Wilson Pro Staff RF97 Autograph Tennis Racquet was designed in collaboration with Roger Federer, the 20-time Grand Slam champion. This racquet is perfect for intermediate to advanced level players and provides a great balance of power and control. With a 97 square inch head size, 16x19 string pattern, and 12.6 ounce strung weight, this racquet offers excellent maneuverability and stability. ",
+            "Price": 249.99,
+            "StockQuantity": 10,
+            "ProductPhotos": [
+                {
+                    "ProductId": 4,
+                    "Photo": {
+                        "Url": "https://www.wilson.com/dw/image/v2/AAKN_PRD/on/demandware.static/-/Sites-wilson-master-catalog/default/dw84e3eb3d/images/product/large/WRT73141U_01.jpg?sw=800&sh=800&sm=fit"
+                    }
+                },
+                {
+                    "ProductId": 4,
+                    "Photo": {
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/61rKvBtAtVL.AC_SL1200.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 6,
+                "ProductId": 4
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 5,
+            "Name": "KitchenAid Stand Mixer",
+            "Description": "The KitchenAid Stand Mixer is a versatile and durable appliance for all your baking needs. With 10 speeds and a variety of attachments, this mixer can handle everything from kneading dough to whipping cream. The 5-quart bowl can accommodate up to 9 dozen cookies or 4 loaves of bread, making it perfect for large batches. ",
+            "Price": 399.99,
+            "StockQuantity": 20,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 5
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 6,
+            "Name": "Cuisinart Food Processor",
+            "Description": "The Cuisinart Food Processor is a powerful and versatile tool for your kitchen. With a 14-cup capacity and multiple blades, you can easily chop, slice, shred, and puree ingredients for all your recipes. The large feed tube can accommodate whole fruits and vegetables, and the dishwasher-safe parts make cleanup a breeze. ",
+            "Price": 199.99,
+            "StockQuantity": 15,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 6
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 7,
+            "Name": "Ninja Air Fryer",
+            "Description": "The Ninja Air Fryer is a healthier way to enjoy your favorite fried foods. With a 4-quart capacity and multiple cooking functions, you can fry, roast, bake, and dehydrate a variety of foods. The digital display and easy-to-use controls make it simple to set the temperature and cooking time, and the dishwasher-safe parts make cleanup a breeze. ",
+            "Price": 99.99,
+            "StockQuantity": 25,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 7
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 8,
+            "Name": "Instant Pot Duo",
+            "Description": "The Instant Pot Duo is a versatile and convenient appliance for your kitchen. With 7 cooking functions and a variety of preset programs, you can cook everything from rice to stew to yogurt with ease. The 6-quart capacity is perfect for families, and the stainless steel design is both durable and stylish. ",
+            "Price": 129.99,
+            "StockQuantity": 30,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 8
+            }
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 9,
+            "Name": "Cuisinart Stainless Steel 12-Piece Cookware Set",
+            "Description": "This cookware set includes 12 pieces: 1.5-quart saucepan with cover, 2.5-quart saucepan with cover, 3-quart sauté pan with cover, 6-quart saucepot with cover, 8-inch skillet, 10-inch skillet, and a steamer insert with cover. Made from stainless steel, these pots and pans are durable and have a polished mirror finish.",
+            "Price": 199.99,
+            "StockQuantity": 5,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 9
+            },
+            "ProductPhotos": [
+                {
+                    "ProductId": 9,
+                    "Photo": {
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/71c0J8zdZbL._AC_SL1500_.jpg"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 10,
+            "Name": "KitchenAid Classic Plus 4.5qt Stand Mixer",
+            "Description": "This stand mixer features a 4.5-quart stainless steel mixing bowl, 10 speeds, and a powerful 275-watt motor. The tilt-head design allows easy access to the bowl and beaters, and the mixer comes with a flat beater, dough hook, and wire whip.",
+            "Price": 279.99,
+            "StockQuantity": 7,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 10
+            },
+            "ProductPhotos": [
+                {
+                    "ProductId": 10,
+                    "Photo": {
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/81K6C08QPLL._AC_SL1500_.jpg"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "UserId": 3,
+        "Product": {
+            "ProductId": 11,
+            "Name": "All-Clad Stainless Steel Cookware Set",
+            "Description": "This cookware set includes 10 pieces: 8-inch and 10-inch fry pans, 2-quart and 3-quart saucepans with lids, 3-quart sauté pan with lid, and an 8-quart stockpot with lid. Made from durable stainless steel, these pots and pans have a polished finish and are oven and dishwasher safe.",
+            "Price": 799.99,
+            "StockQuantity": 3,
+            "ProductItemClass": {
+                "ItemClassId": 1,
+                "ProductId": 11
+            },
+            "ProductPhotos": [
+                {
+                    "ProductId": 11,
+                    "Photo": {
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/71jK5Uy2JdL._AC_SL1500_.jpg"
+                    }
+                }
+            ]
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 12,
+            "Name": "Organic Avocado",
+            "Description": "A ripe and delicious organic avocado.",
+            "Price": 1.49,
+            "StockQuantity": 50,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 12
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 13,
+            "Name": "Organic Strawberries",
+            "Description": "A fresh and juicy pint of organic strawberries.",
+            "Price": 3.99,
+            "StockQuantity": 25,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 13
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 14,
+            "Name": "Organic Whole Milk",
+            "Description": "A gallon of delicious organic whole milk.",
+            "Price": 5.99,
+            "StockQuantity": 20,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 14
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 15,
+            "Name": "Organic Ground Coffee",
+            "Description": "A bag of rich and flavorful organic ground coffee.",
+            "Price": 9.99,
+            "StockQuantity": 30,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 15
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 16,
+            "Name": "Organic Bananas",
+            "Description": "A bunch of sweet and healthy organic bananas.",
+            "Price": 1.99,
+            "StockQuantity": 40,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 16
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 17,
+            "Name": "Organic Rolled Oats",
+            "Description": "A bag of hearty and nutritious organic rolled oats.",
+            "Price": 4.99,
+            "StockQuantity": 15,
+            "ProductItemClass": {
+                "ItemClassId": 3,
+                "ProductId": 17
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 18,
+            "Name": "Aveeno Daily Moisturizing Body Wash",
+            "Description": "Aveeno Daily Moisturizing Body Wash is gentle enough for sensitive skin and helps replenish skin's natural moisture. With a unique blend of natural oils and emollients, this body wash cleanses and moisturizes skin, leaving it feeling soft and smooth. The fragrance-free formula is hypoallergenic and soap-free, making it ideal for daily use.",
+            "Price": 9.99,
+            "StockQuantity": 20,
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 18
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 19,
+            "Name": "Neutrogena Hydro Boost Hydrating Gel Eye Cream",
+            "Description": "Neutrogena Hydro Boost Hydrating Gel Eye Cream is a lightweight gel formula that provides intense hydration to the delicate skin around the eyes. With hyaluronic acid, this eye cream helps to plump and hydrate the skin, reducing the appearance of fine lines and wrinkles. The oil-free formula is gentle and non-comedogenic, making it suitable for all skin types.",
+            "Price": 14.99,
+            "StockQuantity": 15,
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 19
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 20,
+            "Name": "Crest 3D White Luxe Whitestrips",
+            "Description": "Crest 3D White Luxe Whitestrips are an easy and effective way to whiten teeth at home. These whitening strips contain the same enamel-safe ingredients used by dentists, and work to remove years of tough stains to reveal a brighter, more radiant smile. With just 30 minutes a day for 14 days, these whitening strips are an affordable and convenient way to achieve professional-level results.",
+            "Price": 44.99,
+            "StockQuantity": 8,
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 20
+            }
+        }
+    },
+    {
+        "UserId": 4,
+        "Product": {
+            "ProductId": 21,
+            "Name": "NIVEA Essentially Enriched Body Lotion",
+            "Description": "NIVEA Essentially Enriched Body Lotion is a rich, nourishing formula that helps to deeply moisturize and repair dry, rough skin. With natural sea minerals and almond oil, this lotion provides long-lasting hydration, leaving skin feeling soft and smooth. The non-greasy formula absorbs quickly, making it ideal for daily use.",
+            "Price": 7.99,
+            "StockQuantity": 25,
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 21
+            }
+        }
+    }
+]

@@ -35,7 +35,7 @@ export class AccountService {
   }
 
   removePhoto() {
-    
+
   }
 
   setCurrentAccount(account: Account) {
@@ -78,5 +78,12 @@ export class AccountService {
   getAccountToken(): string {
     const token = JSON.parse(localStorage.getItem('account')!);
     return localStorage.getItem(token)!;
+  }
+
+  getAccount(): Account | null {
+    const accountStr = localStorage.getItem('account');
+    if (accountStr === null) return null;
+    const account: Account = JSON.parse(accountStr);
+    return account;
   }
 }

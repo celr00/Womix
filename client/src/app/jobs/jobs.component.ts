@@ -4,6 +4,8 @@ import { JobsParams } from '../shared/models/jobs-params';
 import { JobsService } from '../account/jobs/jobs.service';
 import { ActivatedRoute } from '@angular/router';
 import { UserJobInterest } from '../shared/models/user-job-interest';
+import { AccountService } from '../landing/account.service';
+import { Account } from '../shared/models/account';
 
 @Component({
   selector: 'app-jobs',
@@ -11,9 +13,10 @@ import { UserJobInterest } from '../shared/models/user-job-interest';
   styleUrls: ['./jobs.component.scss']
 })
 export class JobsComponent implements OnInit {
+  @ViewChild('search') searchTerm?: ElementRef;
+  account: Account | null;
   jobs?: Job[];
   myJobs?: UserJobInterest[];
-  @ViewChild('search') searchTerm?: ElementRef;
   totalCount = 0;
   params: JobsParams;
   areas?: Area[];
@@ -25,16 +28,21 @@ export class JobsComponent implements OnInit {
     {name: 'Price: High to low', value: 'priceDesc'},
   ];
 
-  constructor(private jobService: JobsService, private route: ActivatedRoute) {
+  constructor(private jobService: JobsService, private route: ActivatedRoute,
+    private accountService: AccountService) {
     this.jobService.resetParams();
     this.params = jobService.getParams();
     this.params.areaId = this.route.snapshot.queryParams['area'] || 0;
+    this.account = this.accountService.getAccount();
+    if (this.account === null) this.myJobs = [];
   }
 
   ngOnInit(): void {
     this.loadJobs();
     this.loadAreas();
-    this.loadMyInterests();
+    if (this.account !== null) {
+      this.loadMyInterests();
+    }
   }
 
   loadMyInterests() {
