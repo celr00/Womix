@@ -556,3 +556,231 @@ npm install -g @angular/cli
 ```
 dotnet dev-certs https --trust
 ```
+
+## Publish application
+
+```
+/c/Projects/Womix
+
+dotnet publish -c Release -o publish Womix.sln
+```
+
+## Drop database
+
+```
+/c/Projects/Womix
+
+dotnet ef database drop -s API -p Infrastructure -c DataContext
+```
+
+sudo dnf update
+
+dnf install docker-compose
+
+docker-compose up -d
+
+password appuser
+
+# Publish
+
+##
+
+```
+sudo nano docker-compose.yml
+```
+
+## `docker-compose.yml`
+
+```
+services:
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: secret
+      POSTGRES_USER: appuser
+    ports:
+      - 5432:5432
+    volumes:
+      - postgres-data:/data
+
+volumes:
+  postgres-data:
+```
+
+sudo apt-get update
+
+sudo apt-get install docker.io
+
+sudo apt install docker-compose
+
+docker-compose up -d
+
+## Apache
+
+sudo apt update
+sudo apt install apache2
+a2enmod proxy proxy_http proxy_html rewrite
+systemctl restart apache2
+sudo ufw app list
+sudo ufw allow 'Apache Full'
+sudo systemctl status apache2
+
+## Allow ports through firewall for PostgreSQL
+
+sudo ufw allow 5432/tcp
+
+Test you can access the default apache page by browsing to:  http://34.174.115.18
+
+## Create a new directory that will contain our published dotnet app and assign rights to the user:
+
+sudo mkdir /var/womix
+sudo chown -R $USER:$USER /var/womix
+
+## Create a new config file for the skinet app:
+
+sudo nano /etc/apache2/sites-available/womix.conf
+
+## Paste in the following configuration which will set up a reverse proxy with the Kestrel server:
+
+### `womix.conf`
+
+```
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+
+## Enable the womix site by running the following commands:
+
+```
+a2ensite womix
+ls /etc/apache2/sites-enabled
+a2dissite 000-default
+systemctl reload apache2
+```
+
+## Install the deploy reloaded extension. Create a settings.json file in the .vscode directory and update the IP address and password for your server:
+
+### `settings.json`
+
+```
+{
+    "deploy.reloaded": {
+        "packages": [
+            {
+                "name": "Version 1.0.0",
+                "description": "Package version 1.0.0",
+                "files": [
+                    "publish/**"
+                ]
+            }
+        ],
+        "targets": [
+            {
+                "type": "sftp",
+                "name": "Linux",
+                "description": "SFTP folder",
+                "host": "ipaddress",
+                "port": 22,
+                "user": "root",
+                "password": "your password",
+                "dir": "/var/womix",
+                "mappings": {
+                    "publish/**": "/"
+                }
+            }
+        ]
+    }
+}
+```
+
+## Change the logging level for the `appsettings.json` to information for the Microsoft logging level:
+
+### `appsettings.json`
+
+```
+{
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft": "Information",
+      "Microsoft.Hosting.Lifetime": "Information"
+    }
+  },
+}
+```
+
+dotnet publish -c Release -o publish skinet.sln
+
+16.  Deploy the files by using the command pallette -> deploy reloaded -> deploy package
+
+17.  Add an endpoint to stripe for to point to the IP address of the server and select the 2 events we want to listen to:  payment_intent.succeeded, payment_intent.payment_failed.  Note the web hook secret as we will need this soon.
+
+http://ipaddress/api/payments/webhook
+
+18.  Back on the linux server create a service config for the kestrel server:
+
+sudo nano /etc/systemd/system/womix-web.service
+
+19.  Update the configuration for your API keys where it says REPLACEME and then paste the config into the nano editor
+
+[Unit]
+Description=Kestrel service running on Ubuntu 20.04
+[Service]
+WorkingDirectory=/var/womix
+ExecStart=/usr/bin/dotnet /var/womix/API.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=womix
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment='Token__Key=supersecretunguessablekey'
+Environment='Token__Issuer=http://34.174.115.18'
+Environment='ConnectionStrings__DefaultConnection=Server=localhost;Port=5432;User Id=appuser;Password=secret; Database=womix'
+[Install]
+WantedBy=multi-user.target
+
+20.  Install the .Net runtime using the instructions here:  https://docs.microsoft.com/en-gb/dotnet/core/install/linux-ubuntu#2004-
+
+```
+# Get Ubuntu version
+declare repo_version=$(if command -v lsb_release &> /dev/null; then lsb_release -r -s; else grep -oP '(?<=^VERSION_ID=).+' /etc/os-release | tr -d '"'; fi)
+
+# Download Microsoft signing key and repository
+wget https://packages.microsoft.com/config/ubuntu/$repo_version/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+
+# Install Microsoft signing key and repository
+sudo dpkg -i packages-microsoft-prod.deb
+
+# Clean up
+rm packages-microsoft-prod.deb
+
+# Update packages
+sudo apt update
+```
+
+apt install dotnet-runtime-7.0
+
+21.  Restart the journal service by running the following command:
+
+systemctl restart systemd-journald
+
+22.  Start the kestrel service by running the following command:
+
+sudo systemctl start womix-web.service
+
+23.  Check it is started by running: 
+
+netstat -ntpl
+
+24.  Check the journal by running:
+
+journalctl -u womix-web.service --since "5 min ago"
+
+25.  Make sure there are no errors and then test you can browse to the published app on http://ipaddress

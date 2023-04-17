@@ -205,12 +205,12 @@ namespace API.Controllers
             return Ok();
         }
 
-        [HttpDelete("photo")]
-        public async Task<ActionResult> RemovePhoto() 
-        {
+        // [HttpDelete("photo")]
+        // public async Task<ActionResult> RemovePhoto() 
+        // {
             
             
-            return Ok();
-        }
+        //     return Ok();
+        // }
     }
 }
