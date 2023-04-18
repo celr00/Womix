@@ -21,6 +21,7 @@ export class JobsComponent implements OnInit {
   params: JobsParams;
   areas?: Area[];
   cardIndex = 1;
+  loggedIn = false;
   isIndexFollowed = false;
   sortOptions = [
     {name: 'Alphabetical', value: 'name'},
@@ -35,6 +36,7 @@ export class JobsComponent implements OnInit {
     this.params.areaId = this.route.snapshot.queryParams['area'] || 0;
     this.account = this.accountService.getAccount();
     if (this.account === null) this.myJobs = [];
+    if (this.account !== null) this.loggedIn = true;
   }
 
   ngOnInit(): void {

@@ -522,10 +522,11 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Assistant",
-            "Description": "Full-time assistant to provide administrative and clerical support",
+            "JobId": 43,
+            "Name": "Dental Assistant",
+            "Description": "Assist the dentist during dental procedures, prepare equipment and materials, and provide patient care.",
             "Salary": 35000,
             "JobArea": {
                 "JobId": 43,
@@ -534,11 +535,12 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Corporate Assistant",
-            "Description": "Full-time corporate assistant to provide executive level administrative support",
-            "Salary": 55000,
+            "JobId": 44,
+            "Name": "Dental Hygienist",
+            "Description": "Clean teeth, examine patients for oral diseases, and provide preventive dental care.",
+            "Salary": 65000,
             "JobArea": {
                 "JobId": 44,
                 "AreaId": 8
@@ -546,11 +548,12 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Office Assistant",
-            "Description": "Full-time office assistant to provide general administrative support",
-            "Salary": 30000,
+            "JobId": 45,
+            "Name": "Dental Office Manager",
+            "Description": "Manage the day-to-day operations of a dental practice, including scheduling appointments, billing, and staff management.",
+            "Salary": 80000,
             "JobArea": {
                 "JobId": 45,
                 "AreaId": 8
@@ -558,11 +561,12 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Administrative Assistant",
-            "Description": "Full-time administrative assistant to support management",
-            "Salary": 40000,
+            "JobId": 46,
+            "Name": "Dental Receptionist",
+            "Description": "Answer phones, schedule appointments, and greet patients as they arrive.",
+            "Salary": 30000,
             "JobArea": {
                 "JobId": 46,
                 "AreaId": 8
@@ -570,11 +574,12 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Executive Assistant",
-            "Description": "Full-time executive assistant to support high-level executives",
-            "Salary": 60000,
+            "JobId": 47,
+            "Name": "Dental Lab Technician",
+            "Description": "Create dental prosthetics, such as crowns, bridges, and dentures, according to dentist specifications.",
+            "Salary": 50000,
             "JobArea": {
                 "JobId": 47,
                 "AreaId": 8
@@ -582,11 +587,12 @@
         }
     },
     {
-        "UserId": 19,
+        "UserId": 1,
         "Job": {
-            "Name": "Personal Assistant",
-            "Description": "Full-time personal assistant to provide support to an individual",
-            "Salary": 50000,
+            "JobId": 48,
+            "Name": "Dental Sales Representative",
+            "Description": "Promote and sell dental products to dentists and dental practices.",
+            "Salary": 75000,
             "JobArea": {
                 "JobId": 48,
                 "AreaId": 8

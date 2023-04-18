@@ -63,11 +63,11 @@
         }
     },
     {
-        "Name": "Administrative Assistant",
+        "Name": "Medical & Health",
         "AreaPhoto": {
             "AreaId": 8,
             "Photo": {
-                "Url": "https://img.freepik.com/premium-vector/assistant-manager-bussiness-woman-flat-design-concept_578300-289.jpg"
+                "Url": "https://media.istockphoto.com/id/471629610/vector/caduceus-medical-symbol.jpg?s=612x612&w=0&k=20&c=jLnfdQQphRwsmm6wo0O80sEo-5PhbEY4PHmQgBiRkq0="
             }
         }
     }

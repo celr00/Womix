@@ -10,9 +10,14 @@ import { MessagesComponent } from './messages/messages.component';
 import { PreventUnsavedChangesPasswordGuard } from './account-change-password/prevent-unsaved-changes-password.guard';
 import { PreventUnsavedChangesAccountGuard } from './account-edit/prevent-unsaved-changes-account.guard';
 import { JobsComponent } from './jobs/jobs.component';
+import { AuthGuard } from '../core/guards/auth.guard';
 
 const routes: Routes = [
-  { path: 'summary', component: AccountHomeComponent },
+  {
+    path: 'summary',
+    canActivate: [AuthGuard],
+    component: AccountHomeComponent
+  },
   {
     path: 'edit',
     component: AccountEditComponent,

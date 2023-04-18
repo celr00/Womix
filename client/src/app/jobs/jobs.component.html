@@ -20,6 +20,7 @@
             </div>
               <div class="col-7 col-sm-6 col-lg-4 position-sticky info-static">
                 <app-job-info
+                  [loggedIn]="loggedIn"
                   [job]="selectedCard(jobs)"
                   [myJobs]="myJobs"></app-job-info>
               </div>

@@ -1,39 +1,36 @@
 [
     {
-        "PhoneNumber": "8120800336",
+        "PhoneNumber": "8441106618",
         "AppUserPhoto": {
-            "UserId": 1,
             "Photo": {
-                "Url": "https://res.cloudinary.com/dmjdskgd4/image/upload/v1675982651/aztpqt3s3mesxfzmnj4a.jpg"
+                "Url": "https://res.cloudinary.com/dmjdskgd4/image/upload/v1679978172/byplrjcjb6vn1zvh7z5r.png"
             }
         },
         "AppUserAddress": {
-            "UserId": 1,
             "Address": {
-                "City": "San Pedro Garza García",
-                "Number": "220",
+                "City": "Monterrey",
+                "Number": "161",
                 "State": "Nuevo León",
-                "Street": "La Gloria",
-                "Zipcode": "66247"
+                "Street": "La calle",
+                "Zipcode": "662200"
             }
         },
-        "Facebook": "ramiro_castellanos",
-        "Instagram": "ramiro_castellanos_barron",
-        "FirstName": "Ramiro",
-        "LastName": "Castellanos",
-        "Email": "ramiro@castellanosbarron.com",
-        "UserName": "ramiro@castellanosbarron.com"
+        "Facebook": "dulce.odonto",
+        "DateOfBirth": "2001-03-01",
+        "Instagram": "dulce.odonto",
+        "FirstName": "Dulce",
+        "LastName": "Treviño",
+        "Email": "dm.trevino05@gmail.com",
+        "UserName": "dm.trevino05@gmail.com"
     },
     {
         "PhoneNumber": "555-555-5555",
         "AppUserPhoto": {
-            "UserId": 2,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/50.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 2,
             "Address": {
                 "City": "New York",
                 "Number": "123",
@@ -43,6 +40,7 @@
             }
         },
         "Facebook": "jane.doe",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jane.doe",
         "FirstName": "Jane",
         "LastName": "Doe",
@@ -52,13 +50,11 @@
     {
         "PhoneNumber": "857-482-0176",
         "AppUserPhoto": {
-            "UserId": 3,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/30.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 3,
             "Address": {
                 "City": "Miami",
                 "Number": "123",
@@ -68,6 +64,7 @@
             }
         },
         "Facebook": "jennifer.flores",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jennyflores",
         "FirstName": "Jennifer",
         "LastName": "Flores",
@@ -77,13 +74,11 @@
     {
         "PhoneNumber": "202-555-0140",
         "AppUserPhoto": {
-            "UserId": 4,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/21.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 4,
             "Address": {
                 "City": "Washington",
                 "Number": "1600",
@@ -93,6 +88,7 @@
             }
         },
         "Facebook": "ashley.smith",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "ashleysmith",
         "FirstName": "Ashley",
         "LastName": "Smith",
@@ -102,13 +98,11 @@
     {
         "PhoneNumber": "212-555-0198",
         "AppUserPhoto": {
-            "UserId": 5,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/12.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 5,
             "Address": {
                 "City": "New York",
                 "Number": "350",
@@ -118,6 +112,7 @@
             }
         },
         "Facebook": "emily.garcia",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "emilygarcia",
         "FirstName": "Emily",
         "LastName": "Garcia",
@@ -127,13 +122,11 @@
     {
         "PhoneNumber": "312-555-0162",
         "AppUserPhoto": {
-            "UserId": 6,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/33.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 6,
             "Address": {
                 "City": "Chicago",
                 "Number": "233",
@@ -143,6 +136,7 @@
             }
         },
         "Facebook": "jessica.chen",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jessicachen",
         "FirstName": "Jessica",
         "LastName": "Chen",
@@ -152,13 +146,11 @@
     {
         "PhoneNumber": "6501234567",
         "AppUserPhoto": {
-            "UserId": 7,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/1.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 7,
             "Address": {
                 "City": "Los Angeles",
                 "Number": "123",
@@ -168,6 +160,7 @@
             }
         },
         "Facebook": "sara.jackson.52056",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "sara.jackson",
         "FirstName": "Sara",
         "LastName": "Jackson",
@@ -177,13 +170,11 @@
     {
         "PhoneNumber": "3055551234",
         "AppUserPhoto": {
-            "UserId": 8,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/2.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 8,
             "Address": {
                 "City": "Miami",
                 "Number": "567",
@@ -193,6 +184,7 @@
             }
         },
         "Facebook": "ashley.smith.718",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "ashley.smith",
         "FirstName": "Ashley",
         "LastName": "Smith",
@@ -202,13 +194,11 @@
     {
         "PhoneNumber": "2125556789",
         "AppUserPhoto": {
-            "UserId": 9,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/3.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 9,
             "Address": {
                 "City": "New York",
                 "Number": "456",
@@ -218,6 +208,7 @@
             }
         },
         "Facebook": "jennifer.brown.14224",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jennifer.brown",
         "FirstName": "Jennifer",
         "LastName": "Brown",
@@ -227,13 +218,11 @@
     {
         "PhoneNumber": "5125559876",
         "AppUserPhoto": {
-            "UserId": 10,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/4.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 10,
             "Address": {
                 "City": "Austin",
                 "Number": "789",
@@ -243,6 +232,7 @@
             }
         },
         "Facebook": "megan.jones.3958",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "megan.jones",
         "FirstName": "Megan",
         "LastName": "Jones",
@@ -250,16 +240,13 @@
         "UserName": "megan.jones@gmail.com"
     },
     {
-        "Id": 11,
         "PhoneNumber": "415-555-0195",
         "AppUserPhoto": {
-            "UserId": 11,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/43.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 11,
             "Address": {
                 "Street": "Van Ness Ave",
                 "Number": "2000",
@@ -269,6 +256,7 @@
             }
         },
         "Facebook": "sarah.williams.14606",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "sarah.williams.14606",
         "FirstName": "Sarah",
         "LastName": "Williams",
@@ -276,16 +264,13 @@
         "UserName": "sarah.williams@example.com"
     },
     {
-        "Id": 12,
         "PhoneNumber": "212-555-0194",
         "AppUserPhoto": {
-            "UserId": 12,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/61.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 12,
             "Address": {
                 "Street": "5th Ave",
                 "Number": "200",
@@ -295,6 +280,7 @@
             }
         },
         "Facebook": "jennifer.miller.9659289",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jennifer.miller.9659289",
         "FirstName": "Jennifer",
         "LastName": "Miller",
@@ -302,16 +288,13 @@
         "UserName": "jennifer.miller@example.com"
     },
     {
-        "Id": 13,
         "PhoneNumber": "202-555-0176",
         "AppUserPhoto": {
-            "UserId": 13,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/24.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 13,
             "Address": {
                 "Street": "L St NW",
                 "Number": "1600",
@@ -321,6 +304,7 @@
             }
         },
         "Facebook": "emily.smith.73113",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "emily.smith.73113",
         "FirstName": "Emily",
         "LastName": "Smith",
@@ -328,16 +312,13 @@
         "UserName": "emily.smith@example.com"
     },
     {
-        "Id": 14,
         "PhoneNumber": "8250583834",
         "AppUserPhoto": {
-            "UserId": 14,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/25.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 14,
             "Address": {
                 "Street": "Broadway",
                 "Number": "1234",
@@ -347,6 +328,7 @@
             }
         },
         "Facebook": "jessica_miller",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "jessicamiller_",
         "FirstName": "Jessica",
         "LastName": "Miller",
@@ -354,16 +336,13 @@
         "UserName": "jessicamiller"
     },
     {
-        "Id": 15,
         "PhoneNumber": "8240371587",
         "AppUserPhoto": {
-            "UserId": 15,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/18.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 15,
             "Address": {
                 "City": "Houston",
                 "Number": "5678",
@@ -373,6 +352,7 @@
             }
         },
         "Facebook": "amanda_lee",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "amandalee_",
         "FirstName": "Amanda",
         "LastName": "Lee",
@@ -380,16 +360,13 @@
         "UserName": "amandalee"
     },
     {
-        "Id": 16,
         "PhoneNumber": "8230123456",
         "AppUserPhoto": {
-            "UserId": 16,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/13.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 16,
             "Address": {
                 "City": "New York",
                 "Number": "432111",
@@ -399,6 +376,7 @@
             }
         },
         "Facebook": "kristen_jones",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "kristenjones_",
         "FirstName": "Kristen",
         "LastName": "Jones",
@@ -406,16 +384,13 @@
         "UserName": "kristen"
     },
     {
-        "Id": 17,
         "PhoneNumber": "8230123456",
         "AppUserPhoto": {
-            "UserId": 17,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/13.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 17,
             "Address": {
                 "City": "New York",
                 "Number": "4321",
@@ -425,6 +400,7 @@
             }
         },
         "Facebook": "kristen_jonesss",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "kristenjonesss_",
         "FirstName": "Kristen",
         "LastName": "Jones",
@@ -432,16 +408,13 @@
         "UserName": "kristenjones"
     },
     {
-        "Id": 18,
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
-            "UserId": 18,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/1.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 18,
             "Address": {
                 "Street": "Calle Reforma",
                 "Number": "123",
@@ -451,6 +424,7 @@
             }
         },
         "Facebook": "user18",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "user18",
         "FirstName": "Ana",
         "LastName": "Hernández",
@@ -458,16 +432,13 @@
         "UserName": "user18"
     },
     {
-        "Id": 19,
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
-            "UserId": 19,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/2.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 19,
             "Address": {
                 "Street": "Calle del Mar",
                 "Number": "456",
@@ -477,6 +448,7 @@
             }
         },
         "Facebook": "user19",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "user19",
         "FirstName": "Sofía",
         "LastName": "García",
@@ -484,16 +456,13 @@
         "UserName": "user19"
     },
     {
-        "Id": 20,
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
-            "UserId": 20,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/3.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 20,
             "Address": {
                 "Street": "Avenida Independencia",
                 "Number": "789",
@@ -503,6 +472,7 @@
             }
         },
         "Facebook": "user20",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "user20",
         "FirstName": "María",
         "LastName": "Sánchez",
@@ -510,16 +480,13 @@
         "UserName": "user20"
     },
     {
-        "Id": 21,
         "PhoneNumber": "9782323431",
         "AppUserPhoto": {
-            "UserId": 21,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/1.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 21,
             "Address": {
                 "City": "Moscow",
                 "Number": "12",
@@ -529,6 +496,7 @@
             }
         },
         "Facebook": "marina.vasileva",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "marina.vasileva",
         "FirstName": "Marina",
         "LastName": "Vasileva",
@@ -536,16 +504,13 @@
         "UserName": "marina.vasileva"
     },
     {
-        "Id": 22,
         "PhoneNumber": "9372567874",
         "AppUserPhoto": {
-            "UserId": 22,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/2.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 22,
             "Address": {
                 "City": "Saint Petersburg",
                 "Number": "67",
@@ -555,6 +520,7 @@
             }
         },
         "Facebook": "nina.ivanova",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "nina.ivanova",
         "FirstName": "Nina",
         "LastName": "Ivanova",
@@ -562,16 +528,13 @@
         "UserName": "nina.ivanova"
     },
     {
-        "Id": 23,
         "PhoneNumber": "9245678910",
         "AppUserPhoto": {
-            "UserId": 23,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/3.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 23,
             "Address": {
                 "City": "Kazan",
                 "Number": "25",
@@ -581,6 +544,7 @@
             }
         },
         "Facebook": "svetlana.petrova",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "svetlana.petrova",
         "FirstName": "Svetlana",
         "LastName": "Petrova",
@@ -588,16 +552,13 @@
         "UserName": "svetlana.petrova"
     },
     {
-        "Id": 24,
         "PhoneNumber": "9512345678",
         "AppUserPhoto": {
-            "UserId": 24,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/4.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 24,
             "Address": {
                 "City": "Novosibirsk",
                 "Number": "91",
@@ -607,6 +568,7 @@
             }
         },
         "Facebook": "olga.semova",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "olga.semova",
         "FirstName": "Olga",
         "LastName": "Semova",
@@ -614,16 +576,13 @@
         "UserName": "olga.semova"
     },
     {
-        "Id": 25,
         "PhoneNumber": "542358943",
         "AppUserPhoto": {
-            "UserId": 25,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/79.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 25,
             "Address": {
                 "City": "Kraków",
                 "Number": "20",
@@ -637,19 +596,17 @@
         "Email": "alicja.majewska@gmail.com",
         "UserName": "alicja.majewska@gmail.com",
         "Facebook": "alicja.majewska.73",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "alicja.majewska_official"
     },
     {
-        "Id": 26,
         "PhoneNumber": "612345679",
         "AppUserPhoto": {
-            "UserId": 26,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/24.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 26,
             "Address": {
                 "City": "Warszawa",
                 "Number": "10",
@@ -663,19 +620,17 @@
         "Email": "magda.nowak@gmail.com",
         "UserName": "magda.nowak@gmail.com",
         "Facebook": "magda.nowak.98",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "magda.nowak_official"
     },
     {
-        "Id": 27,
         "PhoneNumber": "725487963",
         "AppUserPhoto": {
-            "UserId": 27,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/62.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 27,
             "Address": {
                 "City": "Gdańsk",
                 "Number": "1",
@@ -689,19 +644,17 @@
         "Email": "kasia.dabrowska@gmail.com",
         "UserName": "kasia.dabrowska@gmail.com",
         "Facebook": "kasia.dabrowska.77",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "kasia.dabrowska_official"
     },
     {
-        "Id": 28,
         "PhoneNumber": "643256789",
         "AppUserPhoto": {
-            "UserId": 28,
             "Photo": {
                 "Url": "https://randomuser.me/api/portraits/women/15.jpg"
             }
         },
         "AppUserAddress": {
-            "UserId": 28,
             "Address": {
                 "City": "Poznań",
                 "Number": "5",
@@ -715,6 +668,7 @@
         "Email": "ala.zielinska@gmail.com",
         "UserName": "ala.zielinska@gmail.com",
         "Facebook": "ala.zielinska.83",
+        "DateOfBirth": "2000-01-01",
         "Instagram": "ala.zielinska_official"
     }
 ]

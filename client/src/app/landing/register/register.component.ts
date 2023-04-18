@@ -13,11 +13,11 @@ import { RegisterConsentService } from 'src/app/core/services/register-consent.s
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
-    if (this.registerForm?.dirty) {
-      $event.returnValue = true;
-    }
-  }
+  // @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+  //   if (this.registerForm?.dirty) {
+  //     $event.returnValue = true;
+  //   }
+  // }
   errors: string[] | null = null;
   maxDate: Date = new Date();
   registerForm: FormGroup = new FormGroup({});
@@ -35,7 +35,7 @@ export class RegisterComponent implements OnInit {
 
   initializeForm() {
     this.registerForm = this.fb.group({
-      /*
+      /** *
       firstName: ['ramiro', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
       lastName: ['castellanos', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
       email: ['ramiro@castellanos.com', [Validators.required, Validators.email], [this.validateEmailNotTaken()]],
@@ -45,7 +45,7 @@ export class RegisterComponent implements OnInit {
       dateOfBirth: [new Date, [Validators.required]],
       facebook: ['facebook', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
       instagram: ['instagram', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
-      */
+      /**/
       /** */
       firstName: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
       lastName: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(60)]],
@@ -71,12 +71,12 @@ export class RegisterComponent implements OnInit {
 
   onSubmit() {
     const dob = this.getDateOnly(this.registerForm.controls['dateOfBirth'].value);
-    const values = {...this.registerForm.value, dateOfBirth: dob};
+    const value = {...this.registerForm.value, dateOfBirth: dob};
     this.consentService.confirm(this.modal).subscribe({
       next: modal => {
-        modal && this.accountService.register(values).subscribe({
+        modal && this.accountService.register(value).subscribe({
           next: () => {
-            this.router.navigateByUrl('/account/summary');
+            this.registerForm.reset();
           },
         })
       }

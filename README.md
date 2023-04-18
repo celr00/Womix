@@ -573,14 +573,6 @@ dotnet publish -c Release -o publish Womix.sln
 dotnet ef database drop -s API -p Infrastructure -c DataContext
 ```
 
-sudo dnf update
-
-dnf install docker-compose
-
-docker-compose up -d
-
-password appuser
-
 # Publish
 
 ##
@@ -716,7 +708,7 @@ systemctl reload apache2
 }
 ```
 
-dotnet publish -c Release -o publish skinet.sln
+dotnet publish -c Release -o publish womix.sln
 
 16.  Deploy the files by using the command pallette -> deploy reloaded -> deploy package
 
@@ -767,20 +759,38 @@ sudo apt update
 
 apt install dotnet-runtime-7.0
 
-21.  Restart the journal service by running the following command:
 
+## Deploy
+
+```
 systemctl restart systemd-journald
-
-22.  Start the kestrel service by running the following command:
 
 sudo systemctl start womix-web.service
 
-23.  Check it is started by running: 
+netstat -ntpl
+
+journalctl -u womix-web.service --since "5 min ago"
+```
+
+## Redeploy
+
+```
+#
+
+docker-compose down -v
+
+sudo systemctl stop womix-web.service
+
+(publish)
+
+docker-compose up -d
+
+systemctl restart systemd-journald
+
+sudo systemctl start womix-web.service
 
 netstat -ntpl
 
-24.  Check the journal by running:
-
 journalctl -u womix-web.service --since "5 min ago"
 
-25.  Make sure there are no errors and then test you can browse to the published app on http://ipaddress
+```

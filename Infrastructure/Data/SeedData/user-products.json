@@ -1,6 +1,6 @@
 [
     {
-        "UserId": 1,
+        "UserId": 20,
         "Product": {
             "Name": "Surface Laptop 4",
             "Description": "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
@@ -33,13 +33,13 @@
                 }
             ],
             "ProductItemClass": {
-                "ItemClassId": 6,
+                "ItemClassId": 7,
                 "ProductId": 1
             }
         }
     },
     {
-        "UserId": 1,
+        "UserId": 20,
         "Product": {
             "Name": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
             "Description": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
@@ -49,25 +49,25 @@
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71Xra0EjsaL.AC_UL320.jpg"
+                        "Url": "https://cdn.shoesector.com/500378-thickbox_default/lacoste-men-classic-pique-slim-fit-short-sleeve-polo.jpg"
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71TtBlmjqCL.AC_UL320.jpg"
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/51QVG1PHFHL.jpg"
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71cjgjYb-vL.AC_UL320.jpg"
+                        "Url": "https://i5.walmartimages.com/asr/a01fff69-5147-4493-b25a-7b6e62c5dce8_1.e480576ddd00b8cbed7694593f3a85f9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71iP0oMKPFL.AC_UL320.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/91v8wvJMiwL._AC_UY1000_.jpg"
                     }
                 }
             ],
@@ -78,7 +78,7 @@
         }
     },
     {
-        "UserId": 1,
+        "UserId": 20,
         "Product": {
             "ProductId": 3,
             "Name": "Babolat Pure Aero",
@@ -89,13 +89,19 @@
                 {
                     "ProductId": 3,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71x0bd5j2SL._AC_SX466_.jpg"
+                        "Url": "https://cdn.shopify.com/s/files/1/0130/2999/8656/products/babolat-pure-aero-826900.jpg?v=1624301906"
                     }
                 },
                 {
                     "ProductId": 3,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71-xbGmYH3S._AC_SX466_.jpg"
+                        "Url": "https://cdn.shopify.com/s/files/1/0500/2248/2080/products/101488_1_1024x1024.jpg?v=1663180571"
+                    }
+                },
+                {
+                    "ProductId": 3,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/514REwvE1jL._AC_SX425_.jpg"
                     }
                 }
             ],
@@ -117,13 +123,25 @@
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://www.wilson.com/dw/image/v2/AAKN_PRD/on/demandware.static/-/Sites-wilson-master-catalog/default/dw84e3eb3d/images/product/large/WRT73141U_01.jpg?sw=800&sh=800&sm=fit"
+                        "Url": "https://www.extreme-tennis.fr/25306-medium_default/wilson-pro-staff-rf97-autograph-v130-340g-test-racket.jpg"
                     }
                 },
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://images-na.ssl-images-amazon.com/images/I/61rKvBtAtVL.AC_SL1200.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/51PmKcYqJfL._SL1200_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 4,
+                    "Photo": {
+                        "Url": "https://i.ytimg.com/vi/ey18hh_pWnA/maxresdefault.jpg"
+                    }
+                },
+                {
+                    "ProductId": 4,
+                    "Photo": {
+                        "Url": "https://img.tennis-warehouse.com/watermark/rs.php?path=97V13R-1.jpg&nw=455"
                     }
                 }
             ],
@@ -141,8 +159,34 @@
             "Description": "The KitchenAid Stand Mixer is a versatile and durable appliance for all your baking needs. With 10 speeds and a variety of attachments, this mixer can handle everything from kneading dough to whipping cream. The 5-quart bowl can accommodate up to 9 dozen cookies or 4 loaves of bread, making it perfect for large batches. ",
             "Price": 399.99,
             "StockQuantity": 20,
+            "ProductPhotos": [
+                {
+                    "ProductId": 5,
+                    "Photo": {
+                        "Url": "https://i.insider.com/5f99d8ff6f5b310011724085?width=700"
+                    }
+                },
+                {
+                    "ProductId": 5,
+                    "Photo": {
+                        "Url": "https://kitchenaid-h.assetsadobe.com/is/image/content/dam/business-unit/kitchenaid/en-us/digital-assets/pages/bowl-lift/image-flyout--bowl-lift-red-revised.jpg?fmt=png-alpha&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&scl=1&constrain=fit,1"
+                    }
+                },
+                {
+                    "ProductId": 5,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61HxNqW+aPL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 5,
+                    "Photo": {
+                        "Url": "https://www.kitchenaid.in/content/kitchenaid/en_in/countertop-appliances/stand-mixers/see-all/_jcr_content/root/main/parsys-bottom/responsivegrid_340956052/container_copy/wrapperParsys/responsivegrid/image.coreimg.jpeg/1587038508404/stand-mixer.jpeg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 5
             }
         }
@@ -155,8 +199,34 @@
             "Description": "The Cuisinart Food Processor is a powerful and versatile tool for your kitchen. With a 14-cup capacity and multiple blades, you can easily chop, slice, shred, and puree ingredients for all your recipes. The large feed tube can accommodate whole fruits and vegetables, and the dishwasher-safe parts make cleanup a breeze. ",
             "Price": 199.99,
             "StockQuantity": 15,
+            "ProductPhotos": [
+                {
+                    "ProductId": 6,
+                    "Photo": {
+                        "Url": "https://www.cuisinart.ca/on/demandware.static/-/Sites-master-ca/default/dw8bc6a4e5/FP-14DCNC_3.jpg"
+                    }
+                },
+                {
+                    "ProductId": 6,
+                    "Photo": {
+                        "Url": "https://cb.scene7.com/is/image/Crate/CuisFoodPrcssr14cpBlkSSSHF18/$web_pdp_main_carousel_zoom_low$/220913143710/cuisinart-food-processor-14-cup-black-stainless.jpg"
+                    }
+                },
+                {
+                    "ProductId": 6,
+                    "Photo": {
+                        "Url": "https://secure.img1-fg.wfcdn.com/im/62275091/compr-r85/1047/104751441/cuisinart-14-cup-food-processor.jpg"
+                    }
+                },
+                {
+                    "ProductId": 6,
+                    "Photo": {
+                        "Url": "https://cdn.thewirecutter.com/wp-content/uploads/2020/01/05-food-processor-cuisinart-custom-630.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 6
             }
         }
@@ -169,8 +239,34 @@
             "Description": "The Ninja Air Fryer is a healthier way to enjoy your favorite fried foods. With a 4-quart capacity and multiple cooking functions, you can fry, roast, bake, and dehydrate a variety of foods. The digital display and easy-to-use controls make it simple to set the temperature and cooking time, and the dishwasher-safe parts make cleanup a breeze. ",
             "Price": 99.99,
             "StockQuantity": 25,
+            "ProductPhotos": [
+                {
+                    "ProductId": 7,
+                    "Photo": {
+                        "Url": "https://i2-prod.bristolpost.co.uk/incoming/article6952928.ece/ALTERNATES/s1200c/0_ninja-1.jpg"
+                    }
+                },
+                {
+                    "ProductId": 7,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/3d11b8e2-91f9-4bb6-885f-82579d3b0f58.019636a2baca3a242da85a57efa4356f.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 7,
+                    "Photo": {
+                        "Url": "https://res.cloudinary.com/sharkninja/image/upload/v1662995885/Ninja/AF451UK/Ninja-AF451UK-InUse-OnIsland-Overhead-TwoWholeChickens-Woman_copy.jpg"
+                    }
+                },
+                {
+                    "ProductId": 7,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71+8uTMDRFL._AC_SL1500_.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 7
             }
         }
@@ -183,8 +279,34 @@
             "Description": "The Instant Pot Duo is a versatile and convenient appliance for your kitchen. With 7 cooking functions and a variety of preset programs, you can cook everything from rice to stew to yogurt with ease. The 6-quart capacity is perfect for families, and the stainless steel design is both durable and stylish. ",
             "Price": 129.99,
             "StockQuantity": 30,
+            "ProductPhotos": [
+                {
+                    "ProductId": 8,
+                    "Photo": {
+                        "Url": "https://runawayrice.com/wp-content/uploads/2019/03/Instant-Pot-DUO-Plus-60-In-Box.jpg"
+                    }
+                },
+                {
+                    "ProductId": 8,
+                    "Photo": {
+                        "Url": "https://http2.mlstatic.com/D_NQ_NP_684580-MLA46089463991_052021-O.jpg"
+                    }
+                },
+                {
+                    "ProductId": 8,
+                    "Photo": {
+                        "Url": "https://www.cleaneatingkitchen.com/wp-content/uploads/2021/02/carrie-holding-instant-pot-duo.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 8,
+                    "Photo": {
+                        "Url": "https://embed.widencdn.net/img/worldkitchen/vhahobl5te/650x650px/IB_112-0170-01_113-0059-01_Duo-V5-6QT-8QT_ATF_Square_Tile2_v3.jpeg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 8
             }
         }
@@ -198,14 +320,32 @@
             "Price": 199.99,
             "StockQuantity": 5,
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 9
             },
             "ProductPhotos": [
                 {
                     "ProductId": 9,
                     "Photo": {
-                        "Url": "https://images-na.ssl-images-amazon.com/images/I/71c0J8zdZbL._AC_SL1500_.jpg"
+                        "Url": "https://b3h2.scene7.com/is/image/BedBathandBeyond/56803109908c?$380$&wid=380&hei=380"
+                    }
+                },
+                {
+                    "ProductId": 9,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61nVfVL75yL._AC_SX466_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 9,
+                    "Photo": {
+                        "Url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6291/6291884cv18d.jpg"
+                    }
+                },
+                {
+                    "ProductId": 9,
+                    "Photo": {
+                        "Url": "https://www.cuisinart.com/globalassets/cuisinart-image-feed/mcp-12n/cuisinart_multiclad_tri-ply_stainless_steel_12-piece_cookware_set-1.jpg"
                     }
                 }
             ]
@@ -220,14 +360,32 @@
             "Price": 279.99,
             "StockQuantity": 7,
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 10
             },
             "ProductPhotos": [
                 {
                     "ProductId": 10,
                     "Photo": {
-                        "Url": "https://images-na.ssl-images-amazon.com/images/I/81K6C08QPLL._AC_SL1500_.jpg"
+                        "Url": "https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2129715_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1"
+                    }
+                },
+                {
+                    "ProductId": 10,
+                    "Photo": {
+                        "Url": "https://images.thdstatic.com/productImages/3f7e3a5d-0a60-4d20-a365-3e1f0414bf4a/svn/silver-kitchenaid-stand-mixers-ksm75sl-64_1000.jpg"
+                    }
+                },
+                {
+                    "ProductId": 10,
+                    "Photo": {
+                        "Url": "https://media.kohlsimg.com/is/image/kohls/1392420_White?wid=1000&hei=1000&op_sharpen=1"
+                    }
+                },
+                {
+                    "ProductId": 10,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61JeOt-5CPL._AC_SY450_.jpg"
                     }
                 }
             ]
@@ -242,14 +400,32 @@
             "Price": 799.99,
             "StockQuantity": 3,
             "ProductItemClass": {
-                "ItemClassId": 1,
+                "ItemClassId": 3,
                 "ProductId": 11
             },
             "ProductPhotos": [
                 {
                     "ProductId": 11,
                     "Photo": {
-                        "Url": "https://images-na.ssl-images-amazon.com/images/I/71jK5Uy2JdL._AC_SL1500_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 11,
+                    "Photo": {
+                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1509333-847&recipeName=680"
+                    }
+                },
+                {
+                    "ProductId": 11,
+                    "Photo": {
+                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1174758-847&recipeName=680"
+                    }
+                },
+                {
+                    "ProductId": 11,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg"
                     }
                 }
             ]
@@ -263,8 +439,34 @@
             "Description": "A ripe and delicious organic avocado.",
             "Price": 1.49,
             "StockQuantity": 50,
+            "ProductPhotos": [
+                {
+                    "ProductId": 12,
+                    "Photo": {
+                        "Url": "https://www.donaguacato.com/us/wp-content/uploads/2017/01/aguacate-1.png"
+                    }
+                },
+                {
+                    "ProductId": 12,
+                    "Photo": {
+                        "Url": "https://cdn.shopify.com/s/files/1/0336/7167/5948/products/image-of-organic-avocado-organics-28658515607596_600x600.jpg?v=1627982727"
+                    }
+                },
+                {
+                    "ProductId": 12,
+                    "Photo": {
+                        "Url": "https://s.cornershopapp.com/product-images/2431423.jpg?versionId=9m6DRLPBsbGsm1XQ0_bhhckrNTTG1jHr"
+                    }
+                },
+                {
+                    "ProductId": 12,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/51218VNkIOL._AC_UF1000,1000_QL80_.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 12
             }
         }
@@ -277,8 +479,34 @@
             "Description": "A fresh and juicy pint of organic strawberries.",
             "Price": 3.99,
             "StockQuantity": 25,
+            "ProductPhotos": [
+                {
+                    "ProductId": 13,
+                    "Photo": {
+                        "Url": "https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684710272458/0e5338a8cf44b40b988009a8ac1c4e0a_large.png&width=512&type=webp&quality=90"
+                    }
+                },
+                {
+                    "ProductId": 13,
+                    "Photo": {
+                        "Url": "https://strawberryplants.org/wp-content/uploads/Organic-Strawberry-Plants-2.jpg"
+                    }
+                },
+                {
+                    "ProductId": 13,
+                    "Photo": {
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_95c6384a-7d40-4b61-8198-3d6a1598af5f?wid=488&hei=488&fmt=pjpeg"
+                    }
+                },
+                {
+                    "ProductId": 13,
+                    "Photo": {
+                        "Url": "https://modernfarmer.com/wp-content/uploads/2018/07/how-to-grow-strawberries-1200x900.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 13
             }
         }
@@ -291,8 +519,34 @@
             "Description": "A gallon of delicious organic whole milk.",
             "Price": 5.99,
             "StockQuantity": 20,
+            "ProductPhotos": [
+                {
+                    "ProductId": 14,
+                    "Photo": {
+                        "Url": "https://s.cornershopapp.com/product-images/1414842.jpg?versionId=smHoqaX1G0bKmEg4AgHFwlYlt6izGPGE"
+                    }
+                },
+                {
+                    "ProductId": 14,
+                    "Photo": {
+                        "Url": "https://www.cabofinefoods.com/wp-content/uploads/2020/06/Dairy-Refrigerated-Horizon-Organics-Whole-Milk-Organic.jpg"
+                    }
+                },
+                {
+                    "ProductId": 14,
+                    "Photo": {
+                        "Url": "https://horizon.com/wp-content/uploads/horizon-organic-whole-milk.png"
+                    }
+                },
+                {
+                    "ProductId": 14,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/cfd574e0-24f8-42f1-8f6e-ea501e55c23a.df41d348475fdc9f22e9695e8f53a1fd.jpeg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 14
             }
         }
@@ -305,8 +559,34 @@
             "Description": "A bag of rich and flavorful organic ground coffee.",
             "Price": 9.99,
             "StockQuantity": 30,
+            "ProductPhotos": [
+                {
+                    "ProductId": 15,
+                    "Photo": {
+                        "Url": "https://bulkfoods.com/895-large_default/organic-low-acid-ground-coffee.jpg"
+                    }
+                },
+                {
+                    "ProductId": 15,
+                    "Photo": {
+                        "Url": "https://cdn.shopify.com/s/files/1/0069/2201/0735/products/macro-organic-coffee-ground-arabica-medium-roast-3-200g-drinks-macro-wholefoods-market-382357_800x.jpg?v=1665376413"
+                    }
+                },
+                {
+                    "ProductId": 15,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71f74f0aUIL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 15,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/575c3203-67fb-4010-a5ee-46bfca907aba.4a04c5d30df88a61ddb48d0a3fdd0694.jpeg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 15
             }
         }
@@ -319,8 +599,34 @@
             "Description": "A bunch of sweet and healthy organic bananas.",
             "Price": 1.99,
             "StockQuantity": 40,
+            "ProductPhotos": [
+                {
+                    "ProductId": 16,
+                    "Photo": {
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_90259dc9-363e-43e3-9570-93655723ec61?wid=488&hei=488&fmt=pjpeg"
+                    }
+                },
+                {
+                    "ProductId": 16,
+                    "Photo": {
+                        "Url": "https://cdn.producebusiness.com/2019/12/sept-organicbananas-feature.jpg"
+                    }
+                },
+                {
+                    "ProductId": 16,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/4b15d1c6-03e7-489b-96cb-7d4b1edeb927.042464e5bc52fa0421f255d04ec525a4.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 16,
+                    "Photo": {
+                        "Url": "https://superette.com.mx/wp-content/uploads/2021/07/h6-product6.png"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 16
             }
         }
@@ -333,8 +639,34 @@
             "Description": "A bag of hearty and nutritious organic rolled oats.",
             "Price": 4.99,
             "StockQuantity": 15,
+            "ProductPhotos": [
+                {
+                    "ProductId": 17,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/81aijximwiL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 17,
+                    "Photo": {
+                        "Url": "https://nuts.com/images/rackcdn/ed910ae2d60f0d25bcb8-80550f96b5feb12604f4f720bfefb46d.ssl.cf1.rackcdn.com/7596_ZOOMEDOrganicRo-x6_SYDs6-zoom.jpg"
+                    }
+                },
+                {
+                    "ProductId": 17,
+                    "Photo": {
+                        "Url": "https://onedegreeorganics.com/wp-content/uploads/2023/01/ODO_Rolled_Oats_24oz_US_1000x1000.png"
+                    }
+                },
+                {
+                    "ProductId": 17,
+                    "Photo": {
+                        "Url": "https://www.bobsredmill.com/media/catalog/product/cache/3b391e1591e1362f5e9fe6293f04dac3/6/0/6048s164_organic_regularrolledoats_f_1.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
-                "ItemClassId": 3,
+                "ItemClassId": 4,
                 "ProductId": 17
             }
         }
@@ -347,6 +679,32 @@
             "Description": "Aveeno Daily Moisturizing Body Wash is gentle enough for sensitive skin and helps replenish skin's natural moisture. With a unique blend of natural oils and emollients, this body wash cleanses and moisturizes skin, leaving it feeling soft and smooth. The fragrance-free formula is hypoallergenic and soap-free, making it ideal for daily use.",
             "Price": 9.99,
             "StockQuantity": 20,
+            "ProductPhotos": [
+                {
+                    "ProductId": 18,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/0467a35f-bece-45fd-a3d1-9e8f6e71b9ac.8bddfa865f425ab5a979514ff18f1e07.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 18,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/716KGD8484L.jpg"
+                    }
+                },
+                {
+                    "ProductId": 18,
+                    "Photo": {
+                        "Url": "https://s.cornershopapp.com/product-images/1403094.jpg?versionId=dJ9DeKEUAm43G77uqJaytaaDjcQPDCsC"
+                    }
+                },
+                {
+                    "ProductId": 18,
+                    "Photo": {
+                        "Url": "https://es.aveeno.com/sites/aveeno_us_2/files/product-images/ave_381371172405_us_daily_moisturizing_body_wash_33oz_00015-min.png"
+                    }
+                }
+            ],
             "ProductItemClass": {
                 "ItemClassId": 5,
                 "ProductId": 18
@@ -361,6 +719,32 @@
             "Description": "Neutrogena Hydro Boost Hydrating Gel Eye Cream is a lightweight gel formula that provides intense hydration to the delicate skin around the eyes. With hyaluronic acid, this eye cream helps to plump and hydrate the skin, reducing the appearance of fine lines and wrinkles. The oil-free formula is gentle and non-comedogenic, making it suitable for all skin types.",
             "Price": 14.99,
             "StockQuantity": 15,
+            "ProductPhotos": [
+                {
+                    "ProductId": 19,
+                    "Photo": {
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_a89bef80-e953-48ed-877c-20c5e5accd71?wid=488&hei=488&fmt=pjpeg"
+                    }
+                },
+                {
+                    "ProductId": 19,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/81bt+nsDyrL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 19,
+                    "Photo": {
+                        "Url": "https://ntg-catalog.imgix.net/products/6811049-pack-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop"
+                    }
+                },
+                {
+                    "ProductId": 19,
+                    "Photo": {
+                        "Url": "https://ntg-catalog.imgix.net/products/6811049-MAIN-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop"
+                    }
+                }
+            ],
             "ProductItemClass": {
                 "ItemClassId": 5,
                 "ProductId": 19
@@ -375,6 +759,32 @@
             "Description": "Crest 3D White Luxe Whitestrips are an easy and effective way to whiten teeth at home. These whitening strips contain the same enamel-safe ingredients used by dentists, and work to remove years of tough stains to reveal a brighter, more radiant smile. With just 30 minutes a day for 14 days, these whitening strips are an affordable and convenient way to achieve professional-level results.",
             "Price": 44.99,
             "StockQuantity": 8,
+            "ProductPhotos": [
+                {
+                    "ProductId": 20,
+                    "Photo": {
+                        "Url": "https://ae01.alicdn.com/kf/H00311a725f7d42a8ab74c8967089c8d01/Professional-3D-White-Whitestrips-LUXE-Professional-Effects-Original-Oral-Hygiene-Teeth-Whitening-100-Original.jpg"
+                    }
+                },
+                {
+                    "ProductId": 20,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/714O8YHhbtL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 20,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/91CN0E4cKhL._AC_SX425_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 20,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/43b66c18-67ba-4415-be76-6a0d57890b81_1.ff8794772b32753ec6493ce06287aa2d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                    }
+                }
+            ],
             "ProductItemClass": {
                 "ItemClassId": 5,
                 "ProductId": 20
@@ -389,9 +799,269 @@
             "Description": "NIVEA Essentially Enriched Body Lotion is a rich, nourishing formula that helps to deeply moisturize and repair dry, rough skin. With natural sea minerals and almond oil, this lotion provides long-lasting hydration, leaving skin feeling soft and smooth. The non-greasy formula absorbs quickly, making it ideal for daily use.",
             "Price": 7.99,
             "StockQuantity": 25,
+            "ProductPhotos": [
+                {
+                    "ProductId": 21,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71eYqcoZEYL._AC_SL1500_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 21,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/a2572306-1b3f-421c-9b74-2580a4c0bdaf.01052f85cf481422031f014dc86a82d3.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 21,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61qouR91jpL._AC_SY879_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 21,
+                    "Photo": {
+                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/niv/niv01150/l/17.jpg"
+                    }
+                }
+            ],
             "ProductItemClass": {
                 "ItemClassId": 5,
                 "ProductId": 21
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Sonicare Essence Electric Toothbrush",
+            "Description": "Electric toothbrush with dynamic fluid action for a deep clean",
+            "Price": 49.99,
+            "StockQuantity": 10,
+            "ProductPhotos": [
+                {
+                    "ProductId": 22,
+                    "Photo": {
+                        "Url": "https://images.philips.com/is/image/philipsconsumer/ab71a8b6d18049bba59bac5c00e7a3f7?$jpglarge$&wid=1250"
+                    }
+                },
+                {
+                    "ProductId": 22,
+                    "Photo": {
+                        "Url": "https://images.philips.com/is/image/philipsconsumer/5b02c362a67d48f7a16dac5c011ea35b?$jpglarge$&wid=960"
+                    }
+                },
+                {
+                    "ProductId": 22,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL._AC_SX425_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 22,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 22
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Crest 3D White Whitestrips",
+            "Description": "Teeth whitening strips that remove years of tough stains",
+            "Price": 44.99,
+            "StockQuantity": 5,
+            "ProductPhotos": [
+                {
+                    "ProductId": 23,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/addf002e-4918-4455-b26b-53e4d00864e8.60decc7e0882ddaa3fecd07e90bc24e6.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 23,
+                    "Photo": {
+                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crr/crr00005/l/28.jpg"
+                    }
+                },
+                {
+                    "ProductId": 23,
+                    "Photo": {
+                        "Url": "https://www.biovea.com/MX/images/products/xlrg/2147_z.jpg"
+                    }
+                },
+                {
+                    "ProductId": 23,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61Ww5oL3wPL.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 23
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Colgate Total Toothpaste",
+            "Description": "Toothpaste that fights plaque and gingivitis",
+            "Price": 3.99,
+            "StockQuantity": 20,
+            "ProductPhotos": [
+                {
+                    "ProductId": 24,
+                    "Photo": {
+                        "Url": "https://www.biovea.com/mx/images/products/xlrg/2391_z.jpg"
+                    }
+                },
+                {
+                    "ProductId": 24,
+                    "Photo": {
+                        "Url": "https://res.cloudinary.com/walmart-labs/image/upload/d_default.jpg/w_960,dpr_auto,f_auto,q_auto:best/gr/images/product-images/img_large/00750103591137L.jpg"
+                    }
+                },
+                {
+                    "ProductId": 24,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/91aJu2qWOHL.jpg"
+                    }
+                },
+                {
+                    "ProductId": 24,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61HsnqfoUAL.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 24
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Oral-B Glide Pro-Health Comfort Plus Floss",
+            "Description": "Dental floss that slides easily between teeth",
+            "Price": 2.99,
+            "StockQuantity": 30,
+            "ProductPhotos": [
+                {
+                    "ProductId": 25,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/71MnXAnJlUL._AC_UF1000,1000_QL80_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 25,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/b15f70b3-1654-4dcd-a03d-77ee2a792bc7.34af0a208e83789b1f69b58fa29e7129.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 25,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/419e2456-12a4-4e94-bf14-46f7f63e4b2a.4defec08f583569f54f27c61e05077d3.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 25,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/61M9PmJfrZL.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 25
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Waterpik Aquarius Water Flosser",
+            "Description": "Water flosser that removes up to 99.9% of plaque from treated areas",
+            "Price": 69.99,
+            "StockQuantity": 8,
+            "ProductPhotos": [
+                {
+                    "ProductId": 26,
+                    "Photo": {
+                        "Url": "https://http2.mlstatic.com/D_NQ_NP_804159-MLA40593852179_012020-O.jpg"
+                    }
+                },
+                {
+                    "ProductId": 26,
+                    "Photo": {
+                        "Url": "https://www.waterpik.com/oral-health/products/images/waterpik-aquarius-water-flosser-wp-660-white.jpg"
+                    }
+                },
+                {
+                    "ProductId": 26,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/517ZUobcX2L._AC_SX425_.jpg"
+                    }
+                },
+                {
+                    "ProductId": 26,
+                    "Photo": {
+                        "Url": "https://m.media-amazon.com/images/I/719pUQCxnmL._AC_SX425_.jpg"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 26
+            }
+        }
+    },
+    {
+        "UserId": 1,
+        "Product": {
+            "Name": "Listerine Cool Mint Antiseptic Mouthwash",
+            "Description": "Mouthwash that kills germs that cause bad breath, plaque, and gingivitis",
+            "Price": 6.99,
+            "StockQuantity": 15,
+            "ProductPhotos": [
+                {
+                    "ProductId": 27,
+                    "Photo": {
+                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/13098_listerine_badge-digitalshelf2_3300x3300.jpg"
+                    }
+                },
+                {
+                    "ProductId": 27,
+                    "Photo": {
+                        "Url": "https://i5.walmartimages.com/asr/a7725354-3e0a-4c34-b597-c9e4e1b5a23f.a592787169109267652d9f329ed68185.jpeg"
+                    }
+                },
+                {
+                    "ProductId": 27,
+                    "Photo": {
+                        "Url": "https://www.listerineprofessional.com/sites/listerinepro_us/files/styles/product_image/public/product-images/lis_cool-mint-1l-bty_ft-juno.jpg"
+                    }
+                },
+                {
+                    "ProductId": 27,
+                    "Photo": {
+                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/product-images/products_coolmint_980x980.png"
+                    }
+                }
+            ],
+            "ProductItemClass": {
+                "ItemClassId": 5,
+                "ProductId": 27
             }
         }
     }

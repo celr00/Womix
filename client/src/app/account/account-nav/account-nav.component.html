@@ -1,40 +1,40 @@
 <ul class="nav nav-pills flex-column">
   <li class="nav-item">
     <a class="nav-link" routerLink="/account/summary" routerLinkActive="active">
-      <i class="fa fa-user me-2"></i>
+      <i class="bi bi-person me-2"></i>
       Account</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="/account/edit" routerLinkActive="active">
-      <i class="fa fa-cog me-2"></i>
+      <i class="bi bi-gear-wide-connected me-2"></i>
       Edit profile</a>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-bs-toggle="collapse" href="#collapseProducts">
-      <i class="fa fa-address-book me-2"></i>
+      <i class="bi bi-box me-2"></i>
       Products</a>
     <div class="collapse show" id="collapseProducts">
       <nav class="nav nav-pills flex-column">
         <a routerLink="/account/products/list" routerLinkActive="active" class="nav-link ms-3 my-1">
-          <i class="fa fa-list me-2"></i>
+          <i class="bi bi-card-list me-2"></i>
           My products</a>
         <a routerLink="/account/products/new" routerLinkActive="active" class="nav-link ms-3 my-1">
-          <i class="fa fa-plus-square-o me-2"></i>
+          <i class="bi bi-clipboard-plus me-2"></i>
           New product</a>
       </nav>
     </div>
   </li>
   <li class="nav-item">
     <a class="nav-link" data-bs-toggle="collapse" href="#collapseServices">
-      <i class="fa fa-address-book-o me-2"></i>
+      <i class="bi bi-tools me-2"></i>
       Services</a>
       <div class="collapse show" id="collapseServices">
         <nav class="nav nav-pills flex-column">
           <a routerLink="/account/services/list" routerLinkActive="active" class="nav-link ms-3 my-1">
-            <i class="fa fa-list me-2"></i>
+            <i class="bi bi-card-list me-2"></i>
             My services</a>
           <a routerLink="/account/services/new" routerLinkActive="active" class="nav-link ms-3 my-1">
-            <i class="fa fa-plus-square-o me-2"></i>
+            <i class="bi bi-clipboard-plus me-2"></i>
             New service</a>
         </nav>
       </div>
@@ -46,20 +46,20 @@
       <div class="collapse show" id="collapseJobs">
         <nav class="nav nav-pills flex-column">
           <a routerLink="/account/jobs/list" routerLinkActive="active" class="nav-link ms-3 my-1">
-            <i class="fa fa-list me-2"></i>
+            <i class="bi bi-card-list me-2"></i>
             My jobs</a>
           <a routerLink="/account/jobs/new" routerLinkActive="active" class="nav-link ms-3 my-1">
-            <i class="fa fa-plus-square-o me-2"></i>
+            <i class="bi bi-clipboard-plus me-2"></i>
             New job</a>
           <a routerLink="/account/jobs/saved" routerLinkActive="active" class="nav-link ms-3 my-1">
-            <i class="fa fa-bookmark-o me-2"></i>
+            <i class="bi bi-bookmark-check me-2"></i>
             Saved jobs</a>
         </nav>
       </div>
   </li>
   <li class="nav-item">
     <a class="nav-link" routerLink="/account/saved-profiles" routerLinkActive="active">
-      <i class="fa fa-bookmark me-2"></i>
+      <i class="bi bi-person-heart me-2"></i>
       Saved profiles</a>
   </li>
   <!-- <li class="nav-item">
@@ -69,12 +69,12 @@
   </li> -->
   <li class="nav-item">
     <a class="nav-link" routerLink="/account/change-password" routerLinkActive="active">
-      <i class="fa fa-key me-2"></i>
+      <i class="bi bi-key me-2"></i>
       Change password</a>
   </li>
   <li class="nav-item">
     <a class="nav-link pointer" (click)="onClickDeleteAccount()">
-      <i class="fa fa-trash-o me-2"></i>
+      <i class="bi bi-trash3 me-2"></i>
       Delete account</a>
   </li>
   <li class="nav-item pointer">

@@ -1,0 +1,18 @@
+[
+    {
+        "SourceUserId": 1,
+        "TargetUserId": 2
+    },
+    {
+        "SourceUserId": 1,
+        "TargetUserId": 6
+    },
+    {
+        "SourceUserId": 1,
+        "TargetUserId": 10
+    },
+    {
+        "SourceUserId": 1,
+        "TargetUserId": 24
+    }
+]

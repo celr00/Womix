@@ -22,6 +22,7 @@ export class AccountService {
     return this.http.post<Account>(this.baseUrl + 'account/login', values).pipe(
       map(account => {
         this.setCurrentAccount(account);
+        this.router.navigateByUrl('/account/summary');
       })
     )
   }
@@ -30,6 +31,7 @@ export class AccountService {
     return this.http.post<Account>(this.baseUrl + 'account/register', values).pipe(
       map(account => {
         this.setCurrentAccount(account);
+        this.router.navigateByUrl('/account/summary');
       })
     )
   }

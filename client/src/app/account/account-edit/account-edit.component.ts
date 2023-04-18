@@ -52,7 +52,6 @@ export class AccountEditComponent implements OnInit {
     const dateString = this.userForm.controls['dateOfBirth'].value;
     this.userForm.controls['dateOfBirth'].setValue(this.getDateOnly(dateString));
     const value = this.userForm.value;
-    console.log(value);
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.accountService.update(value).subscribe({

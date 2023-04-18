@@ -3,6 +3,9 @@ import { ToastrService } from 'ngx-toastr';
 import { JobsService } from 'src/app/account/jobs/jobs.service';
 import { Job } from '../../models/job';
 import { UserJobInterest } from '../../models/user-job-interest';
+import { AccountService } from 'src/app/landing/account.service';
+import { Account } from '../../models/account';
+import { map } from 'rxjs';
 
 @Component({
   selector: 'app-job-info',
@@ -12,8 +15,11 @@ import { UserJobInterest } from '../../models/user-job-interest';
 export class JobInfoComponent {
   @Input() myJobs: UserJobInterest[] = [];
   @Input() job: Job = {} as Job;
+  @Input() loggedIn = false;
 
-  constructor(private jobService: JobsService, private toastr: ToastrService) {}
+  constructor(private jobService: JobsService, private toastr: ToastrService) {
+
+    }
 
   clickFollow() {
     this.jobService.follow(this.job.id).subscribe({

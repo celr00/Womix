@@ -9,6 +9,16 @@
           </a>
         </div>
         <app-detail [item]="job" [fromAccount]="true" [type]="'job'"></app-detail>
+        <div class="row my-4">
+          <div class="col d-flex justify-content-end">
+            <a routerLink="edit" class="btn btn-outline-info me-2">
+              <i class="fa fa-pencil me-2"></i>
+              Edit</a>
+            <button class="btn btn-outline-danger me-2" (click)="delete()">
+              <i class="fa fa-trash me-2"></i>
+              Delete</button>
+          </div>
+        </div>
       </div>
       <div class="col-12 col-lg-6 col-xl-5">
         <h4 class="text-muted fw-semibold">
@@ -17,16 +27,6 @@
         <div class="" *ngFor="let userJobInterest of job.userJobInterests">
           <app-user-card [user]="userJobInterest.user" [compact]="true"></app-user-card>
         </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex justify-content-end">
-        <a routerLink="edit" class="btn btn-outline-info me-2">
-          <i class="fa fa-pencil me-2"></i>
-          Edit</a>
-        <button class="btn btn-outline-danger me-2" (click)="delete()">
-          <i class="fa fa-trash me-2"></i>
-          Delete</button>
       </div>
     </div>
   </div>

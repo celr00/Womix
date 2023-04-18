@@ -19,13 +19,7 @@ export class LoginComponent {
   })
 
   onSubmit() {
-    this.accountService.login(this.loginForm.value).subscribe({
-      next: () => {
-        this.router.navigateByUrl('/account/summary');
-      },
-      error: error => {
-        console.log(error);
-      }
-    })
+    const value = this.loginForm.value;
+    this.accountService.login(value).subscribe({})
   }
 }

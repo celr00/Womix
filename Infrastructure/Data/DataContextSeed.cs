@@ -85,6 +85,24 @@ namespace Infrastructure.Data
             }
 
             if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
+
+            if (!context.UserJobInterests.Any())
+            {
+                var data = File.ReadAllText(path + @"/Data/SeedData/user-job-interests.json");
+                var userJobInterests = JsonSerializer.Deserialize<List<UserJobInterest>>(data);
+                context.UserJobInterests.AddRange(userJobInterests);
+            }
+
+            if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
+
+            if (!context.Likes.Any())
+            {
+                var data = File.ReadAllText(path + @"/Data/SeedData/liked-users.json");
+                var userLikes = JsonSerializer.Deserialize<List<UserLike>>(data);
+                context.Likes.AddRange(userLikes);
+            }
+
+            if (context.ChangeTracker.HasChanges()) await context.SaveChangesAsync();
         }
     }
 }

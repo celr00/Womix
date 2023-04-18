@@ -4,6 +4,7 @@ using API.Extensions;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
+using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -21,6 +22,7 @@ namespace API.Controllers
         private readonly IGenericRepository<Product> _productRepo;
         private readonly IGenericRepository<Service> _serviceRepo;
         private readonly IGenericRepository<Photo> _photoRepo;
+        private readonly DataContext _context;
         public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, IGenericRepository<Photo> photoRepo)
         {
             _photoRepo = photoRepo;
@@ -84,7 +86,7 @@ namespace API.Controllers
 
             user.UserName = registerDto.Email;
 
-            var result = await _userManager.CreateAsync(user, registerDto.Password);
+            var result = await _userManager.CreateAsync(user, registerDto.ConfirmPassword);
 
             if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to create the user"));
 

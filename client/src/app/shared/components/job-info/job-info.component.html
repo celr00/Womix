@@ -1,9 +1,12 @@
-<div class="bg-transparent p-3 border border-4 border-primary border-opacity-25 rounded-4">
+<div class="bg-white p-4 border border-4 border-info border-opacity-50 rounded-4 shadow-sm">
   <div class="row my-5">
     <div class="col-5">
-      <img src="{{job.userJob.user.appUserPhoto.photo.url}}" class="img-fluid rounded-circle">
+      <img src="{{job.userJob.user.appUserPhoto.photo.url}}" class="img-fluid rounded">
     </div>
-    <div class="col-7 d-flex align-items-center">
+    <div class="col-7 my-auto">
+      <p class="text-muted fst-italic mb-1">
+        Job area:
+      </p>
       <h5>
         {{job.jobArea.area.name}}
       </h5>
@@ -38,15 +41,23 @@
     </a>
   </div>
   <div class="my-4">
-    <button class="btn btn-outline-success btn-lg d-flex mx-auto"
-      *ngIf="!isFollowed()"
-      (click)="clickFollow()">
-      I'm interested
-    </button>
-    <button class="btn btn-outline-warning btn-lg d-flex mx-auto"
-      *ngIf="isFollowed()"
-      (click)="clickUnfollow()">
-      Unfollow
-    </button>
+    <ng-container *ngIf="loggedIn">
+      <button class="btn btn-outline-success btn-lg d-flex mx-auto"
+        *ngIf="!isFollowed()"
+        (click)="clickFollow()">
+        I'm interested
+      </button>
+      <button class="btn btn-outline-warning btn-lg d-flex mx-auto"
+        *ngIf="isFollowed()"
+        (click)="clickUnfollow()">
+        Unfollow
+      </button>
+    </ng-container>
+    <ng-container *ngIf="!loggedIn">
+      <button class="btn btn-outline-success btn-lg d-flex mx-auto"
+        routerLink="/sign-in">
+        I'm interested
+      </button>
+    </ng-container>
   </div>
 </div>

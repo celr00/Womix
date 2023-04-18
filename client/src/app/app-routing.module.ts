@@ -33,18 +33,27 @@ const routes: Routes = [
   },
   {
     path: 'products',
+    data: {
+      breadcrumb: 'Products'
+    },
       loadChildren: () => import('./product/product.module')
         .then(m => m.ProductModule)
   },
   {
     path: 'services',
-      loadChildren: () => import('./services/services.module')
-        .then(m => m.ServicesModule)
+    data: {
+      breadcrumb: 'Services'
+    },
+    loadChildren: () => import('./services/services.module')
+      .then(m => m.ServicesModule)
   },
   {
     path: 'jobs',
-      loadChildren: () => import('./jobs/jobs.module')
-        .then(m => m.JobsModule)
+    data: {
+      breadcrumb: 'Jobs'
+    },
+    loadChildren: () => import('./jobs/jobs.module')
+      .then(m => m.JobsModule)
   },
   {
     path: 'user',
