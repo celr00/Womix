@@ -402,6 +402,9 @@ namespace Infrastructure.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("PublicId")
+                        .HasColumnType("text");
+
                     b.Property<string>("Url")
                         .HasColumnType("text");
 

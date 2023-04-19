@@ -1,7 +1,7 @@
-<tabset class="member-tabset">
+<tabset class="member-tabset" *ngIf="user">
   <tab heading="Information" class="pt-3">
     <form [formGroup]="userForm" (ngSubmit)="onSubmit()" class="mb-4">
-      <div class="container-fluid container-md" *ngIf="user">
+      <div class="container-fluid container-md">
         <div class="row">
           <div class="col-12 col-sm-6 col-md-4 col-lg-4">
             <app-text-input [label]="'First name'" [formControl]="$any(userForm.controls['firstName'])"></app-text-input>
@@ -56,7 +56,7 @@
     </form>
   </tab>
   <tab heading="Photo" class="pt-3">
-    <app-photo-upload [photos]="photo" [controller]="'account'"></app-photo-upload>
+    <app-photo-upload [photos]="photo" [controller]="'account'" [userId]="user.id"></app-photo-upload>
   </tab>
   <tab heading="Curriculum" class="pt-3">
   </tab>

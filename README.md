@@ -708,7 +708,7 @@ systemctl reload apache2
 }
 ```
 
-dotnet publish -c Release -o publish womix.sln
+dotnet publish -c Release -o publish Womix.sln
 
 16.  Deploy the files by using the command pallette -> deploy reloaded -> deploy package
 

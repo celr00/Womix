@@ -34,6 +34,36 @@ namespace Core.Specifications
             {
                 switch (productParams.Sort)
                 {
+                    case "idAsc":
+                        AddOrderBy(x => x.Id);
+                        break;
+                    case "idDesc":
+                        AddOrderByDescending(x => x.Id);
+                        break;
+                    case "nameAsc":
+                        AddOrderBy(x => x.Name);
+                        break;
+                    case "nameDesc":
+                        AddOrderByDescending(x => x.Name);
+                        break;
+                    case "descriptionAsc":
+                        AddOrderBy(x => x.Description);
+                        break;
+                    case "descriptionDesc":
+                        AddOrderByDescending(x => x.Description);
+                        break;
+                    case "quantityAsc":
+                        AddOrderBy(x => x.StockQuantity);
+                        break;
+                    case "quantityDesc":
+                        AddOrderByDescending(x => x.StockQuantity);
+                        break;
+                    case "itemClassAsc":
+                        AddOrderBy(x => x.ProductItemClass.ItemClass.Name);
+                        break;
+                    case "itemClassDesc":
+                        AddOrderByDescending(x => x.ProductItemClass.ItemClass.Name);
+                        break;
                     case "priceAsc":
                         AddOrderBy(p => p.Price);
                         break;

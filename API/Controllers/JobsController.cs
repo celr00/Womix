@@ -135,9 +135,6 @@ namespace API.Controllers
             var userJobInterest = await _uow.FollowRepository
                 .Get(userId, jobId);
 
-            // if (user.UserJobs)
-            //     return BadRequest(new ApiResponse(400, "You cannot follow your own job offers"));
-
             if (userJobInterest != null) 
                 return BadRequest(new ApiResponse(400, "You already follow this job"));
 

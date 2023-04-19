@@ -91,6 +91,18 @@ namespace API.Controllers
 
             if (product == null) return NotFound(new ApiResponse(404));
 
+            foreach (var productPhoto in product.ProductPhotos)
+            {
+                _photoRepo.Delete(productPhoto.Photo);
+
+                if (!string.IsNullOrEmpty(productPhoto.Photo.PublicId))
+                {
+                    var result = await _photoService.DeletePhoto(productPhoto.Photo.PublicId);
+
+                    if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
+                }
+            }
+
             _productsRepo.Delete(product);
 
             await _uow.Complete();
@@ -121,7 +133,8 @@ namespace API.Controllers
             
             product.ProductPhotos.Add(new ProductPhoto {
                 Photo = new Photo {
-                    Url = result.SecureUrl.AbsoluteUri
+                    Url = result.SecureUrl.AbsoluteUri,
+                    PublicId = result.PublicId
                 }
             });
 
@@ -137,7 +150,16 @@ namespace API.Controllers
 
             if (product == null) return NotFound(new ApiResponse(404));
 
-            product.ProductPhotos.Remove(product.ProductPhotos.Find(x => x.PhotoId == photoId));
+            var photo = product.ProductPhotos.Find(x => x.PhotoId == photoId);
+
+            if (!string.IsNullOrEmpty(photo.Photo.PublicId))
+            {
+                var deletePhotoResult = await _photoService.DeletePhoto(photo.Photo.PublicId);
+
+                if (deletePhotoResult.Error != null) return BadRequest(new ApiResponse(400, deletePhotoResult.Error.Message));
+            }
+
+            product.ProductPhotos.Remove(photo);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo"));
             

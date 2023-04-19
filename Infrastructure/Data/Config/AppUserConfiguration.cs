@@ -57,6 +57,7 @@ namespace Infrastructure.Data.Config
             builder.Navigation(x => x.AppUserAddress).AutoInclude();
             builder.Navigation(x => x.UserServices).AutoInclude();
             builder.Navigation(x => x.UserProducts).AutoInclude();
+            builder.Navigation(x => x.UserJobs).AutoInclude();
             builder.Navigation(x => x.UserRole).AutoInclude();
         }
     }

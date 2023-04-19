@@ -94,6 +94,13 @@ namespace API.Controllers
             foreach (var servicePhoto in service.ServicePhotos)
             {
                 _photoRepo.Delete(servicePhoto.Photo);
+
+                if (!string.IsNullOrEmpty(servicePhoto.Photo.PublicId))
+                {
+                    var result = await _photoService.DeletePhoto(servicePhoto.Photo.PublicId);
+
+                    if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
+                }
             }
 
             _servicesRepo.Delete(service);
@@ -126,7 +133,8 @@ namespace API.Controllers
             
             service.ServicePhotos.Add(new ServicePhoto {
                 Photo = new Photo {
-                    Url = result.SecureUrl.AbsoluteUri
+                    Url = result.SecureUrl.AbsoluteUri,
+                    PublicId = result.PublicId
                 }
             });
 
@@ -142,7 +150,16 @@ namespace API.Controllers
 
             if (service == null) return NotFound(new ApiResponse(404));
 
-            service.ServicePhotos.Remove(service.ServicePhotos.Find(x => x.PhotoId == photoId));
+            var photo = service.ServicePhotos.Find(x => x.PhotoId == photoId);
+
+            if (!string.IsNullOrEmpty(photo.Photo.PublicId))
+            {
+                var deletePhotoResult = await _photoService.DeletePhoto(photo.Photo.PublicId);
+
+                if (deletePhotoResult.Error != null) return BadRequest(new ApiResponse(400, deletePhotoResult.Error.Message));
+            }
+
+            service.ServicePhotos.Remove(photo);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo of the service"));
             

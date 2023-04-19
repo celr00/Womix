@@ -1,7 +1,7 @@
 publish
 obj
 bin
-appsettings.json
+#appsettings.json
 node_modules
 .angular
 .vscode

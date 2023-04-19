@@ -4,7 +4,6 @@ using API.Extensions;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
-using Infrastructure.Data;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -22,9 +21,12 @@ namespace API.Controllers
         private readonly IGenericRepository<Product> _productRepo;
         private readonly IGenericRepository<Service> _serviceRepo;
         private readonly IGenericRepository<Photo> _photoRepo;
-        private readonly DataContext _context;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, IGenericRepository<Photo> photoRepo)
+        private readonly IPhotoService _photoService;
+        private readonly IGenericRepository<Job> _jobsRepo;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo)
         {
+            _jobsRepo = jobsRepo;
+            _photoService = photoService;
             _photoRepo = photoRepo;
             _serviceRepo = serviceRepo;
             _productRepo = productRepo;
@@ -78,8 +80,8 @@ namespace API.Controllers
         {
             if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
             {
-                return new BadRequestObjectResult(new ApiValidationErrorResponse 
-                    { Errors = new[] { "Email address is in use" } });
+                return new BadRequestObjectResult(new ApiValidationErrorResponse
+                { Errors = new[] { "Email address is in use" } });
             }
 
             var user = _mapper.Map<RegisterDto, AppUser>(registerDto);
@@ -113,11 +115,13 @@ namespace API.Controllers
         [HttpPut]
         public async Task<ActionResult<AppUserEntityDto>> Update(AppUserEntityDto request)
         {
+            var userId = User.GetUserId();
+
             var user = await _userManager.Users
                 .Include(x => x.AppUserAddress)
-                .SingleOrDefaultAsync(x => x.Id == User.GetUserId());
+                .SingleOrDefaultAsync(x => x.Id == userId);
 
-            if (request.AppUserPhoto == null)
+            if (request.AppUserPhoto.PhotoId == 0)
             {
                 request.AppUserPhoto = new AppUserPhotoDto
                 {
@@ -126,7 +130,7 @@ namespace API.Controllers
                 };
             }
 
-            if (request.AppUserAddress == null)
+            if (request.AppUserAddress.AddressId == 0)
             {
                 request.AppUserAddress = new AppUserAddressDto
                 {
@@ -136,6 +140,8 @@ namespace API.Controllers
             }
 
             _mapper.Map<AppUserEntityDto, AppUser>(request, user);
+
+            user.Id = userId;
 
             var result = await _userManager.UpdateAsync(user);
 
@@ -169,6 +175,7 @@ namespace API.Controllers
 
             var userProducts = user.UserProducts;
             var userServices = user.UserServices;
+            var userJobs = user.UserJobs;
 
             if (user.AppUserAddress != null)
                 _addressRepo.Delete(user.AppUserAddress.Address);
@@ -182,37 +189,91 @@ namespace API.Controllers
             foreach (var service in userServices)
                 _serviceRepo.Delete(service.Service);
 
-            foreach(var userProduct in userProducts)
+            foreach (var job in userJobs)
+                _jobsRepo.Delete(job.Job);
+
+            foreach (var userProduct in userProducts)
             {
                 foreach (var photo in userProduct.Product.ProductPhotos)
                 {
                     _photoRepo.Delete(photo.Photo);
+
+                    if (!string.IsNullOrEmpty(photo.Photo.PublicId))
+                    {
+                        var photoDeleteResult = await _photoService.DeletePhoto(photo.Photo.PublicId);
+
+                        if (photoDeleteResult.Error != null) return BadRequest(new ApiResponse(400, photoDeleteResult.Error.Message));
+                    }
                 }
             }
 
-            foreach(var userService in userServices)
+            foreach (var userService in userServices)
             {
                 foreach (var photo in userService.Service.ServicePhotos)
                 {
                     _photoRepo.Delete(photo.Photo);
+
+                    if (!string.IsNullOrEmpty(photo.Photo.PublicId))
+                    {
+                        var photoDeleteResult = await _photoService.DeletePhoto(photo.Photo.PublicId);
+
+                        if (photoDeleteResult.Error != null) return BadRequest(new ApiResponse(400, photoDeleteResult.Error.Message));
+                    }
                 }
             }
 
             if (user == null) return NotFound(new ApiResponse(404));
-            
+
             var result = await _userManager.DeleteAsync(user);
 
             if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to delete the user"));
-            
+
             return Ok();
         }
 
-        // [HttpDelete("photo")]
-        // public async Task<ActionResult> RemovePhoto() 
-        // {
-            
-            
-        //     return Ok();
-        // }
+        [HttpPost("photo/{userId}")]
+        public async Task<ActionResult<AppUserEntityDto>> SetPhoto(IFormFile file, int userId)
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            var photoAddResult = await _photoService.AddPhoto(file);
+
+            if (photoAddResult.Error != null) return BadRequest(new ApiResponse(400, photoAddResult.Error.Message));
+
+            user.AppUserPhoto.Photo.Url = photoAddResult.SecureUrl.AbsoluteUri;
+            user.AppUserPhoto.Photo.PublicId = photoAddResult.PublicId;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
+
+            return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
+        }
+
+        [HttpDelete("photo/{userId}")]
+        public async Task<ActionResult> RemovePhoto(int userId)
+        {
+            var user = await _userManager.Users
+                .Include(x => x.AppUserPhoto)
+                .ThenInclude(x => x.Photo)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            if (!string.IsNullOrEmpty(user.AppUserPhoto.Photo.PublicId))
+            {
+                var deletePhotoResult = await _photoService.DeletePhoto(user.AppUserPhoto.Photo.PublicId);
+
+                if (deletePhotoResult.Error != null) return BadRequest(new ApiResponse(400, deletePhotoResult.Error.Message));
+            }
+
+            user.AppUserPhoto.Photo.Url = "";
+            user.AppUserPhoto.Photo.PublicId = "";
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
+
+            return Ok();
+        }
     }
 }
