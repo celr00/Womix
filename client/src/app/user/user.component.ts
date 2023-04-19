@@ -10,6 +10,7 @@ import { ServicesService } from '../services/services.service';
 import { Service } from '../shared/models/service';
 import { ServiceParams } from '../shared/models/service-params';
 import { ToastrService } from 'ngx-toastr';
+import { AccountService } from '../landing/account.service';
 
 @Component({
   selector: 'app-user',
@@ -26,7 +27,7 @@ export class UserComponent implements OnInit {
 
   constructor(private bcService: BreadcrumbService, private userService: UserService,
     private route: ActivatedRoute, private productService: ProductService, private serviceService: ServicesService,
-    private toastr: ToastrService) {
+    private toastr: ToastrService, public accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
     this.productParams = this.productService.getParams();
     this.serviceParams = this.serviceService.getParams();

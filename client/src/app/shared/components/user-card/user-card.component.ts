@@ -10,6 +10,7 @@ import { PresenceService } from 'src/app/_services/presence.service';
   styleUrls: ['./user-card.component.scss']
 })
 export class UserCardComponent implements OnInit {
+  @Input() loggedIn = false;
   @Input() user: AppUser | undefined;
   @Input() fromAccount: boolean = false;
   @Input() compact = false;
@@ -18,7 +19,7 @@ export class UserCardComponent implements OnInit {
   constructor(private toastr: ToastrService, private userService: UserService, public presenceService: PresenceService) {}
 
   ngOnInit(): void {
-    this.loadIsSaved();
+    this.loggedIn && this.loadIsSaved();
   }
 
   loadIsSaved() {

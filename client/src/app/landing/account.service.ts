@@ -57,6 +57,15 @@ export class AccountService {
     return this.http.get<boolean>(this.baseUrl + 'account/emailExists?email=' + email);
   }
 
+  loggedIn(): boolean {
+    let key = false;
+    const account = localStorage.getItem('account');
+    if (account !== null) {
+      key = true;
+    }
+    return key;
+  }
+
   resetPassword(obj: any): Observable<void> {
     return this.http.put<void>(this.baseUrl + 'account/password-reset', obj);
   }

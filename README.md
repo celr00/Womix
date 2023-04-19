@@ -778,19 +778,32 @@ journalctl -u womix-web.service --since "5 min ago"
 #
 
 docker-compose down -v
-
 sudo systemctl stop womix-web.service
 
 (publish)
 
 docker-compose up -d
-
 systemctl restart systemd-journald
-
 sudo systemctl start womix-web.service
 
 netstat -ntpl
-
 journalctl -u womix-web.service --since "5 min ago"
 
 ```
+
+ProxyPass "/ws" "ws://localhost:5000/ws"
+ProxyPassReverse "/ws" "ws://localhost:5000/ws"
+
+a2enmod   proxy
+a2enmod   proxy_wstunnel
+systemctl restart apache2
+sudo nano /etc/apache2/sites-available/womix.conf
+
+
+  ProxyPass "/" "http://127.0.0.1:5000/"
+  ProxyPassReverse "/" "http://127.0.0.1:5000/"
+
+  ProxyPass "/hubs" "ws://127.0.0.1:5000/hubs"
+  ProxyPassReverse "/hubs" "ws://127.0.0.1:5000/hubs"
+
+  ServerName http://34.174.115.18 
