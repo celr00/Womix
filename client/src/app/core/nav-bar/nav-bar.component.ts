@@ -11,21 +11,29 @@ export class NavBarComponent implements OnInit {
 
   constructor(public accountService: AccountService) {}
   ngOnInit(): void {
+    const storedTheme = localStorage.getItem('theme');
     const currentTheme = document.documentElement.getAttribute('data-bs-theme')!;
-    if (currentTheme === 'auto') {
-      // If the current theme is 'auto', set the theme based on the user's system preferences
+    if (storedTheme) {
+      this.setTheme(storedTheme);
+    } else if (currentTheme === 'auto') {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
       this.setTheme(prefersDark ? 'dark' : 'light');
-    } else {
-      // Set the selected theme to the current theme
+    }
+    else {
       this.selectedTheme = currentTheme;
     }
   }
 
   setTheme(theme: string): void {
-    // Set the data-bs-theme attribute of the HTML tag to the specified theme
-    document.documentElement.setAttribute('data-bs-theme', theme);
-    // Set the selected theme to the specified theme
-    this.selectedTheme = theme;
+    if (theme === 'auto') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      this.setTheme(prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      this.selectedTheme = theme;
+    } else {
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      this.selectedTheme = theme;
+    }
+    localStorage.setItem('theme', theme);
   }
 }

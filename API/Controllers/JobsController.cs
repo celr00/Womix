@@ -28,6 +28,7 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<JobDto>>> GetJobs([FromQuery] JobSpecParams specParams)
         {
@@ -42,6 +43,7 @@ namespace API.Controllers
             return Ok(new Pagination<JobDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         public async Task<ActionResult<JobWithInterestDto>> GetJob(int id)
         {
@@ -98,6 +100,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Cached(600)]
         [HttpGet("areas")]
         public async Task<ActionResult<IEnumerable<AreaDto>>> GetAreas()
         {
@@ -108,6 +111,7 @@ namespace API.Controllers
             return Ok(_mapper.Map<IReadOnlyList<AreaDto>>(areas));
         }
 
+        [Cached(600)]
         [HttpGet("follow")]
         public async Task<ActionResult<IReadOnlyList<UserJobInterestDto>>> GetInterestedJobsList()
         {

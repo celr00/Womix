@@ -1,6 +1,5 @@
 using API.Dtos;
 using API.Errors;
-using API.Extensions;
 using API.Helpers;
 using AutoMapper;
 using Core.Entities;
@@ -31,6 +30,7 @@ namespace API.Controllers
             _productsRepo = productsRepo;
         }
 
+        [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<ProductDto>>> GetProducts([FromQuery] ProductSpecParams specParams)
         {
@@ -45,6 +45,7 @@ namespace API.Controllers
             return Ok(new Pagination<ProductDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         public async Task<ActionResult<ProductDto>> GetProduct(int id)
         {
@@ -110,6 +111,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Cached(600)]
         [HttpGet("types")]
         public async Task<ActionResult<IEnumerable<ItemClass>>> GetItemClasses()
         {

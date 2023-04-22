@@ -4,8 +4,6 @@ import { ProductService } from './product.service';
 import { ProductsParams } from '../shared/models/productsParams';
 import { Type } from '../shared/models/type';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SectionHeaderComponent } from '../core/section-header/section-header.component';
-import { BreadcrumbDefinition, BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-product',

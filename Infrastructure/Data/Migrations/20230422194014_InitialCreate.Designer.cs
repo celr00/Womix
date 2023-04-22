@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20230419031018_InitialCreate")]
+    [Migration("20230422194014_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -805,13 +805,13 @@ namespace Infrastructure.Data.Migrations
                     b.HasOne("Core.Entities.AppUser", "Recipient")
                         .WithMany("MessagesReceived")
                         .HasForeignKey("RecipientId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.HasOne("Core.Entities.AppUser", "Sender")
                         .WithMany("MessagesSent")
                         .HasForeignKey("SenderId")
-                        .OnDelete(DeleteBehavior.Restrict)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("Recipient");

@@ -11,12 +11,12 @@ namespace Infrastructure.Data.Config
             builder
                 .HasOne(u => u.Recipient)
                 .WithMany(m => m.MessagesReceived)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
             
             builder
                 .HasOne(u => u.Sender)
                 .WithMany(m => m.MessagesSent)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

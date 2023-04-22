@@ -28,6 +28,7 @@ namespace API.Controllers
             _mapper = mapper;
         }
 
+        [Cached(600)]
         [HttpGet]
         public async Task<ActionResult<Pagination<ServiceDto>>> GetServices([FromQuery] ServiceSpecParams specParams)
         {
@@ -42,6 +43,7 @@ namespace API.Controllers
             return Ok(new Pagination<ServiceDto>(specParams.PageIndex, specParams.PageSize, totalItems, data));
         }
 
+        [Cached(600)]
         [HttpGet("{id}")]
         public async Task<ActionResult<ServiceDto>> GetService(int id)
         {
@@ -110,6 +112,7 @@ namespace API.Controllers
             return Ok();
         }
 
+        [Cached(600)]
         [HttpGet("categories")]
         public async Task<ActionResult<IEnumerable<CategoryDto>>> GetCategories()
         {

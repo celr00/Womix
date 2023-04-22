@@ -1,114 +1,146 @@
-<nav class="navbar navbar-expand-lg shadow-sm m-3 rounded-5 p-3">
+<nav class="navbar bg-body-tertiary navbar-expand-md bd-navbar m-3 rounded-5 p-3 shadow-sm">
   <div class="container-fluid">
-    <div class="col-auto d-flex justify-content-start align-items-center">
-      <a routerLink="/" class="navbar-brand p-0">
-        <img src="../../../assets/Womix Nav Logo.svg" height="40">
-      </a>
-    </div>
-    <div class="col d-none d-md-flex justify-content-center">
-      <ul class="nav links-list">
-        <li class="nav-item me-3">
-          <a routerLink="/products" routerLinkActive="active" class="nav-link text-uppercase">Products</a>
-        </li>
-        <li class="nav-item me-3">
-          <a routerLink="/services" routerLinkActive="active" class="nav-link text-uppercase">Services</a>
-        </li>
-        <li class="nav-item">
-          <a routerLink="/jobs" routerLinkActive="active" class="nav-link text-uppercase">Jobs</a>
-        </li>
-      </ul>
-    </div>
-    <ul class="navbar-nav">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="themeDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="bi bi-sun-fill me-2" *ngIf="selectedTheme === 'light'"></i>
-          <i class="bi bi-moon-stars-fill me-2" *ngIf="selectedTheme === 'dark'"></i>
-          <i class="bi bi-circle-half me-2" *ngIf="selectedTheme === 'auto'"></i>
-        </a>
-        <ul class="dropdown-menu">
-          <li>
-            <a class="dropdown-item" (click)="setTheme('light')" [ngClass]="{'active': selectedTheme === 'light'}">
-              <i class="bi bi-sun-fill me-2"></i>
-              Light
-              <span class="float-end" *ngIf="selectedTheme === 'light'">
-                <i class="bi bi-check"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" (click)="setTheme('dark')" [ngClass]="{'active': selectedTheme === 'dark'}">
-              <i class="bi bi-moon-stars-fill me-2"></i>
-              Dark
-              <span class="float-end" *ngIf="selectedTheme === 'dark'">
-                <i class="bi bi-check"></i>
-              </span>
-            </a>
-          </li>
-          <li>
-            <a class="dropdown-item" (click)="setTheme('auto')" [ngClass]="{'active': selectedTheme === 'auto'}">
-              <i class="bi bi-circle-half me-2"></i>
-              Auto
-              <span class="float-end" *ngIf="selectedTheme === 'auto'">
-                <i class="bi bi-check"></i>
-              </span>
-            </a>
-          </li>
-        </ul>
-      </li>
-      <li class="nav-item py-2 py-lg-1 col-12 col-lg-auto">
-        <div class="vr d-none d-lg-flex h-100 mx-lg-2 text-white"></div>
-        <hr class="d-lg-none my-2 text-white-50">
-      </li>
-    </ul>
-    <div class="col-auto d-flex justify-content-end">
-      <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
-        <div class="d-none d-lg-flex me-3">
-          <a routerLink="/sign-in" class="btn btn-outline-primary me-2 rounded-4">Sign in</a>
-          <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
-        </div>
-      </ng-container>
-      <ng-container *ngIf="accountService.currentAccount$ | async as account">
-        <div class="dropdown ms-3" style="cursor: pointer;" dropdown>
-          <a dropdownToggle class="dropdown-toggle text-decoration-none">
-            <strong>{{account.firstName}}</strong>
+    <a routerLink="/" class="navbar-brand p-0">
+      <img src="../../../assets/Womix Nav Logo.svg" height="40">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+      <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
+          <a routerLink="/" class="navbar-brand p-0">
+            <img src="../../../assets/Womix Nav Logo.svg" height="40">
           </a>
-          <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
-            <li class="py-1">
-              <a routerLink="/products" class="dropdown-item">
-                <i class="fa fa-bookmark me-3"></i> Products
-              </a>
+        </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+          <ul class="navbar-nav flex-grow-1 pe-3 nav nav-underline mx-auto">
+            <li class="nav-item me-3">
+              <a
+                routerLink="/products"
+                routerLinkActive="active"
+                class="nav-link text-uppercase text-center">Products</a>
             </li>
-            <li class="py-1">
-              <a routerLink="/services" class="dropdown-item">
-                <i class="fa fa-envelope me-3"></i> Services
-              </a>
+            <li class="nav-item me-3">
+              <a
+                routerLink="/services"
+                routerLinkActive="active"
+                class="nav-link text-uppercase text-center">Services</a>
             </li>
-            <li class="py-1">
-              <a routerLink="/jobs" class="dropdown-item">
-                <i class="fa fa-envelope me-3"></i> Jobs
-              </a>
-            </li>
-            <div class="dropdown-divider"></div>
-            <li class="py-1">
-              <a routerLink="/account/summary" class="dropdown-item">
-                <i class="fa fa-user me-3"></i> Account
-              </a>
-            </li>
-            <div class="dropdown-divider"></div>
-            <li class="py-1">
-              <a routerLink="/test-error" class="dropdown-item">
-                <i class="fa fa-bug me-3"></i> Test errors
-              </a>
-            </li>
-            <div class="dropdown-divider"></div>
-            <li class="py-1">
-              <a (click)="accountService.logout()" class="dropdown-item">
-                <i class="fa fa-sign-out me-3"></i> Logout
-              </a>
+            <li class="nav-item">
+              <a
+                routerLink="/jobs"
+                routerLinkActive="active"
+                class="nav-link text-uppercase text-center">Jobs</a>
             </li>
           </ul>
+        <div class="col-auto">
+          <ul class="navbar-nav d-block d-md-flex align-items-md-center">
+            <li class="nav-item dropdown">
+              <button
+                class="btn btn-link nav-link py-2 px-0 px-lg-2 dropdown-toggle d-flex align-items-center show"
+                id="bd-theme"
+                type="button"
+                data-bs-toggle="dropdown"
+                data-bs-display="static"
+                >
+                <i class="bi bi-sun-fill me-2" *ngIf="selectedTheme === 'light'"></i>
+                <i class="bi bi-moon-stars-fill me-2" *ngIf="selectedTheme === 'dark'"></i>
+                <i class="bi bi-circle-half me-2" *ngIf="selectedTheme === 'auto'"></i>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end"
+              data-bs-popper="static">
+                <li>
+                  <button
+                    class="dropdown-item d-flex align-items-center"
+                    (click)="setTheme('light')"
+                    [ngClass]="{'active': selectedTheme === 'light'}">
+                    <i class="bi bi-sun-fill me-2 opacity-50"></i>
+                    Light
+                    <i class="bi bi-check ms-auto"
+                      *ngIf="selectedTheme === 'light'"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item d-flex align-items-center"
+                    type="button"
+                    (click)="setTheme('dark')"
+                    [ngClass]="{'active': selectedTheme === 'dark'}">
+                    <i class="bi bi-moon-stars-fill me-2 opacity-50"></i>
+                    Dark
+                    <i class="bi bi-check ms-auto" *ngIf="selectedTheme === 'dark'"></i>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    class="dropdown-item d-flex align-items-center"
+                    type="button"
+                    (click)="setTheme('auto')"
+                    [ngClass]="{'active': selectedTheme === 'auto'}">
+                    <i class="bi bi-circle-half me-2 opacity-50"></i>
+                    Auto
+                      <i class="bi bi-check ms-auto" *ngIf="selectedTheme === 'auto'"></i>
+                  </button>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item py-2 py-md-1 col-12 col-md-auto">
+              <div class="vr d-none d-md-flex h-100 mx-md-2 text-white"></div>
+              <hr class="d-md-none my-2 text-white-50">
+            </li>
+            <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
+              <a routerLink="/sign-in" class="btn btn-outline-secondary me-2 rounded-4">Sign in</a>
+              <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
+            </ng-container>
+            <ng-container *ngIf="accountService.currentAccount$ | async as account">
+              <div class="dropdown ms-3" style="cursor: pointer;" dropdown>
+                <a dropdownToggle class="dropdown-toggle text-decoration-none">
+                  <strong>{{account.firstName}}</strong>
+                </a>
+                <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
+                  <li class="py-1">
+                    <a routerLink="/products" class="dropdown-item">
+                      <i class="fa fa-bookmark me-3"></i> Products
+                    </a>
+                  </li>
+                  <li class="py-1">
+                    <a routerLink="/services" class="dropdown-item">
+                      <i class="fa fa-envelope me-3"></i> Services
+                    </a>
+                  </li>
+                  <li class="py-1">
+                    <a routerLink="/jobs" class="dropdown-item">
+                      <i class="fa fa-envelope me-3"></i> Jobs
+                    </a>
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <li class="py-1">
+                    <a routerLink="/account/summary" class="dropdown-item">
+                      <i class="fa fa-user me-3"></i> Account
+                    </a>
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <li class="py-1">
+                    <a routerLink="/test-error" class="dropdown-item">
+                      <i class="fa fa-bug me-3"></i> Test errors
+                    </a>
+                  </li>
+                  <div class="dropdown-divider"></div>
+                  <li class="py-1">
+                    <a (click)="accountService.logout()" class="dropdown-item">
+                      <i class="fa fa-sign-out me-3"></i> Logout
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </ng-container>
+          </ul>
         </div>
-      </ng-container>
+
+      </div>
     </div>
   </div>
 </nav>
