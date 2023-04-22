@@ -169,8 +169,6 @@ export class ListComponent implements OnInit {
   onReset() {
     if (this.searchTerm) this.searchTerm.nativeElement.value = '';
     this.params = new JobsParams();
-    this.params.userId = this.user.id;
-    this.params.pageSize = 12;
     this.jobService.setParams(this.params);
     this.loadJobs();
   }

@@ -8,7 +8,6 @@ import { Product } from '../../models/product';
 import { ActivatedRoute } from '@angular/router';
 import { Photo, Service } from '../../models/service';
 import { ServicesService } from 'src/app/services/services.service';
-import { UserEntity } from '../../models/app-user-entity';
 
 @Component({
   selector: 'app-photo-upload',
@@ -20,12 +19,10 @@ export class PhotoUploadComponent implements OnInit {
   @Output() send = new EventEmitter<any>();
   @Input() controller: string = '';
   @Input() photos: Photo[] = [];
-  @Input() userId?: number;
   uploader?: FileUploader;
   hasBaseDropzoneOver = false;
   baseUrl = environment.apiUrl;
   id: Number;
-  url = '';
 
   constructor(private route: ActivatedRoute, private accountService: AccountService,
     private productService: ProductService, private toastr: ToastrService,
@@ -34,26 +31,13 @@ export class PhotoUploadComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    switch (this.controller) {
-      case "products":
-        this.url = `${this.controller}/photo/${this.id}`;
-        break;
-      case "services":
-        this.url = `${this.controller}/photo/${this.id}`;
-        break;
-      case "account":
-        this.url = `${this.controller}/photo/${this.userId}`;
-        break;
-      default:
-        break;
-    }
     this.initializeUploader();
   }
 
   initializeUploader() {
     const token = this.accountService.getAccountToken();
     this.uploader = new FileUploader({
-      url: this.baseUrl + this.url,
+      url: this.baseUrl + `${this.controller}/photo/` + this.id,
       authToken: 'Bearer ' + token,
       isHTML5: true,
       allowedFileType: ['image'],
@@ -71,8 +55,8 @@ export class PhotoUploadComponent implements OnInit {
         switch (this.controller) {
           case "services":
             const service: Service = JSON.parse(response);
-            this.object = service;
-            this.send.emit(this.object);
+            this.object = response;
+            this.send.emit(response);
             this.photos = [];
             service.servicePhotos.forEach(x => {
               this.photos.push(x.photo);
@@ -80,20 +64,14 @@ export class PhotoUploadComponent implements OnInit {
             break;
           case "products":
             const product: Product = JSON.parse(response);
-            this.object = product;
-            this.send.emit(this.object);
+            this.object = response;
+            this.send.emit(response);
             this.photos = [];
             product.productPhotos.forEach(x => {
               this.photos.push(x.photo);
             });
             break;
-          case "account":
-            const user: UserEntity = JSON.parse(response);
-            this.object = user;
-            this.send.emit(this.object);
-            this.photos = [];
-            this.photos.push(user.appUserPhoto.photo);
-            break;
+
           default:
             break;
         }
@@ -114,6 +92,9 @@ export class PhotoUploadComponent implements OnInit {
             this.send.emit(service);
             this.toastr.success('Photo deleted successfully');
           },
+          error: () => {
+
+          }
         })
         break;
       case "products":
@@ -127,16 +108,28 @@ export class PhotoUploadComponent implements OnInit {
             this.send.emit(product);
             this.toastr.success('Photo deleted successfully');
           },
+          error: () => {
+
+          }
         })
         break;
       case "account":
-        this.accountService.removePhoto(this.userId!).subscribe({
-          next: () => {
-            this.photos = [];
-            this.toastr.success('Photo deleted successfully');
-          },
-        })
+        // this.accountService.removePhoto().subscribe({
+        //   next: product => {
+        //     this.object = product;
+        //     this.photos = [];
+        //     product.productPhotos.forEach(x => {
+        //       this.photos.push(x.photo)
+        //     });
+        //     this.send.emit(product);
+        //     this.toastr.success('Photo deleted successfully');
+        //   },
+        //   error: () => {
+
+        //   }
+        // })
         break;
+
       default:
         break;
     }

@@ -19,7 +19,7 @@ import { TestErrorComponent } from './test-error/test-error.component';
     SectionHeaderComponent,
     NotFoundComponent,
     ServerErrorComponent,
-    TestErrorComponent
+    TestErrorComponent,
   ],
   imports: [
     CommonModule,

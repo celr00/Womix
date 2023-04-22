@@ -13,9 +13,6 @@
     bottom: -3px;
     transition: 0.3s;
   }
-  a:hover {
-    color: black;
-  }
   a:hover:after, a.active:after {
     width: 100%;
   }

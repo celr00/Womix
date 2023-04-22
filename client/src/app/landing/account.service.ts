@@ -36,8 +36,8 @@ export class AccountService {
     )
   }
 
-  removePhoto(userId: number): Observable<UserEntity> {
-    return this.http.delete<UserEntity>(this.baseUrl + 'account/photo/' + userId);
+  removePhoto() {
+
   }
 
   setCurrentAccount(account: Account) {
