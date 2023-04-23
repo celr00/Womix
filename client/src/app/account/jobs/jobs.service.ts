@@ -15,10 +15,21 @@ export class JobsService {
   baseUrl = environment.apiUrl;
   params = new JobsParams();
   areas: Area[] = [];
+  jobs: Job[] = [];
+  pagination?: Pagination<Job[]>;
+  jobCache = new Map<string, Pagination<Job[]>>();
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pagination<Job[]>> {
+  getAll(useCache = true): Observable<Pagination<Job[]>> {
+    if (!useCache) this.jobCache = new Map();
+
+    if(this.jobCache.size > 0 && useCache) {
+      if (this.jobCache.has(Object.values(this.params).join('-'))) {
+        this.pagination = this.jobCache.get(Object.values(this.params).join('-'));
+        if (this.pagination) return of(this.pagination);
+      }
+    }
     let params = new HttpParams();
 
     if (this.params.areaId > 0) params = params.append('areaId', this.params.areaId);
@@ -28,7 +39,24 @@ export class JobsService {
     params = params.append('pageSize', this.params.pageSize);
     if (this.params.search) params = params.append('search', this.params.search);
 
-    return this.http.get<Pagination<Job[]>>(this.baseUrl + 'jobs', {params});
+    return this.http.get<Pagination<Job[]>>(this.baseUrl + 'jobs', {params}).pipe(
+      map(response => {
+        this.jobCache.set(Object.values(this.params).join('-'), response);
+        this.pagination = response;
+        return response;
+      })
+    )
+  }
+
+  getById(id: number): Observable<JobWithInterest> {
+    const job = [...this.jobCache.values()]
+      .reduce((acc, paginatedResult) => {
+        return {...acc, ...paginatedResult.data.find(x => x.id === id)}
+      }, {} as JobWithInterest)
+
+    if (Object.keys(job).length !== 0) return of(job);
+
+    return this.http.get<JobWithInterest>(this.baseUrl + 'jobs/' + id);
   }
 
   add(service: any) {
@@ -41,10 +69,6 @@ export class JobsService {
 
   edit(service: any) {
     return this.http.put(this.baseUrl + 'jobs', service);
-  }
-
-  getById(id: number): Observable<JobWithInterest> {
-    return this.http.get<JobWithInterest>(this.baseUrl + 'jobs/' + id);
   }
 
   getInterestedJobsList(): Observable<UserJobInterest[]> {

@@ -1,7 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/landing/account.service';
 import { ServicesService } from 'src/app/services/services.service';
-import { AppUser } from 'src/app/shared/models/app-user';
 import { Service } from 'src/app/shared/models/service';
 import { ServiceParams } from 'src/app/shared/models/service-params';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -12,35 +12,26 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
-  user: AppUser = {} as AppUser;
+  @ViewChild('search') searchTerm?: ElementRef;
   services: Service[] = [];
   params: ServiceParams;
   totalCount = 0;
-  @ViewChild('search') searchTerm?: ElementRef;
+  accountId: number;
+  showTable = true;
 
   constructor(private serviceService: ServicesService, private accountService: AccountService,
-    private bcService: BreadcrumbService) {
+    private bcService: BreadcrumbService, private router: Router) {
     this.serviceService.resetParams();
     this.params = this.serviceService.getParams();
     this.bcService.set('@servicesListTitle', 'My services');
+    this.accountId = this.accountService.getAccountId();
   }
 
   ngOnInit(): void {
-    this.loadUser();
-  }
-
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.params.userId = this.user.id;
-        this.params.pageSize = 12;
-        this.serviceService.setParams(this.params);
-        this.loadServices();
-      }
-    })
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.serviceService.setParams(this.params);
+    this.loadServices();
   }
 
   loadServices() {
@@ -169,10 +160,14 @@ export class ListComponent implements OnInit {
   onReset() {
     if (this.searchTerm) this.searchTerm.nativeElement.value = '';
     this.params = new ServiceParams();
-    this.params.userId = this.user.id;
+    this.params.userId = this.accountId;
     this.params.pageSize = 12;
     this.serviceService.setParams(this.params);
     this.loadServices();
+  }
+
+  visit(id: number) {
+    this.router.navigateByUrl(`/account/services/list/${id}`);
   }
 
 }

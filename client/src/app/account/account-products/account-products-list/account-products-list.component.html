@@ -1,11 +1,54 @@
 <div class="d-flex mt-2 mb-3">
   <input (keyup.enter)="onSearch()" type="text" placeholder="Search" class="form-control me-2 bg-transparent" #search>
-  <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
-  <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+  <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
+  <button (click)="onReset()" class="btn btn-outline-success me-2">Reset</button>
+  <button class="btn btn-outline-secondary" (click)="showTable = !showTable">
+    <i [class.bi-grid]="showTable" [class.bi-list-ul]="!showTable"></i>
+  </button>
 </div>
 
+<div class="row" *ngIf="!showTable">
+  <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of products">
+    <app-card [item]="product" [type]="'product'"></app-card>
+  </div>
+</div>
 
-<table class="table" *ngIf="user">
+<div class="d-md-none" *ngIf="showTable">
+  <div
+    *ngFor="let product of products"
+    class="pointer mobile-row row p-3"
+    routerLink="/account/products/list/{{product.id}}"
+    tabindex="0"
+    (keyup.enter)="visit(product.id)">
+    <div>
+      <span class="text-muted fw-semibold fst-italic me-2">
+        {{product.id}}
+      </span>
+      <span class="fs-5 fw-light">
+        {{product.name}}
+      </span>
+    </div>
+    <div>
+      <span>
+        {{product.description}}
+      </span>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span class="fw-light fst-italic text-info">
+          {{product.productItemClass.itemClass.name}}
+        </span>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <span class="text-success">
+          {{product.price | currency}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table d-none d-md-block" *ngIf="showTable">
   <thead>
     <tr>
       <th scope="col pointer" (click)="onIdClick()">#</th>
@@ -17,7 +60,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let product of products" class="pointer" routerLink="/account/products/list/{{product.id}}">
+    <tr
+      *ngFor="let product of products"
+      class="pointer table-row"
+      routerLink="/account/products/list/{{product.id}}"
+      tabindex="0"
+      (keyup.enter)="visit(product.id)"
+      >
       <td>
         {{product.id}}
       </td>

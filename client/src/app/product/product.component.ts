@@ -11,8 +11,8 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./product.component.scss'],
 })
 export class ProductComponent implements OnInit  {
-  products: Product[] = [];
   @ViewChild('search') searchTerm?: ElementRef;
+  products: Product[] = [];
   totalCount = 0;
   params: ProductsParams;
   types: Type[] = [];
@@ -22,7 +22,8 @@ export class ProductComponent implements OnInit  {
     {name: 'Price: High to low', value: 'priceDesc'},
   ];
 
-  constructor(private productService: ProductService, private route: ActivatedRoute, private router: Router) {
+  constructor(private productService: ProductService, private route: ActivatedRoute,
+    private router: Router) {
     this.productService.resetParams();
     this.params = productService.getParams();
     this.params.itemClassId = this.route.snapshot.queryParams['category'] || 0;
@@ -48,7 +49,6 @@ export class ProductComponent implements OnInit  {
         this.totalCount = res.count;
       }
     });
-
   }
 
   onPageChanged(event: any) {

@@ -15,7 +15,7 @@ import { Account } from '../shared/models/account';
 export class JobsComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
   account: Account | null;
-  jobs?: Job[];
+  jobs: Job[] = [];
   myJobs?: UserJobInterest[];
   totalCount = 0;
   params: JobsParams;

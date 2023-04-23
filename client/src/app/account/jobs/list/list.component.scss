@@ -1,3 +1,13 @@
 th {
   cursor: pointer !important;
 }
+
+.mobile-row, .table-row {
+  &:focus {
+    background-color: #006a8c;
+    *{
+      color: white !important;
+    }
+  }
+}
+

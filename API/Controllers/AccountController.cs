@@ -45,6 +45,7 @@ namespace API.Controllers
 
             return new AccountDto
             {
+                Id = user.Id,
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
                 Role = user.UserRole.Role.Name,
@@ -67,6 +68,7 @@ namespace API.Controllers
 
             return new AccountDto
             {
+                Id = user.Id,
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
                 Role = user.UserRole.Role.Name,
@@ -98,6 +100,7 @@ namespace API.Controllers
 
             return new AccountDto
             {
+                Id = user.Id,
                 Email = user.Email,
                 Token = await _tokenService.CreateToken(user),
                 Role = user.UserRole.Role.Name,

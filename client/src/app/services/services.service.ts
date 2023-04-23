@@ -13,10 +13,22 @@ export class ServicesService {
   baseUrl = environment.apiUrl;
   params = new ServiceParams();
   categories: Category[] = [];
+  services: Service[] = [];
+  pagination?: Pagination<Service[]>;
+  serviceCache = new Map<string, Pagination<Service[]>>();
 
   constructor(private http: HttpClient) { }
 
-  getAll(): Observable<Pagination<Service[]>> {
+  getAll(useCache = true): Observable<Pagination<Service[]>> {
+    if (!useCache) this.serviceCache = new Map();
+
+    if(this.serviceCache.size > 0 && useCache) {
+      if (this.serviceCache.has(Object.values(this.params).join('-'))) {
+        this.pagination = this.serviceCache.get(Object.values(this.params).join('-'));
+        if (this.pagination) return of(this.pagination);
+      }
+    }
+
     let params = new HttpParams();
 
     if (this.params.categoryId > 0) params = params.append('categoryId', this.params.categoryId);
@@ -26,7 +38,24 @@ export class ServicesService {
     params = params.append('pageSize', this.params.pageSize);
     if (this.params.search) params = params.append('search', this.params.search);
 
-    return this.http.get<Pagination<Service[]>>(this.baseUrl + 'services', {params});
+    return this.http.get<Pagination<Service[]>>(this.baseUrl + 'services', {params}).pipe(
+      map(response => {
+        this.serviceCache.set(Object.values(this.params).join('-'), response);
+        this.pagination = response;
+        return response;
+      })
+    )
+  }
+
+  getById(id: number) {
+    const service = [...this.serviceCache.values()]
+      .reduce((acc, paginatedResult) => {
+        return {...acc, ...paginatedResult.data.find(x => x.id === id)}
+      }, {} as Service)
+
+    if (Object.keys(service).length !== 0) return of(service);
+
+    return this.http.get<Service>(this.baseUrl + 'services/' + id);
   }
 
   add(service: any) {
@@ -39,10 +68,6 @@ export class ServicesService {
 
   edit(service: any) {
     return this.http.put(this.baseUrl + 'services', service);
-  }
-
-  getById(id: number) {
-    return this.http.get<Service>(this.baseUrl + 'services/' + id);
   }
 
   getCategories(): Observable<Category[]> {

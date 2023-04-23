@@ -1,5 +1,5 @@
-<div class="p-4 border border-4 border-info border-opacity-50 rounded-4 shadow-sm">
-  <div class="row my-5">
+<div class="p-2 p-sm-4 border border-4 border-info border-opacity-50 rounded-4 shadow-sm">
+  <div class="d-none d-sm-block row my-5">
     <div class="col-5">
       <img src="{{job.userJob.user.appUserPhoto.photo.url}}" class="img-fluid rounded">
     </div>
@@ -40,7 +40,7 @@
       <img src="../../../assets/social-media-icons/mail.svg" class="social-media-icons">
     </a>
   </div>
-  <div class="my-4">
+  <div class="my-2">
     <ng-container *ngIf="loggedIn">
       <button class="btn btn-outline-success btn-lg d-flex mx-auto"
         *ngIf="!isFollowed()"

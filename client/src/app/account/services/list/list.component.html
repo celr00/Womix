@@ -1,10 +1,56 @@
 <div class="d-flex mt-2 mb-3">
-  <input (keyup.enter)="onSearch()" category="text" placeholder="Search" class="form-control me-2 bg-transparent" #search>
-  <button (click)="onSearch()" class="btn btn-outline-primary mx-2">Search</button>
-  <button (click)="onReset()" class="btn btn-outline-success">Reset</button>
+  <input (keyup.enter)="onSearch()" category="text" placeholder="Search" class="form-control me-2 bg-transparent"
+    #search>
+  <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
+  <button (click)="onReset()" class="btn btn-outline-success me-2">Reset</button>
+  <button class="btn btn-outline-secondary" (click)="showTable = !showTable">
+    <i [class.bi-grid]="showTable" [class.bi-list-ul]="!showTable"></i>
+  </button>
 </div>
 
-<table class="table" *ngIf="user">
+<div class="row" *ngIf="!showTable">
+  <div class="col-6 col-md-4 col-lg-3" *ngFor="let service of services">
+    <app-card [item]="service" [type]="'service'"></app-card>
+  </div>
+</div>
+
+<div class="d-md-none" *ngIf="showTable">
+  <div
+    *ngFor="let service of services"
+    class="pointer mobile-row row p-3"
+    routerLink="/account/services/list/{{service.id}}"
+    tabindex="0"
+    (keyup.enter)="visit(service.id)"
+    >
+    <div>
+      <span class="text-muted fw-semibold fst-italic me-2">
+        {{service.id}}
+      </span>
+      <span class="fs-5 fw-light">
+        {{service.name}}
+      </span>
+    </div>
+    <div>
+      <span>
+        {{service.description}}
+      </span>
+    </div>
+    <div class="row">
+      <div class="col">
+        <span class="fw-light fst-italic text-info">
+          {{service.serviceCategory.category.name}}
+        </span>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <span class="text-success">
+          {{service.price | currency}}
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<table class="table d-none d-md-block" *ngIf="showTable">
   <thead>
     <tr>
       <th scope="col pointer" (click)="onIdClick()">#</th>
@@ -15,7 +61,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let service of services" class="pointer" routerLink="/account/services/list/{{service.id}}">
+    <tr
+      *ngFor="let service of services"
+      class="pointer table-row"
+      routerLink="/account/services/list/{{service.id}}"
+      tabindex="0"
+      (keyup.enter)="visit(service.id)"
+      >
       <td>
         {{service.id}}
       </td>

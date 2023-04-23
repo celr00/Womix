@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { AccountService } from 'src/app/landing/account.service';
 import { ProductService } from 'src/app/product/product.service';
 import { AppUser } from 'src/app/shared/models/app-user';
@@ -13,33 +14,24 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class AccountProductsListComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
-  user: AppUser = {} as AppUser;
   products: Product[] = [];
   params: ProductsParams;
   totalCount = 0;
+  accountId: number;
+  showTable = true;
 
   constructor(private productService: ProductService, private accountService: AccountService,
-    private bcService: BreadcrumbService) {
+    private bcService: BreadcrumbService, private router: Router) {
     this.productService.resetParams();
     this.params = this.productService.getParams();
     this.bcService.set('@productListTitle', 'My products')
+    this.accountId = this.accountService.getAccountId();
   }
 
   ngOnInit(): void {
-    this.loadUser();
-  }
-
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.params.userId = this.user.id;
-        this.productService.setParams(this.params);
-        this.loadProducts();
-      }
-    })
+    this.params.userId = this.accountId;
+    this.productService.setParams(this.params);
+    this.loadProducts();
   }
 
   loadProducts() {
@@ -182,10 +174,14 @@ export class AccountProductsListComponent implements OnInit {
   onReset() {
     if (this.searchTerm) this.searchTerm.nativeElement.value = '';
     this.params = new ProductsParams();
-    this.params.userId = this.user.id;
+    this.params.userId = this.accountId;
     this.params.pageSize = 12;
     this.productService.setParams(this.params);
     this.loadProducts();
+  }
+
+  visit(id: number) {
+    this.router.navigateByUrl(`/account/products/list/${id}`);
   }
 
 }

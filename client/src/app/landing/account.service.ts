@@ -15,6 +15,7 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentAccountSource = new ReplaySubject<Account | null>(1);
   currentAccount$ = this.currentAccountSource.asObservable();
+  account?: AppUser;
 
   constructor(private http: HttpClient, private router: Router, private presenceService: PresenceService) { }
 
@@ -75,7 +76,14 @@ export class AccountService {
   }
 
   getUser(): Observable<AppUser> {
-    return this.http.get<AppUser>(this.baseUrl + 'users');
+    if (this.account) return of(this.account);
+
+    return this.http.get<AppUser>(this.baseUrl + 'users').pipe(
+      map(response => {
+        this.account = response;
+        return response;
+      })
+    )
   }
 
   getUserEntity(): Observable<UserEntity> {
@@ -96,5 +104,12 @@ export class AccountService {
     if (accountStr === null) return null;
     const account: Account = JSON.parse(accountStr);
     return account;
+  }
+
+  getAccountId(): number {
+    const accountStr = localStorage.getItem('account');
+    const account: Account = JSON.parse(accountStr!);
+    return account.id;
+
   }
 }

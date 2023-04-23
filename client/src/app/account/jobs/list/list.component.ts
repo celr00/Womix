@@ -4,7 +4,7 @@ import { JobsService } from '../jobs.service';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { AccountService } from 'src/app/landing/account.service';
-import { AppUser } from 'src/app/shared/models/app-user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-list',
@@ -16,31 +16,21 @@ export class ListComponent implements OnInit {
   @Input() jobs?: Job[];
   params: JobsParams;
   totalCount = 0;
-  user: AppUser = {} as AppUser;
+  accountId: number;
 
   constructor(private jobService: JobsService, private accountService: AccountService,
-    private bcService: BreadcrumbService) {
+    private bcService: BreadcrumbService, private router: Router) {
     this.jobService.resetParams();
     this.params = this.jobService.getParams();
     this.bcService.set('@jobsListComponentBreadcrumbTitle', 'My jobs');
+    this.accountId = this.accountService.getAccountId();
   }
 
   ngOnInit(): void {
-    this.loadUser();
-  }
-
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.params.userId = this.user.id;
-        this.params.pageSize = 12;
-        this.jobService.setParams(this.params);
-        this.loadJobs();
-      }
-    })
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.jobService.setParams(this.params);
+    this.loadJobs();
   }
 
   loadJobs() {
@@ -72,7 +62,6 @@ export class ListComponent implements OnInit {
         this.params.sort = 'idDesc';
         this.jobService.setParams(this.params);
         break;
-
       default:
         this.params.sort = 'idAsc';
         this.jobService.setParams(this.params);
@@ -91,7 +80,6 @@ export class ListComponent implements OnInit {
         this.params.sort = 'nameDesc';
         this.jobService.setParams(this.params);
         break;
-
       default:
         this.params.sort = 'nameAsc';
         this.jobService.setParams(this.params);
@@ -110,7 +98,6 @@ export class ListComponent implements OnInit {
         this.params.sort = 'descriptionDesc';
         this.jobService.setParams(this.params);
         break;
-
       default:
         this.params.sort = 'descriptionAsc';
         this.jobService.setParams(this.params);
@@ -129,7 +116,6 @@ export class ListComponent implements OnInit {
         this.params.sort = 'areaDesc';
         this.jobService.setParams(this.params);
         break;
-
       default:
         this.params.sort = 'areaAsc';
         this.jobService.setParams(this.params);
@@ -148,7 +134,6 @@ export class ListComponent implements OnInit {
         this.params.sort = 'salaryDesc';
         this.jobService.setParams(this.params);
         break;
-
       default:
         this.params.sort = 'salaryAsc';
         this.jobService.setParams(this.params);
@@ -169,10 +154,14 @@ export class ListComponent implements OnInit {
   onReset() {
     if (this.searchTerm) this.searchTerm.nativeElement.value = '';
     this.params = new JobsParams();
-    this.params.userId = this.user.id;
+    this.params.userId = this.accountId;
     this.params.pageSize = 12;
     this.jobService.setParams(this.params);
     this.loadJobs();
+  }
+
+  visit(id: number) {
+    this.router.navigateByUrl(`/account/jobs/list/${id}`);
   }
 
 }
