@@ -47,6 +47,8 @@ export class PhotoUploadComponent implements OnInit {
       default:
         break;
     }
+    console.log(this.url);
+
     this.initializeUploader();
   }
 
