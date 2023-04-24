@@ -12,11 +12,11 @@
 
   <div *ngIf="control.errors?.['required']" class="invalid-feedback">Please enter a {{label | lowercase}}</div>
   <div *ngIf="control.errors?.['email']" class="invalid-feedback">
-    Invalid email address
+    Dirección de email invalida
   </div>
-  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">Password is not complex enouph</div>
-  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">This email address is already linked to an account</div>
-  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Passwords do not match</div>
-  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} must be at least {{control.errors?.['minlength'].requiredLength}} characters long</div>
-  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters long</div>
+  <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">La contraseña no es lo suficientemente compleja</div>
+  <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">Esta dirección de correo ya está ligada a una cuenta</div>
+  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Las contraseñas no coincidenn</div>
+  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
+  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} deber tener máximo {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
 </div>
