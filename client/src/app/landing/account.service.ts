@@ -52,6 +52,7 @@ export class AccountService {
     this.currentAccountSource.next(null);
     this.router.navigateByUrl('/sign-in');
     this.presenceService.stopHubConnection();
+    this.account = undefined;
   }
 
   checkEmailExists(email: string) {
