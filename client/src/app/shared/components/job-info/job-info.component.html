@@ -5,7 +5,7 @@
     </div>
     <div class="col-7 my-auto">
       <p class="text-muted fst-italic mb-1">
-        Job area:
+        Zona del trabajo:
       </p>
       <h5>
         {{job.jobArea.area.name}}
@@ -16,12 +16,12 @@
     {{job.name}}
   </h5>
   <hr class="border border-1 border-opacity-100">
-  <h6>Description</h6>
+  <h6>Descripción</h6>
   <p>
     {{job.description}}
   </p>
   <hr class="border border-1 border-opacity-100">
-  <h6>Location</h6>
+  <h6>Ubicación</h6>
   <p *ngIf="job.userJob.user.appUserAddress.address as address">
     {{address.street}} {{address.number}}, {{address.zipcode}}, {{address.city}}, {{address.state}}
   </p>
@@ -45,18 +45,18 @@
       <button class="btn btn-outline-success btn-lg d-flex mx-auto"
         *ngIf="!isFollowed()"
         (click)="clickFollow()">
-        I'm interested
+        Estoy interesada
       </button>
       <button class="btn btn-outline-warning btn-lg d-flex mx-auto"
         *ngIf="isFollowed()"
         (click)="clickUnfollow()">
-        Unfollow
+        Dejar de seguir
       </button>
     </ng-container>
     <ng-container *ngIf="!loggedIn">
       <button class="btn btn-outline-success btn-lg d-flex mx-auto"
         routerLink="/sign-in">
-        I'm interested
+        Estoy interesada
       </button>
     </ng-container>
   </div>
