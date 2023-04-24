@@ -15,11 +15,11 @@
           </span>
           <span *ngIf="(presenceService.onlineUsers$ | async)?.includes(user.userName)">
             <i class="fa fa-user me-2 is-online"></i>
-            <span class="fs-6 fw-light text-muted ms-2">online</span>
+            <span class="fs-6 fw-light text-muted ms-2">en línea</span>
           </span>
         </div>
         <p class="text-info">
-          {{user.age}} years old
+          {{user.age}} años
         </p>
         <p *ngIf="user.address" class="fw-light text-muted fst-italic">
           {{user.address.street}} {{user.address.number}}, {{user.address.zipcode}}, {{user.address.city}},
