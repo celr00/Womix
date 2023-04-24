@@ -244,8 +244,20 @@ namespace API.Controllers
 
             if (photoAddResult.Error != null) return BadRequest(new ApiResponse(400, photoAddResult.Error.Message));
 
-            user.AppUserPhoto.Photo.Url = photoAddResult.SecureUrl.AbsoluteUri;
-            user.AppUserPhoto.Photo.PublicId = photoAddResult.PublicId;
+            if (user.AppUserPhoto == null)
+            {
+                user.AppUserPhoto = new AppUserPhoto
+                {
+                    Photo = new Photo 
+                    {
+                        Url = photoAddResult.SecureUrl.AbsoluteUri,
+                        PublicId = photoAddResult.PublicId
+                    }
+                };
+            } else {
+                user.AppUserPhoto.Photo.Url = photoAddResult.SecureUrl.AbsoluteUri;
+                user.AppUserPhoto.Photo.PublicId = photoAddResult.PublicId;
+            }
 
             var result = await _userManager.UpdateAsync(user);
 
