@@ -13,7 +13,7 @@
     class="card bg-faded p-3 text-center mb-3 my-drop-zone"
     [ngClass]="{ 'nv-file-over': hasBaseDropzoneOver }"
     (fileOver)="fileOverBase($event)" [uploader]="uploader!" ng2FileDrop >
-    <i class="fa fa-upload fa-3x"></i>Drop photos here
+    <i class="fa fa-upload fa-3x"></i>Arrasta fotos aquí
   </div>
 
   <div class="mb-3">
@@ -40,8 +40,8 @@
   <table class="table">
     <thead>
       <tr>
-        <th width="100%">Name</th>
-        <th>Size</th>
+        <th width="100%">Nombre</th>
+        <th>Tamaño</th>
       </tr>
     </thead>
     <tbody>
@@ -73,7 +73,7 @@
         (click)="uploader?.uploadAll()"
         [disabled]="!uploader?.getNotUploadedItems()?.length"
       >
-        <span class="fa fa-upload"></span> Upload all
+        <span class="fa fa-upload"></span> Subir todo
       </button>
       <button
         type="button"
@@ -81,7 +81,7 @@
         (click)="uploader?.cancelAll()"
         [disabled]="!uploader?.isUploading"
       >
-        <span class="fa fa-ban"></span> Cancel all
+        <span class="fa fa-ban"></span> Cancelar todo
       </button>
       <button
         type="button"
@@ -89,7 +89,7 @@
         (click)="uploader?.clearQueue()"
         [disabled]="!uploader?.queue?.length"
       >
-        <span class="fa fa-trash"></span> Remove all
+        <span class="fa fa-trash"></span> Eliminar todo
       </button>
     </div>
   </div>
