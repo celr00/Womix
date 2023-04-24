@@ -6,7 +6,7 @@
   <div class="d-flex justify-content-between">
     <ng-container *ngIf="!fromAccount">
       <p class="text-info">
-        Visit
+        Visitar
         <a class="text-info" routerLink="{{url}}">
           {{vendor}}
         </a>
@@ -14,10 +14,10 @@
     </ng-container>
     <ng-container *ngIf="type ==='product'">
       <p class="text-muted" *ngIf="item.stockQuantity > 0">
-        {{item.stockQuantity}} Available
+        {{item.stockQuantity}} Disponible
       </p>
       <p class="text-muted" *ngIf="item.stockQuantity <= 0">
-        Not Available
+        No Disponible
       </p>
     </ng-container>
   </div>
@@ -40,7 +40,7 @@
     </div>
     <div class="col-8">
       <p class="text-muted fst-italic">
-        Job offer area
+        Zona del trabajo
       </p>
       <h4 class="text-info fst-italic">
         {{item.jobArea.area.name}}
