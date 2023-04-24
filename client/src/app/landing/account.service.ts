@@ -110,6 +110,5 @@ export class AccountService {
     const accountStr = localStorage.getItem('account');
     const account: Account = JSON.parse(accountStr!);
     return account.id;
-
   }
 }
