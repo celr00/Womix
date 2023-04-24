@@ -9,6 +9,6 @@
   <label for="floatingInput">{{label}}</label>
 
   <div *ngIf="control.errors?.['required']" class="invalid-feedback">Please enter a {{label | lowercase}}</div>
-  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} must be at least {{control.errors?.['minlength'].requiredLength}} characters long</div>
-  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} must be at most {{control.errors?.['maxlength'].requiredLength}} characters long</div>
+  <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
+  <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} debe tener máximo {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
 </div>
