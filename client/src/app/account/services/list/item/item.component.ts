@@ -64,7 +64,7 @@ export class ItemComponent implements OnInit {
         modal && this.serviceService.delete(this.id).subscribe({
           next: () => {
             this.router.navigateByUrl('/account/services/list');
-            this.toastr.success('Service deleted successfully');
+            this.toastr.success('Servicio eliminado exitosamente');
           },
         })
       }

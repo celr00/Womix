@@ -48,7 +48,7 @@ export class AccountChangePasswordComponent implements OnInit {
   onSubmit() {
     this.accountService.resetPassword(this.passwordForm.value).subscribe({
       next: () => {
-        this.toastr.success('Password changed successfully');
+        this.toastr.success('Cambio de contraseña exitoso.');
         this.passwordForm.reset();
       },
       error: () => {

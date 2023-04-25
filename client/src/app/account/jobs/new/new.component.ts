@@ -38,7 +38,7 @@ export class NewComponent implements OnInit {
     this.jobService.add(value).subscribe({
       next: () => {
         this.jobForm.reset(value);
-        this.toastr.success('Jobs added successfully');
+        this.toastr.success('Trabajo agregado exitosamente.');
         this.router.navigateByUrl('/account/jobs/list');
       },
     })

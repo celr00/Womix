@@ -17,7 +17,7 @@ export class AdminGuard implements CanActivate {
         if (account.role === 'Admin') {
           return true;
         } else {
-          this.toastr.error('You cannot enter this area');
+          this.toastr.error('No tiene acceso a esta sección');
           return false;
         }
       })
