@@ -1,26 +1,26 @@
 [
     {
-        "Name": "Cleaning"
+        "Name": "Limpieza"
     },
     {
-        "Name": "Event Planning & Coordinator"
+        "Name": "Planeación de Eventos"
     },
     {
-        "Name": "Cooking & Meal Preparation"
+        "Name": "Cocina y Repostería"
     },
     {
-        "Name": "Babysitting"
+        "Name": "Cuidado de los Hijos"
     },
     {
-        "Name": "Home Improvement"
+        "Name": "Remodelación"
     },
     {
-        "Name": "Errand & Concierge"
+        "Name": "Mandados"
     },
     {
-        "Name": "Pet Care"
+        "Name": "Cuidado de las mascotas"
     },
     {
-        "Name": "Health & Fitness"
+        "Name": "Salud y Bienestar"
     }
 ]
