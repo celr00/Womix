@@ -34,9 +34,9 @@ namespace API.Controllers
                 .Include(x => x.LikedUsers)
                 .SingleOrDefaultAsync(x => x.Id == sourceUserId);
 
-            if (likedUser == null) return NotFound(new ApiResponse(404, "Could not find the liked user"));
+            if (likedUser == null) return NotFound(new ApiResponse(404, "No se encontró el usuario de interés"));
 
-            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "You cannot like yourself"));
+            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "No te puede interesar tu propio perfil"));
 
             var userLike = await _uow.LikesRepository.GetUserLike(sourceUserId, likedUser.Id);
 
@@ -48,7 +48,7 @@ namespace API.Controllers
 
             sourceUser.LikedUsers.Add(userLike);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to like user"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al dar me gusta al usuario"));
             
             return Ok();
         }
@@ -65,15 +65,15 @@ namespace API.Controllers
                 .Include(x => x.LikedUsers)
                 .SingleOrDefaultAsync(x => x.Id == sourceUserId);
 
-            if (likedUser == null) return NotFound(new ApiResponse(404, "Could not find the liked user"));
+            if (likedUser == null) return NotFound(new ApiResponse(404, "No se puedo enconrar el usuario de interés"));
 
-            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "You cannot like yourself"));
+            if (likedUser.Id == sourceUserId) return BadRequest(new ApiResponse(400, "No te puede interesar tu propio perfil"));
 
             var userLike = await _uow.LikesRepository.GetUserLike(sourceUserId, likedUser.Id);
 
             sourceUser.LikedUsers.Remove(userLike);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to remove user"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar usuario"));
             
             return Ok();
         }
