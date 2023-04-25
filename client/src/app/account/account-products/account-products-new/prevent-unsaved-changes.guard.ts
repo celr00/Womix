@@ -12,8 +12,8 @@ export class PreventUnsavedChangesGuard implements CanDeactivate<AccountProducts
   modal: Modal = new Modal;
 
   constructor(private confirmService: ConfirmService) {
-    this.modal.title = 'New product';
-    this.modal.message = 'Are you sure to lose unsaved changes for your new product?';
+    this.modal.title = 'Nuevo Producto';
+    this.modal.message = 'Si continua perderá los cambios no guardados.';
   }
 
   canDeactivate(component: AccountProductsNewComponent): Observable<boolean> {
