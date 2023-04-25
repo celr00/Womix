@@ -57,12 +57,12 @@ namespace API.SignalR
             var username = Context.User.GetUsername();
 
             if (username == createMessageDto.RecipientUsername.ToLower())
-                throw new HubException("You cannot send messages to yourself");
+                throw new HubException("No se puede mandar mensaje a uno mismo.");
 
             var sender = await _userManager.Users.SingleOrDefaultAsync(x => x.UserName == username);
             var recipient = await _userManager.Users.SingleOrDefaultAsync(x => x.UserName == createMessageDto.RecipientUsername);
 
-            if (recipient == null) throw new HubException("Not found user");
+            if (recipient == null) throw new HubException("No se encontró el perfil");
 
             var message = new Message
             {
@@ -120,7 +120,7 @@ namespace API.SignalR
 
             if (await _uow.Complete() >= 0) return group;
 
-            throw new HubException("Failed to add to group");
+            throw new HubException("No se pudo agregar al grupo.");
         }
 
         private async Task<Group> RemoveFromMessageGroup()
@@ -131,7 +131,7 @@ namespace API.SignalR
 
             if (await _uow.Complete() >= 0) return group;
 
-            throw new HubException("Failed to remove from group");
+            throw new HubException("No se pudo eliminar del grupo.");
         }
     }
 }
