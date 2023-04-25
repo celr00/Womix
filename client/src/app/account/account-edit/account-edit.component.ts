@@ -38,8 +38,8 @@ export class AccountEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `${this.user.firstName} ${this.user.lastName} profile information`;
-    this.modal.message = 'Do you confirm changes made to your account information?';
+    this.modal.title = `Perfil de ${this.user.firstName} ${this.user.lastName}`;
+    this.modal.message = '¿Confirma los cambios realizados en la información de su cuenta?';
     if (this.user.appUserAddress === null) {
       this.userForm.controls['appUserAddress'].get('userId')?.setValue(0);
       this.userForm.controls['appUserAddress'].get('addressId')?.setValue(0);
@@ -59,7 +59,7 @@ export class AccountEditComponent implements OnInit {
             this.user = user;
             this.userForm.reset();
             this.userForm.patchValue(user);
-            this.toastr.success('User updated successfully');
+            this.toastr.success('Usuario actualizado correctamente.');
           },
         })
       }
