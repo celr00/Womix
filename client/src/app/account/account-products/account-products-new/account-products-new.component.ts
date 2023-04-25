@@ -33,7 +33,7 @@ export class AccountProductsNewComponent implements OnInit {
     this.productService.add(value).subscribe({
       next: () => {
         this.productForm.reset(value);
-        this.toastr.success('Product added successfully');
+        this.toastr.success('Producto agregado exitosamente');
         this.router.navigateByUrl('/account/products/list');
       },
     })
