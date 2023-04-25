@@ -63,7 +63,7 @@ namespace API.Controllers
             
             _servicesRepo.Add(request);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the service"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir servicio"));
 
             return Ok();
         }
@@ -81,7 +81,7 @@ namespace API.Controllers
 
             _mapper.Map<ServiceUpdateDto, Service>(request, service);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to edit the service"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al editar servicio"));
 
             return Ok();
         }
@@ -107,7 +107,7 @@ namespace API.Controllers
 
             _servicesRepo.Delete(service);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the service"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar servicio"));
 
             return Ok();
         }
@@ -118,7 +118,7 @@ namespace API.Controllers
         {
             var categories = await _categoriesRepo.ListAllAsync();
 
-            if (categories == null) return BadRequest(new ApiResponse(400, "An error occurred loading the categories"));
+            if (categories == null) return BadRequest(new ApiResponse(400, "Ocurrió un error al cargar las categorías"));
 
             return Ok(_mapper.Map<IReadOnlyList<CategoryDto>>(categories));
         }
@@ -141,7 +141,7 @@ namespace API.Controllers
                 }
             });
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the photo to the service"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir imagen al servicio"));
             
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
@@ -164,7 +164,7 @@ namespace API.Controllers
 
             service.ServicePhotos.Remove(photo);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo of the service"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar la imagen del servicio"));
             
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
