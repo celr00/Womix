@@ -1,6 +1,6 @@
 export class Modal {
-  title = 'Confirmation';
-  message = 'Are you sure you want to do this?';
+  title = 'Confirmación';
+  message = '¿Quieres continuar?';
   btnOkText = 'Ok';
-  btnCancelText = 'Cancel';
+  btnCancelText = 'Cancelar';
 }

@@ -13,7 +13,7 @@
               </a>
             </h3>
             <ng-container *ngIf="(presenceService.onlineUsers$ | async)?.includes(recipient.userName)">
-              <p class="lh-1 mb-0">online</p>
+              <p class="lh-1 mb-0">En línea</p>
             </ng-container>
           </div>
         </div>
@@ -42,7 +42,7 @@
             <ul class="dropdown-menu dropdown-menu-dark shadow">
               <li><a class="dropdown-item pointer" (click)="deleteMessage(message.id)">
                 <i class="fa fa-trash me-2 text-danger"></i>
-                Delete message</a></li>
+                Eliminar mensaje</a></li>
             </ul>
           </div>
         </div>
