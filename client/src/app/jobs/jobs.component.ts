@@ -10,7 +10,7 @@ import { Account } from '../shared/models/account';
 @Component({
   selector: 'app-jobs',
   templateUrl: './jobs.component.html',
-  styleUrls: ['./jobs.component.scss']
+  styleUrls: ['./jobs.component.scss'],
 })
 export class JobsComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
@@ -24,13 +24,16 @@ export class JobsComponent implements OnInit {
   loggedIn = false;
   isIndexFollowed = false;
   sortOptions = [
-    {name: 'Alphabetical', value: 'name'},
-    {name: 'Price: Low to high', value: 'priceAsc'},
-    {name: 'Price: High to low', value: 'priceDesc'},
+    { name: 'Alfabéticamente', value: 'name' },
+    { name: 'Precio: Mayor a menor', value: 'priceAsc' },
+    { name: 'Precio: Menor a mayor', value: 'priceDesc' },
   ];
 
-  constructor(private jobService: JobsService, private route: ActivatedRoute,
-    private accountService: AccountService) {
+  constructor(
+    private jobService: JobsService,
+    private route: ActivatedRoute,
+    private accountService: AccountService
+  ) {
     this.jobService.resetParams();
     this.params = jobService.getParams();
     this.params.areaId = this.route.snapshot.queryParams['area'] || 0;
@@ -49,26 +52,26 @@ export class JobsComponent implements OnInit {
 
   loadMyInterests() {
     this.jobService.getInterestedJobsList().subscribe({
-      next: res => {
-        this.myJobs = res
-      }
-    })
+      next: (res) => {
+        this.myJobs = res;
+      },
+    });
   }
 
   loadJobs() {
     this.jobService.getAll().subscribe({
-      next: res => {
+      next: (res) => {
         this.jobs = res.data;
         this.totalCount = res.count;
         this.cardIndex = this.jobs[0].id;
-      }
+      },
     });
   }
 
   loadAreas() {
     this.jobService.getAreas().subscribe({
-      next: areas => this.areas = areas
-    })
+      next: (areas) => (this.areas = areas),
+    });
   }
 
   onPageChanged(event: any) {
@@ -115,12 +118,12 @@ export class JobsComponent implements OnInit {
   }
 
   selectedCard(jobs: Job[]): Job {
-    this.myJobs?.forEach(x => {
+    this.myJobs?.forEach((x) => {
       if (x.jobId === this.cardIndex) {
         this.isIndexFollowed = true;
       }
-    })
-    return jobs.filter(x => x.id === this.cardIndex)[0];
+    });
+    return jobs.filter((x) => x.id === this.cardIndex)[0];
   }
 
   isCurrent(job: Job): boolean {
@@ -130,5 +133,4 @@ export class JobsComponent implements OnInit {
   clickCard(id: number): void {
     this.cardIndex = id;
   }
-
 }
