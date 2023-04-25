@@ -60,11 +60,11 @@ namespace API.Controllers
             var user = await _userManager.Users
                 .SingleOrDefaultAsync(x => x.Email == loginDto.Email);
 
-            if (user == null) return Unauthorized("Invalid email");
+            if (user == null) return Unauthorized("email invalido");
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, loginDto.Password, false);
 
-            if (!result.Succeeded) return Unauthorized("Incorrect password");
+            if (!result.Succeeded) return Unauthorized("contraseña incorrecta");
 
             return new AccountDto
             {
@@ -83,7 +83,7 @@ namespace API.Controllers
             if (CheckEmailExistsAsync(registerDto.Email).Result.Value)
             {
                 return new BadRequestObjectResult(new ApiValidationErrorResponse
-                { Errors = new[] { "Email address is in use" } });
+                { Errors = new[] { "Esta dirección de correo ya está en uso" } });
             }
 
             var user = _mapper.Map<RegisterDto, AppUser>(registerDto);
@@ -92,7 +92,7 @@ namespace API.Controllers
 
             var result = await _userManager.CreateAsync(user, registerDto.ConfirmPassword);
 
-            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to create the user"));
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al crear usuario"));
 
             var roleResult = await _userManager.AddToRoleAsync(user, "Member");
 
@@ -148,7 +148,7 @@ namespace API.Controllers
 
             var result = await _userManager.UpdateAsync(user);
 
-            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
 
             return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
@@ -161,7 +161,7 @@ namespace API.Controllers
 
             var result = await _signInManager.CheckPasswordSignInAsync(user, password.CurrentPassword, false);
 
-            if (!result.Succeeded) return Unauthorized("The current password is incorrect");
+            if (!result.Succeeded) return Unauthorized("La contraseña es incorrecta");
 
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
 
@@ -229,7 +229,7 @@ namespace API.Controllers
 
             var result = await _userManager.DeleteAsync(user);
 
-            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to delete the user"));
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al eliminar el usuario"));
 
             return Ok();
         }
@@ -249,7 +249,7 @@ namespace API.Controllers
 
             var result = await _userManager.UpdateAsync(user);
 
-            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
 
             return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
         }
@@ -274,7 +274,7 @@ namespace API.Controllers
 
             var result = await _userManager.UpdateAsync(user);
 
-            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Failed to update the user"));
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
 
             return Ok();
         }
