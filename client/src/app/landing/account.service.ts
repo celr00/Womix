@@ -52,6 +52,7 @@ export class AccountService {
     this.currentAccountSource.next(null);
     this.router.navigateByUrl('/sign-in');
     this.presenceService.stopHubConnection();
+    this.account = undefined;
   }
 
   checkEmailExists(email: string) {
@@ -110,6 +111,5 @@ export class AccountService {
     const accountStr = localStorage.getItem('account');
     const account: Account = JSON.parse(accountStr!);
     return account.id;
-
   }
 }

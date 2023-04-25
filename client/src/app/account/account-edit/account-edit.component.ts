@@ -25,11 +25,13 @@ export class AccountEditComponent implements OnInit {
   maxDate: Date = new Date();
   modal: Modal = new Modal;
   photo: Photo[] = [];
+  accountId: number;
 
   constructor(private accountService: AccountService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
     private router: Router, private confirmService: ConfirmService) {
       this.bcService.set('@editProfileTitle', 'Edit Profile');
+      this.accountId = this.accountService.getAccountId();
     }
 
   ngOnInit(): void {
@@ -43,6 +45,7 @@ export class AccountEditComponent implements OnInit {
     if (this.user.appUserAddress === null) {
       this.userForm.controls['appUserAddress'].get('userId')?.setValue(0);
       this.userForm.controls['appUserAddress'].get('addressId')?.setValue(0);
+      this.userForm.controls['appUserAddress'].get('address')?.get('id')?.setValue(0);
     }
     if (this.user.appUserPhoto === null) {
       this.userForm.controls['appUserPhoto'].get('userId')?.setValue(0);
@@ -70,7 +73,10 @@ export class AccountEditComponent implements OnInit {
     this.accountService.getUserEntity().subscribe({
       next: user => {
         this.user = user;
-        this.photo.push(user.appUserPhoto.photo);
+        if (this.user.appUserPhoto.photo.url === '')
+          this.photo = [];
+        else
+          this.photo.push(user.appUserPhoto.photo);
       },
       complete: () => {
         const dob = new Date(this.user.dateOfBirth);
