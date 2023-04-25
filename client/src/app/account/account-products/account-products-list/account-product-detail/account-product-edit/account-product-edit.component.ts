@@ -59,15 +59,15 @@ export class AccountProductEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `Save changes for ${this.product.name}`;
-    this.modal.message = `Do you want to confirm changes made to your product ${this.product.name}`;
+    this.modal.title = `Guardar cambios realizados a ${this.product.name}`;
+    this.modal.message = `¿Desea guardar los cambios realizado al producto: ${this.product.name}?`;
     const value = this.productForm.value;
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.productService.edit(value).subscribe({
           next: () => {
             this.productForm.reset(value);
-            this.toastr.success('Product updated successfully');
+            this.toastr.success('Producto actualizado correctamente.');
             this.router.navigateByUrl('/account/products/list/' + this.product.id);
           },
         })
