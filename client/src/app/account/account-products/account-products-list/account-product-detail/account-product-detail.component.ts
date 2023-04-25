@@ -56,15 +56,15 @@ export class AccountProductDetailComponent implements OnInit {
   }
 
   delete() {
-    this.modal.title = `Delete ${this.product.name}`;
-    this.modal.message = `Are you sure to delete the product '${this.product.name}'?`;
-    this.modal.btnOkText = 'Delete';
+    this.modal.title = `Borrar ${this.product.name}`;
+    this.modal.message = `¿Confirma querer borrar el producto: '${this.product.name}'?`;
+    this.modal.btnOkText = 'Borrar';
     this.confirmService.confirm(this.modal).subscribe({
       next: res => {
         res && this.productService.delete(this.id).subscribe({
           next: () => {
             this.router.navigateByUrl('/account/products/list');
-            this.toastr.success('Product deleted successfully');
+            this.toastr.success('Producto eliminado correctamente.');
           },
         })
       }
