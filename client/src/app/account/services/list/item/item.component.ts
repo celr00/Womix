@@ -56,9 +56,9 @@ export class ItemComponent implements OnInit {
   }
 
   delete() {
-    this.modal.title = `Delete ${this.service.name}`;
-    this.modal.message = `Are you sure to delete the service '${this.service.name}'?`;
-    this.modal.btnOkText = 'Delete';
+    this.modal.title = `Eliminar ${this.service.name}`;
+    this.modal.message = `Confirma querer eliminar el servicio '${this.service.name}'?`;
+    this.modal.btnOkText = 'Eliminar';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.serviceService.delete(this.id).subscribe({
