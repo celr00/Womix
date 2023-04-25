@@ -30,7 +30,7 @@ namespace API.Controllers
             var username = User.GetUsername();
 
             if (username == createMessageDto.RecipientUsername.ToLower())
-                return BadRequest(new ApiResponse(400, "You cannot send messages to yourself"));
+                return BadRequest(new ApiResponse(400, "No te puedes mandar mensaje a ti mismo"));
 
             var sender = await _userManager.Users.SingleOrDefaultAsync(x => x.UserName == username);
             var recipient = await _userManager.Users.SingleOrDefaultAsync(x => x.UserName == createMessageDto.RecipientUsername);
@@ -50,7 +50,7 @@ namespace API.Controllers
 
             if (await _uow.Complete() < 0) return Ok(_mapper.Map<MessageDto>(message));
 
-            return BadRequest(new ApiResponse(400, "Failed to send message"));
+            return BadRequest(new ApiResponse(400, "Error al enviar mensaje"));
         }
 
         [HttpDelete("{id}")]
@@ -72,7 +72,7 @@ namespace API.Controllers
             }
 
             if (await _uow.Complete() < 0) 
-                return BadRequest(new ApiResponse(400, "Problem deleting the message"));
+                return BadRequest(new ApiResponse(400, "Problema eliminando el mensaje"));
             
             return Ok();
         }
