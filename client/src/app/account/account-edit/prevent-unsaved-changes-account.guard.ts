@@ -12,8 +12,8 @@ export class PreventUnsavedChangesAccountGuard implements CanDeactivate<AccountE
   modal: Modal = new Modal;
 
   constructor(private confirmService: ConfirmService) {
-    this.modal.title = 'Lose unsaved changes?';
-    this.modal.message = 'Are you sure to lose the unsaved changes made to your account?';
+    this.modal.title = '¿Perder los cambios no guardados?';
+    this.modal.message = '¿Está seguro de perder los cambios no guardados realizados en su cuenta?';
   }
 
   canDeactivate(component: AccountEditComponent): Observable<boolean> {
