@@ -54,8 +54,8 @@ export class RegisterComponent implements OnInit {
       confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(60), this.matchValues('password')]],
       phoneNumber: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
       dateOfBirth: ['', [Validators.required]],
-      facebook: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
-      instagram: ['', [Validators.required, Validators.minLength(5), Validators.maxLength(60)]],
+      facebook: ['', [Validators.minLength(5), Validators.maxLength(60)]],
+      instagram: ['', [Validators.minLength(5), Validators.maxLength(60)]],
       /**/
     });
     this.registerForm.controls['password'].valueChanges.subscribe({
