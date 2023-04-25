@@ -1,6 +1,6 @@
 [
     {
-        "Name": "Engineering",
+        "Name": "Ingeniería",
         "AreaPhoto": {
             "AreaId": 1,
             "Photo": {
@@ -9,7 +9,7 @@
         }
     },
     {
-        "Name": "Finance",
+        "Name": "Finanzas",
         "AreaPhoto": {
             "AreaId": 2,
             "Photo": {
@@ -18,7 +18,7 @@
         }
     },
     {
-        "Name": "Marketing",
+        "Name": "Mercadotécnia",
         "AreaPhoto": {
             "AreaId": 3,
             "Photo": {
@@ -27,7 +27,7 @@
         }
     },
     {
-        "Name": "Customer Suppoert",
+        "Name": "Servicio al cliente",
         "AreaPhoto": {
             "AreaId": 4,
             "Photo": {
@@ -36,7 +36,7 @@
         }
     },
     {
-        "Name": "Human Resources",
+        "Name": "Recursos Humanso",
         "AreaPhoto": {
             "AreaId": 5,
             "Photo": {
@@ -45,7 +45,7 @@
         }
     },
     {
-        "Name": "Sales Manager",
+        "Name": "Gerente de Ventas",
         "AreaPhoto": {
             "AreaId": 6,
             "Photo": {
@@ -54,7 +54,7 @@
         }
     },
     {
-        "Name": "Project Manager",
+        "Name": "Gestión de Proyectos",
         "AreaPhoto": {
             "AreaId": 7,
             "Photo": {
@@ -63,7 +63,7 @@
         }
     },
     {
-        "Name": "Medical & Health",
+        "Name": "Salud y Bienestar",
         "AreaPhoto": {
             "AreaId": 8,
             "Photo": {
