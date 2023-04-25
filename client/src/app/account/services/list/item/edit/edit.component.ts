@@ -46,8 +46,8 @@ export class EditComponent implements OnInit {
         this.service.servicePhotos.forEach(x => {
           this.photos.push(x.photo)
         });
-        this.modal.title = `Service ${this.service.name}`;
-        this.modal.message = `Do you confirm changes made to the service '${this.service.name}'?`;
+        this.modal.title = `Servicio ${this.service.name}`;
+        this.modal.message = `¿Confirma los cambios realizados para '${this.service.name}'?`;
       },
     })
   }
@@ -64,15 +64,15 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `Save changes for ${this.service.name}`;
-    this.modal.message = `Do you want to confirm changes made to your service ${this.service.name}`;
+    this.modal.title = `Guardad cambios para '${this.service.name}'`;
+    this.modal.message = `¿Confirma los cambios realizados al servicio '${this.service.name}'?`;
     const value = this.serviceForm.value;
     this.confirmService.confirm(this.modal).subscribe({
       next: (modal) => {
         modal && this.serviceService.edit(value).subscribe({
           next: () => {
             this.serviceForm.reset(value);
-            this.toastr.success('Service updated successfully');
+            this.toastr.success('Servicio actualizado correctamente.');
             this.router.navigateByUrl('/account/services/list/' + this.id);
           },
         })
