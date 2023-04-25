@@ -45,8 +45,8 @@ export class EditComponent implements OnInit {
         this.bcService.set('@jobItemComponentBreadcrumbTitle', job.name);
         this.bcService.set('@jobEditItemBreadCrumbTitle', 'Edit ' + job.name);
         this.initForm(this.job);
-        this.modal.title = `Job ${this.job.name}`;
-        this.modal.message = `Do you confirm changes made to the job '${this.job.name}'?`;
+        this.modal.title = `Trabajo ${this.job.name}`;
+        this.modal.message = `¿Confirma los cambios realizados en: '${this.job.name}'?`;
       },
     })
   }
@@ -63,15 +63,15 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `Save changes for ${this.job.name}`;
-    this.modal.message = `Do you want to confirm changes made to your job ${this.job.name}`;
+    this.modal.title = `Guardar cambios para: ${this.job.name}`;
+    this.modal.message = `¿Desea confirmar los cambios realizados a: ${this.job.name}?`;
     const value = this.jobForm.value;
     this.confirmService.confirm(this.modal).subscribe({
       next: (modal) => {
         modal && this.jobService.edit(value).subscribe({
           next: () => {
             this.jobForm.reset(value);
-            this.toastr.success('Job updated successfully');
+            this.toastr.success('Trabajo actualizado correctamente');
             this.router.navigateByUrl('/account/jobs/list/' + this.id);
           },
         })
