@@ -1,4 +1,10 @@
-import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import {
+  Component,
+  ElementRef,
+  OnInit,
+  Renderer2,
+  ViewChild,
+} from '@angular/core';
 import { Category, Service } from '../shared/models/service';
 import { ServiceParams } from '../shared/models/service-params';
 import { ServicesService } from './services.service';
@@ -7,7 +13,7 @@ import { ActivatedRoute } from '@angular/router';
 @Component({
   selector: 'app-services',
   templateUrl: './services.component.html',
-  styleUrls: ['./services.component.scss']
+  styleUrls: ['./services.component.scss'],
 })
 export class ServicesComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
@@ -16,12 +22,16 @@ export class ServicesComponent implements OnInit {
   params: ServiceParams;
   categories?: Category[];
   sortOptions = [
-    {name: 'Alphabetical', value: 'name'},
-    {name: 'Price: Low to high', value: 'priceAsc'},
-    {name: 'Price: High to low', value: 'priceDesc'},
+    { name: 'Alfabéticamente', value: 'name' },
+    { name: 'Precio: Mayor a menor', value: 'priceAsc' },
+    { name: 'Precio: Menor a mayor', value: 'priceDesc' },
   ];
 
-  constructor(private serviceService: ServicesService, private route: ActivatedRoute, private renderer: Renderer2) {
+  constructor(
+    private serviceService: ServicesService,
+    private route: ActivatedRoute,
+    private renderer: Renderer2
+  ) {
     this.serviceService.resetParams();
     this.params = serviceService.getParams();
     this.params.categoryId = this.route.snapshot.queryParams['category'] || 0;
@@ -34,19 +44,19 @@ export class ServicesComponent implements OnInit {
 
   loadServices() {
     this.serviceService.getAll().subscribe({
-      next: res => {
+      next: (res) => {
         this.services = res.data;
         this.totalCount = res.count;
-      }
+      },
     });
   }
 
   loadCategories() {
     this.serviceService.getCategories().subscribe({
-      next: categories => {
-        this.categories = categories
-      }
-    })
+      next: (categories) => {
+        this.categories = categories;
+      },
+    });
   }
 
   onPageChanged(event: any) {
