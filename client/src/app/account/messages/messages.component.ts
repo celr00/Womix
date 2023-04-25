@@ -58,12 +58,12 @@ export class MessagesComponent implements OnInit, OnDestroy {
   }
 
   deleteMessage(messageId: number) {
-    this.modal.title = `Delete message`;
-    this.modal.message = `Are you sure to delete this message?`;
+    this.modal.title = `Borrar mensaje`;
+    this.modal.message = `¿Confirma querer eliminar el mensaje?`;
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.messageService.deleteMessage(messageId).subscribe({
-          next: () => this.toastr.success('Message deleted'),
+          next: () => this.toastr.success('Mensaje eliminado.'),
           complete: () => this.ngOnInit()
         })
       }
