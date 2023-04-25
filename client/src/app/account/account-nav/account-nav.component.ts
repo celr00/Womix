@@ -19,14 +19,14 @@ export class AccountNavComponent {
     private toastr: ToastrService, private confirmService: ConfirmService) {}
 
   onClickDeleteAccount() {
-    this.modal.title = `Delete account`;
-    this.modal.message = `${this.user.fullName}, are you sure to delete your account?`;
-    this.modal.btnOkText = 'Delete my account';
+    this.modal.title = `Eliminar cuenta`;
+    this.modal.message = `¿${this.user.fullName}, está segura de borror su cuenta?`;
+    this.modal.btnOkText = 'Borrar mi cuenta';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.accountService.deleteAccount().subscribe({
           next: () => {
-            this.toastr.success('The account was deleted and removed successfully');
+            this.toastr.success('La cuenta fue eliminada y eliminada con éxito');
             this.accountService.logout();
             this.router.navigateByUrl('/sign-in');
           },
