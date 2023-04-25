@@ -24,7 +24,7 @@ export class JobInfoComponent {
   clickFollow() {
     this.jobService.follow(this.job.id).subscribe({
       next: () => {
-        this.toastr.success('Job followed successfully');
+        this.toastr.success('Se mostró tu interés en el trabajo');
         const item: UserJobInterest = {
           job: this.job,
           jobId: this.job.id,
@@ -38,7 +38,7 @@ export class JobInfoComponent {
   clickUnfollow() {
     this.jobService.unfollow(this.job.id).subscribe({
       next: () => {
-        this.toastr.success('Job removed from your interests');
+        this.toastr.success('El trabajo fue eliminado de tus intereses');
         this.myJobs = this.myJobs.filter(x => x.jobId !== this.job.id);
       }
     })

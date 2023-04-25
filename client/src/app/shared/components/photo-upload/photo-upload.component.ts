@@ -114,7 +114,7 @@ export class PhotoUploadComponent implements OnInit {
               this.photos.push(x.photo)
             });
             this.send.emit(service);
-            this.toastr.success('Photo deleted successfully');
+            this.toastr.success('Imagen eliminada con éxito');
           },
         })
         break;
@@ -127,7 +127,7 @@ export class PhotoUploadComponent implements OnInit {
               this.photos.push(x.photo)
             });
             this.send.emit(product);
-            this.toastr.success('Photo deleted successfully');
+            this.toastr.success('Imagen eliminada con éxito');
           },
         })
         break;
@@ -135,7 +135,7 @@ export class PhotoUploadComponent implements OnInit {
         this.accountService.removePhoto(this.userId!).subscribe({
           next: () => {
             this.photos = [];
-            this.toastr.success('Photo deleted successfully');
+            this.toastr.success('Imagen eliminada con éxito');
           },
         })
         break;

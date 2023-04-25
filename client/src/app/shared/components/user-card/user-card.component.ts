@@ -37,7 +37,7 @@ export class UserCardComponent implements OnInit {
     const email = this.user.email;
     this.userService.save(email).subscribe({
       next: () => {
-        this.toastr.success('User saved');
+        this.toastr.success('Usuario guardado');
       },
       complete: () => {
         this.loadIsSaved();
@@ -50,7 +50,7 @@ export class UserCardComponent implements OnInit {
     const email = this.user.email;
     this.userService.unsave(email).subscribe({
       next: () => {
-        this.toastr.success('User unsaved');
+        this.toastr.success('Usuario guardado');
       },
       complete: () => {
         this.loadIsSaved();
