@@ -12,8 +12,8 @@ export class PreventUnsavedChangesGuard implements CanDeactivate<EditComponent> 
   modal: Modal = new Modal;
 
   constructor(private confirmService: ConfirmService) {
-    this.modal.title = 'Job edit';
-    this.modal.message = 'Are you sure to lose changes made to this job?';
+    this.modal.title = 'Trabajo editado';
+    this.modal.message = 'Si continúa perderá los cambios no guardados para este trabajo.';
   }
 
   canDeactivate(component: EditComponent): Observable<boolean> {
