@@ -21,19 +21,19 @@
               <a
                 routerLink="/products"
                 routerLinkActive="active"
-                class="nav-link text-uppercase text-center">Products</a>
+                class="nav-link text-uppercase text-center">Productos</a>
             </li>
             <li class="nav-item me-3">
               <a
                 routerLink="/services"
                 routerLinkActive="active"
-                class="nav-link text-uppercase text-center">Services</a>
+                class="nav-link text-uppercase text-center">Servicios</a>
             </li>
             <li class="nav-item">
               <a
                 routerLink="/jobs"
                 routerLinkActive="active"
-                class="nav-link text-uppercase text-center">Jobs</a>
+                class="nav-link text-uppercase text-center">Trabajos</a>
             </li>
           </ul>
         <div class="col-auto">
@@ -58,7 +58,7 @@
                     (click)="setTheme('light')"
                     [ngClass]="{'active': selectedTheme === 'light'}">
                     <i class="bi bi-sun-fill me-2 opacity-50"></i>
-                    Light
+                    Claro
                     <i class="bi bi-check ms-auto"
                       *ngIf="selectedTheme === 'light'"></i>
                   </button>
@@ -70,7 +70,7 @@
                     (click)="setTheme('dark')"
                     [ngClass]="{'active': selectedTheme === 'dark'}">
                     <i class="bi bi-moon-stars-fill me-2 opacity-50"></i>
-                    Dark
+                    Oscuro
                     <i class="bi bi-check ms-auto" *ngIf="selectedTheme === 'dark'"></i>
                   </button>
                 </li>
@@ -92,8 +92,7 @@
               <hr class="d-md-none my-2 text-white-50">
             </li>
             <ng-container *ngIf="(accountService.currentAccount$ | async) === null">
-              <a routerLink="/sign-in" class="btn btn-outline-secondary me-2 rounded-4">Sign in</a>
-              <a routerLink="/sign-up" class="btn btn-primary rounded-4">Sign up</a>
+              <a routerLink="/sign-in" class="btn btn-outline-secondary me-2 rounded-4">Iniciar Sesión</a>
             </ng-container>
             <ng-container *ngIf="accountService.currentAccount$ | async as account">
               <div class="dropdown ms-3" style="cursor: pointer;" dropdown>
@@ -103,35 +102,29 @@
                 <ul *dropdownMenu class="dropdown-menu dropdown-menu-right shadow-sm">
                   <li class="py-1">
                     <a routerLink="/products" class="dropdown-item">
-                      <i class="fa fa-bookmark me-3"></i> Products
+                      <i class="fa fa-bookmark me-3"></i> Productos
                     </a>
                   </li>
                   <li class="py-1">
                     <a routerLink="/services" class="dropdown-item">
-                      <i class="fa fa-envelope me-3"></i> Services
+                      <i class="fa fa-envelope me-3"></i> Servicios
                     </a>
                   </li>
                   <li class="py-1">
                     <a routerLink="/jobs" class="dropdown-item">
-                      <i class="fa fa-envelope me-3"></i> Jobs
+                      <i class="fa fa-envelope me-3"></i> Trabajos
                     </a>
                   </li>
                   <div class="dropdown-divider"></div>
                   <li class="py-1">
                     <a routerLink="/account/summary" class="dropdown-item">
-                      <i class="fa fa-user me-3"></i> Account
-                    </a>
-                  </li>
-                  <div class="dropdown-divider"></div>
-                  <li class="py-1">
-                    <a routerLink="/test-error" class="dropdown-item">
-                      <i class="fa fa-bug me-3"></i> Test errors
+                      <i class="fa fa-user me-3"></i> Perfil
                     </a>
                   </li>
                   <div class="dropdown-divider"></div>
                   <li class="py-1">
                     <a (click)="accountService.logout()" class="dropdown-item">
-                      <i class="fa fa-sign-out me-3"></i> Logout
+                      <i class="fa fa-sign-out me-3"></i> Cerrar Sesión
                     </a>
                   </li>
                 </ul>
@@ -139,7 +132,6 @@
             </ng-container>
           </ul>
         </div>
-
       </div>
     </div>
   </div>
