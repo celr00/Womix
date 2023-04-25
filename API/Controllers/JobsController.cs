@@ -63,7 +63,7 @@ namespace API.Controllers
             
             _jobsRepo.Add(request);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the Job"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Fallo al añadir el trabajo"));
 
             return Ok();
         }
@@ -81,7 +81,7 @@ namespace API.Controllers
 
             _mapper.Map<JobUpdateDto, Job>(request, Job);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to edit the Job"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Fallo al editar el trabajo"));
 
             return Ok();
         }
@@ -91,11 +91,11 @@ namespace API.Controllers
         {
             var job = await _jobsRepo.GetEntityWithSpec(new JobsSpecification(id));
 
-            if (job == null) return NotFound(new ApiResponse(404, "The areas list was not found"));
+            if (job == null) return NotFound(new ApiResponse(404, "No se encontró la lista de áreas"));
 
             _jobsRepo.Delete(job);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the job"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Fallo al eliminar el trabajo"));
 
             return Ok();
         }
@@ -106,7 +106,7 @@ namespace API.Controllers
         {
             var areas = await _areasRepo.ListAllAsync();
 
-            if (areas == null) return BadRequest(new ApiResponse(400, "An error occurred loading the areas"));
+            if (areas == null) return BadRequest(new ApiResponse(400, "Ocurrió un error al cargar las áreas"));
 
             return Ok(_mapper.Map<IReadOnlyList<AreaDto>>(areas));
         }
@@ -140,7 +140,7 @@ namespace API.Controllers
                 .Get(userId, jobId);
 
             if (userJobInterest != null) 
-                return BadRequest(new ApiResponse(400, "You already follow this job"));
+                return BadRequest(new ApiResponse(400, "Ya sigues este trabajo"));
 
             userJobInterest = new UserJobInterest
             {
@@ -151,7 +151,7 @@ namespace API.Controllers
             user.FollowingJobs.Add(userJobInterest);
 
             if (await _uow.Complete() < 0) 
-                return BadRequest(new ApiResponse(400, "Failed to add job to your interests"));
+                return BadRequest(new ApiResponse(400, "Fallo al agregar este trabajo a tus intereses"));
 
             return Ok();
         }
@@ -164,12 +164,12 @@ namespace API.Controllers
             var data = await _uow.FollowRepository.Get(userId, jobId);
 
             if (data == null) 
-                return NotFound(new ApiResponse(404, "This was not found"));
+                return NotFound(new ApiResponse(404, "No se encontró"));
 
             _uow.FollowRepository.Remove(data);
 
             if (await _uow.Complete() < 0) 
-                return BadRequest(new ApiResponse(400, "Error removing job"));
+                return BadRequest(new ApiResponse(400, "Error al eliminar el trabajo"));
 
             return Ok();
         }
