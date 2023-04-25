@@ -38,15 +38,15 @@ export class ItemComponent implements OnInit {
   }
 
   delete() {
-    this.modal.title = `Delete ${this.job.name}`;
-    this.modal.message = `Are you sure to delete the job '${this.job.name}'?`;
-    this.modal.btnOkText = 'Delete';
+    this.modal.title = `Borrar ${this.job.name}`;
+    this.modal.message = `¿Confirma querer eliminar el trabajo: '${this.job.name}'?`;
+    this.modal.btnOkText = 'Eliminar';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
         modal && this.jobService.delete(this.id).subscribe({
           next: () => {
             this.router.navigateByUrl('/account/jobs/list');
-            this.toastr.success('Job deleted successfully');
+            this.toastr.success('Trabajo eliminado correctamente.');
           },
         })
       }
