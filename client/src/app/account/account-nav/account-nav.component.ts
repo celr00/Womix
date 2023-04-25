@@ -20,7 +20,7 @@ export class AccountNavComponent {
 
   onClickDeleteAccount() {
     this.modal.title = `Eliminar cuenta`;
-    this.modal.message = `¿${this.user.fullName}, está segura de borror su cuenta?`;
+    this.modal.message = `¿${this.user.fullName}, está segura de borrar su cuenta?`;
     this.modal.btnOkText = 'Borrar mi cuenta';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {

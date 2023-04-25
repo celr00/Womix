@@ -8,7 +8,7 @@
   ></textarea>
   <label for="floatingInput">{{label}}</label>
 
-  <div *ngIf="control.errors?.['required']" class="invalid-feedback">Please enter a {{label | lowercase}}</div>
+  <div *ngIf="control.errors?.['required']" class="invalid-feedback">Ingrese {{label | lowercase}}</div>
   <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
   <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} debe tener máximo {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
 </div>

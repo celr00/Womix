@@ -5,7 +5,7 @@
         <div class="mb-4">
           <a routerLink="/account/jobs/list" class="text-decoration-none">
             <i class="fa fa-angle-left me-2"></i>
-            Back
+            Regresar
           </a>
         </div>
         <app-detail [item]="job" [fromAccount]="true" [type]="'job'"></app-detail>
@@ -13,16 +13,16 @@
           <div class="col d-flex justify-content-end">
             <a routerLink="edit" class="btn btn-outline-info me-2">
               <i class="fa fa-pencil me-2"></i>
-              Edit</a>
+              Editar</a>
             <button class="btn btn-outline-danger me-2" (click)="delete()">
               <i class="fa fa-trash me-2"></i>
-              Delete</button>
+              Eliminar</button>
           </div>
         </div>
       </div>
       <div class="col-12 col-lg-6 col-xl-5">
         <h4 class="text-muted fw-semibold">
-          Interested users
+          Usuarios Interesados
         </h4>
         <div class="" *ngFor="let userJobInterest of job.userJobInterests">
           <app-user-card [user]="userJobInterest.user" [compact]="true"></app-user-card>
