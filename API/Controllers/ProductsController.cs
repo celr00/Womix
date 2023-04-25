@@ -63,7 +63,7 @@ namespace API.Controllers
         {
             _productsRepo.Add(request);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the product"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir producto"));
 
             return Ok();
         }
@@ -80,7 +80,7 @@ namespace API.Controllers
 
             _mapper.Map<ProductUpdateDto, Product>(request, product);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to edit the product"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al editar producto"));
 
             return Ok();
         }
@@ -117,7 +117,7 @@ namespace API.Controllers
         {
             var itemClasses = await _itemClassesRepository.ListAllAsync();
 
-            if (itemClasses == null) return BadRequest(new ApiResponse(400, "An error occurred loading product types"));
+            if (itemClasses == null) return BadRequest(new ApiResponse(400, "Ocurrió un error al cargar los tipos de productos"));
 
             return Ok(_mapper.Map<IReadOnlyList<ItemClassDto>>(itemClasses));
         }
@@ -140,7 +140,7 @@ namespace API.Controllers
                 }
             });
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to add the photo to the product"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir la imagen del producto"));
             
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }
@@ -163,7 +163,7 @@ namespace API.Controllers
 
             product.ProductPhotos.Remove(photo);
 
-            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Failed to delete the photo"));
+            if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar la foto"));
             
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }
