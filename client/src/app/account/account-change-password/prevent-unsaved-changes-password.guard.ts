@@ -12,8 +12,8 @@ export class PreventUnsavedChangesPasswordGuard implements CanDeactivate<Account
   modal: Modal = new Modal;
 
   constructor(private confirmService: ConfirmService) {
-    this.modal.title = 'Leave password reset process';
-    this.modal.message = 'Are you sure to lose your password reset progress';
+    this.modal.title = 'Salir del proceso de restablecimiento de contraseña';
+    this.modal.message = '¿Estás seguro de perder tu progreso de restablecimiento de contraseña?';
   }
 
   canDeactivate(component: AccountChangePasswordComponent): Observable<boolean> {
