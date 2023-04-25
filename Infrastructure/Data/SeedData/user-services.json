@@ -3,8 +3,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 1,
-            "Name": "House deep clean",
-            "Description": "House deep clean with electric vacuum cleaner",
+            "Name": "Limpieza profunda de la casa",
+            "Description": "Limpieza profunda de la casa con aspiradora eléctrica",
             "Price": 699,
             "ServicePhotos": [
                 {
@@ -42,8 +42,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 2,
-            "Name": "Carpet cleaning",
-            "Description": "Professional carpet cleaning services",
+            "Name": "Limpieza de Alfombras",
+            "Description": "Servicio profesional de limpieza para alfombras",
             "Price": 99,
             "ServicePhotos": [
                 {
@@ -81,8 +81,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 3,
-            "Name": "Window cleaning",
-            "Description": "Thorough window cleaning with streak-free results",
+            "Name": "Limpieza de Ventanas",
+            "Description": "Limpieza a fondo de ventanas con resultados sin rayas",
             "Price": 149,
             "ServicePhotos": [
                 {
@@ -120,8 +120,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 4,
-            "Name": "Pressure washing",
-            "Description": "Powerful pressure washing for exterior surfaces",
+            "Name": "Limpieza a presión",
+            "Description": "Potente lavado a presión para superficies exteriores",
             "Price": 299,
             "ServicePhotos": [
                 {
@@ -159,8 +159,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 5,
-            "Name": "Gutter cleaning",
-            "Description": "Efficient cleaning of gutters and downspouts",
+            "Name": "Limpieza de canalones",
+            "Description": "Limpieza eficiente de canalones y bajantes",
             "Price": 199,
             "ServicePhotos": [
                 {
@@ -198,8 +198,8 @@
         "UserId": 2,
         "Service": {
             "ServiceId": 6,
-            "Name": "Housekeeping",
-            "Description": "Professional housekeeping services for homes and apartments",
+            "Name": "Limpieza del hogar",
+            "Description": "Servicios profesionales de limpieza de casas y apartamentos.",
             "Price": 399,
             "ServicePhotos": [
                 {
@@ -237,8 +237,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 7,
-            "Name": "Corporate Event Planning",
-            "Description": "Plan and coordinate corporate events for businesses of all sizes.",
+            "Name": "Planificación de eventos corporativos",
+            "Description": "Planificar y coordinar eventos corporativos para empresas de todos los tamaños.",
             "Price": 2500,
             "ServicePhotos": [
                 {
@@ -276,8 +276,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 8,
-            "Name": "Wedding Planning",
-            "Description": "Plan and coordinate all aspects of your wedding, from the ceremony to the reception.",
+            "Name": "Planeación de Bodas",
+            "Description": "Planifique y coordine todos los aspectos de su boda, desde la ceremonia hasta la recepción.",
             "Price": 5000,
             "ServicePhotos": [
                 {
@@ -315,8 +315,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 9,
-            "Name": "Event Coordination",
-            "Description": "Coordinate and manage all aspects of your event, including vendors, timelines, and logistics.",
+            "Name": "Coordinación de Eventos",
+            "Description": "Coordine y administre todos los aspectos de su evento, incluidos los proveedores, los cronogramas y la logística.",
             "Price": 1500,
             "ServicePhotos": [
                 {
@@ -354,8 +354,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 10,
-            "Name": "Conference Planning",
-            "Description": "Plan and coordinate conferences of all sizes, including venue selection, scheduling, and attendee management.",
+            "Name": "Planificación de conferencias",
+            "Description": "Planifique y coordine conferencias de todos los tamaños, incluida la selección del lugar, la programación y la gestión de asistentes.",
             "Price": 3000,
             "ServicePhotos": [
                 {
@@ -393,8 +393,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 11,
-            "Name": "Party Planning",
-            "Description": "Plan and coordinate parties of all types, from birthdays to corporate events.",
+            "Name": "Planeación de Fiestas",
+            "Description": "Planifica y coordina fiestas de todo tipo, desde cumpleaños hasta eventos corporativos.",
             "Price": 1000,
             "ServicePhotos": [
                 {
@@ -432,8 +432,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 12,
-            "Name": "Fundraiser Planning",
-            "Description": "Plan and coordinate fundraisers for non-profits and other organizations.",
+            "Name": "Planificación de recaudación de fondos",
+            "Description": "Planificar y coordinar eventos de recaudación de fondos para organizaciones sin fines de lucro y otras organizaciones.",
             "Price": 2000,
             "ServicePhotos": [
                 {
@@ -471,8 +471,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 13,
-            "Name": "Corporate Event Coordination",
-            "Description": "Let us help plan and coordinate your next corporate event to ensure a successful and stress-free experience. Our team will take care of everything from venue selection to catering to entertainment.",
+            "Name": "Coordinación de Eventos Corporativos",
+            "Description": "Permítanos ayudarlo a planificar y coordinar su próximo evento corporativo para garantizar una experiencia exitosa y sin estrés. Nuestro equipo se encargará de todo, desde la selección del lugar hasta el catering y el entretenimiento.",
             "Price": 5000.00,
             "ServicePhotos": [
                 {
@@ -510,8 +510,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 14,
-            "Name": "Corporate Event Planning",
-            "Description": "Our team of experienced event planners will work with you to design and execute a flawless corporate event that meets all of your needs and exceeds your expectations.",
+            "Name": "Planificación de eventos corporativos",
+            "Description": "Nuestro equipo de organizadores de eventos experimentados trabajará con usted para diseñar y ejecutar un evento corporativo impecable que satisfaga todas sus necesidades y supere sus expectativas.",
             "Price": 7500.00,
             "ServicePhotos": [
                 {
@@ -549,8 +549,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 15,
-            "Name": "Team Building Events",
-            "Description": "Looking to improve team dynamics and morale? Our team building events are the perfect solution. We offer a variety of activities and challenges to help build teamwork and foster a positive workplace culture.",
+            "Name": "Eventos de trabajo en equipo",
+            "Description": "¿Buscas mejorar la dinámica y la moral del equipo? Nuestros eventos de team building son la solución perfecta. Ofrecemos una variedad de actividades y desafíos para ayudar a construir el trabajo en equipo y fomentar una cultura positiva en el lugar de trabajo.",
             "Price": 3500.00,
             "ServicePhotos": [
                 {
@@ -588,8 +588,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 16,
-            "Name": "Conference Coordination",
-            "Description": "Planning a conference can be overwhelming, but it doesn't have to be. Our team can handle all aspects of conference coordination, from venue selection to speaker management to attendee registration.",
+            "Name": "Coordinación de conferencias",
+            "Description": "Planear una conferencia puede ser abrumador, pero no tiene por qué serlo. Nuestro equipo puede manejar todos los aspectos de la coordinación de la conferencia, desde la selección del lugar hasta la gestión de los oradores y el registro de los asistentes.",
             "Price": 6500.00,
             "ServicePhotos": [
                 {
@@ -627,8 +627,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 17,
-            "Name": "Corporate Retreats",
-            "Description": "Take your team out of the office and into a more relaxed environment with a corporate retreat. Our team will handle all of the planning and logistics to ensure a successful and enjoyable experience for everyone involved.",
+            "Name": "Retiros Corporativos",
+            "Description": "Lleve a su equipo fuera de la oficina a un ambiente más relajado con un retiro corporativo. Nuestro equipo se encargará de toda la planificación y la logística para garantizar una experiencia exitosa y agradable para todos los involucrados.",
             "Price": 8500.00,
             "ServicePhotos": [
                 {
@@ -666,8 +666,8 @@
         "UserId": 3,
         "Service": {
             "ServiceId": 18,
-            "Name": "Product Launch Events",
-            "Description": "Launching a new product can be a daunting task, but our team can help make it a success. From event design to marketing and promotion, we can handle all aspects of your product launch event.",
+            "Name": "Eventos de lanzamiento de productos",
+            "Description": "Lanzar un nuevo producto puede ser una tarea abrumadora, pero nuestro equipo puede ayudar a que sea un éxito. Desde el diseño del evento hasta el marketing y la promoción, podemos manejar todos los aspectos del evento de lanzamiento de su producto.",
             "Price": 10000.00,
             "ServicePhotos": [
                 {
@@ -705,8 +705,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 19,
-            "Name": "European Trip Planning",
-            "Description": "Plan your next trip to Europe with us. Our team of experienced travel planners will help you create a customized itinerary based on your preferences and budget. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes europeos",
+            "Description": "Planifique su próximo viaje a Europa con nosotros. Nuestro equipo de planificadores de viajes experimentados lo ayudará a crear un itinerario personalizado según sus preferencias y presupuesto. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1000.00,
             "ServicePhotos": [
                 {
@@ -744,8 +744,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 20,
-            "Name": "Italy Trip Planning",
-            "Description": "Planning a trip to Italy? Let us help you create the perfect itinerary. Our team of travel planners has extensive knowledge of the best places to visit in Italy, including Rome, Florence, Venice, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes a Italia",
+            "Description": "¿Planeando un viaje a Italia? Permítanos ayudarlo a crear el itinerario perfecto. Nuestro equipo de planificadores de viajes tiene un amplio conocimiento de los mejores lugares para visitar en Italia, incluidos Roma, Florencia, Venecia y más. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1500.00,
             "ServicePhotos": [
                 {
@@ -783,8 +783,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 21,
-            "Name": "Spain Trip Planning",
-            "Description": "Discover the beauty of Spain with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in Spain, including Madrid, Barcelona, Seville, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes a España",
+            "Description": "Descubra la belleza de España con nuestro servicio de planificación de viajes a medida. Nuestro equipo de expertos en viajes lo ayudará a crear un itinerario que incluya los mejores lugares para visitar en España, incluidos Madrid, Barcelona, Sevilla y más. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1200.00,
             "ServicePhotos": [
                 {
@@ -822,8 +822,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 22,
-            "Name": "France Trip Planning",
-            "Description": "Experience the beauty of France with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in France, including Paris, Marseille, Nice, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes a Francia",
+            "Description": "Experimente la belleza de Francia con nuestro servicio de planificación de viajes personalizados. Nuestro equipo de expertos en viajes lo ayudará a crear un itinerario que incluya los mejores lugares para visitar en Francia, incluidos París, Marsella, Niza y más. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1300.00,
             "ServicePhotos": [
                 {
@@ -861,8 +861,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 23,
-            "Name": "United Kingdom Trip Planning",
-            "Description": "Explore the United Kingdom with our custom trip planning Service. Our team of travel experts will help you create an itinerary that includes the best places to visit in the UK, including London, Edinburgh, Dublin, and more. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes a Reino Unido",
+            "Description": "Explore el Reino Unido con nuestro servicio de planificación de viajes personalizado. Nuestro equipo de expertos en viajes lo ayudará a crear un itinerario que incluya los mejores lugares para visitar en el Reino Unido, incluidos Londres, Edimburgo, Dublín y más. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1400.00,
             "ServicePhotos": [
                 {
@@ -900,8 +900,8 @@
         "UserId": 4,
         "Service": {
             "ServiceId": 24,
-            "Name": "Germany Trip Planning",
-            "Description": "Plan your next trip to Germany with us. Our team of experienced travel planners will help you create a customized itinerary based on your preferences and budget. We can provide recommendations for accommodations, transportation, activities, and more.",
+            "Name": "Planificación de viajes a Alemania",
+            "Description": "Planifica tu próximo viaje a Alemania con nosotros. Nuestro equipo de planificadores de viajes experimentados lo ayudará a crear un itinerario personalizado según sus preferencias y presupuesto. Podemos proporcionar recomendaciones de alojamiento, transporte, actividades y más.",
             "Price": 1100.00,
             "ServicePhotos": [
                 {
@@ -939,8 +939,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 25,
-            "Name": "Meal Prep",
-            "Description": "Healthy meal prep for busy individuals",
+            "Name": "Preparación de comidas",
+            "Description": "Preparación de comidas saludables para personas ocupadas",
             "Price": 50,
             "ServicePhotos": [
                 {
@@ -978,8 +978,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 26,
-            "Name": "Private Chef",
-            "Description": "Hire a private chef for a special occasion",
+            "Name": "Chef privada",
+            "Description": "Contrata a una chef privada para una ocasión especial",
             "Price": 300,
             "ServicePhotos": [
                 {
@@ -1017,8 +1017,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 27,
-            "Name": "Cooking Classes",
-            "Description": "Learn to cook your favorite cuisine with our expert chefs",
+            "Name": "Clases de cocina",
+            "Description": "Aprende a cocinar tu cocina favorita con nuestros chefs expertos",
             "Price": 75,
             "ServicePhotos": [
                 {
@@ -1056,8 +1056,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 28,
-            "Name": "Catering Services",
-            "Description": "Delicious catering services for any event",
+            "Name": "Servicios de banquetería",
+            "Description": "Deliciosos servicios de catering para cualquier evento.",
             "Price": 150,
             "ServicePhotos": [
                 {
@@ -1095,8 +1095,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 29,
-            "Name": "Meal Delivery",
-            "Description": "Healthy meal delivery Service for busy individuals",
+            "Name": "Entrega de comidas",
+            "Description": "Servicio de entrega de comidas saludables para personas ocupadas",
             "Price": 100,
             "ServicePhotos": [
                 {
@@ -1134,8 +1134,8 @@
         "UserId": 5,
         "Service": {
             "ServiceId": 30,
-            "Name": "Event Catering",
-            "Description": "Delicious catering services for any event",
+            "Name": "Catering para eventos",
+            "Description": "Deliciosos servicios de catering para cualquier evento.",
             "Price": 200,
             "ServicePhotos": [
                 {
@@ -1173,8 +1173,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 31,
-            "Name": "Babysitting services",
-            "Description": "Professional and reliable babysitting services",
+            "Name": "Servicios de niñera",
+            "Description": "Servicios de niñera profesionales y confiables.",
             "Price": 25,
             "ServicePhotos": [
                 {
@@ -1212,8 +1212,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 32,
-            "Name": "Nanny services",
-            "Description": "Experienced and trustworthy nanny services",
+            "Name": "Servicios de niñera",
+            "Description": "Servicios de niñera experimentados y confiables.",
             "Price": 40,
             "ServicePhotos": [
                 {
@@ -1251,8 +1251,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 33,
-            "Name": "After-school care",
-            "Description": "Fun and engaging after-school care services",
+            "Name": "Cuidado después de la escuela",
+            "Description": "Servicios divertidos y atractivos de cuidado después de la escuela",
             "Price": 30,
             "ServicePhotos": [
                 {
@@ -1290,8 +1290,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 34,
-            "Name": "Overnight babysitting",
-            "Description": "Safe and reliable overnight babysitting services",
+            "Name": "Cuidado de niños durante la noche",
+            "Description": "Servicios de cuidado de niños durante la noche seguros y confiables",
             "Price": 60,
             "ServicePhotos": [
                 {
@@ -1329,8 +1329,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 35,
-            "Name": "Emergency babysitting",
-            "Description": "Available 24/7 for emergency babysitting needs",
+            "Name": "Niñera de emergencia",
+            "Description": "Disponible 24/7 para necesidades de cuidado de niños de emergencia",
             "Price": 50,
             "ServicePhotos": [
                 {
@@ -1368,8 +1368,8 @@
         "UserId": 6,
         "Service": {
             "ServiceId": 36,
-            "Name": "Babysitting and tutoring",
-            "Description": "Professional babysitting and tutoring services for children",
+            "Name": "Niñera y tutoría",
+            "Description": "Servicios profesionales de niñera y tutoría para niños.",
             "Price": 45,
             "ServicePhotos": [
                 {
@@ -1407,8 +1407,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 37,
-            "Name": "Kitchen Renovation",
-            "Description": "Complete kitchen renovation Service",
+            "Name": "Renovación de cocina",
+            "Description": "Servicio de reforma integral de cocina",
             "Price": 5000,
             "ServicePhotos": [
                 {
@@ -1446,8 +1446,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 38,
-            "Name": "Bathroom Remodeling",
-            "Description": "Complete bathroom remodeling Service",
+            "Name": "Remodelación de baños",
+            "Description": "Servicio de remodelación de baño completo",
             "Price": 3000,
             "ServicePhotos": [
                 {
@@ -1485,8 +1485,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 39,
-            "Name": "Deck Building",
-            "Description": "Professional deck building services",
+            "Name": "Construcción de cubierta",
+            "Description": "Construcción de cubierta profesional.",
             "Price": 4000,
             "ServicePhotos": [
                 {
@@ -1524,8 +1524,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 40,
-            "Name": "Interior Painting",
-            "Description": "Interior painting services for homes and businesses",
+            "Name": "Pintura Interior",
+            "Description": "Servicios de pintura de interiores para casas y negocios",
             "Price": 1000,
             "ServicePhotos": [
                 {
@@ -1563,8 +1563,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 41,
-            "Name": "Roof Repair",
-            "Description": "Professional roof repair services",
+            "Name": "Reparación de techos",
+            "Description": "Reparación de techos profesional.",
             "Price": 2000,
             "ServicePhotos": [
                 {
@@ -1602,8 +1602,8 @@
         "UserId": 7,
         "Service": {
             "ServiceId": 42,
-            "Name": "Window Replacement",
-            "Description": "High-quality window replacement services",
+            "Name": "Reemplazo de ventanas",
+            "Description": "Servicios de reemplazo de ventanas de alta calidad.",
             "Price": 3000,
             "ServicePhotos": [
                 {
@@ -1641,8 +1641,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 43,
-            "Name": "Personal Shopping",
-            "Description": "Assistance with shopping and running errands",
+            "Name": "Compras personales",
+            "Description": "Asistencia",
             "Price": 50,
             "ServicePhotos": [
                 {
@@ -1680,8 +1680,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 44,
-            "Name": "Pet Walking",
-            "Description": "Walking and exercising pets",
+            "Name": "Paseo de mascotas",
+            "Description": "Paseo de mascotas",
             "Price": 20,
             "ServicePhotos": [
                 {
@@ -1719,8 +1719,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 45,
-            "Name": "Dry Cleaning",
-            "Description": "Pickup and delivery of dry cleaning",
+            "Name": "Limpieza en seco",
+            "Description": "Recogida y entrega de tintorería.",
             "Price": 30,
             "ServicePhotos": [
                 {
@@ -1758,8 +1758,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 46,
-            "Name": "Mail and Package Delivery",
-            "Description": "Pickup and delivery of mail and packages",
+            "Name": "Entrega de correo y paquetes",
+            "Description": "Recogida y entrega de correo y paquetes.",
             "Price": 40,
             "ServicePhotos": [
                 {
@@ -1797,8 +1797,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 47,
-            "Name": "Personal Assistance",
-            "Description": "Assistance with various tasks and errands",
+            "Name": "Asistente personal",
+            "Description": "Asistencia en diversas tareas y mandados",
             "Price": 75,
             "ServicePhotos": [
                 {
@@ -1836,8 +1836,8 @@
         "UserId": 8,
         "Service": {
             "ServiceId": 48,
-            "Name": "Event Planning",
-            "Description": "Assistance with planning and coordinating events",
+            "Name": "Planeación de Eventos",
+            "Description": "Asistencia en la planificación y coordinación de eventos.",
             "Price": 150,
             "ServicePhotos": [
                 {
@@ -1875,8 +1875,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 49,
-            "Name": "Dog Walking",
-            "Description": "Dog walking services for busy pet owners",
+            "Name": "Paseo de perros",
+            "Description": "Servicios de pasear perros para dueños de mascotas ocupados",
             "Price": 20,
             "ServicePhotos": [
                 {
@@ -1914,8 +1914,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 50,
-            "Name": "Pet Grooming",
-            "Description": "Professional grooming services for pets",
+            "Name": "Aseo de mascotas",
+            "Description": "Aseo de mascotas profesional",
             "Price": 50,
             "ServicePhotos": [
                 {
@@ -1953,8 +1953,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 51,
-            "Name": "Pet Sitting",
-            "Description": "In-home pet sitting services for pets",
+            "Name": "Cuidado de mascotas",
+            "Description": "Servicios de cuidado de mascotas a domicilio para mascotas",
             "Price": 35,
             "ServicePhotos": [
                 {
@@ -1992,8 +1992,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 52,
-            "Name": "Pet Training",
-            "Description": "Professional training services for pets",
+            "Name": "Entrenamiento de mascotas",
+            "Description": "Servicios de formación profesional para mascotas.",
             "Price": 75,
             "ServicePhotos": [
                 {
@@ -2031,8 +2031,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 53,
-            "Name": "Dog Boarding",
-            "Description": "Boarding services for dogs",
+            "Name": "Alojamiento de perros",
+            "Description": "Alojamiento de perros",
             "Price": 50,
             "ServicePhotos": [
                 {
@@ -2070,8 +2070,8 @@
         "UserId": 9,
         "Service": {
             "ServiceId": 54,
-            "Name": "Pet Transportation",
-            "Description": "Transportation services for pets",
+            "Name": "Transporte de mascotas",
+            "Description": "Servicios de transporte para mascotas",
             "Price": 25,
             "ServicePhotos": [
                 {
@@ -2109,8 +2109,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 55,
-            "Name": "Personal Training",
-            "Description": "Customized personal training sessions to achieve your fitness goals",
+            "Name": "Entrenamiento personal",
+            "Description": "Sesiones de entrenamiento personalizadas para alcanzar tus objetivos de fitness",
             "Price": 80,
             "ServicePhotos": [
                 {
@@ -2148,8 +2148,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 56,
-            "Name": "Nutrition Counseling",
-            "Description": "Tailored nutrition plans to meet your dietary requirements and health goals",
+            "Name": "Consejería Nutricional",
+            "Description": "Planes de nutrición personalizados para cumplir con sus requisitos dietéticos y objetivos de salud.",
             "Price": 120,
             "ServicePhotos": [
                 {
@@ -2187,8 +2187,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 57,
-            "Name": "Yoga Classes",
-            "Description": "Individual or group yoga sessions to improve flexibility, strength, and balance",
+            "Name": "Clases de yoga",
+            "Description": "Sesiones de yoga individuales o grupales para mejorar la flexibilidad, la fuerza y el equilibrio",
             "Price": 60,
             "ServicePhotos": [
                 {
@@ -2226,8 +2226,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 58,
-            "Name": "Personalized Running Plan",
-            "Description": "Customized running plans to help you reach your fitness goals and improve performance",
+            "Name": "Plan de carrera personalizado",
+            "Description": "Planes de carrera personalizados para ayudarlo a alcanzar sus objetivos de acondicionamiento físico y mejorar el rendimiento",
             "Price": 100,
             "ServicePhotos": [
                 {
@@ -2265,8 +2265,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 59,
-            "Name": "Group Fitness Classes",
-            "Description": "Fun and motivating group fitness classes to improve overall health and fitness",
+            "Name": "Clases grupales de acondicionamiento físico",
+            "Description": "Clases grupales divertidas y motivadoras de acondicionamiento físico para mejorar la salud y el estado físico en general",
             "Price": 40,
             "ServicePhotos": [
                 {
@@ -2304,8 +2304,8 @@
         "UserId": 10,
         "Service": {
             "ServiceId": 60,
-            "Name": "Mental Health Counseling",
-            "Description": "Professional counseling to improve mental health and well-being",
+            "Name": "Consejería de Salud Mental",
+            "Description": "Asesoramiento profesional para mejorar la salud mental y el bienestar.",
             "Price": 150,
             "ServicePhotos": [
                 {
@@ -2343,8 +2343,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 61,
-            "Name": "Teeth Cleaning",
-            "Description": "Thorough cleaning of teeth to remove plaque and tartar buildup",
+            "Name": "Limpieza dental",
+            "Description": "Limpieza a fondo de los dientes para eliminar la acumulación de placa y sarro.",
             "Price": 100,
             "ServicePhotos": [
                 {
@@ -2382,8 +2382,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 62,
-            "Name": "Dental Fillings",
-            "Description": "Restoration of damaged or decayed teeth with fillings",
+            "Name": "Empastes dentales",
+            "Description": "Restauración de dientes dañados o cariados con empastes",
             "Price": 200,
             "ServicePhotos": [
                 {
@@ -2421,8 +2421,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 63,
-            "Name": "Teeth Whitening",
-            "Description": "Cosmetic treatment to lighten the color of teeth",
+            "Name": "Blanqueamiento dental",
+            "Description": "Tratamiento cosmético para aclarar el color de los dientes",
             "Price": 150,
             "ServicePhotos": [
                 {
@@ -2460,8 +2460,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 64,
-            "Name": "Dental Implants",
-            "Description": "Replacement of missing teeth with artificial teeth",
+            "Name": "Implantes dentales",
+            "Description": "Reemplazo de dientes perdidos con dientes artificiales",
             "Price": 3000,
             "ServicePhotos": [
                 {
@@ -2499,8 +2499,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 65,
-            "Name": "Root Canal Therapy",
-            "Description": "Treatment to repair and save a damaged or infected tooth",
+            "Name": "Terapia de conducto radicular",
+            "Description": "Tratamiento para reparar y salvar un diente dañado o infectado",
             "Price": 800,
             "ServicePhotos": [
                 {
@@ -2538,8 +2538,8 @@
         "UserId": 1,
         "Service": {
             "ServiceId": 66,
-            "Name": "Orthodontic Treatment",
-            "Description": "Correction of misaligned teeth and jaws",
+            "Name": "Tratamiento de ortodoncia",
+            "Description": "Corrección de dientes y maxilares desalineados",
             "Price": 4000,
             "ServicePhotos": [
                 {
