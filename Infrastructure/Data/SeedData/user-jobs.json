@@ -1,93 +1,117 @@
 [
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "Software Engineer",
-            "Description": "Full time software engineer with full-stack capabilities fluent in python and JS",
-            "Salary": 25349,
-            "JobArea": {
-                "JobId": 1,
-                "AreaId": 1
+    "UserId": 11,
+    "Job": {
+        "Name": "Ingeniero de software",
+        "Description": "Ingeniero de software a tiempo completo con habilidades full-stack fluidas en Python y JS",
+        "Salary": 25349,
+        "JobArea": {
+            "JobId": 1,
+            "AreaId": 1
             }
         }
     },
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "Front-end Developer",
-            "Description": "Experienced front-end developer with expertise in React and Angular",
-            "Salary": 22500,
+    "UserId": 11,
+    "Job": {
+        "Name": "Desarrollador Front-end",
+        "Description": "Desarrollador front-end con experiencia en React y Angular",
+        "Salary": 22500,
             "JobArea": {
-                "JobId": 2,
-                "AreaId": 1
+            "JobId": 2,
+            "AreaId": 1
             }
         }
     },
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "Back-end Developer",
-            "Description": "Full-time back-end developer with experience in Node.js and PHP",
-            "Salary": 23500,
-            "JobArea": {
-                "JobId": 3,
-                "AreaId": 1
+    "UserId": 11,
+    "Job": {
+        "Name": "Desarrollador Back-end",
+        "Description": "Desarrollador back-end a tiempo completo con experiencia en Node.js y PHP",
+        "Salary": 23500,
+        "JobArea": {
+            "JobId": 3,
+            "AreaId": 1
             }
         }
     },
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "Data Analyst",
-            "Description": "Data analyst with proficiency in SQL and Excel",
-            "Salary": 19000,
-            "JobArea": {
-                "JobId": 4,
-                "AreaId": 1
+    "UserId": 11,
+    "Job": {
+        "Name": "Analista de datos",
+        "Description": "Analista de datos con habilidades en SQL y Excel",
+        "Salary": 19000,
+        "JobArea": {
+            "JobId": 4,
+            "AreaId": 1
             }
         }
     },
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "DevOps Engineer",
-            "Description": "DevOps engineer with expertise in AWS and Docker",
-            "Salary": 26000,
-            "JobArea": {
-                "JobId": 5,
-                "AreaId": 1
+    "UserId": 11,
+    "Job": {
+        "Name": "Ingeniero DevOps",
+        "Description": "Ingeniero DevOps con experiencia en AWS y Docker",
+        "Salary": 26000,
+        "JobArea": {
+            "JobId": 5,
+            "AreaId": 1
             }
         }
     },
     {
-        "UserId": 11,
-        "Job": {
-            "Name": "Full Stack Developer",
-            "Description": "Full Stack developer with experience in React, Node.js and MongoDB",
-            "Salary": 24500,
-            "JobArea": {
-                "JobId": 6,
-                "AreaId": 1
+    "UserId": 11,
+    "Job": {
+        "Name": "Desarrollador Full Stack",
+        "Description": "Desarrollador Full Stack con experiencia en React, Node.js y MongoDB",
+        "Salary": 24500,
+        "JobArea": {
+            "JobId": 6,
+            "AreaId": 1
+            }
+        }
+    },
+    {
+    "UserId": 12,
+    "Job": {
+        "Name": "Analista Financiero",
+        "Description": "Analizar datos financieros y crear modelos financieros",
+        "Salary": 60000,
+        "JobArea": {
+            "JobId": 7,
+            "AreaId": 2
+            }
+        }
+    },
+    {
+    "UserId": 12,
+    "Job": {
+        "Name": "Banquero de Inversión",
+        "Description": "Asesorar a clientes sobre oportunidades de inversión",
+        "Salary": 90000,
+        "JobArea": {
+            "JobId": 8,
+            "AreaId": 2
+            }
+        }
+    },
+    {
+    "UserId": 12,
+    "Job": {
+        "Name": "Contador Fiscal",
+        "Description": "Preparar declaraciones de impuestos y asesorar a clientes sobre asuntos fiscales",
+        "Salary": 55000,
+        "JobArea": {
+            "JobId": 9,
+            "AreaId": 2
             }
         }
     },
     {
         "UserId": 12,
         "Job": {
-            "Name": "Financial Analyst",
-            "Description": "Analyze financial data and create financial models",
-            "Salary": 60000,
-            "JobArea": {
-                "JobId": 7,
-                "AreaId": 2
-            }
-        }
-    },
-    {
-        "UserId": 12,
-        "Job": {
-            "Name": "Investment Banker",
-            "Description": "Advise clients on investment opportunities",
+            "Name": "Banquero de Inversiones",
+            "Description": "Asesorar a los clientes sobre oportunidades de inversión",
             "Salary": 90000,
             "JobArea": {
                 "JobId": 8,
@@ -98,8 +122,8 @@
     {
         "UserId": 12,
         "Job": {
-            "Name": "Tax Accountant",
-            "Description": "Prepare tax returns and advise clients on tax matters",
+            "Name": "Contador Fiscal",
+            "Description": "Preparar declaraciones de impuestos y asesorar a los clientes en materia fiscal",
             "Salary": 55000,
             "JobArea": {
                 "JobId": 9,
@@ -122,8 +146,8 @@
     {
         "UserId": 12,
         "Job": {
-            "Name": "Credit Analyst",
-            "Description": "Evaluate credit applications and assess risk",
+            "Name": "Analista de Crédito",
+            "Description": "Evaluar las solicitudes de crédito y evaluar el riesgo",
             "Salary": 55000,
             "JobArea": {
                 "JobId": 11,
@@ -134,8 +158,8 @@
     {
         "UserId": 12,
         "Job": {
-            "Name": "Financial Controller",
-            "Description": "Oversee financial operations and reporting",
+            "Name": "Controlador Financiero",
+            "Description": "Supervisar las operaciones financieras y los informes",
             "Salary": 80000,
             "JobArea": {
                 "JobId": 12,
@@ -146,8 +170,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Marketing Manager",
-            "Description": "Experienced marketing manager with proven track record in increasing sales and customer engagement.",
+            "Name": "Gerente de Mercadotecnia",
+            "Description": "Gerente de marketing experimentado con un historial comprobado en el aumento de las ventas y la participación del cliente",
             "Salary": 80000,
             "JobArea": {
                 "JobId": 13,
@@ -158,8 +182,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Social Media Specialist",
-            "Description": "Social media specialist with expertise in creating and implementing social media campaigns to increase brand awareness and engagement.",
+            "Name": "Especialista en redes sociales",
+            "Description": "Especialista en redes sociales con experiencia en la creación e implementación de campañas en redes sociales para aumentar el conocimiento de la marca y el compromiso.",
             "Salary": 50000,
             "JobArea": {
                 "JobId": 14,
@@ -170,8 +194,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Market Research Analyst",
-            "Description": "Market research analyst with experience in conducting research, analyzing data, and presenting insights to inform marketing strategies.",
+            "Name": "Analista de Investigación de Mercados",
+            "Description": "Analista de investigación de mercado con experiencia en la realización de investigaciones, el análisis de datos y la presentación de ideas para informar las estrategias de marketing.",
             "Salary": 60000,
             "JobArea": {
                 "JobId": 15,
@@ -182,8 +206,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Brand Manager",
-            "Description": "Brand manager with experience in developing and executing branding strategies to increase brand recognition and loyalty.",
+            "Name": "Gerente de Marca",
+            "Description": "Gerente de marca con experiencia en el desarrollo y ejecución de estrategias de marca para aumentar el reconocimiento y la lealtad de la marca.",
             "Salary": 75000,
             "JobArea": {
                 "JobId": 16,
@@ -194,8 +218,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Advertising Account Executive",
-            "Description": "Advertising account executive with experience in managing client accounts and developing and executing advertising campaigns.",
+            "Name": "Ejecutivo de cuentas de publicidad",
+            "Description": "Ejecutivo de cuentas de publicidad con experiencia en el manejo de cuentas de clientes y desarrollo y ejecución de campañas publicitarias.",
             "Salary": 65000,
             "JobArea": {
                 "JobId": 17,
@@ -206,8 +230,8 @@
     {
         "UserId": 13,
         "Job": {
-            "Name": "Marketing Coordinator",
-            "Description": "Marketing coordinator with experience in supporting marketing campaigns and coordinating marketing activities.",
+            "Name": "Coordinador de Marketing",
+            "Description": "Coordinador de marketing con experiencia en apoyo a campañas de marketing y coordinación de actividades de marketing.",
             "Salary": 45000,
             "JobArea": {
                 "JobId": 18,
@@ -219,8 +243,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 19,
-            "Name": "Customer Service Representative",
-            "Description": "Assist customers with their inquiries through phone, email, and chat",
+            "Name": "Representante de Servicio al Cliente",
+            "Description": "Ayudar a los clientes con sus consultas por teléfono, correo electrónico y chat.",
             "Salary": 28000,
             "JobArea": {
                 "AreaId": 4,
@@ -232,8 +256,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 20,
-            "Name": "Customer Support Specialist",
-            "Description": "Provide exceptional customer support and resolve issues in a timely manner",
+            "Name": "Especialista en Servicio al Cliente",
+            "Description": "Proporcione una atención al cliente excepcional y resuelva los problemas de manera oportuna",
             "Salary": 32000,
             "JobArea": {
                 "AreaId": 4,
@@ -245,8 +269,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 21,
-            "Name": "Customer Service Manager",
-            "Description": "Lead a team of customer service representatives to ensure customer satisfaction",
+            "Name": "Gerente de Servicio al Cliente",
+            "Description": "Lead a team of customer service representatives to ensure customer satisfaction.",
             "Salary": 50000,
             "JobArea": {
                 "AreaId": 4,
@@ -258,8 +282,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 22,
-            "Name": "Technical Support Representative",
-            "Description": "Assist customers with technical issues related to products and services",
+            "Name": "Representante de soporte técnico",
+            "Description": "Ayudar a los clientes con problemas técnicos relacionados con productos y servicios.",
             "Salary": 30000,
             "JobArea": {
                 "AreaId": 4,
@@ -271,8 +295,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 23,
-            "Name": "Customer Experience Representative",
-            "Description": "Provide a positive customer experience by understanding their needs and providing solutions",
+            "Name": "Representante de experiencia del cliente",
+            "Description": "Brindar una experiencia positiva al cliente comprendiendo sus necesidades y brindando soluciones.",
             "Salary": 28000,
             "JobArea": {
                 "AreaId": 4,
@@ -284,8 +308,8 @@
         "UserId": 14,
         "Job": {
             "JobId": 24,
-            "Name": "Customer Service Trainer",
-            "Description": "Train new customer service representatives and ensure their success",
+            "Name": "Entrenadora de servicio al cliente",
+            "Description": "Capacite a los nuevos representantes de servicio al cliente y asegure su éxito",
             "Salary": 45000,
             "JobArea": {
                 "AreaId": 4,
@@ -297,8 +321,8 @@
         "UserId": 15,
         "Job": {
             "JobId": 25,
-            "Name": "Human Resources Manager",
-            "Description": "Responsible for recruitment, hiring, and staff management",
+            "Name": "Gerente de Recursos Humanos",
+            "Description": "Responsable de selección, contratación y gestión de personal.",
             "Salary": 65000,
             "JobArea": {
                 "JobId": 25,
@@ -310,8 +334,8 @@
         "UserId": 15,
         "Job": {
             "JobId": 26,
-            "Name": "HR Specialist",
-            "Description": "Assist with recruitment, training and development, and employee relations",
+            "Name": "Especialista en RH",
+            "Description": "Ayudar con el reclutamiento, la capacitación y el desarrollo, y las relaciones con los empleados.",
             "Salary": 45000,
             "JobArea": {
                 "JobId": 26,
@@ -324,7 +348,7 @@
         "Job": {
             "JobId": 27,
             "Name": "Compensation and Benefits Manager",
-            "Description": "Oversee compensation, benefits, and job analysis programs",
+            "Description": "Gerente de Compensaciones y Beneficios",
             "Salary": 75000,
             "JobArea": {
                 "JobId": 27,
@@ -336,8 +360,8 @@
         "UserId": 15,
         "Job": {
             "JobId": 28,
-            "Name": "HR Generalist",
-            "Description": "Provide support in all areas of HR including recruitment, training, benefits, and employee relations",
+            "Name": "HR Generalista",
+            "Description": "Brindar apoyo en todas las áreas de recursos humanos, incluido el reclutamiento, la capacitación, los beneficios y las relaciones con los empleados.",
             "Salary": 50000,
             "JobArea": {
                 "JobId": 28,
@@ -349,8 +373,8 @@
         "UserId": 15,
         "Job": {
             "JobId": 29,
-            "Name": "Training and Development Manager",
-            "Description": "Responsible for employee training and development programs",
+            "Name": "Gerente de Capacitación y Desarrollo",
+            "Description": "Responsable de los programas de formación y desarrollo de los empleados.",
             "Salary": 70000,
             "JobArea": {
                 "JobId": 29,
@@ -362,8 +386,8 @@
         "UserId": 15,
         "Job": {
             "JobId": 30,
-            "Name": "Employee Relations Specialist",
-            "Description": "Responsible for managing employee relations, including conflict resolution and grievance procedures",
+            "Name": "Especialista en Relaciones Laborales",
+            "Description": "Responsable de gestionar las relaciones con los empleados, incluida la resolución de conflictos y los procedimientos de queja.",
             "Salary": 50000,
             "JobArea": {
                 "JobId": 30,
@@ -375,8 +399,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 31,
-            "Name": "Sales Representative",
-            "Description": "Seeking a Sales Representative to drive growth and manage key accounts.",
+            "Name": "Representante de ventas",
+            "Description": "Buscando un representante de ventas para impulsar el crecimiento y administrar cuentas clave.",
             "Salary": 50000,
             "JobArea": {
                 "AreaId": 6,
@@ -388,8 +412,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 32,
-            "Name": "Inside Sales Representative",
-            "Description": "Looking for an experienced Inside Sales Representative to help grow our business.",
+            "Name": "Representante de ventas interno",
+            "Description": "Buscando un representante de ventas internas con experiencia para ayudar a hacer crecer nuestro negocio.",
             "Salary": 45000,
             "JobArea": {
                 "AreaId": 6,
@@ -401,8 +425,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 33,
-            "Name": "Sales Manager",
-            "Description": "We are looking for a Sales Manager to lead our team to success.",
+            "Name": "Gerente de Ventas",
+            "Description": "Estamos buscando un Gerente de Ventas para llevar a nuestro equipo al éxito.",
             "Salary": 75000,
             "JobArea": {
                 "AreaId": 6,
@@ -414,8 +438,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 34,
-            "Name": "Sales Director",
-            "Description": "We are seeking a Sales Director to oversee our sales operations and drive revenue growth.",
+            "Name": "Directora de Ventas",
+            "Description": "Estamos buscando una directora de ventas para supervisar nuestras operaciones de ventas e impulsar el crecimiento de los ingresos.",
             "Salary": 100000,
             "JobArea": {
                 "AreaId": 6,
@@ -427,8 +451,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 35,
-            "Name": "Business Development Manager",
-            "Description": "We are looking for a Business Development Manager to help us expand our customer base and revenue streams.",
+            "Name": "Gerente de Desarrollo de Negocios",
+            "Description": "Estamos buscando un gerente de desarrollo comercial para que nos ayude a expandir nuestra base de clientes y fuentes de ingresos.",
             "Salary": 80000,
             "JobArea": {
                 "AreaId": 6,
@@ -440,8 +464,8 @@
         "UserId": 16,
         "Job": {
             "JobId": 36,
-            "Name": "Account Executive",
-            "Description": "We are seeking an Account Executive to manage key accounts and drive new business growth.",
+            "Name": "Ejecutivo de Cuenta",
+            "Description": "Buscamos un ejecutivo de cuenta para administrar cuentas clave e impulsar el crecimiento de nuevos negocios.",
             "Salary": 60000,
             "JobArea": {
                 "AreaId": 6,
@@ -452,8 +476,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "Project Manager",
-            "Description": "Responsible for overseeing and coordinating projects from start to finish, ensuring they are completed on time and within budget.",
+            "Name": "Gestor de Proyectos",
+            "Description": "Responsable de supervisar y coordinar proyectos de principio a fin, asegurando que se completen a tiempo y dentro del presupuesto.",
             "Salary": 75000,
             "JobArea": {
                 "JobId": 37,
@@ -464,8 +488,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "Product Manager",
-            "Description": "Responsible for managing the entire lifecycle of a product, from conception to launch and beyond.",
+            "Name": "Gerente de Producto",
+            "Description": "Responsable de gestionar todo el ciclo de vida de un producto, desde la concepción hasta el lanzamiento y más allá.",
             "Salary": 90000,
             "JobArea": {
                 "JobId": 38,
@@ -476,8 +500,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "IT Project Manager",
-            "Description": "Responsible for overseeing and coordinating all aspects of IT projects, from planning to implementation.",
+            "Name": "Gestor de Proyectos de TI",
+            "Description": "Responsable de supervisar y coordinar todos los aspectos de los proyectos de TI, desde la planificación hasta la implementación.",
             "Salary": 80000,
             "JobArea": {
                 "JobId": 39,
@@ -488,8 +512,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "Construction Project Manager",
-            "Description": "Responsible for overseeing construction projects from start to finish, ensuring they are completed on time and within budget.",
+            "Name": "Gerente de Proyectos de Construcción",
+            "Description": "Responsable de supervisar los proyectos de construcción de principio a fin, asegurando que se completen a tiempo y dentro del presupuesto.",
             "Salary": 85000,
             "JobArea": {
                 "JobId": 40,
@@ -500,8 +524,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "Agile Project Manager",
-            "Description": "Responsible for overseeing and coordinating agile software development projects.",
+            "Name": "Gestor de Proyectos Ágil",
+            "Description": "Responsable de supervisar y coordinar proyectos ágiles de desarrollo de software.",
             "Salary": 95000,
             "JobArea": {
                 "JobId": 41,
@@ -512,8 +536,8 @@
     {
         "UserId": 17,
         "Job": {
-            "Name": "Technical Project Manager",
-            "Description": "Responsible for managing technical projects, including software development, hardware installation, and network upgrades.",
+            "Name": "Gerente Técnico de Proyectos",
+            "Description": "Responsable de la gestión de proyectos técnicos, incluido el desarrollo de software, la instalación de hardware y las actualizaciones de red.",
             "Salary": 90000,
             "JobArea": {
                 "JobId": 42,
@@ -525,8 +549,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 43,
-            "Name": "Dental Assistant",
-            "Description": "Assist the dentist during dental procedures, prepare equipment and materials, and provide patient care.",
+            "Name": "Ayudante de dentista",
+            "Description": "Asistir al dentista durante los procedimientos dentales, preparar equipos y materiales y brindar atención al paciente.",
             "Salary": 35000,
             "JobArea": {
                 "JobId": 43,
@@ -538,8 +562,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 44,
-            "Name": "Dental Hygienist",
-            "Description": "Clean teeth, examine patients for oral diseases, and provide preventive dental care.",
+            "Name": "Higienista dental",
+            "Description": "Limpiar los dientes, examinar a los pacientes en busca de enfermedades orales y brindar atención dental preventiva.",
             "Salary": 65000,
             "JobArea": {
                 "JobId": 44,
@@ -551,8 +575,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 45,
-            "Name": "Dental Office Manager",
-            "Description": "Manage the day-to-day operations of a dental practice, including scheduling appointments, billing, and staff management.",
+            "Name": "Gerente de consultorio dental",
+            "Description": "Administre las operaciones diarias de una práctica dental, incluida la programación de citas, la facturación y la gestión del personal.",
             "Salary": 80000,
             "JobArea": {
                 "JobId": 45,
@@ -564,8 +588,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 46,
-            "Name": "Dental Receptionist",
-            "Description": "Answer phones, schedule appointments, and greet patients as they arrive.",
+            "Name": "Recepcionista Dental",
+            "Description": "Conteste teléfonos, programe citas y salude a los pacientes a medida que llegan.",
             "Salary": 30000,
             "JobArea": {
                 "JobId": 46,
@@ -577,8 +601,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 47,
-            "Name": "Dental Lab Technician",
-            "Description": "Create dental prosthetics, such as crowns, bridges, and dentures, according to dentist specifications.",
+            "Name": "Técnico de laboratorio dental",
+            "Description": "Cree prótesis dentales, como coronas, puentes y dentaduras postizas, de acuerdo con las especificaciones del dentista.",
             "Salary": 50000,
             "JobArea": {
                 "JobId": 47,
@@ -590,8 +614,8 @@
         "UserId": 1,
         "Job": {
             "JobId": 48,
-            "Name": "Dental Sales Representative",
-            "Description": "Promote and sell dental products to dentists and dental practices.",
+            "Name": "Representante de ventas dentales",
+            "Description": "Promocionar y vender productos dentales a dentistas y consultorios dentales.",
             "Salary": 75000,
             "JobArea": {
                 "JobId": 48,
