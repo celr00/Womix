@@ -18,8 +18,8 @@ export class ProductComponent implements OnInit  {
   types: Type[] = [];
   sortOptions = [
     {name: 'Alfabéticamente', value: 'name'},
-    {name: 'Precio: Mayor a menor', value: 'priceAsc'},
-    {name: 'Precio: Menor a mayor', value: 'priceDesc'},
+    {name: 'Precio: Mayor a menor', value: 'priceDesc'},
+    {name: 'Precio: Menor a mayor', value: 'priceAsc'},
   ];
 
   constructor(private productService: ProductService, private route: ActivatedRoute,
