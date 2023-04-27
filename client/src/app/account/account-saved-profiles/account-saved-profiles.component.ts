@@ -8,7 +8,7 @@ import { UserService } from 'src/app/user/user.service';
   styleUrls: ['./account-saved-profiles.component.scss']
 })
 export class AccountSavedProfilesComponent implements OnInit {
-  users: AppUser[] = [];
+  users?: AppUser[];
 
   constructor(private userService: UserService) {}
 

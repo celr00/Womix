@@ -1,87 +1,94 @@
-<div class="d-flex mt-2 mb-3">
-  <input (keyup.enter)="onSearch()" type="text" placeholder="Encontrar" class="form-control me-2 bg-transparent"
-    #search>
-  <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
-  <button (click)="onReset()" class="btn btn-outline-success me-2"><i class="bi bi-arrow-clockwise"></i></button>
-  <button class="btn btn-outline-secondary" (click)="showTable = !showTable">
-    <i [class.bi-grid]="showTable" [class.bi-list-ul]="!showTable"></i>
-  </button>
-</div>
-
-<div class="row" *ngIf="!showTable">
-  <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of products">
-    <app-card [item]="product" [type]="'product'"></app-card>
+<ng-container *ngIf="products">
+  <div class="d-flex mt-2 mb-3">
+    <input (keyup.enter)="onSearch()" type="text" placeholder="Encontrar" class="form-control me-2 bg-transparent"
+      #search>
+    <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
+    <button (click)="onReset()" class="btn btn-outline-success me-2"><i class="bi bi-arrow-clockwise"></i></button>
+    <button class="btn btn-outline-secondary" (click)="showTable = !showTable">
+      <i [class.bi-grid]="showTable" [class.bi-list-ul]="!showTable"></i>
+    </button>
   </div>
-</div>
 
-<div class="d-md-none" *ngIf="showTable">
-  <div *ngFor="let product of products" class="pointer mobile-row row p-3"
-    routerLink="/account/products/list/{{product.id}}" tabindex="0" (keyup.enter)="visit(product.id)">
-    <div>
-      <span class="text-muted fw-semibold fst-italic me-2">
-        {{product.id}}
-      </span>
-      <span class="fs-5 fw-light">
-        {{product.name}}
-      </span>
-    </div>
-    <div>
-      <span>
-        {{product.description}}
-      </span>
-    </div>
-    <div class="row">
-      <div class="col">
-        <span class="fw-light fst-italic text-info">
-          {{product.productItemClass.itemClass.name}}
-        </span>
-      </div>
-      <div class="col d-flex justify-content-end">
-        <span class="text-success">
-          {{product.price | currency}}
-        </span>
+  <ng-container *ngIf="products.length === 0">
+    <img src="../../../../assets/svgs/Empty.svg" class="img-fluid mx-auto" class="img-fluid mx-auto">
+  </ng-container>
+  <ng-container *ngIf="products.length > 0">
+    <div class="row" *ngIf="!showTable">
+      <div class="col-6 col-md-4 col-lg-3" *ngFor="let product of products">
+        <app-card [item]="product" [type]="'product'"></app-card>
       </div>
     </div>
-  </div>
-</div>
 
-<table class="table d-none d-md-block" *ngIf="showTable">
-  <thead>
-    <tr>
-      <th scope="col pointer" (click)="onIdClick()">#</th>
-      <th scope="col pointer" (click)="onNameClick()">Nombre</th>
-      <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
-      <th scope="col pointer" (click)="onPriceClick()">Precio</th>
-      <th scope="col pointer" (click)="onItemClassClick()">Categoría</th>
-      <th scope="col pointer" (click)="onQuantityClick()">Cantidad</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let product of products" class="pointer table-row" routerLink="/account/products/list/{{product.id}}"
-      tabindex="0" (keyup.enter)="visit(product.id)">
-      <td>
-        {{product.id}}
-      </td>
-      <td>
-        {{product.name}}
-      </td>
-      <td>
-        {{product.description}}
-      </td>
-      <td>
-        {{product.price | currency}}
-      </td>
-      <td>
-        {{product.productItemClass.itemClass.name}}
-      </td>
-      <td>
-        {{product.stockQuantity}}
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <div class="d-md-none" *ngIf="showTable">
+      <div *ngFor="let product of products" class="pointer mobile-row row p-3"
+        routerLink="/account/products/list/{{product.id}}" tabindex="0" (keyup.enter)="visit(product.id)">
+        <div>
+          <span class="text-muted fw-semibold fst-italic me-2">
+            {{product.id}}
+          </span>
+          <span class="fs-5 fw-light">
+            {{product.name}}
+          </span>
+        </div>
+        <div>
+          <span>
+            {{product.description}}
+          </span>
+        </div>
+        <div class="row">
+          <div class="col">
+            <span class="fw-light fst-italic text-info">
+              {{product.productItemClass.itemClass.name}}
+            </span>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <span class="text-success">
+              {{product.price | currency}}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-<div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-  <app-pager [totalCount]="totalCount" [pageSize]="params.pageSize" [pageNumber]="params.pageNumber"
-    (pageChanged)="onPageChanged($event)"></app-pager>
-</div>
+    <table class="table d-none d-md-block" *ngIf="showTable">
+      <thead>
+        <tr>
+          <th scope="col pointer" (click)="onIdClick()">#</th>
+          <th scope="col pointer" (click)="onNameClick()">Nombre</th>
+          <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
+          <th scope="col pointer" (click)="onPriceClick()">Precio</th>
+          <th scope="col pointer" (click)="onItemClassClick()">Categoría</th>
+          <th scope="col pointer" (click)="onQuantityClick()">Cantidad</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products" class="pointer table-row" routerLink="/account/products/list/{{product.id}}"
+          tabindex="0" (keyup.enter)="visit(product.id)">
+          <td>
+            {{product.id}}
+          </td>
+          <td>
+            {{product.name}}
+          </td>
+          <td>
+            {{product.description}}
+          </td>
+          <td>
+            {{product.price | currency}}
+          </td>
+          <td>
+            {{product.productItemClass.itemClass.name}}
+          </td>
+          <td>
+            {{product.stockQuantity}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+      <app-pager [totalCount]="totalCount" [pageSize]="params.pageSize" [pageNumber]="params.pageNumber"
+        (pageChanged)="onPageChanged($event)"></app-pager>
+    </div>
+  </ng-container>
+</ng-container>

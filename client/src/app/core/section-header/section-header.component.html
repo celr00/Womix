@@ -1,11 +1,11 @@
 <ng-container *ngIf="$any(bcService.breadcrumbs$ | async) as breadcrumbs">
   <section
     *ngIf="showBreadcrumbs(breadcrumbs)"
-    class="shadow-sm m-3 rounded-5 p-3">
+    class="shadow-sm m-3 rounded-5 p-3 bg-body-tertiary">
     <div class="container-md">
       <div class="row d-flex align-items-center">
         <div class="col-auto">
-          <xng-breadcrumb>
+          <xng-breadcrumb class="text-info-emphasis">
             <ng-container *xngBreadcrumbItem="let breadcrumb">
               {{breadcrumb | titlecase}}
             </ng-container>

@@ -17,21 +17,17 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ServicesComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
-  services: Service[] = [];
+  services?: Service[];
+  categories?: Category[];
   totalCount = 0;
   params: ServiceParams;
-  categories?: Category[];
   sortOptions = [
     { name: 'Alfabéticamente', value: 'name' },
     { name: 'Precio: Mayor a menor', value: 'priceDesc' },
     { name: 'Precio: Menor a mayor', value: 'priceAsc' },
   ];
 
-  constructor(
-    private serviceService: ServicesService,
-    private route: ActivatedRoute,
-    private renderer: Renderer2
-  ) {
+  constructor(private serviceService: ServicesService, private route: ActivatedRoute, private renderer: Renderer2 ) {
     this.serviceService.resetParams();
     this.params = serviceService.getParams();
     this.params.categoryId = this.route.snapshot.queryParams['category'] || 0;

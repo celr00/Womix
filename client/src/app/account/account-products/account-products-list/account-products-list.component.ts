@@ -14,7 +14,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class AccountProductsListComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
-  products: Product[] = [];
+  products?: Product[];
   params: ProductsParams;
   totalCount = 0;
   accountId: number;

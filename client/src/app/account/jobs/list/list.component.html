@@ -1,74 +1,81 @@
-<div class="d-flex mt-2 mb-3">
+<ng-container *ngIf="jobs">
+  <div class="d-flex mt-2 mb-3">
     <input (keyup.enter)="onSearch()" type="text" placeholder="Encontrar" class="form-control me-2 bg-transparent"
-        #search>
+      #search>
     <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
     <button (click)="onReset()" class="btn btn-outline-success me-2"><i class="bi bi-arrow-clockwise"></i></button>
-</div>
+  </div>
 
-<div class="d-md-none">
-    <div *ngFor="let job of jobs" class="pointer mobile-row row p-3" routerLink="/account/jobs/list/{{job.id}}"
+  <ng-container *ngIf="jobs.length === 0">
+    <img src="../../../../assets/svgs/Empty.svg" class="img-fluid mx-auto" class="img-fluid mx-auto">
+  </ng-container>
+  <ng-container *ngIf="jobs.length > 0">
+    <div class="d-md-none">
+      <div *ngFor="let job of jobs" class="pointer mobile-row row p-3" routerLink="/account/jobs/list/{{job.id}}"
         tabindex="0" (keyup.enter)="visit(job.id)">
         <div>
-            <span class="text-muted fw-semibold fst-italic me-2">
-                {{job.id}}
-            </span>
-            <span class="fs-5 fw-light">
-                {{job.name}}
-            </span>
+          <span class="text-muted fw-semibold fst-italic me-2">
+            {{job.id}}
+          </span>
+          <span class="fs-5 fw-light">
+            {{job.name}}
+          </span>
         </div>
         <div>
-            <span>
-                {{job.description}}
-            </span>
+          <span>
+            {{job.description}}
+          </span>
         </div>
         <div class="row">
-            <div class="col">
-                <span class="fw-light fst-italic text-info">
-                    {{job.jobArea.area.name}}
-                </span>
-            </div>
-            <div class="col d-flex justify-content-end">
-                <span class="text-success">
-                    {{job.salary | currency}}
-                </span>
-            </div>
+          <div class="col">
+            <span class="fw-light fst-italic text-info">
+              {{job.jobArea.area.name}}
+            </span>
+          </div>
+          <div class="col d-flex justify-content-end">
+            <span class="text-success">
+              {{job.salary | currency}}
+            </span>
+          </div>
         </div>
+      </div>
     </div>
-</div>
 
-<table class="table d-none d-md-block">
-    <thead>
+    <table class="table d-none d-md-block">
+      <thead>
         <tr>
-            <th scope="col pointer" (click)="onIdClick()">#</th>
-            <th scope="col pointer" (click)="onNameClick()">Nombre</th>
-            <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
-            <th scope="col pointer" (click)="onSalaryClick()">Salario</th>
-            <th scope="col pointer" (click)="onAreaClick()">Área</th>
+          <th scope="col pointer" (click)="onIdClick()">#</th>
+          <th scope="col pointer" (click)="onNameClick()">Nombre</th>
+          <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
+          <th scope="col pointer" (click)="onSalaryClick()">Salario</th>
+          <th scope="col pointer" (click)="onAreaClick()">Área</th>
         </tr>
-    </thead>
-    <tbody>
+      </thead>
+      <tbody>
         <tr *ngFor="let job of jobs" class="pointer table-row" routerLink="/account/jobs/list/{{job.id}}"
-            (keyup.enter)="visit(job.id)" tabindex="0">
-            <td>
-                {{job.id}}
-            </td>
-            <td>
-                {{job.name}}
-            </td>
-            <td>
-                {{job.description}}
-            </td>
-            <td>
-                {{job.salary | currency}}
-            </td>
-            <td>
-                {{job.jobArea.area.name}}
-            </td>
+          (keyup.enter)="visit(job.id)" tabindex="0">
+          <td>
+            {{job.id}}
+          </td>
+          <td>
+            {{job.name}}
+          </td>
+          <td>
+            {{job.description}}
+          </td>
+          <td>
+            {{job.salary | currency}}
+          </td>
+          <td>
+            {{job.jobArea.area.name}}
+          </td>
         </tr>
-    </tbody>
-</table>
+      </tbody>
+    </table>
 
-<div class="d-flex justify-content-center" *ngIf="totalCount > 0">
-    <app-pager [totalCount]="totalCount" [pageSize]="params.pageSize" [pageNumber]="params.pageNumber"
+    <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
+      <app-pager [totalCount]="totalCount" [pageSize]="params.pageSize" [pageNumber]="params.pageNumber"
         (pageChanged)="onPageChanged($event)"></app-pager>
-</div>
+    </div>
+  </ng-container>
+</ng-container>
