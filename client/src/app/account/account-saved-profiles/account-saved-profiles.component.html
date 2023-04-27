@@ -1,3 +1,10 @@
-<div *ngFor="let user of users">
-  <app-user-card [user]="user"></app-user-card>
-</div>
+<ng-container *ngIf="users">
+  <ng-container *ngIf="users.length === 0">
+    <img src="../../../assets/svgs/Broken.svg" class="img-fluid mx-auto" class="img-fluid mx-auto">
+  </ng-container>
+  <ng-container *ngIf="users.length > 0">
+    <div *ngFor="let user of users">
+      <app-user-card [user]="user" [loggedIn]="true"></app-user-card>
+    </div>
+  </ng-container>
+</ng-container>

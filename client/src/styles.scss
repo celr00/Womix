@@ -64,8 +64,9 @@ $border-info-subtle: $info;
 }
 
 label.xng-breadcrumb-trail {
-  color: $primary;
+  color: $info;
   text-decoration: underline !important;
+  font-weight: 600;
 }
 
 .ngx-gallery-thumbnail {

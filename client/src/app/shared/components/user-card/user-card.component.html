@@ -6,7 +6,7 @@
     <div class="col-9 col-sm-10 d-flex align-items-center">
       <div>
         <div class="mb-3">
-          <ng-container *ngIf="isSaved !== undefined && !fromAccount">
+          <ng-container>
             <i class="fa fa-bookmark pointer text-warning fs-3 me-2" *ngIf="isSaved === true" (click)="clickUnsave()"></i>
             <i class="fa fa-bookmark-o pointer text-warning fs-3 me-2" *ngIf="isSaved === false" (click)="clickSave()"></i>
           </ng-container>

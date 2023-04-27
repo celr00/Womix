@@ -13,7 +13,7 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class ListComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
-  services: Service[] = [];
+  services?: Service[];
   params: ServiceParams;
   totalCount = 0;
   accountId: number;

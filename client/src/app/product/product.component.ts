@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProductComponent implements OnInit  {
   @ViewChild('search') searchTerm?: ElementRef;
-  products: Product[] = [];
+  products?: Product[];
   totalCount = 0;
   params: ProductsParams;
   types: Type[] = [];
