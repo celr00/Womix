@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
+import { AccountService } from 'src/app/landing/account.service';
 import { ProductService } from 'src/app/product/product.service';
 import { Modal } from 'src/app/shared/models/modal';
 import { Product } from 'src/app/shared/models/product';
+import { ProductsParams } from 'src/app/shared/models/productsParams';
 import { Photo } from 'src/app/shared/models/service';
 import { Type } from 'src/app/shared/models/type';
 import { BreadcrumbService } from 'xng-breadcrumb';
@@ -16,21 +18,34 @@ import { BreadcrumbService } from 'xng-breadcrumb';
   styleUrls: ['./account-product-edit.component.scss']
 })
 export class AccountProductEditComponent implements OnInit {
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event:any) {
+    if (this.productForm?.dirty) {
+      $event.returnValue = true;
+    }
+  }
   productForm: FormGroup = new FormGroup({})
-  types: Type[] = [];
+  types?: Type[];
+  product?: Product
   id: number;
-  product: Product = {} as Product;
   photos: Photo[] = [];
   modal: Modal = new Modal;
+  accountId: number;
+  params: ProductsParams;
 
   constructor(private productService: ProductService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
-    private router: Router, private confirmService: ConfirmService) {
+    private router: Router, private confirmService: ConfirmService, private accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.productService.getParams();
   }
 
   ngOnInit(): void {
     this.loadTypes();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.productService.setParams(this.params);
+    this.productService.getAll().subscribe({})
   }
 
   loadProduct() {
@@ -38,8 +53,8 @@ export class AccountProductEditComponent implements OnInit {
       next: product => {
         this.product = product;
         this.bcService.set('@productName', product.name);
-        this.bcService.set('@editTitle', 'Edit ' + product.name);
-        this.initForm(this.product);
+        this.bcService.set('@editTitle', 'Editar');
+        this.initForm(product);
         this.product.productPhotos.forEach(x => {
           this.photos.push(x.photo)
         });
@@ -59,8 +74,9 @@ export class AccountProductEditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `Guardar cambios realizados a ${this.product.name}`;
-    this.modal.message = `¿Desea guardar los cambios realizado al producto: ${this.product.name}?`;
+    const product = this.product!;
+    this.modal.title = `Guardar cambios realizados a ${product.name}`;
+    this.modal.message = `¿Desea guardar los cambios realizado al producto: ${product.name}?`;
     const value = this.productForm.value;
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
@@ -68,7 +84,7 @@ export class AccountProductEditComponent implements OnInit {
           next: () => {
             this.productForm.reset(value);
             this.toastr.success('Producto actualizado correctamente.');
-            this.router.navigateByUrl('/account/products/list/' + this.product.id);
+            this.router.navigateByUrl('/account/products/list/' + this.id);
           },
         })
       }
@@ -86,11 +102,28 @@ export class AccountProductEditComponent implements OnInit {
         itemClassId: [product.productItemClass.itemClassId, [Validators.required]]
       }),
     })
-    this.productForm.patchValue(this.product);
+    this.productForm.patchValue(product);
   }
 
   receive(event: Product) {
     this.product = event;
+  }
+
+  delete() {
+    const product = this.product!;
+    this.modal.title = `Eliminar ${product.name}`;
+    this.modal.message = `Confirma querer eliminar el producto '${product.name}'?`;
+    this.modal.btnOkText = 'Eliminar';
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.productService.delete(this.id).subscribe({
+          next: () => {
+            this.router.navigateByUrl('/account/products/list');
+            this.toastr.success('Servicio eliminado exitosamente');
+          },
+        })
+      }
+    })
   }
 
 }

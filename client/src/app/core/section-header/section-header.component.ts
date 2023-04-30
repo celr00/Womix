@@ -20,7 +20,7 @@ export class SectionHeaderComponent {
   showBreadcrumbs(breadcrumbs: BreadcrumbDefinition[]): boolean {
     let show = false;
     breadcrumbs.forEach(x => {
-      if (x.label !== 'Home')
+      if (x.label !== 'Inicio')
         show = true;
     })
 

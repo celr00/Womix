@@ -15,7 +15,8 @@ export class AccountService {
   baseUrl = environment.apiUrl;
   private currentAccountSource = new ReplaySubject<Account | null>(1);
   currentAccount$ = this.currentAccountSource.asObservable();
-  account?: AppUser;
+  private account?: AppUser;
+  private userEntity?: UserEntity;
 
   constructor(private http: HttpClient, private router: Router, private presenceService: PresenceService) { }
 
@@ -35,10 +36,6 @@ export class AccountService {
         this.router.navigateByUrl('/account/summary');
       })
     )
-  }
-
-  removePhoto(userId: number): Observable<UserEntity> {
-    return this.http.delete<UserEntity>(this.baseUrl + 'account/photo/' + userId);
   }
 
   setCurrentAccount(account: Account) {
@@ -87,13 +84,38 @@ export class AccountService {
     )
   }
 
+  // User Entity
+
   getUserEntity(): Observable<UserEntity> {
-    return this.http.get<UserEntity>(this.baseUrl + 'users/entity');
+    if (this.userEntity) return of(this.userEntity);
+
+    return this.http.get<UserEntity>(this.baseUrl + 'users/entity').pipe(
+      map(res => {
+        this.userEntity = res;
+        return res;
+      })
+    )
   }
 
   update(user: any): Observable<UserEntity> {
-    return this.http.put<UserEntity>(this.baseUrl + 'account', user);
+    return this.http.put<UserEntity>(this.baseUrl + 'account', user).pipe(
+      map(res => {
+        this.userEntity = res;
+        return res;
+      })
+    )
   }
+
+  removePhoto(userId: number): Observable<UserEntity> {
+    return this.http.delete<UserEntity>(this.baseUrl + 'account/photo/' + userId).pipe(
+      map(res => {
+        this.userEntity = res;
+        return res;
+      })
+    )
+  }
+
+  // Account
 
   getAccountToken(): string {
     const token = JSON.parse(localStorage.getItem('account')!);

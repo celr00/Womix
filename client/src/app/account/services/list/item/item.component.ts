@@ -3,9 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
+import { AccountService } from 'src/app/landing/account.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { Modal } from 'src/app/shared/models/modal';
 import { Photo, Service } from 'src/app/shared/models/service';
+import { ServiceParams } from 'src/app/shared/models/service-params';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -15,15 +17,19 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class ItemComponent implements OnInit {
   id: number;
-  service: Service = {} as Service;
+  service?: Service;
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
   modal: Modal = new Modal;
+  accountId: number;
+  params: ServiceParams;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService,
     private serviceService: ServicesService, private router: Router, private toastr: ToastrService,
-    private confirmService: ConfirmService) {
+    private confirmService: ConfirmService, private accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.serviceService.getParams();
     this.galleryOptions = [
       {
         imagePercent: 100,
@@ -43,6 +49,10 @@ export class ItemComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadService();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.serviceService.setParams(this.params);
+    this.serviceService.getAll().subscribe({})
   }
 
   loadService() {
@@ -50,14 +60,15 @@ export class ItemComponent implements OnInit {
       next: service => {
         this.service = service;
         this.bcService.set('@serviceNameTitle', service.name);
-        this.galleryImages = this.defineGalleryImages();
+        this.galleryImages = this.defineGalleryImages(service);
       }
     })
   }
 
   delete() {
-    this.modal.title = `Eliminar ${this.service.name}`;
-    this.modal.message = `Confirma querer eliminar el servicio '${this.service.name}'?`;
+    const service = this.service!;
+    this.modal.title = `Eliminar ${service.name}`;
+    this.modal.message = `Confirma querer eliminar el servicio '${service.name}'?`;
     this.modal.btnOkText = 'Eliminar';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
@@ -71,11 +82,11 @@ export class ItemComponent implements OnInit {
     })
   }
 
-  defineGalleryImages(): any[] {
-    if (this.service.servicePhotos.length === 0) return [];
+  defineGalleryImages(service: Service): any[] {
+    if (service.servicePhotos.length === 0) return [];
     const imageUrls = [];
     const photos: Photo[] = [];
-    this.service.servicePhotos.forEach(x => {
+    service.servicePhotos.forEach(x => {
       photos.push(x.photo)
     });
     for (const photo of photos) {

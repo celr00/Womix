@@ -1,30 +1,42 @@
 <div *ngIf="product">
-  <div class="container-fluid container-md">
-    <div class="row mb-3">
-      <div class="col-12 col-lg-6 col-xl-7 mb-3">
-        <div class="mb-4">
-          <a routerLink="/account/products/list" class="text-decoration-none">
-            <i class="fa fa-angle-left me-2"></i>
-            Regresar
-          </a>
+    <div class="container-fluid container-md">
+        <div class="row mb-3 bg-body-tertiary p-3 shadow-sm rounded-4">
+            <div class="col-auto d-flex align-items-center">
+                <button routerLink="../" type="button" class="btn btn-link">
+                    <i class="bi bi-arrow-left me-2"></i>
+                    Atrás</button>
+            </div>
+            <div class="col d-flex justify-content-end">
+                <a routerLink="edit" class="btn btn-info me-2 text-info-emphasis bg-info-subtle">
+                    <i class="bi bi-pen me-sm-2"></i>
+                    <span class="d-none d-sm-inline">
+                        Editar
+                    </span></a>
+                <button class="btn btn-danger text-danger-emphasis bg-danger-subtle" (click)="delete()">
+                    <i class="bi bi-trash3 me-sm-2"></i>
+                    <span class="d-none d-sm-inline">
+                        Eliminar
+                    </span>
+                </button>
+            </div>
         </div>
-        <app-detail [item]="product" [fromAccount]="true"></app-detail>
-      </div>
-      <div class="col-12 col-lg-6 col-xl-5">
-        <div class="gallery-viewer" *ngIf="showGallery()">
-          <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+        <div class="row mb-3">
+            <div class="col-12 col-lg-6 col-xl-7 mb-3">
+                <app-detail [item]="product" [fromAccount]="true"></app-detail>
+            </div>
+            <div class="col-12 col-lg-6 col-xl-5">
+                <div class="gallery-viewer" *ngIf="showGallery()">
+                    <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>
+                </div>
+                <div *ngIf="!showGallery()">
+                    <div class="bg-body-tertiary shadow-sm rounded-4 p-3">
+                        <h4 class="text-center text-primary-emphasis">
+                            Este producto no tiene imágenes
+                        </h4>
+                        <img src="../../../../../assets/svgs/Stress.svg" class="img-fluid">
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-    <div class="row">
-      <div class="col d-flex justify-content-end">
-        <a routerLink="edit" class="btn btn-outline-info me-2">
-          <i class="fa fa-pencil me-2"></i>
-          Editar</a>
-        <button class="btn btn-outline-danger me-2" (click)="delete()">
-          <i class="fa fa-trash me-2"></i>
-          Eliminar</button>
-      </div>
-    </div>
-  </div>
 </div>

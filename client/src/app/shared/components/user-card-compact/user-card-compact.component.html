@@ -1,0 +1,35 @@
+<div class="bg-body-tertiary shadow-sm rounded-5 p-3 mb-4">
+  <div class="row">
+    <div class="col-9 col-sm-10 d-flex align-items-center">
+      <div>
+        <div class="mb-3">
+          <span class="fs-3 fw-light me-2">
+            {{user.firstName}} {{ user.lastName}}
+          </span>
+          <span *ngIf="(presenceService.onlineUsers$ | async)?.includes(user.email)">
+            <i class="fa fa-user me-2 is-online"></i>
+            <span class="fs-6 fw-light text-muted ms-2">en línea</span>
+          </span>
+        </div>
+        <p *ngIf="user.appUserAddress as address" class="fw-light text-muted fst-italic">
+          {{address.address.street}} {{address.address.number}}, {{address.address.zipcode}}, {{address.address.city}},
+          {{address.address.state}}
+        </p>
+        <div class="d-flex icons align-items-center">
+          <a target="_blank" href="https://instagram.com/{{user.instagram}}" class="me-2">
+            <img src="../../../assets/social-media-icons/instagram.svg">
+          </a>
+          <a target="_blank" href="https://facebook.com/{{user.facebook}}" class="me-2">
+            <img src="../../../assets/social-media-icons/facebook.svg">
+          </a>
+          <a target="_blank" href="https://wa.me/{{user.phoneNumber}}" class="me-2">
+            <img src="../../../assets/social-media-icons/whatsapp.svg" style="color: #3ab54b;">
+          </a>
+          <a routerLink="/account/messages/{{user.email}}" class="btn btn-info rounded-circle">
+            <i class="bi bi-chat text-white"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

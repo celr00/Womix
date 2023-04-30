@@ -3,9 +3,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { NgxGalleryAnimation, NgxGalleryImage, NgxGalleryOptions } from '@kolkov/ngx-gallery';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
+import { AccountService } from 'src/app/landing/account.service';
 import { ProductService } from 'src/app/product/product.service';
 import { Modal } from 'src/app/shared/models/modal';
 import { Product } from 'src/app/shared/models/product';
+import { ProductsParams } from 'src/app/shared/models/productsParams';
 import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
@@ -16,14 +18,18 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class AccountProductDetailComponent implements OnInit {
   id: number;
-  product: Product = {} as Product;
+  product?: Product
   galleryOptions: NgxGalleryOptions[] = [];
   galleryImages: NgxGalleryImage[] = [];
   modal: Modal = new Modal;
+  accountId: number;
+  params: ProductsParams;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService, private productService: ProductService, private router: Router,
-    private toastr: ToastrService, private confirmService: ConfirmService) {
+    private toastr: ToastrService, private confirmService: ConfirmService, private accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.productService.getParams();
     this.galleryOptions = [
       {
         imagePercent: 100,
@@ -43,6 +49,10 @@ export class AccountProductDetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.loadProduct();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.productService.setParams(this.params);
+    this.productService.getAll().subscribe({})
   }
 
   loadProduct() {
@@ -50,14 +60,15 @@ export class AccountProductDetailComponent implements OnInit {
       next: product => {
         this.product = product;
         this.bcService.set('@productName', product.name);
-        this.galleryImages = this.defineGalleryImages();
+        this.galleryImages = this.defineGalleryImages(product);
       }
     })
   }
 
   delete() {
-    this.modal.title = `Borrar ${this.product.name}`;
-    this.modal.message = `¿Confirma querer borrar el producto: '${this.product.name}'?`;
+    const product = this.product!
+    this.modal.title = `Borrar ${product.name}`;
+    this.modal.message = `¿Confirma querer borrar el producto: '${product.name}'?`;
     this.modal.btnOkText = 'Borrar';
     this.confirmService.confirm(this.modal).subscribe({
       next: res => {
@@ -71,11 +82,11 @@ export class AccountProductDetailComponent implements OnInit {
     })
   }
 
-  defineGalleryImages(): any[] {
-    if (this.product.productPhotos.length === 0) return [];
+  defineGalleryImages(product: Product): any[] {
+    if (product.productPhotos.length === 0) return [];
     const imageUrls = [];
     const photos: Photo[] = [];
-    this.product.productPhotos.forEach(x => {
+    product.productPhotos.forEach(x => {
       photos.push(x.photo)
     });
     for (const photo of photos) {

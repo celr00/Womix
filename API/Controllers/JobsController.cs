@@ -1,8 +1,8 @@
-using API.Dtos;
 using API.Errors;
 using API.Extensions;
 using API.Helpers;
 using AutoMapper;
+using Core.Dtos;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
@@ -45,7 +45,7 @@ namespace API.Controllers
 
         [Cached(600)]
         [HttpGet("{id}")]
-        public async Task<ActionResult<JobWithInterestDto>> GetJob(int id)
+        public async Task<ActionResult<JobDto>> GetJob(int id)
         {
             var spec = new JobsWithUserJobInterestSpecification(id);
 
@@ -53,37 +53,41 @@ namespace API.Controllers
 
             if (job == null) return NotFound(new ApiResponse(404));
 
-            return Ok(_mapper.Map<Job, JobWithInterestDto>(job));
+            return Ok(_mapper.Map<Job, JobDto>(job));
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Job request)
+        public async Task<ActionResult<JobDto>> Add(Job request)
         {
-            request.UserJob.UserId = User.GetUserId();
+            var userId = User.GetUserId();
+            
+            request.UserJob.UserId = userId;
             
             _jobsRepo.Add(request);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Fallo al añadir el trabajo"));
 
-            return Ok();
+            var jobToReturn = await _uow.JobsRepository.GetLastAsync(userId);
+
+            return Ok(jobToReturn);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update(JobUpdateDto request)
+        public async Task<ActionResult<JobDto>> Update(JobUpdateDto request)
         {
-            var Job = await _jobsRepo.GetEntityWithSpec(new JobsSpecification(request.Id));
+            var job = await _jobsRepo.GetEntityWithSpec(new JobsSpecification(request.Id));
 
-            Job.JobArea = new JobArea
+            job.JobArea = new JobArea
             {
                 AreaId = request.JobArea.AreaId,
-                JobId = Job.Id
+                JobId = job.Id
             };
 
-            _mapper.Map<JobUpdateDto, Job>(request, Job);
+            _mapper.Map<JobUpdateDto, Job>(request, job);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Fallo al editar el trabajo"));
 
-            return Ok();
+            return Ok(_mapper.Map<Job, JobDto>(job));
         }
 
         [HttpDelete("{id}")]

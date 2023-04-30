@@ -1,4 +1,4 @@
-using API.Dtos;
+using Core.Dtos;
 using API.Extensions;
 using AutoMapper;
 using Core.Entities;

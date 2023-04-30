@@ -8,7 +8,8 @@ import { Modal } from 'src/app/shared/models/modal';
 import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Area, Job } from 'src/app/shared/models/job';
-import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
+import { JobsParams } from 'src/app/shared/models/jobs-params';
+import { AccountService } from 'src/app/landing/account.service';
 
 @Component({
   selector: 'app-edit',
@@ -23,19 +24,27 @@ export class EditComponent implements OnInit {
   }
   jobForm: FormGroup = new FormGroup({})
   areas?: Area[];
+  job?: Job;
   id: number;
-  job: JobWithInterest = {} as JobWithInterest;
   photos: Photo[] = [];
   modal: Modal = new Modal;
+  accountId: number;
+  params: JobsParams;
 
   constructor(private jobService: JobsService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
-    private router: Router, private confirmService: ConfirmService) {
+    private router: Router, private confirmService: ConfirmService, private accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.jobService.getParams();
   }
 
   ngOnInit(): void {
     this.loadAreas();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.jobService.setParams(this.params);
+    this.jobService.getAll().subscribe({})
   }
 
   loadJob() {
@@ -43,7 +52,7 @@ export class EditComponent implements OnInit {
       next: job => {
         this.job = job;
         this.bcService.set('@jobItemComponentBreadcrumbTitle', job.name);
-        this.bcService.set('@jobEditItemBreadCrumbTitle', 'Edit ' + job.name);
+        this.bcService.set('@jobEditItemBreadCrumbTitle', 'Editar');
         this.initForm(this.job);
         this.modal.title = `Trabajo ${this.job.name}`;
         this.modal.message = `¿Confirma los cambios realizados en: '${this.job.name}'?`;
@@ -63,8 +72,9 @@ export class EditComponent implements OnInit {
   }
 
   onSubmit() {
-    this.modal.title = `Guardar cambios para: ${this.job.name}`;
-    this.modal.message = `¿Desea confirmar los cambios realizados a: ${this.job.name}?`;
+    const job = this.job!
+    this.modal.title = `Guardar cambios para: ${job.name}`;
+    this.modal.message = `¿Desea confirmar los cambios realizados a: ${job.name}?`;
     const value = this.jobForm.value;
     this.confirmService.confirm(this.modal).subscribe({
       next: (modal) => {
@@ -79,7 +89,7 @@ export class EditComponent implements OnInit {
     })
   }
 
-  initForm(job: JobWithInterest) {
+  initForm(job: Job) {
     this.jobForm = this.fb.group({
       id: [''],
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
@@ -92,8 +102,25 @@ export class EditComponent implements OnInit {
     this.jobForm.patchValue(job);
   }
 
-  receive(event: JobWithInterest) {
+  receive(event: Job) {
     this.job = event;
+  }
+
+  delete() {
+    const job = this.job!;
+    this.modal.title = `Eliminar ${job.name}`;
+    this.modal.message = `Confirma querer eliminar el trabajo '${job.name}'?`;
+    this.modal.btnOkText = 'Eliminar';
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.jobService.delete(this.id).subscribe({
+          next: () => {
+            this.router.navigateByUrl('/account/jobs/list');
+            this.toastr.success('Trabajo eliminado exitosamente');
+          },
+        })
+      }
+    })
   }
 
 }

@@ -13,7 +13,7 @@ const routes: Routes = [
     loadChildren: () => import('./landing/landing.module')
       .then(m => m.LandingModule),
     data: {
-      breadcrumb: 'Home'
+      breadcrumb: 'Inicio'
     }
   },
   {
@@ -34,7 +34,7 @@ const routes: Routes = [
   {
     path: 'products',
     data: {
-      breadcrumb: 'Products'
+      breadcrumb: 'Productos'
     },
       loadChildren: () => import('./product/product.module')
         .then(m => m.ProductModule)
@@ -42,7 +42,7 @@ const routes: Routes = [
   {
     path: 'services',
     data: {
-      breadcrumb: 'Services'
+      breadcrumb: 'Servicios'
     },
     loadChildren: () => import('./services/services.module')
       .then(m => m.ServicesModule)
@@ -50,7 +50,7 @@ const routes: Routes = [
   {
     path: 'jobs',
     data: {
-      breadcrumb: 'Jobs'
+      breadcrumb: 'Trabajos'
     },
     loadChildren: () => import('./jobs/jobs.module')
       .then(m => m.JobsModule)
@@ -62,6 +62,9 @@ const routes: Routes = [
   },
   {
     path: 'account',
+    data: {
+      breadcrumb: 'Perfil'
+    },
     canActivate: [AuthGuard],
     component: AccountComponent,
     loadChildren: () => import('./account/account.module')

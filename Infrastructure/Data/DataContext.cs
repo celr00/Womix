@@ -3,11 +3,12 @@ using Core.Entities;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Diagnostics;
 
 namespace Infrastructure.Data
 {
-    public class DataContext : IdentityDbContext<AppUser, AppRole, int, 
-        IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>, 
+    public class DataContext : IdentityDbContext<AppUser, AppRole, int,
+        IdentityUserClaim<int>, AppUserRole, IdentityUserLogin<int>,
         IdentityRoleClaim<int>, IdentityUserToken<int>>
     {
         public DataContext(DbContextOptions<DataContext> options) : base(options)
@@ -40,6 +41,13 @@ namespace Infrastructure.Data
         public DbSet<Message> Messages { get; set; }
         public DbSet<Group> Groups { get; set; }
         public DbSet<Connection> Connections { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder
+                .UseNpgsql(
+                    o => o.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

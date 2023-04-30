@@ -21,7 +21,7 @@ export class AccountEditComponent implements OnInit {
     }
   }
   userForm: FormGroup = new FormGroup({})
-  user: UserEntity = {} as UserEntity;
+  user?: UserEntity;
   maxDate: Date = new Date();
   modal: Modal = new Modal;
   photo: Photo[] = [];
@@ -40,6 +40,7 @@ export class AccountEditComponent implements OnInit {
   }
 
   onSubmit() {
+    if (!this.user) return;
     this.modal.title = `Perfil de ${this.user.firstName} ${this.user.lastName}`;
     this.modal.message = '¿Confirma los cambios realizados en la información de su cuenta?';
     if (this.user.appUserAddress === null) {
@@ -73,19 +74,19 @@ export class AccountEditComponent implements OnInit {
     this.accountService.getUserEntity().subscribe({
       next: user => {
         this.user = user;
-        if (this.user.appUserPhoto.photo.url === '')
+        if (this.user.appUserPhoto === null) {
           this.photo = [];
-        else
+        }
+        else {
           this.photo.push(user.appUserPhoto.photo);
-      },
-      complete: () => {
-        const dob = new Date(this.user.dateOfBirth);
-        this.initForm(dob);
+        }
+        this.initForm(user);
       }
     })
   }
 
-  initForm(dob: Date) {
+  initForm(user: UserEntity) {
+    const dob = new Date(user.dateOfBirth);
     this.userForm = this.fb.group({
       firstName: ['', [Validators.required]],
       lastName: ['', [Validators.required]],
@@ -114,7 +115,7 @@ export class AccountEditComponent implements OnInit {
         })
       })
     })
-    this.userForm.patchValue(this.user);
+    this.userForm.patchValue(user);
   }
 
   private getDateOnly(dob: string) {

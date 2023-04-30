@@ -2,8 +2,8 @@
   <div class="d-flex mt-2 mb-3">
     <input (keyup.enter)="onSearch()" type="text" placeholder="Encontrar" class="form-control me-2 bg-transparent"
       #search>
-    <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
-    <button (click)="onReset()" class="btn btn-outline-success me-2"><i class="bi bi-arrow-clockwise"></i></button>
+    <button (click)="onSearch()" class="btn btn-outline-info me-2"><i class="bi bi-search"></i></button>
+    <button (click)="onReset()" class="btn btn-outline-success"><i class="bi bi-arrow-clockwise"></i></button>
   </div>
 
   <ng-container *ngIf="jobs.length === 0">
@@ -19,6 +19,9 @@
           </span>
           <span class="fs-5 fw-light">
             {{job.name}}
+            <span class="badge bg-info">
+              {{job.userJobInterests.length}}
+            </span>
           </span>
         </div>
         <div>
@@ -49,6 +52,7 @@
           <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
           <th scope="col pointer" (click)="onSalaryClick()">Salario</th>
           <th scope="col pointer" (click)="onAreaClick()">Área</th>
+          <th scope="col pointer">Interesados</th>
         </tr>
       </thead>
       <tbody>
@@ -68,6 +72,9 @@
           </td>
           <td>
             {{job.jobArea.area.name}}
+          </td>
+          <td>
+            {{job.userJobInterests.length}}
           </td>
         </tr>
       </tbody>

@@ -19,6 +19,7 @@ namespace Core.Specifications
             AddInclude(x => x.JobArea);
             AddInclude(x => x.UserJob);
             AddInclude(x => x.UserJob.User);
+            AddInclude(x => x.UserJobInterests);
             AddOrderBy(x => x.Name);
             ApplyPaging(jobParams.PageSize * (jobParams.PageIndex - 1),
                 jobParams.PageSize);
@@ -69,6 +70,7 @@ namespace Core.Specifications
             AddInclude(x => x.JobArea);
             AddInclude(x => x.UserJob);
             AddInclude(x => x.UserJob.User);
+            AddInclude(x => x.UserJobInterests);
         }
     }
 }

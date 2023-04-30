@@ -7,9 +7,7 @@ const routes: Routes = [
     path: '',
     component: ListComponent,
     data: {
-      breadcrumb: {
-        alias: 'jobsListComponentBreadcrumbTitle'
-      }
+      breadcrumb: 'Mis trabajos'
     }
   },
   {

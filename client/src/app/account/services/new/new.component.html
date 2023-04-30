@@ -1,38 +1,49 @@
-<form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" *ngIf="categories && serviceForm && user">
+<ng-container *ngIf="categories">
   <div class="container-fluid container-md">
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <app-text-input [label]="'Nombre'" [formControl]="$any(serviceForm.controls['name'])"></app-text-input>
+    <div class="row mb-3 bg-body-tertiary p-3 shadow-sm rounded-4">
+      <div class="col-auto d-flex align-items-center">
+        <button routerLink="../" type="button" class="btn btn-link">
+          <i class="bi bi-arrow-left me-2"></i>
+          Atrás</button>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <button type="submit" [disabled]="serviceForm.invalid || !serviceForm.dirty" form="serviceForm"
+          class="btn btn-success me-2 text-success-emphasis bg-success-subtle">
+          <i class="bi bi-save me-2"></i>
+            Guardar
+        </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <app-text-area [label]="'Descripción'" [formControl]="$any(serviceForm.controls['description'])"></app-text-area>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <app-text-input [label]="'Precio'" [type]="'number'" [formControl]="$any(serviceForm.controls['price'])"></app-text-input>
-      </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-12 col-sm col-md-6 col-lg-4" *ngIf="serviceForm.get('serviceCategory')">
-        <div class="form-floating" id="floatingSelect">
-          <select class="form-select" [formControl]="$any(serviceForm.controls['serviceCategory'].get('categoryId'))">
-            <option value="{{type.id | number}}" *ngFor="let type of categories">
-              {{type.name}}
-            </option>
-          </select>
-          <label for="floatingSelect">Tipo</label>
+    <form [formGroup]="serviceForm" (ngSubmit)="onSubmit()" id="serviceForm">
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <app-text-input [label]="'Nombre'" [formControl]="$any(serviceForm.controls['name'])"></app-text-input>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex">
-      <button type="submit" [disabled]="serviceForm.invalid" class="btn btn-success">Añadir
-        <i class="fa fa-check ms-2"></i>
-      </button>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <app-text-area [label]="'Descripción'"
+            [formControl]="$any(serviceForm.controls['description'])"></app-text-area>
+        </div>
       </div>
-    </div>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <app-text-input [label]="'Precio'" [type]="'number'"
+            [formControl]="$any(serviceForm.controls['price'])"></app-text-input>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-12 col-sm col-md-6 col-lg-4" *ngIf="serviceForm.get('serviceCategory')">
+          <div class="form-floating" id="floatingSelect">
+            <select class="form-select" [formControl]="$any(serviceForm.controls['serviceCategory'].get('categoryId'))">
+              <option value="{{type.id | number}}" *ngFor="let type of categories">
+                {{type.name}}
+              </option>
+            </select>
+            <label for="floatingSelect">Tipo</label>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
-</form>
+</ng-container>

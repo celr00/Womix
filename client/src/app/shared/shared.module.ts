@@ -20,6 +20,7 @@ import { ConsentDialogComponent } from './components/modals/consent-dialog/conse
 import { TextAreaComponent } from './components/text-area/text-area.component';
 import { JobInfoComponent } from './components/job-info/job-info.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
+import { UserCardCompactComponent } from './components/user-card-compact/user-card-compact.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     ConsentDialogComponent,
     TextAreaComponent,
     JobInfoComponent,
+    UserCardCompactComponent,
   ],
   imports: [
     CommonModule,
@@ -67,6 +69,7 @@ import { TabsModule } from 'ngx-bootstrap/tabs';
     TextAreaComponent,
     JobInfoComponent,
     TabsModule,
+    UserCardCompactComponent,
   ]
 })
 export class SharedModule { }

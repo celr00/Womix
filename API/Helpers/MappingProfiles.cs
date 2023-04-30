@@ -1,7 +1,7 @@
-using API.Dtos;
 using AutoMapper;
 using Core.Entities;
 using API.Extensions;
+using Core.Dtos;
 
 namespace API.Helpers
 {
@@ -71,6 +71,13 @@ namespace API.Helpers
             CreateMap<Job, JobWithInterestDto>().ReverseMap();
             CreateMap<UserJobInterest, JobInterestWithUserDto>().ReverseMap();
 
+            CreateMap<Job, JobDto>().ReverseMap();
+            CreateMap<JobArea, JobAreaDto>().ReverseMap();
+            CreateMap<Area, AreaDto>().ReverseMap();
+            CreateMap<UserJob, UserJobDto>().ReverseMap();
+            CreateMap<AreaPhoto, AreaPhotoDto>().ReverseMap();
+            CreateMap<UserJobInterest, UserJobInterestDto>().ReverseMap();
+
             CreateMap<Product, ProductDto>().ReverseMap();
             CreateMap<ProductUpdateDto, Product>().ReverseMap();
             CreateMap<ItemClassDto, ItemClass>().ReverseMap();
@@ -79,7 +86,7 @@ namespace API.Helpers
             CreateMap<UserProduct, UserProductDto>().ReverseMap();
 
             CreateMap<Photo, PhotoDto>().ReverseMap();
-            CreateMap<Message, Core.Dtos.MessageDto>()
+            CreateMap<Message, MessageDto>()
                 .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.AppUserPhoto.Photo.Url))
                 .ForMember(d => d.RecipientPhotoUrl, o => o.MapFrom(s => s.Recipient.AppUserPhoto.Photo.Url));
         }

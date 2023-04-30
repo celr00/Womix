@@ -670,5 +670,29 @@
         "Facebook": "ala.zielinska.83",
         "DateOfBirth": "2000-01-01",
         "Instagram": "ala.zielinska_official"
+    },
+    {
+        "PhoneNumber": "8120800336",
+        "AppUserPhoto": {
+            "Photo": {
+                "Url": ""
+            }
+        },
+        "AppUserAddress": {
+            "Address": {
+                "City": "San Pedro Garza Garcia",
+                "Number": "220",
+                "State": "Nuevo Leon",
+                "Street": "La Gloria",
+                "Zipcode": "66247"
+            }
+        },
+        "FirstName": "Ramiro",
+        "LastName": "Castellanos",
+        "Email": "ramiro@castellanosbarron.com",
+        "UserName": "ramiro@castellanosbarron.com",
+        "Facebook": "ramiro_castellanos",
+        "DateOfBirth": "2000-05-02",
+        "Instagram": "ramiro_castellanos_barron"
     }
 ]

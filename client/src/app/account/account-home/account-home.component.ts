@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable, map } from 'rxjs';
 import { PresenceService } from 'src/app/_services/presence.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { Account } from 'src/app/shared/models/account';
 import { AppUser } from 'src/app/shared/models/app-user';
+import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
   selector: 'app-account-home',
@@ -13,12 +13,12 @@ import { AppUser } from 'src/app/shared/models/app-user';
 export class AccountHomeComponent implements OnInit {
   user: AppUser = {} as AppUser;
   onlineUsers: string[] = [];
-  account: Account = {} as Account;
+  account?: Account
 
   constructor(private accountService: AccountService,
-    public presenceService: PresenceService) {
-      const accountStr = localStorage.getItem('account')!;
-      this.account = JSON.parse(accountStr);
+    public presenceService: PresenceService, private breadcrumbService: BreadcrumbService) {
+      this.account = this.accountService.getAccount()!;
+      this.breadcrumbService.set('@userName', this.account.firstName + ' ' + this.account.lastName)
   }
 
   ngOnInit(): void {
@@ -42,9 +42,10 @@ export class AccountHomeComponent implements OnInit {
   }
 
   togglePresence() {
+    const account = this.account!;
     if (this.onlineUsers.includes(this.user.userName)) {
       this.presenceService.stopHubConnection();
       this.onlineUsers = this.onlineUsers.filter((x) => x !== this.user.email);
-    } else this.presenceService.createHubConnection(this.account);
+    } else this.presenceService.createHubConnection(account);
   }
 }

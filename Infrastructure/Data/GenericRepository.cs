@@ -20,7 +20,7 @@ namespace Infrastructure.Data
 
         public async Task<int> CountAsync(ISpecification<T> spec)
         {
-            return await ApplySpecification(spec).CountAsync();
+            return await ApplySpecification(spec).AsSplitQuery().AsNoTracking().CountAsync();
         }
 
         public void Delete(T entity)
@@ -30,7 +30,8 @@ namespace Infrastructure.Data
 
         public async Task<T> GetByIdAsync(int id)
         {
-            return await _context.Set<T>().FindAsync(id);
+            return await _context.Set<T>()
+                .FindAsync(id);
         }
 
         public async Task<T> GetEntityWithSpec(ISpecification<T> spec)
@@ -40,12 +41,16 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<T>> ListAllAsync()
         {
-            return await _context.Set<T>().ToListAsync();
+            return await _context.Set<T>()
+                .AsSplitQuery()
+                .ToListAsync();
         }
 
         public async Task<IReadOnlyList<T>> ListAsync(ISpecification<T> spec)
         {
-            return await ApplySpecification(spec).ToListAsync();
+            return await ApplySpecification(spec)
+                .AsSplitQuery()
+                .ToListAsync();
         }
 
         public void Update(T entity)

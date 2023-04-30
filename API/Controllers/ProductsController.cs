@@ -1,4 +1,4 @@
-using API.Dtos;
+using Core.Dtos;
 using API.Errors;
 using API.Helpers;
 using AutoMapper;
@@ -7,6 +7,7 @@ using Core.Interfaces;
 using Core.Specifications;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using API.Extensions;
 
 namespace API.Controllers
 {
@@ -59,17 +60,23 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Product request)
+        public async Task<ActionResult<ProductDto>> Add(Product request)
         {
+            var userId = User.GetUserId();
+
+            request.UserProduct.UserId = User.GetUserId();
+            
             _productsRepo.Add(request);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir producto"));
 
-            return Ok();
+            var productToReturn = await _uow.ProductsRepository.GetLastAsync(userId);
+
+            return Ok(productToReturn);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update(ProductUpdateDto request)
+        public async Task<ActionResult<ProductDto>> Update(ProductUpdateDto request)
         {
             var product = await _productsRepo.GetEntityWithSpec(new ProductsSpecification(request.Id));
 
@@ -82,7 +89,7 @@ namespace API.Controllers
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al editar producto"));
 
-            return Ok();
+            return Ok(_mapper.Map<Product, ProductDto>(product));
         }
 
         [HttpDelete("{id}")]
@@ -132,16 +139,18 @@ namespace API.Controllers
             var result = await _photoService.AddPhoto(file);
 
             if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
-            
-            product.ProductPhotos.Add(new ProductPhoto {
-                Photo = new Photo {
+
+            product.ProductPhotos.Add(new ProductPhoto
+            {
+                Photo = new Photo
+                {
                     Url = result.SecureUrl.AbsoluteUri,
                     PublicId = result.PublicId
                 }
             });
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir la imagen del producto"));
-            
+
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }
 
@@ -164,7 +173,7 @@ namespace API.Controllers
             product.ProductPhotos.Remove(photo);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar la foto"));
-            
+
             return Ok(_mapper.Map<Product, ProductDto>(product));
         }
     }

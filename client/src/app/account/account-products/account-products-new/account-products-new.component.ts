@@ -15,13 +15,15 @@ import { BreadcrumbService } from 'xng-breadcrumb';
 })
 export class AccountProductsNewComponent implements OnInit {
   productForm: FormGroup = new FormGroup({})
-  types: Type[] = [];
+  types?: Type[]
   user: AppUser = {} as AppUser;
+  accountId: number;
 
   constructor(private bcService: BreadcrumbService, private productService: ProductService,
     private fb: FormBuilder, private accountService: AccountService, private router: Router,
     private toastr: ToastrService) {
     this.bcService.set('@newProductTitle', 'Create a new product');
+    this.accountId = this.accountService.getAccountId();
   }
 
   ngOnInit(): void {
@@ -58,21 +60,9 @@ export class AccountProductsNewComponent implements OnInit {
     this.productService.getTypes().subscribe({
       next: types => {
         this.types = types;
+        this.initForm(types[0].id, this.accountId);
       },
-      complete: () => {
-        this.loadUser();
-      }
     })
   }
 
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.initForm(this.types[0].id, this.user.id);
-      }
-    })
-  }
 }

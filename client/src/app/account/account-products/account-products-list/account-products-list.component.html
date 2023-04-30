@@ -2,7 +2,7 @@
   <div class="d-flex mt-2 mb-3">
     <input (keyup.enter)="onSearch()" type="text" placeholder="Encontrar" class="form-control me-2 bg-transparent"
       #search>
-    <button (click)="onSearch()" class="btn btn-outline-info mx-2"><i class="bi bi-search"></i></button>
+    <button (click)="onSearch()" class="btn btn-outline-info me-2"><i class="bi bi-search"></i></button>
     <button (click)="onReset()" class="btn btn-outline-success me-2"><i class="bi bi-arrow-clockwise"></i></button>
     <button class="btn btn-outline-secondary" (click)="showTable = !showTable">
       <i [class.bi-grid]="showTable" [class.bi-list-ul]="!showTable"></i>
@@ -62,8 +62,8 @@
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of products" class="pointer table-row" routerLink="/account/products/list/{{product.id}}"
-          tabindex="0" (keyup.enter)="visit(product.id)">
+        <tr *ngFor="let product of products" class="pointer table-row"
+          routerLink="/account/products/list/{{product.id}}" tabindex="0" (keyup.enter)="visit(product.id)">
           <td>
             {{product.id}}
           </td>

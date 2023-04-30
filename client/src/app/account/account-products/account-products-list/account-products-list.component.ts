@@ -30,6 +30,7 @@ export class AccountProductsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.params.userId = this.accountId;
+    this.params.pageSize = 12;
     this.productService.setParams(this.params);
     this.loadProducts();
   }

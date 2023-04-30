@@ -1,4 +1,4 @@
-using API.Dtos;
+using Core.Dtos;
 using API.Errors;
 using API.Extensions;
 using AutoMapper;
@@ -71,9 +71,9 @@ namespace API.Controllers
                 _messageRepository.Delete(message);
             }
 
-            if (await _uow.Complete() < 0) 
+            if (await _uow.Complete() < 0)
                 return BadRequest(new ApiResponse(400, "Problema eliminando el mensaje"));
-            
+
             return Ok();
         }
     }

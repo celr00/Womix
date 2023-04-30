@@ -1,8 +1,7 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, map, of } from 'rxjs';
+import { Observable, map, of, tap } from 'rxjs';
 import { Area, Job } from 'src/app/shared/models/job';
-import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { Pagination } from 'src/app/shared/models/pagination';
 import { UserJobInterest } from 'src/app/shared/models/user-job-interest';
@@ -30,6 +29,7 @@ export class JobsService {
         if (this.pagination) return of(this.pagination);
       }
     }
+
     let params = new HttpParams();
 
     if (this.params.areaId > 0) params = params.append('areaId', this.params.areaId);
@@ -48,27 +48,90 @@ export class JobsService {
     )
   }
 
-  getById(id: number): Observable<JobWithInterest> {
+  getById(id: number) {
     const job = [...this.jobCache.values()]
       .reduce((acc, paginatedResult) => {
         return {...acc, ...paginatedResult.data.find(x => x.id === id)}
-      }, {} as JobWithInterest)
+      }, {} as Job)
 
     if (Object.keys(job).length !== 0) return of(job);
 
-    return this.http.get<JobWithInterest>(this.baseUrl + 'jobs/' + id);
+    return this.http.get<Job>(this.baseUrl + 'jobs/' + id);
   }
 
-  add(service: any) {
-    return this.http.post(this.baseUrl + 'jobs', service);
+  add(job: Job): Observable<Job> {
+    return this.http.post<Job>(this.baseUrl + 'jobs', job).pipe(
+      tap((newJob: Job) => {
+        // add the new job to the cache
+        if (this.jobCache.size > 0) {
+          const cacheKeys = Array.from(this.jobCache.keys());
+          for (const key of cacheKeys) {
+            const cacheValue = this.jobCache.get(key)!;
+            // check if the new job matches the current filter criteria
+            if (cacheValue.data.length < cacheValue.pageSize && this.paramsMatchFilterCriteria(newJob)) {
+              cacheValue.data.push(newJob);
+              cacheValue.count += 1;
+              this.jobCache.set(key, cacheValue);
+            }
+          }
+        }
+      })
+    );
   }
 
-  delete(id: number) {
-    return this.http.delete(this.baseUrl + 'jobs/' + id);
+  private paramsMatchFilterCriteria(job: Job): boolean {
+    // check if the job matches the current filter criteria
+    const params = this.getParams();
+    return (params.areaId === 0 || job.jobArea.area.id === params.areaId)
+      && (params.search === '' || job.name.toLowerCase().includes(params.search.toLowerCase()))
+      && (params.userId === 0 || job.userJob.userId === params.userId);
   }
 
-  edit(service: any) {
-    return this.http.put(this.baseUrl + 'jobs', service);
+  delete(id: number): Observable<void> {
+    const url = `${this.baseUrl}jobs/${id}`;
+
+    return this.http.delete<void>(url).pipe(
+      tap(() => {
+        // remove the deleted job from the cache if it exists
+        if (this.jobCache.size > 0) {
+          const cacheKeys = Array.from(this.jobCache.keys());
+          for (const key of cacheKeys) {
+            const cacheValue = this.jobCache.get(key)!;
+            const index = cacheValue.data.findIndex(job => job.id === id);
+            if (index !== -1) {
+              // remove the job from the cache
+              cacheValue.data.splice(index, 1);
+              cacheValue.count -= 1;
+              this.jobCache.set(key, cacheValue);
+            }
+          }
+        }
+      })
+    );
+  }
+
+  edit(req: any): Observable<any> {
+    return this.http.put(this.baseUrl + 'jobs', req).pipe(
+      tap((res: any) => {
+        const updatedJob = res as Job;
+        // update the job in the cache if it exists
+        if (this.jobCache.size > 0) {
+          const cacheKeys = Array.from(this.jobCache.keys());
+          for (const key of cacheKeys) {
+            const cacheValue = this.jobCache.get(key)!;
+            const index = cacheValue.data.findIndex(s => s.id === updatedJob.id);
+            if (index !== -1) {
+              // update the job in the cache
+              cacheValue.data[index] = updatedJob;
+              this.jobCache.set(key, cacheValue);
+            }
+          }
+        }
+      }),
+      map((res: any) => {
+        return res;
+      })
+    );
   }
 
   getInterestedJobsList(): Observable<UserJobInterest[]> {

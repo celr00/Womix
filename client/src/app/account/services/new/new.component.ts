@@ -20,13 +20,15 @@ export class NewComponent implements OnInit {
     }
   }
   serviceForm: FormGroup = new FormGroup({})
-  categories: Category[] = [];
+  categories?: Category[]
   user: AppUser = {} as AppUser;
+  accountId: number;
 
   constructor(private bcService: BreadcrumbService, private serviceService: ServicesService,
     private fb: FormBuilder, private accountService: AccountService, private router: Router,
     private toastr: ToastrService) {
     this.bcService.set('@newServiceTitle', 'Create a new service');
+    this.accountId = this.accountService.getAccountId();
   }
 
   ngOnInit(): void {
@@ -62,21 +64,9 @@ export class NewComponent implements OnInit {
     this.serviceService.getCategories().subscribe({
       next: categories => {
         this.categories = categories;
+        this.initForm(categories[0].id, this.accountId);
       },
-      complete: () => {
-        this.loadUser();
-      }
     })
   }
 
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.initForm(this.categories[0].id, this.user.id);
-      }
-    })
-  }
 }

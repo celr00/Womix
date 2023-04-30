@@ -15,6 +15,11 @@ import { AuthGuard } from '../core/guards/auth.guard';
 const routes: Routes = [
   {
     path: 'summary',
+    data: {
+      breadcrumb: {
+        alias: 'userName'
+      }
+    },
     canActivate: [AuthGuard],
     component: AccountHomeComponent
   },
@@ -30,6 +35,9 @@ const routes: Routes = [
   },
   {
     path: 'products',
+    data: {
+      breadcrumb: 'Productos'
+    },
     component: AccountProductsComponent,
     loadChildren: () =>
       import('./account-products/account-products.module')
@@ -37,6 +45,9 @@ const routes: Routes = [
   },
   {
     path: 'services',
+    data: {
+      breadcrumb: 'Servicios'
+    },
     component: ServicesComponent,
     loadChildren: () =>
       import('./services/services.module')
@@ -44,6 +55,9 @@ const routes: Routes = [
   },
   {
     path: 'jobs',
+    data: {
+      breadcrumb: 'Trabajos'
+    },
     component: JobsComponent,
     loadChildren: () =>
       import('./jobs/jobs.module')

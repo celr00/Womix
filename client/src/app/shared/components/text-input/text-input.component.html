@@ -12,11 +12,11 @@
 
   <div *ngIf="control.errors?.['required']" class="invalid-feedback">Ingrese {{label | lowercase}}</div>
   <div *ngIf="control.errors?.['email']" class="invalid-feedback">
-    Dirección de email invalida
+    Dirección de email inválida
   </div>
   <div *ngIf="control.errors?.['pattern']" class="invalid-feedback">La contraseña no es lo suficientemente compleja</div>
   <div *ngIf="control.errors?.['emailExists']" class="invalid-feedback">Esta dirección de correo ya está ligada a una cuenta</div>
-  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Las contraseñas no coincidenn</div>
+  <div *ngIf="control.errors?.['notMatching']" class="invalid-feedback">Las contraseñas no coinciden</div>
   <div *ngIf="control.errors?.['minlength']" class="invalid-feedback" >{{label | titlecase}} debe tener al menos {{control.errors?.['minlength'].requiredLength}} caracteres</div>
   <div *ngIf="control.errors?.['maxlength']" class="invalid-feedback" >{{label | titlecase}} deber tener máximo {{control.errors?.['maxlength'].requiredLength}} caracteres</div>
 </div>

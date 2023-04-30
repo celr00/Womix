@@ -5,9 +5,10 @@ export interface Job {
   salary: number
   jobArea: JobArea
   userJob: UserJob
+  userJobInterests: UserJobInterest[]
 }
 
-export interface JobArea {
+interface JobArea {
   jobId: number
   areaId: number
   area: Area
@@ -19,18 +20,18 @@ export interface Area {
   areaPhoto: AreaPhoto
 }
 
-export interface AreaPhoto {
+interface AreaPhoto {
   areaId: number
   photoId: number
   photo: Photo
 }
 
-export interface Photo {
+interface Photo {
   id: number
   url: string
 }
 
-export interface UserJob {
+interface UserJob {
   userId: number
   user: User
   jobId: number
@@ -49,28 +50,29 @@ export interface User {
   appUserAddress: AppUserAddress
 }
 
-export interface AppUserPhoto {
-  userId: number
-  photoId: number
-  photo: Photo2
-}
-
-export interface Photo2 {
-  id: number
-  url: string
-}
-
-export interface AppUserAddress {
+interface AppUserAddress {
   userId: number
   addressId: number
   address: Address
 }
 
-export interface Address {
+interface Address {
   id: number
   number: string
   street: string
   city: string
   state: string
   zipcode: string
+}
+
+interface UserJobInterest {
+  user: User
+  userId: number
+  jobId: number
+}
+
+interface AppUserPhoto {
+  userId: number
+  photoId: number
+  photo: Photo
 }

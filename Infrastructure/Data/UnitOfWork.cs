@@ -20,6 +20,11 @@ namespace Infrastructure.Data
         public IMessageRepository MessageRepository => new MessageRepository(_context, _mapper);
 
         public IFollowRepository FollowRepository => new FollowRepository(_context, _mapper);
+        public IJobsRepository JobsRepository => new JobsRepository(_context, _mapper);
+
+        public IProductsRepository ProductsRepository => new ProductsRepository(_context, _mapper);
+
+        public IServicesRepository ServicesRepository => new ServicesRepository(_context, _mapper);
 
         public async Task<int> Complete()
         {

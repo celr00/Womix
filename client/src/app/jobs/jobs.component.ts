@@ -16,7 +16,6 @@ export class JobsComponent implements OnInit {
   @ViewChild('search') searchTerm?: ElementRef;
   account: Account | null;
   jobs?: Job[]
-  myJobs?: UserJobInterest[];
   areas?: Area[];
   totalCount = 0;
   params: JobsParams;
@@ -38,7 +37,7 @@ export class JobsComponent implements OnInit {
     this.params = jobService.getParams();
     this.params.areaId = this.route.snapshot.queryParams['area'] || 0;
     this.account = this.accountService.getAccount();
-    if (this.account === null) this.myJobs = [];
+    // if (this.account === null) this.myJobs = [];
     if (this.account !== null) this.loggedIn = true;
   }
 
@@ -53,7 +52,7 @@ export class JobsComponent implements OnInit {
   loadMyInterests() {
     this.jobService.getInterestedJobsList().subscribe({
       next: (res) => {
-        this.myJobs = res;
+        // this.myJobs = res;
       },
     });
   }
@@ -117,14 +116,14 @@ export class JobsComponent implements OnInit {
     this.loadJobs();
   }
 
-  selectedCard(jobs: Job[]): Job {
-    this.myJobs?.forEach((x) => {
-      if (x.jobId === this.cardIndex) {
-        this.isIndexFollowed = true;
-      }
-    });
-    return jobs.filter((x) => x.id === this.cardIndex)[0];
-  }
+  // selectedCard(jobs: Job[]): Job {
+  //   this.myJobs?.forEach((x) => {
+  //     if (x.jobId === this.cardIndex) {
+  //       this.isIndexFollowed = true;
+  //     }
+  //   });
+  //   return jobs.filter((x) => x.id === this.cardIndex)[0];
+  // }
 
   isCurrent(job: Job): boolean {
     return job.id === this.cardIndex;

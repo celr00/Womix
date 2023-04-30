@@ -1,48 +1,61 @@
-<form [formGroup]="productForm" (ngSubmit)="onSubmit()" *ngIf="types && productForm && user">
+<ng-container *ngIf="types">
   <div class="container-fluid container-md">
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <app-text-input [label]="'Nombre'" [formControl]="$any(productForm.controls['name'])"></app-text-input>
+    <div class="row mb-3 bg-body-tertiary p-3 shadow-sm rounded-4">
+      <div class="col-auto d-flex align-items-center">
+        <button routerLink="../" type="button" class="btn btn-link">
+          <i class="bi bi-arrow-left me-2"></i>
+          Atrás</button>
+      </div>
+      <div class="col d-flex justify-content-end">
+        <button type="submit" [disabled]="productForm.invalid || !productForm.dirty" form="productForm"
+          class="btn btn-success me-2 text-success-emphasis bg-success-subtle">
+          <i class="bi bi-save me-2"></i>
+            Guardar
+        </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <app-text-area [label]="'Descripción'" [formControl]="$any(productForm.controls['description'])"></app-text-area>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()" id="productForm">
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <app-text-input [label]="'Nombre'" [formControl]="$any(productForm.controls['name'])"></app-text-input>
+        </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col-12 col-sm-10 col-md-6 col-lg-4">
-        <div class="row">
-          <div class="col-6">
-            <app-text-input [label]="'Precio'" [type]="'number'" [formControl]="$any(productForm.controls['price'])"></app-text-input>
-          </div>
-          <div class="col-6">
-            <app-text-input [label]="'Cantidad'" [type]="'number'" [formControl]="$any(productForm.controls['stockQuantity'])"></app-text-input>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <app-text-area [label]="'Descripción'"
+            [formControl]="$any(productForm.controls['description'])"></app-text-area>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-6 col-lg-4">
+          <div class="row">
+            <div class="col-6">
+              <app-text-input [label]="'Precio'" [type]="'number'"
+                [formControl]="$any(productForm.controls['price'])"></app-text-input>
+            </div>
+            <div class="col-6">
+              <app-text-input [label]="'Cantidad'" [type]="'number'"
+                [formControl]="$any(productForm.controls['stockQuantity'])"></app-text-input>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mb-3">
-      <div class="col-12 col-sm col-md-6 col-lg-4" *ngIf="productForm.get('productItemClass')">
-        <div class="form-floating" id="floatingSelect">
-          <select class="form-select" [formControl]="$any(productForm.controls['productItemClass'].get('itemClassId'))">
-            <option value="{{type.id | number}}" *ngFor="let type of types">
-              {{type.name}}
-            </option>
-          </select>
-          <label for="floatingSelect">Tipo</label>
+      <div class="row mb-3">
+        <div class="col-12 col-sm col-md-6 col-lg-4" *ngIf="productForm.get('productItemClass')">
+          <div class="form-floating" id="floatingSelect">
+            <select class="form-select"
+              [formControl]="$any(productForm.controls['productItemClass'].get('itemClassId'))">
+              <option value="{{type.id | number}}" *ngFor="let type of types">
+                {{type.name}}
+              </option>
+            </select>
+            <label for="floatingSelect">Tipo</label>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="row">
-      <div class="col d-flex">
-      <button type="submit" [disabled]="productForm.invalid" class="btn btn-success">Añadir
-        <i class="fa fa-check ms-2"></i>
-      </button>
-      </div>
-    </div>
-    <!-- <code>
-      {{productForm.value | json}}
-    </code> -->
+      <!-- <code>
+          {{productForm.value | json}}
+        </code> -->
+    </form>
   </div>
-</form>
+</ng-container>

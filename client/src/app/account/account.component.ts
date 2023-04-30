@@ -1,28 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { AccountService } from '../landing/account.service';
-import { AppUser } from '../shared/models/app-user';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-account',
   templateUrl: './account.component.html',
   styleUrls: ['./account.component.scss']
 })
-export class AccountComponent implements OnInit {
-  user: AppUser = {} as AppUser;
-
-  constructor(public accountService: AccountService) {
-  }
-
-  ngOnInit(): void {
-    this.loadUser();
-  }
-
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      }
-    })
-  }
+export class AccountComponent {
 
 }

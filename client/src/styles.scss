@@ -69,6 +69,12 @@ label.xng-breadcrumb-trail {
   font-weight: 600;
 }
 
+.mobile-row {
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
 .ngx-gallery-thumbnail {
   box-shadow: 0 0.5rem 1rem rgba(0, 106, 140, 0.30) !important;
 }

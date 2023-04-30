@@ -1,4 +1,4 @@
-using API.Dtos;
+using Core.Dtos;
 using API.Errors;
 using API.Extensions;
 using API.Helpers;
@@ -57,19 +57,23 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult> Add(Service request)
+        public async Task<ActionResult<ServiceDto>> Add(Service request)
         {
-            request.UserService.UserId = User.GetUserId();
+            var userId = User.GetUserId();
             
+            request.UserService.UserId = User.GetUserId();
+
             _servicesRepo.Add(request);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir servicio"));
+            
+            var serviceToReturn = await _uow.ServicesRepository.GetLastAsync(userId);
 
-            return Ok();
+            return Ok(serviceToReturn);
         }
 
         [HttpPut]
-        public async Task<ActionResult> Update(ServiceUpdateDto request)
+        public async Task<ActionResult<ServiceDto>> Update(ServiceUpdateDto request)
         {
             var service = await _servicesRepo.GetEntityWithSpec(new ServicesSpecification(request.Id));
 
@@ -83,7 +87,7 @@ namespace API.Controllers
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al editar servicio"));
 
-            return Ok();
+            return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
 
         [HttpDelete("{id}")]
@@ -133,16 +137,18 @@ namespace API.Controllers
             var result = await _photoService.AddPhoto(file);
 
             if (result.Error != null) return BadRequest(new ApiResponse(400, result.Error.Message));
-            
-            service.ServicePhotos.Add(new ServicePhoto {
-                Photo = new Photo {
+
+            service.ServicePhotos.Add(new ServicePhoto
+            {
+                Photo = new Photo
+                {
                     Url = result.SecureUrl.AbsoluteUri,
                     PublicId = result.PublicId
                 }
             });
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al añadir imagen al servicio"));
-            
+
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
 
@@ -165,7 +171,7 @@ namespace API.Controllers
             service.ServicePhotos.Remove(photo);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar la imagen del servicio"));
-            
+
             return Ok(_mapper.Map<Service, ServiceDto>(service));
         }
     }

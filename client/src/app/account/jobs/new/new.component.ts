@@ -5,8 +5,8 @@ import { AccountService } from 'src/app/landing/account.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { AppUser } from 'src/app/shared/models/app-user';
 import { Area } from 'src/app/shared/models/job';
+import { JobsParams } from 'src/app/shared/models/jobs-params';
 
 @Component({
   selector: 'app-new',
@@ -20,17 +20,24 @@ export class NewComponent implements OnInit {
     }
   }
   jobForm: FormGroup = new FormGroup({})
-  areas: Area[] = [];
-  user: AppUser = {} as AppUser;
+  areas?: Area[]
+  accountId: number;
+  params: JobsParams;
 
   constructor(private bcService: BreadcrumbService, private jobService: JobsService,
     private fb: FormBuilder, private accountService: AccountService, private router: Router,
     private toastr: ToastrService) {
     this.bcService.set('@newJobBreadcrumbTitle', 'Create a new job');
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.jobService.getParams();
   }
 
   ngOnInit(): void {
     this.loadAreas();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.jobService.setParams(this.params);
+    this.jobService.getAll().subscribe({})
   }
 
   onSubmit() {
@@ -62,21 +69,8 @@ export class NewComponent implements OnInit {
     this.jobService.getAreas().subscribe({
       next: areas => {
         this.areas = areas;
+        this.initForm(areas[0].id, this.accountId);
       },
-      complete: () => {
-        this.loadUser();
-      }
-    })
-  }
-
-  loadUser() {
-    this.accountService.getUser().subscribe({
-      next: user => {
-        this.user = user;
-      },
-      complete: () => {
-        this.initForm(this.areas[0].id, this.user.id);
-      }
     })
   }
 

@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using API.Errors;
-using API.Dtos;
+using Core.Dtos;
 
 namespace API.Controllers
 {
@@ -49,7 +49,7 @@ namespace API.Controllers
             sourceUser.LikedUsers.Add(userLike);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al dar me gusta al usuario"));
-            
+
             return Ok();
         }
 
@@ -74,7 +74,7 @@ namespace API.Controllers
             sourceUser.LikedUsers.Remove(userLike);
 
             if (await _uow.Complete() < 0) return BadRequest(new ApiResponse(400, "Error al eliminar usuario"));
-            
+
             return Ok();
         }
 
@@ -82,30 +82,30 @@ namespace API.Controllers
         public async Task<ActionResult<bool>> IsLiked(string email)
         {
             var sourceUserId = User.GetUserId();
-            
+
             var likedUsers = await _uow.LikesRepository.GetLikedUsers(sourceUserId);
 
             if (!likedUsers.Any()) return Ok(false);
 
             foreach (var user in likedUsers)
             {
-                if(user.TargetUser.Email == email)
+                if (user.TargetUser.Email == email)
                     return Ok(true);
             }
-            
+
             return Ok(false);
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<UserToReturnDto>>> GetLikedUsers() 
+        public async Task<ActionResult<IReadOnlyList<UserToReturnDto>>> GetLikedUsers()
         {
             var sourceUserId = User.GetUserId();
-            
+
             var likedUsers = await _uow.LikesRepository.GetLikedUsers(sourceUserId);
 
             var usersToReturn = new List<UserToReturnDto>();
 
-            foreach(var user in likedUsers)
+            foreach (var user in likedUsers)
             {
                 usersToReturn.Add(_mapper.Map<AppUser, UserToReturnDto>(user.TargetUser));
             }

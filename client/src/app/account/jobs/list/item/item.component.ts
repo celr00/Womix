@@ -6,7 +6,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
-import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
+import { JobsParams } from 'src/app/shared/models/jobs-params';
+import { AccountService } from 'src/app/landing/account.service';
 
 @Component({
   selector: 'app-item',
@@ -15,17 +16,25 @@ import { JobWithInterest } from 'src/app/shared/models/job-with-interest';
 })
 export class ItemComponent implements OnInit {
   id: number;
-  job: JobWithInterest = {} as JobWithInterest;
+  job?: Job;
   modal: Modal = new Modal;
+  accountId: number;
+  params: JobsParams;
 
   constructor(private route: ActivatedRoute, private bcService: BreadcrumbService,
     private jobService: JobsService, private router: Router, private toastr: ToastrService,
-    private confirmService: ConfirmService) {
+    private confirmService: ConfirmService, private accountService: AccountService) {
     this.id = Number(this.route.snapshot.paramMap.get('id'));
+    this.accountId = this.accountService.getAccountId();
+    this.params = this.jobService.getParams();
   }
 
   ngOnInit(): void {
     this.loadJob();
+    this.params.userId = this.accountId;
+    this.params.pageSize = 12;
+    this.jobService.setParams(this.params);
+    this.jobService.getAll().subscribe({})
   }
 
   loadJob() {
@@ -38,8 +47,8 @@ export class ItemComponent implements OnInit {
   }
 
   delete() {
-    this.modal.title = `Borrar ${this.job.name}`;
-    this.modal.message = `¿Confirma querer eliminar el trabajo: '${this.job.name}'?`;
+    this.modal.title = `Borrar ${this.job!.name}`;
+    this.modal.message = `¿Confirma querer eliminar el trabajo: '${this.job!.name}'?`;
     this.modal.btnOkText = 'Eliminar';
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
