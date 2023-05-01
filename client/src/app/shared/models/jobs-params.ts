@@ -5,4 +5,5 @@ export class JobsParams {
   search = '';
   areaId = 0;
   userId = 0;
+  followerId = 0;
 }

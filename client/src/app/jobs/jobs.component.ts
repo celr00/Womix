@@ -3,7 +3,6 @@ import { Area, Job } from '../shared/models/job';
 import { JobsParams } from '../shared/models/jobs-params';
 import { JobsService } from '../account/jobs/jobs.service';
 import { ActivatedRoute } from '@angular/router';
-import { UserJobInterest } from '../shared/models/user-job-interest';
 import { AccountService } from '../landing/account.service';
 import { Account } from '../shared/models/account';
 
@@ -19,57 +18,53 @@ export class JobsComponent implements OnInit {
   areas?: Area[];
   totalCount = 0;
   params: JobsParams;
-  cardIndex = 1;
+  selectedCardId = 1;
   loggedIn = false;
-  isIndexFollowed = false;
+  isFollowed = false;
+  disableFollow = false;
+  accountId?: number
+  count = 1;
   sortOptions = [
     { name: 'Alfabéticamente', value: 'name' },
     { name: 'Precio: Mayor a menor', value: 'priceDesc' },
     { name: 'Precio: Menor a mayor', value: 'priceAsc' },
   ];
 
-  constructor(
-    private jobService: JobsService,
-    private route: ActivatedRoute,
-    private accountService: AccountService
-  ) {
+  constructor(private jobService: JobsService, private route: ActivatedRoute,
+    private accountService: AccountService) {
     this.jobService.resetParams();
     this.params = jobService.getParams();
     this.params.areaId = this.route.snapshot.queryParams['area'] || 0;
     this.account = this.accountService.getAccount();
-    // if (this.account === null) this.myJobs = [];
-    if (this.account !== null) this.loggedIn = true;
+    if (this.account !== null) {
+      this.loggedIn = true;
+      this.accountId = this.accountService.getAccountId();
+    }
   }
 
   ngOnInit(): void {
     this.loadJobs();
     this.loadAreas();
-    if (this.account !== null) {
-      this.loadMyInterests();
-    }
   }
 
-  loadMyInterests() {
-    this.jobService.getInterestedJobsList().subscribe({
-      next: (res) => {
-        // this.myJobs = res;
-      },
-    });
-  }
-
-  loadJobs() {
+  loadJobs(select = true) {
     this.jobService.getAll().subscribe({
       next: (res) => {
         this.jobs = res.data;
         this.totalCount = res.count;
-        this.cardIndex = this.jobs[0].id;
+        if (select) {
+          const cardId = this.jobs[0].id;
+          this.selectedCardId = cardId;
+          this.onCardClick(cardId);
+          this.count--;
+        }
       },
     });
   }
 
   loadAreas() {
     this.jobService.getAreas().subscribe({
-      next: (areas) => (this.areas = areas),
+      next: areas => this.areas = areas,
     });
   }
 
@@ -106,7 +101,7 @@ export class JobsComponent implements OnInit {
     params.pageNumber = 1;
     this.jobService.setParams(params);
     this.params = params;
-    this.loadJobs();
+    this.loadJobs(true);
   }
 
   onReset() {
@@ -116,20 +111,40 @@ export class JobsComponent implements OnInit {
     this.loadJobs();
   }
 
-  // selectedCard(jobs: Job[]): Job {
-  //   this.myJobs?.forEach((x) => {
-  //     if (x.jobId === this.cardIndex) {
-  //       this.isIndexFollowed = true;
-  //     }
-  //   });
-  //   return jobs.filter((x) => x.id === this.cardIndex)[0];
-  // }
-
-  isCurrent(job: Job): boolean {
-    return job.id === this.cardIndex;
+  selectedCard(jobs: Job[]): Job {
+    return jobs.filter((x) => x.id === this.selectedCardId)[0];
   }
 
-  clickCard(id: number): void {
-    this.cardIndex = id;
+  isCurrent(job: Job): boolean {
+    return job.id === this.selectedCardId;
+  }
+
+  onCardClick(jobId: number): void {
+    this.selectedCardId = jobId;
+    const job = this.jobs!.find(x => x.id === jobId)!;
+    if (this.accountId) {
+      if (job.userJobInterests.length > 0) {
+        job.userJobInterests.forEach(interest => {
+          if (interest.userId === this.accountId) {
+            this.isFollowed = true;
+          } else {
+            this.isFollowed = false;
+          }
+        })
+      }
+      if (job.userJobInterests.length === 0) {
+        this.isFollowed = false;
+      }
+      if (job.userJob.userId === this.accountId) {
+        this.disableFollow = true;
+      } else {
+        this.disableFollow = false;
+      }
+    }
+  }
+
+  receive(event: boolean) {
+    this.isFollowed = event;
+    this.loadJobs();
   }
 }

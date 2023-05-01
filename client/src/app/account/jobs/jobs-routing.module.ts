@@ -24,9 +24,7 @@ const routes: Routes = [
     path: 'saved',
     component: SavedComponent,
     data: {
-      breadCrumb: {
-        alias: 'savedJobsBreadcrumbTitle'
-      }
+      breadcrumb: 'Guardados'
     }
   }
 ];

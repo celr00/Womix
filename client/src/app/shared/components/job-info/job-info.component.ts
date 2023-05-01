@@ -1,8 +1,10 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { JobsService } from 'src/app/account/jobs/jobs.service';
 import { Job } from '../../models/job';
-import { UserJobInterest } from '../../models/user-job-interest';
+import { AccountService } from 'src/app/landing/account.service';
+import { Router } from '@angular/router';
+import { Account } from '../../models/account';
 
 @Component({
   selector: 'app-job-info',
@@ -10,45 +12,45 @@ import { UserJobInterest } from '../../models/user-job-interest';
   styleUrls: ['./job-info.component.scss']
 })
 export class JobInfoComponent {
-  // @Input() myJobs: Job[] = [];
-  // @Input() job: Job = {} as Job;
-  // @Input() loggedIn = false;
+  @Input() job: Job = {} as Job
+  @Input() isFollowed: boolean = false;
+  @Input() disableFollow: boolean = false;
+  @Output() send = new EventEmitter<boolean>;
+  loggedIn = false;
+  accountId?: number
+  account: Account | null
 
-  // constructor(private jobService: JobsService, private toastr: ToastrService) {
+  constructor(private jobService: JobsService, private toastr: ToastrService,
+    private accountService: AccountService, private router: Router) {
+    this.loggedIn = this.accountService.loggedIn();
+    this.account = this.accountService.getAccount();
+    if (this.account !== null) {
+      this.loggedIn = true;
+      this.accountId = this.accountService.getAccountId();
+    }
+  }
 
-  //   }
+  clickFollow() {
+    if (!this.loggedIn) {
+      this.router.navigate(['/sign-in'], {queryParams: {returnUrl: this.router.routerState.snapshot.url}});
+    } else {
+      this.jobService.follow(this.job.id).subscribe({
+        next: () => {
+          this.toastr.success('Se mostró tu interés en el trabajo');
+          this.send.emit(true);
+        },
+      })
+    }
+  }
 
-  // clickFollow() {
-  //   this.jobService.follow(this.job.id).subscribe({
-  //     next: () => {
-  //       this.toastr.success('Se mostró tu interés en el trabajo');
-  //       const item: UserJobInterest = {
-  //         job: this.job,
-  //         jobId: this.job.id,
-  //         userId: 0,
-  //       }
-  //       this.myJobs.push(item);
-  //     },
-  //   })
-  // }
-
-  // clickUnfollow() {
-  //   this.jobService.unfollow(this.job.id).subscribe({
-  //     next: () => {
-  //       this.toastr.success('El trabajo fue eliminado de tus intereses');
-  //       this.myJobs = this.myJobs.filter(x => x.jobId !== this.job.id);
-  //     }
-  //   })
-  // }
-
-  // isFollowed(): boolean {
-  //   let key = false;
-  //   this.myJobs.forEach(x => {
-  //     if (x.jobId === this.job.id) {
-  //       key = true;
-  //     }
-  //   })
-  //   return key;
-  // }
+  clickUnfollow() {
+    const accountId = this.accountId!;
+    this.jobService.unfollow(this.job.id, accountId).subscribe({
+      next: () => {
+        this.toastr.success('El trabajo fue eliminado de tus intereses');
+        this.send.emit(false);
+      }
+    })
+  }
 
 }

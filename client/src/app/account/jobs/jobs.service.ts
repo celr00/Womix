@@ -1,10 +1,9 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, map, of, tap } from 'rxjs';
-import { Area, Job } from 'src/app/shared/models/job';
+import { Area, Job, UserJobInterest } from 'src/app/shared/models/job';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { Pagination } from 'src/app/shared/models/pagination';
-import { UserJobInterest } from 'src/app/shared/models/user-job-interest';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -34,6 +33,7 @@ export class JobsService {
 
     if (this.params.areaId > 0) params = params.append('areaId', this.params.areaId);
     if (this.params.userId > 0) params = params.append('userId', this.params.userId);
+    if (this.params.followerId > 0) params = params.append('followerId', this.params.followerId);
     params = params.append('sort', this.params.sort);
     params = params.append('pageIndex', this.params.pageNumber);
     params = params.append('pageSize', this.params.pageSize);
@@ -138,13 +138,49 @@ export class JobsService {
     return this.http.get<UserJobInterest[]>(this.baseUrl + 'jobs/follow');
   }
 
-  follow(jobId: number): Observable<void> {
-    return this.http.post<void>(this.baseUrl + `jobs/follow/${jobId}`, {});
+  follow(jobId: number): Observable<UserJobInterest> {
+    return this.http.post<UserJobInterest>(this.baseUrl + `jobs/follow/${jobId}`, {}).pipe(
+      tap((res: UserJobInterest) => {
+        // update the cache with the new user job interest
+        const cacheKeys = Array.from(this.jobCache.keys());
+        for (const key of cacheKeys) {
+          const cacheValue = this.jobCache.get(key)!;
+          const index = cacheValue.data.findIndex(job => job.id === jobId);
+          if (index !== -1) {
+            const updatedJob = cacheValue.data[index];
+            updatedJob.userJobInterests.push(res);
+            cacheValue.data[index] = updatedJob;
+            this.jobCache.set(key, cacheValue);
+          }
+        }
+      }),
+      map(res => {
+        return res;
+      })
+    );
   }
 
-  unfollow(jobId: number): Observable<void> {
-    return this.http.post<void>(this.baseUrl + `jobs/unfollow/${jobId}`, {});
+
+  unfollow(jobId: number, userId: number): Observable<void> {
+    return this.http.post<void>(`${this.baseUrl}jobs/unfollow/${jobId}`, {}).pipe(
+      tap(() => {
+        // remove the userJobInterest object from the Job object in the cache
+        const cacheKeys = Array.from(this.jobCache.keys());
+        for (const key of cacheKeys) {
+          const cacheValue = this.jobCache.get(key)!;
+          cacheValue.data.forEach(job => {
+            if (job.id === jobId) {
+              const index = job.userJobInterests.findIndex((interest: UserJobInterest) => interest.userId === userId);
+              if (index !== -1) {
+                job.userJobInterests.splice(index, 1);
+              }
+            }
+          });
+        }
+      })
+    );
   }
+
 
   getAreas(): Observable<Area[]> {
     if (this.areas.length > 0) return of(this.areas);

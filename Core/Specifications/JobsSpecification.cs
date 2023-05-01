@@ -13,7 +13,11 @@ namespace Core.Specifications
             x.UserJob.User.LastName.ToLower().Contains(jobParams.Search)
             ) &&
             (!jobParams.AreaId.HasValue || x.JobArea.AreaId == jobParams.AreaId) &&
-            (!jobParams.UserId.HasValue || x.UserJob.UserId == jobParams.UserId)
+            (!jobParams.UserId.HasValue || x.UserJob.UserId == jobParams.UserId) &&
+            (
+                !jobParams.FollowerId.HasValue ||
+                x.UserJobInterests.Any(item => item.UserId == jobParams.FollowerId)
+            )
             )
         {
             AddInclude(x => x.JobArea);

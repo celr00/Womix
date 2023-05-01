@@ -21,6 +21,7 @@ import { TextAreaComponent } from './components/text-area/text-area.component';
 import { JobInfoComponent } from './components/job-info/job-info.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UserCardCompactComponent } from './components/user-card-compact/user-card-compact.component';
+import { JobCardComponent } from './components/job-card/job-card.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { UserCardCompactComponent } from './components/user-card-compact/user-ca
     TextAreaComponent,
     JobInfoComponent,
     UserCardCompactComponent,
+    JobCardComponent,
   ],
   imports: [
     CommonModule,
@@ -70,6 +72,7 @@ import { UserCardCompactComponent } from './components/user-card-compact/user-ca
     JobInfoComponent,
     TabsModule,
     UserCardCompactComponent,
+    JobCardComponent,
   ]
 })
 export class SharedModule { }

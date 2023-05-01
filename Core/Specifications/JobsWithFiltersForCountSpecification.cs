@@ -16,6 +16,10 @@ namespace Core.Specifications
             (
                 !specParams.AreaId.HasValue ||
                     specParams.AreaId == x.JobArea.AreaId
+            ) &&
+            (
+                !specParams.FollowerId.HasValue ||
+                    x.UserJobInterests.Any(x => x.UserId == specParams.FollowerId)
             )
         )
         {

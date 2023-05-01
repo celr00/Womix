@@ -65,7 +65,7 @@ interface Address {
   zipcode: string
 }
 
-interface UserJobInterest {
+export interface UserJobInterest {
   user: User
   userId: number
   jobId: number

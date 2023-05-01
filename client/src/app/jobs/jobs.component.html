@@ -1,4 +1,4 @@
-<!-- <ng-container *ngIf="areas && jobs && myJobs">
+<ng-container *ngIf="areas && jobs">
   <div class="container-fluid container-xxl">
     <div class="row">
       <div class="col-12">
@@ -16,12 +16,15 @@
             <div class="col-5 col-sm-6 col-lg-8">
               <div class="row">
                 <div class="col-12 col-lg-6" *ngFor="let job of jobs">
-                  <app-job-card [job]="job" (click)="clickCard(job.id)" [isActive]="isCurrent(job)"></app-job-card>
+                  <app-job-card
+                    (click)="onCardClick(job.id)"
+                    [job]="job"
+                    [isActive]="isCurrent(job)"></app-job-card>
                 </div>
               </div>
             </div>
             <div class="ps-0 ps-sm-1 col-7 col-sm-6 col-lg-4 position-sticky info-static">
-              <app-job-info [loggedIn]="loggedIn" [job]="selectedCard(jobs)" [myJobs]="myJobs"></app-job-info>
+              <app-job-info [job]="selectedCard(jobs)" [isFollowed]="isFollowed" (send)="receive($event)" [disableFollow]="disableFollow"></app-job-info>
             </div>
           </div>
           <div class="d-flex justify-content-center" *ngIf="totalCount > 0">
@@ -32,4 +35,4 @@
       </div>
     </div>
   </div>
-</ng-container> -->
+</ng-container>

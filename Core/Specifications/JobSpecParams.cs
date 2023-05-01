@@ -14,6 +14,7 @@ namespace Core.Specifications
 
         public int? AreaId { get; set; }
         public int? UserId { get; set; }
+        public int? FollowerId { get; set; }
 
 
         public string Sort { get; set; }

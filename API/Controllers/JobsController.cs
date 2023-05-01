@@ -115,24 +115,8 @@ namespace API.Controllers
             return Ok(_mapper.Map<IReadOnlyList<AreaDto>>(areas));
         }
 
-        [Cached(600)]
-        [HttpGet("follow")]
-        public async Task<ActionResult<IReadOnlyList<UserJobInterestDto>>> GetInterestedJobsList()
-        {
-            var userId = User.GetUserId();
-            
-            var user = await _userManager.Users
-                .Include(x => x.FollowingJobs)
-                .ThenInclude(x => x.Job)
-                .ThenInclude(x => x.UserJob)
-                .ThenInclude(x => x.User)
-                .SingleOrDefaultAsync(x => x.Id == userId);
-            
-            return Ok(_mapper.Map<IReadOnlyList<UserJobInterestDto>>(user.FollowingJobs));
-        }
-
         [HttpPost("follow/{jobId}")]
-        public async Task<ActionResult> Follow(int jobId)
+        public async Task<ActionResult<UserJobInterest>> Follow(int jobId)
         {
             var userId = User.GetUserId();
 
@@ -157,7 +141,7 @@ namespace API.Controllers
             if (await _uow.Complete() < 0) 
                 return BadRequest(new ApiResponse(400, "Fallo al agregar este trabajo a tus intereses"));
 
-            return Ok();
+            return Ok(_mapper.Map<UserJobInterest, UserJobInterestDto>(userJobInterest));
         }
 
         [HttpPost("unfollow/{jobId}")]
