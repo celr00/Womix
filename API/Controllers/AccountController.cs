@@ -1,3 +1,5 @@
+using System.Net;
+using System.Net.Mail;
 using API.Errors;
 using API.Extensions;
 using AutoMapper;
@@ -287,6 +289,43 @@ namespace API.Controllers
             var result = await _userManager.UpdateAsync(user);
 
             if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
+
+            return Ok();
+        }
+
+        [AllowAnonymous]
+        [HttpPost("password-reset/{email}")]
+        public async Task<IActionResult> PasswordReset(string email)
+        {
+            // Lookup user by email
+            var user = await _userManager.FindByEmailAsync(email);
+            if (user == null)
+            {
+                return BadRequest(new ApiResponse(400, "No user found with this email"));
+            }
+
+            // Generate a password reset token with a 3-hour lifetime
+            var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+            var resetUrl = $"http://yourclientapp.com/password_reset/{token}";
+
+            // Send the email
+            try
+            {
+                var message = new MailMessage();
+                message.To.Add(new MailAddress(email));
+                message.Subject = "Reset your womix password";
+                message.Body = $@"<p>Click the button below to reset your password:</p>
+                                <a href='{resetUrl}' style='background-color: green; color: white; padding: 10px 20px; text-decoration: none;'>Reset Password</a>";
+                message.IsBodyHtml = true;
+
+                var smtp = new SmtpClient("your-smtp-server.com");
+                smtp.Credentials = new NetworkCredential("your-smtp-username", "your-smtp-password");
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new ApiResponse(500, ex.Message));
+            }
 
             return Ok();
         }

@@ -133,4 +133,9 @@ export class AccountService {
     const account: Account = JSON.parse(accountStr!);
     return account.id;
   }
+
+  sendEmailForPasswordReset(email: string): Observable<void> {
+    return this.http.post<void>(this.baseUrl + 'account/password-reset', email);
+  }
+
 }
