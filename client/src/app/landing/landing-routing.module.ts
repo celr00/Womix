@@ -4,6 +4,7 @@ import { RegisterComponent } from './register/register.component';
 import { LandingComponent } from './landing.component';
 import { LoginComponent } from './login/login.component';
 import { PreventUnsavedChangesGuard } from './register/prevent-unsaved-changes.guard';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 const routes: Routes = [
   {
@@ -19,6 +20,13 @@ const routes: Routes = [
     path: 'sign-in',
     component: LoginComponent,
   },
+  {
+    path: 'password_reset',
+    data: {
+      breadcrumb: 'Recuperación de contraseña'
+    },
+    component: PasswordResetComponent
+  }
 ];
 
 @NgModule({
