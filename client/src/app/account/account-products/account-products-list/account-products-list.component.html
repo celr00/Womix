@@ -58,7 +58,7 @@
           <th scope="col pointer" (click)="onDescriptionClick()">Descripción</th>
           <th scope="col pointer" (click)="onPriceClick()">Precio</th>
           <th scope="col pointer" (click)="onItemClassClick()">Categoría</th>
-          <th scope="col pointer" (click)="onQuantityClick()">Cantidad</th>
+          <th scope="col pointer">Disponibilidad</th>
         </tr>
       </thead>
       <tbody>
@@ -79,8 +79,11 @@
           <td>
             {{product.productItemClass.itemClass.name}}
           </td>
-          <td>
-            {{product.stockQuantity}}
+          <td *ngIf="product.available">
+            <span class="badge bg-success">Disponible</span>
+          </td>
+          <td *ngIf="!product.available">
+            <span class="badge bg-secondary">No disponible</span>
           </td>
         </tr>
       </tbody>

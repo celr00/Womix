@@ -14,6 +14,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     AccountProductsListRoutingModule,
     SharedModule,
+    
   ]
 })
 export class AccountProductsListModule { }

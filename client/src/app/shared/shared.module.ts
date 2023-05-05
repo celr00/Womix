@@ -57,6 +57,7 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     TextInputComponent,
     DatePickerComponent,
     ReactiveFormsModule,
+    FormsModule,
     BsDatepickerModule,
     BsDropdownModule,
     PagerComponent,

@@ -46,7 +46,7 @@ export class AccountProductsNewComponent implements OnInit {
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
       price: ['', [Validators.required]],
-      stockQuantity: ['', [Validators.required]],
+      // stockQuantity: ['', [Validators.required]],
       userProduct: this.fb.group({
         userId: [userId, [Validators.required]]
       }),

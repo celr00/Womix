@@ -52,12 +52,6 @@ namespace Core.Specifications
                     case "descriptionDesc":
                         AddOrderByDescending(x => x.Description);
                         break;
-                    case "quantityAsc":
-                        AddOrderBy(x => x.StockQuantity);
-                        break;
-                    case "quantityDesc":
-                        AddOrderByDescending(x => x.StockQuantity);
-                        break;
                     case "itemClassAsc":
                         AddOrderBy(x => x.ProductItemClass.ItemClass.Name);
                         break;

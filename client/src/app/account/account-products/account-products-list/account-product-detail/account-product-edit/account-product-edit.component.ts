@@ -31,6 +31,7 @@ export class AccountProductEditComponent implements OnInit {
   modal: Modal = new Modal;
   accountId: number;
   params: ProductsParams;
+  available: boolean = false; // initialize available to false
 
   constructor(private productService: ProductService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
@@ -58,6 +59,7 @@ export class AccountProductEditComponent implements OnInit {
         this.product.productPhotos.forEach(x => {
           this.photos.push(x.photo)
         });
+        this.available = product.available; // set the value of available from product
       },
     })
   }
@@ -75,11 +77,14 @@ export class AccountProductEditComponent implements OnInit {
 
   onSubmit() {
     const product = this.product!;
-    this.modal.title = `Guardar cambios realizados a ${product.name}`;
-    this.modal.message = `¿Desea guardar los cambios realizado al producto: ${product.name}?`;
+    this.modal.title = `Guardar cambios realizados a ${ product.name }`;
+    this.modal.message = `¿Desea guardar los cambios realizado al producto: ${ product.name }?`;
     const value = this.productForm.value;
+    value.available = this.available; // add the value of available to the form value
     this.confirmService.confirm(this.modal).subscribe({
       next: modal => {
+        console.log(value);
+
         modal && this.productService.edit(value).subscribe({
           next: () => {
             this.productForm.reset(value);
@@ -93,15 +98,16 @@ export class AccountProductEditComponent implements OnInit {
 
   initForm(product: Product) {
     this.productForm = this.fb.group({
-      id: [''],
-      name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
-      description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
-      price: ['', [Validators.required]],
-      stockQuantity: ['', [Validators.required]],
+      id: [product.id],
+      name: [product.name, [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
+      description: [product.description, [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
+      price: [product.price, [Validators.required]],
+      available: [product.available, [Validators.required]],
       productItemClass: this.fb.group({
         itemClassId: [product.productItemClass.itemClassId, [Validators.required]]
       }),
-    })
+    });
+
     this.productForm.patchValue(product);
   }
 
@@ -124,6 +130,10 @@ export class AccountProductEditComponent implements OnInit {
         })
       }
     })
+  }
+
+  onToggleAvailable(): void {
+    this.available = !this.available; // toggle the available property
   }
 
 }

@@ -5,7 +5,7 @@
             "Name": "Surface Laptop 4",
             "Description": "Microsoft Surface Laptop 4 con pantalla táctil de 13.5 pulgadas, procesador AMD Ryzen 5 Surface Edition, Memoria RAM de 8GB, y 256GB disco de estado sólido (Plata)",
             "Price": 11870,
-            "StockQuantity": 1,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 1,
@@ -44,7 +44,7 @@
             "Name": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
             "Description": "Lacoste Men's Classic Pique Slim Fit Short Sleeve Polo Shirt",
             "Price": 89.5,
-            "StockQuantity": 10,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 2,
@@ -84,7 +84,7 @@
             "Name": "Babolat Pure Aero",
             "Description": "La raqueta Babolat Pure Aero es una de las raquetas más utilizadas por los tenistas profesionales. Esta raqueta es ideal para los jugadores que buscan potencia y efectos en cada golpe.",
             "Price": 280,
-            "StockQuantity": 10,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 3,
@@ -118,7 +118,7 @@
             "Name": "Wilson Pro Staff RF97 Autograph Tennis Racquet",
             "Description": "La raqueta de tenis Wilson Pro Staff RF97 Autograph fue diseñada en colaboración con Roger Federer, el 20 veces campeón de Grand Slam. Esta raqueta es perfecta para jugadores de nivel intermedio a avanzado y proporciona un gran equilibrio entre potencia y control. Con un tamaño de cabeza de 97 pulgadas cuadradas, un patrón de encordado de 16x19 y un peso encordado de 12,6 onzas, esta raqueta ofrece una excelente maniobrabilidad y estabilidad.",
             "Price": 249.99,
-            "StockQuantity": 10,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 4,
@@ -158,7 +158,7 @@
             "Name": "Batidora de pie KitchenAid",
             "Description": "La batidora de pie KitchenAid es un aparato versátil y duradero para todas sus necesidades de horneado. Con 10 velocidades y una variedad de accesorios, esta batidora puede manejar todo, desde amasar masa hasta crema batida. El tazón de 5 cuartos puede acomodar hasta 9 docenas de galletas o 4 hogazas de pan, lo que lo hace perfecto para lotes grandes.",
             "Price": 399.99,
-            "StockQuantity": 20,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 5,
@@ -198,7 +198,7 @@
             "Name": "Procesador de alimentos Cuisinart",
             "Description": "El procesador de alimentos Cuisinart es una herramienta poderosa y versátil para su cocina. Con una capacidad de 14 tazas y varias cuchillas, puede picar, rebanar, triturar y hacer puré fácilmente los ingredientes para todas sus recetas. El tubo de alimentación grande puede acomodar frutas y verduras enteras, y las piezas aptas para lavavajillas facilitan la limpieza.",
             "Price": 199.99,
-            "StockQuantity": 15,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 6,
@@ -238,7 +238,7 @@
             "Name": "Ninja Air Fryer",
             "Description": "La freidora Ninja Air es una forma más saludable de disfrutar de tus comidas fritas favoritas. Con una capacidad de 4 cuartos y múltiples funciones de cocción, puede freír, asar, hornear y deshidratar una variedad de alimentos. La pantalla digital y los controles fáciles de usar facilitan el ajuste de la temperatura y el tiempo de cocción, y las piezas aptas para lavavajillas facilitan la limpieza.",
             "Price": 99.99,
-            "StockQuantity": 25,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 7,
@@ -278,7 +278,7 @@
             "Name": "Instant Pot Duo",
             "Description": "El Instant Pot Duo es un electrodoméstico versátil y conveniente para su cocina. Con 7 funciones de cocción y una variedad de programas preestablecidos, puede cocinar de todo, desde arroz hasta guisos y yogur con facilidad. La capacidad de 6 cuartos es perfecta para familias y el diseño de acero inoxidable es duradero y elegante.",
             "Price": 129.99,
-            "StockQuantity": 30,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 8,
@@ -318,7 +318,7 @@
             "Name": "Juego de utensilios de cocina Cuisinart de acero inoxidable de 12 piezas",
             "Description": "Este juego de utensilios de cocina incluye 12 piezas: cacerola de 1,5 cuartos con tapa, cacerola de 2,5 cuartos con tapa, sartén para saltear de 3 cuartos con tapa, cacerola de 6 cuartos con tapa, sartén de 8 pulgadas, sartén de 10 pulgadas y un inserto para cocinar al vapor. con cubierta. Hechas de acero inoxidable, estas ollas y sartenes son duraderas y tienen un acabado de espejo pulido.",
             "Price": 199.99,
-            "StockQuantity": 5,
+            "Available": true,
             "ProductItemClass": {
                 "ItemClassId": 3,
                 "ProductId": 9
@@ -358,7 +358,7 @@
             "Name": "KitchenAid Classic Plus 4.5qt Stand Mixer",
             "Description": "Esta batidora de pie cuenta con un tazón para mezclar de acero inoxidable de 4.5 cuartos, 10 velocidades y un potente motor de 275 vatios. El diseño de cabezal inclinable permite un fácil acceso al tazón y las batidoras, y la batidora viene con una batidora plana, un gancho para masa y un batidor de alambre.",
             "Price": 279.99,
-            "StockQuantity": 7,
+            "Available": true,
             "ProductItemClass": {
                 "ItemClassId": 3,
                 "ProductId": 10
@@ -398,7 +398,7 @@
             "Name": "Juego de utensilios de cocina de acero inoxidable revestidos",
             "Description": "Este juego de utensilios de cocina incluye 10 piezas: sartenes de 8 y 10 pulgadas, cacerolas con tapa de 2 y 3 cuartos, sartén para saltear con tapa de 3 cuartos y una olla sopera con tapa de 8 cuartos. Hechas de acero inoxidable duradero, estas ollas y sartenes tienen un acabado pulido y son aptas para horno y lavavajillas.",
             "Price": 799.99,
-            "StockQuantity": 3,
+            "Available": true,
             "ProductItemClass": {
                 "ItemClassId": 3,
                 "ProductId": 11
@@ -438,7 +438,7 @@
             "Name": "Aguacate Orgánico",
             "Description": "Un aguacate orgánico maduro y delicioso.",
             "Price": 1.49,
-            "StockQuantity": 50,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 12,
@@ -478,7 +478,7 @@
             "Name": "Fresas Orgánicas",
             "Description": "Una pinta fresca y jugosa de fresas orgánicas.",
             "Price": 3.99,
-            "StockQuantity": 25,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 13,
@@ -518,7 +518,7 @@
             "Name": "Leche Entera Orgánica",
             "Description": "Un galón de deliciosa leche entera orgánica.",
             "Price": 5.99,
-            "StockQuantity": 20,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 14,
@@ -558,7 +558,7 @@
             "Name": "Café Molido Orgánico",
             "Description": "Una bolsa de rico y sabroso café molido orgánico.",
             "Price": 9.99,
-            "StockQuantity": 30,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 15,
@@ -598,7 +598,7 @@
             "Name": "Platanos Orgánicos",
             "Description": "Un montón de plátanos orgánicos dulces y saludables.",
             "Price": 1.99,
-            "StockQuantity": 40,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 16,
@@ -638,7 +638,7 @@
             "Name": "Copos De Avena Orgánicos",
             "Description": "Una bolsa de copos de avena orgánicos abundantes y nutritivos.",
             "Price": 4.99,
-            "StockQuantity": 15,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 17,
@@ -678,7 +678,7 @@
             "Name": "Gel de baño hidratante diario de Aveeno",
             "Description": "Aveeno Daily Moisturizing Body Wash es lo suficientemente suave para la piel sensible y ayuda a reponer la humedad natural de la piel. Con una mezcla única de aceites naturales y emolientes, este gel de baño limpia e hidrata la piel, dejándola suave y tersa. La fórmula sin fragancia es hipoalergénica y sin jabón, por lo que es ideal para el uso diario.",
             "Price": 9.99,
-            "StockQuantity": 20,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 18,
@@ -718,7 +718,7 @@
             "Name": "Neutrogena Hydro Boost Gel Crema Hidratante para Ojos",
             "Description": "Neutrogena Hydro Boost Hydrating Gel Eye Cream es una fórmula de gel liviana que brinda una hidratación intensa a la delicada piel alrededor de los ojos. Con ácido hialurónico, esta crema para ojos ayuda a rellenar e hidratar la piel, reduciendo la aparición de líneas finas y arrugas. La fórmula sin aceite es suave y no comedogénica, por lo que es adecuada para todo tipo de piel.",
             "Price": 14.99,
-            "StockQuantity": 15,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 19,
@@ -758,7 +758,7 @@
             "Name": "Tiras blancas Crest 3D White Luxe",
             "Description": "Crest 3D White Luxe Whitestrips es una manera fácil y efectiva de blanquear los dientes en casa. Estas tiras blanqueadoras contienen los mismos ingredientes seguros para el esmalte que usan los dentistas y trabajan para eliminar años de manchas difíciles para revelar una sonrisa más brillante y radiante. Con solo 30 minutos al día durante 14 días, estas tiras blanqueadoras son una forma económica y conveniente de lograr resultados de nivel profesional.",
             "Price": 44.99,
-            "StockQuantity": 8,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 20,
@@ -798,7 +798,7 @@
             "Name": "NIVEA Loción Corporal Esencialmente Enriquecida",
             "Description": "NIVEA Essentially Enriched Body Lotion es una fórmula rica y nutritiva que ayuda a hidratar profundamente y reparar la piel seca y áspera. Con minerales marinos naturales y aceite de almendras, esta loción proporciona una hidratación duradera, dejando la piel con una sensación suave y tersa. La fórmula no grasa se absorbe rápidamente, lo que la hace ideal para el uso diario.",
             "Price": 7.99,
-            "StockQuantity": 25,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 21,
@@ -837,7 +837,7 @@
             "Name": "Cepillo de dientes eléctrico Sonicare Essence",
             "Description": "Cepillo de dientes eléctrico con acción fluida dinámica para una limpieza profunda",
             "Price": 49.99,
-            "StockQuantity": 10,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 22,
@@ -876,7 +876,7 @@
             "Name": "Tiras blancas Crest 3D White",
             "Description": "Tiras blanqueadoras de dientes que eliminan años de manchas difíciles",
             "Price": 44.99,
-            "StockQuantity": 5,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 23,
@@ -915,7 +915,7 @@
             "Name": "Pasta de dientes Colgate Total",
             "Description": "Pasta de dientes que combate la placa y la gingivitis",
             "Price": 3.99,
-            "StockQuantity": 20,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 24,
@@ -954,7 +954,7 @@
             "Name": "Oral-B Glide Pro-Health Comfort Plus Hilo dental",
             "Description": "Hilo dental que se desliza fácilmente entre los dientes",
             "Price": 2.99,
-            "StockQuantity": 30,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 25,
@@ -993,7 +993,7 @@
             "Name": "Irrigador bucal Waterpik Aquarius",
             "Description": "Irrigador de agua que elimina hasta el 99,9% de la placa de las áreas tratadas",
             "Price": 69.99,
-            "StockQuantity": 8,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 26,
@@ -1032,7 +1032,7 @@
             "Name": "Enjuague bucal antiséptico Listerine Cool Mint",
             "Description": "Enjuague bucal que mata los gérmenes que causan el mal aliento, la placa y la gingivitis",
             "Price": 6.99,
-            "StockQuantity": 15,
+            "Available": true,
             "ProductPhotos": [
                 {
                     "ProductId": 27,

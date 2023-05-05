@@ -145,24 +145,6 @@ export class AccountProductsListComponent implements OnInit {
     this.loadProducts();
   }
 
-  onQuantityClick() {
-    switch (this.params.sort) {
-      case 'quantityDesc':
-        this.params.sort = 'quantityAsc';
-        this.productService.setParams(this.params);
-        break;
-      case 'quantityAsc':
-        this.params.sort = 'quantityDesc';
-        this.productService.setParams(this.params);
-        break;
-      default:
-        this.params.sort = 'quantityAsc';
-        this.productService.setParams(this.params);
-        break;
-    }
-    this.loadProducts();
-  }
-
   onSearch() {
     const params = this.productService.getParams();
     params.search = this.searchTerm?.nativeElement.value;

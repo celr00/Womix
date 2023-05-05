@@ -421,6 +421,9 @@ namespace Infrastructure.Data.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<bool>("Available")
+                        .HasColumnType("boolean");
+
                     b.Property<string>("Description")
                         .HasMaxLength(500)
                         .HasColumnType("character varying(500)");
@@ -432,9 +435,6 @@ namespace Infrastructure.Data.Migrations
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(18,2)");
-
-                    b.Property<int>("StockQuantity")
-                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

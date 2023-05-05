@@ -3,7 +3,7 @@ export interface Product {
   name: string
   price: number
   description: string
-  stockQuantity: number
+  available: boolean
   productPhotos: ProductPhoto[]
   productItemClass: ProductItemClass
   userProduct: UserProduct

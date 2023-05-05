@@ -13,12 +13,14 @@
       </p>
     </ng-container>
     <ng-container *ngIf="type ==='product'">
-      <p class="text-muted" *ngIf="item.stockQuantity > 0">
-        {{item.stockQuantity}} Disponible
-      </p>
-      <p class="text-muted" *ngIf="item.stockQuantity <= 0">
-        No Disponible
-      </p>
+      <div class="col d-flex justify-content-end align-items-center">
+        <span class="badge bg-success ms-auto"
+        *ngIf="item.available">Disponible</span>
+      </div>
+      <div>
+        <span class="badge bg-secondary"
+        *ngIf="!item.available">No disponible</span>
+      </div>
     </ng-container>
   </div>
   <h4 class="text-success text-center fw-bold" *ngIf="type !== 'job'">
