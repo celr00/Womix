@@ -50,7 +50,6 @@ export class NewComponent implements OnInit {
     this.serviceForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(100)]],
       description: ['', [Validators.required, Validators.minLength(10), Validators.maxLength(300)]],
-      price: ['', [Validators.required]],
       userService: this.fb.group({
         userId: [userId, [Validators.required]]
       }),

@@ -52,12 +52,6 @@ namespace Core.Specifications
                     case "categoryDesc":
                         AddOrderByDescending(x => x.ServiceCategory.Category.Name);
                         break;
-                    case "priceAsc":
-                        AddOrderBy(p => p.Price);
-                        break;
-                    case "priceDesc":
-                        AddOrderByDescending(p => p.Price);
-                        break;
                     default:
                         AddOrderBy(n => n.Name);
                         break;

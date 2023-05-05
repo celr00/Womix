@@ -74,7 +74,15 @@
             {{job.jobArea.area.name}}
           </td>
           <td>
-            {{job.userJobInterests.length}}
+            <span class="badge bg-warning" *ngIf="job.userJobInterests.length === 0">
+              {{job.userJobInterests.length}}
+            </span>
+            <span class="badge bg-info" *ngIf="job.userJobInterests.length > 0 && job.userJobInterests.length < 3">
+              {{job.userJobInterests.length}}
+            </span>
+            <span class="badge bg-success" *ngIf="job.userJobInterests.length >= 3">
+              {{job.userJobInterests.length}}
+            </span>
           </td>
         </tr>
       </tbody>

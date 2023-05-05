@@ -129,25 +129,6 @@ export class ListComponent implements OnInit {
     this.loadServices();
   }
 
-  onPriceClick() {
-    switch (this.params.sort) {
-      case 'priceDesc':
-        this.params.sort = 'priceAsc';
-        this.serviceService.setParams(this.params);
-        break;
-      case 'priceAsc':
-        this.params.sort = 'priceDesc';
-        this.serviceService.setParams(this.params);
-        break;
-
-      default:
-        this.params.sort = 'priceAsc';
-        this.serviceService.setParams(this.params);
-        break;
-    }
-    this.loadServices();
-  }
-
   onSearch() {
     const params = this.serviceService.getParams();
     params.search = this.searchTerm?.nativeElement.value;

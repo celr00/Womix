@@ -28,8 +28,6 @@
           <app-text-input [label]="'Nombre'" [formControl]="$any(serviceForm.controls['name'])"></app-text-input>
           <app-text-area [label]="'Descripción'"
             [formControl]="$any(serviceForm.controls['description'])"></app-text-area>
-          <app-text-input [label]="'Precio'" [type]="'number'"
-            [formControl]="$any(serviceForm.controls['price'])"></app-text-input>
           <div class="form-floating" id="floatingSelect" *ngIf="serviceForm.get('serviceCategory')">
             <select class="form-select" [formControl]="$any(serviceForm.controls['serviceCategory'].get('categoryId'))">
               <option value="{{category.id | number}}" *ngFor="let category of categories">

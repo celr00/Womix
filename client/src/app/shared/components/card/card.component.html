@@ -1,18 +1,17 @@
 <div class="card mb-4 overflow-hidden border border-4 rounded-4"
   [ngClass]="{'border-info': type === 'product' || type === 'job', 'border-primary': type === 'service'}">
   <img *ngIf="galleryImages.length === 0 && type !== 'job'" src="../../../../assets/placeholder-image.png">
-  <ngx-gallery *ngIf="galleryImages.length > 0 && type !== 'job'" [options]="galleryOptions" [images]="galleryImages" class="gallery-card-img"></ngx-gallery>
+  <ngx-gallery *ngIf="galleryImages.length > 0 && type !== 'job'" [options]="galleryOptions" [images]="galleryImages"
+    class="gallery-card-img"></ngx-gallery>
   <div class="card-body">
     <h5 class="card-title">{{item.name}}</h5>
     <p class="card-text" *ngIf="item.description.length > 70">{{item.description | slice: 0:70}} ...</p>
     <p class="card-text" *ngIf="item.description.length <= 70">{{item.description}}</p>
   </div>
-  <ul class="list-group list-group-flush">
+  <ul class="list-group list-group-flush" *ngIf="type==='product'">
     <li class="list-group-item text-success fw-bold fs-5 text-center">{{item.price | currency}}</li>
   </ul>
-  <div class="card-footer text-center pointer"
-    *ngIf="type !== 'job'"
-    routerLink="{{url}}"
+  <div class="card-footer text-center pointer" *ngIf="type !== 'job'" routerLink="{{url}}"
     [ngClass]="{'bg-info': type === 'product' || type === 'job', 'bg-primary': type === 'service'}">
     <a class="card-link text-decoration-none text-white fw-bold" routerLink="{{url}}">Ver más</a>
   </div>
