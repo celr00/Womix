@@ -8,6 +8,7 @@ import { CoreModule } from '../core/core.module';
 import { SharedModule } from '../shared/shared.module';
 import { LoginComponent } from './login/login.component';
 import { FooterComponent } from './footer/footer.component';
+import { PasswordResetComponent } from './password-reset/password-reset.component';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { FooterComponent } from './footer/footer.component';
     RegisterComponent,
     LoginComponent,
     FooterComponent,
+    PasswordResetComponent,
   ],
   imports: [
     CommonModule,
