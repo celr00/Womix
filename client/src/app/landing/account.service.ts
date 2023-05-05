@@ -134,8 +134,8 @@ export class AccountService {
     return account.id;
   }
 
-  sendEmailForPasswordReset(email: string): Observable<void> {
-    return this.http.post<void>(this.baseUrl + 'account/password-reset', email);
+  sendEmailForPasswordReset(email: string) {
+    return this.http.get(this.baseUrl + `account/password-reset/${email}`);
   }
 
 }

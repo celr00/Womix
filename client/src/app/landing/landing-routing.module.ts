@@ -21,7 +21,7 @@ const routes: Routes = [
     component: LoginComponent,
   },
   {
-    path: 'password_reset',
+    path: 'password_reset/:token',
     data: {
       breadcrumb: 'Recuperación de contraseña'
     },

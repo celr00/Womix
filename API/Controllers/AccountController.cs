@@ -1,5 +1,6 @@
 using System.Net;
 using System.Net.Mail;
+using System.Text;
 using API.Errors;
 using API.Extensions;
 using AutoMapper;
@@ -9,6 +10,7 @@ using Core.Interfaces;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
@@ -25,7 +27,16 @@ namespace API.Controllers
         private readonly IGenericRepository<Photo> _photoRepo;
         private readonly IPhotoService _photoService;
         private readonly IGenericRepository<Job> _jobsRepo;
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo)
+        private readonly string _resetUrl;
+        private readonly IConfiguration _configuration;
+        public AccountController
+        (
+            UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, 
+            ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, 
+            IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, 
+            IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo,
+            IConfiguration configuration
+        )
         {
             _jobsRepo = jobsRepo;
             _photoService = photoService;
@@ -37,6 +48,10 @@ namespace API.Controllers
             _mapper = mapper;
             _tokenService = tokenService;
             _userManager = userManager;
+            _configuration = configuration;
+            _resetUrl = configuration.GetValue<bool>("IsProduction")
+                ? "https://womix-beta.online/password_reset/{0}"
+                : "https://localhost:4200/password_reset/{0}";
         }
 
         [Authorize]
@@ -294,39 +309,49 @@ namespace API.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("password-reset/{email}")]
+        [HttpGet("password-reset/{email}")]
         public async Task<IActionResult> PasswordReset(string email)
         {
-            // Lookup user by email
+            // Look up the user with the given email address
             var user = await _userManager.FindByEmailAsync(email);
             if (user == null)
             {
-                return BadRequest(new ApiResponse(400, "No user found with this email"));
+                // Return a 404 Not Found error if the user was not found
+                return NotFound();
             }
 
-            // Generate a password reset token with a 3-hour lifetime
+            // Generate a password reset token that expires in 3 hours
             var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-            var resetUrl = $"http://yourclientapp.com/password_reset/{token}";
+            var resetToken = WebEncoders.Base64UrlEncode(Encoding.UTF8.GetBytes(token));
+            var resetUrl = string.Format(_resetUrl, resetToken);
 
-            // Send the email
-            try
+            // Compose the email message with a green button that links to the password reset form
+            var subject = "Reset your Womix password";
+            var htmlMessage = $@"<html><body>
+                                <p>You requested to reset your password.</p>
+                                <p>Click the button below to reset your password:</p>
+                                <a href='{resetUrl}' style='background-color:green;color:white;padding:10px 20px;text-decoration:none;font-weight:bold;'>Reset Password</a>
+                                </body></html>";
+            var message = new MailMessage
             {
-                var message = new MailMessage();
-                message.To.Add(new MailAddress(email));
-                message.Subject = "Reset your womix password";
-                message.Body = $@"<p>Click the button below to reset your password:</p>
-                                <a href='{resetUrl}' style='background-color: green; color: white; padding: 10px 20px; text-decoration: none;'>Reset Password</a>";
-                message.IsBodyHtml = true;
+                From = new MailAddress("sender@example.com"),
+                To = { email },
+                Subject = subject,
+                Body = htmlMessage,
+                IsBodyHtml = true
+            };
 
-                var smtp = new SmtpClient("your-smtp-server.com");
-                smtp.Credentials = new NetworkCredential("your-smtp-username", "your-smtp-password");
-                smtp.Send(message);
-            }
-            catch (Exception ex)
+            // Send the email using the SMTP server configuration from the app settings
+            using var client = new SmtpClient
             {
-                return BadRequest(new ApiResponse(500, ex.Message));
-            }
+                Host = _configuration.GetValue<string>("Smtp:Host"),
+                Port = _configuration.GetValue<int>("Smtp:Port"),
+                Credentials = new NetworkCredential(_configuration.GetValue<string>("Smtp:Username"), _configuration.GetValue<string>("Smtp:Password")),
+                EnableSsl = _configuration.GetValue<bool>("Smtp:UseSsl")
+            };
+            await client.SendMailAsync(message);
 
+            // Return a 200 OK status with an empty response body
             return Ok();
         }
     }
