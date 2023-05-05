@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { AccountService } from '../account.service';
-import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, AsyncValidatorFn, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { debounceTime, take, switchMap, map, finalize } from 'rxjs';
 
 @Component({
   selector: 'app-password-reset',
@@ -27,7 +28,8 @@ export class PasswordResetComponent implements OnInit {
 
   private initEmailForm(): void {
     this.emailForm = this.fb.group({
-      email: ['ramiro@castellanosbarron.com', [Validators.email, Validators.required, Validators.maxLength(100)]]
+      email: ['', [Validators.email, Validators.required, Validators.maxLength(100)],
+      [this.validateEmailExists()]]
     })
   }
 
@@ -59,6 +61,35 @@ export class PasswordResetComponent implements OnInit {
   }
 
   onSubmitPassword(): void {
-    
+    const newPassword = this.passwordForm.controls['newPassword'].value;
+    const token = this.token!;
+    this.accountService.resetPasswordWithToken(token, newPassword).subscribe({
+      next: () => {
+        this.toastr.success('Password reset successfully');
+        this.router.navigate(['/sign-in']);
+      },
+    })
   }
+
+  validateEmailExists(): AsyncValidatorFn {
+    return (control: AbstractControl) => {
+      return control.valueChanges.pipe(
+        debounceTime(1000),
+        take(1),
+        switchMap(() => {
+          return this.accountService.checkEmailExists(control.value).pipe(
+            map(result => {
+              if(result){
+                return null; // email exists
+              }else{
+                return { emailExists: true }; // email does not exist
+              }
+            }),
+            finalize(() => control.markAsTouched())
+          )
+        })
+      )
+    }
+  }
+
 }

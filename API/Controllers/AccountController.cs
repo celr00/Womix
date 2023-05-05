@@ -31,9 +31,9 @@ namespace API.Controllers
         private readonly IConfiguration _configuration;
         public AccountController
         (
-            UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, 
-            ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo, 
-            IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo, 
+            UserManager<AppUser> userManager, SignInManager<AppUser> signInManager,
+            ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo,
+            IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo,
             IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo,
             IConfiguration configuration
         )
@@ -265,13 +265,15 @@ namespace API.Controllers
             {
                 user.AppUserPhoto = new AppUserPhoto
                 {
-                    Photo = new Photo 
+                    Photo = new Photo
                     {
                         Url = photoAddResult.SecureUrl.AbsoluteUri,
                         PublicId = photoAddResult.PublicId
                     }
                 };
-            } else {
+            }
+            else
+            {
                 user.AppUserPhoto.Photo.Url = photoAddResult.SecureUrl.AbsoluteUri;
                 user.AppUserPhoto.Photo.PublicId = photoAddResult.PublicId;
             }
@@ -352,6 +354,24 @@ namespace API.Controllers
             await client.SendMailAsync(message);
 
             // Return a 200 OK status with an empty response body
+            return Ok();
+        }
+        [HttpPost("password-reset-token")]
+        public async Task<ActionResult> ResetPasswordWithToken(PasswordResetWithTokenDto resetDto)
+        {
+            var decodedToken = WebEncoders.Base64UrlDecode(resetDto.Token);
+            var user = await _userManager.FindByPasswordResetTokenAsync(Encoding.UTF8.GetString(decodedToken));
+            if (user == null)
+            {
+                return BadRequest(new ApiResponse(400, "Invalid token"));
+            }
+
+            var result = await _userManager.ResetPasswordAsync(user, Encoding.UTF8.GetString(decodedToken), resetDto.Password);
+            if (!result.Succeeded)
+            {
+                return BadRequest(new ApiResponse(400, "Failed to reset password"));
+            }
+
             return Ok();
         }
     }

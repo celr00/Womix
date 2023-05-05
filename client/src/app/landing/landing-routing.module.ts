@@ -13,12 +13,25 @@ const routes: Routes = [
   },
   {
     path: 'sign-up',
+    data: {
+      breadcrumb: 'Registro'
+    },
     component: RegisterComponent,
     canDeactivate: [PreventUnsavedChangesGuard]
   },
   {
     path: 'sign-in',
+    data: {
+      breadcrumb: 'Inicio de sesión'
+    },
     component: LoginComponent,
+  },
+  {
+    path: 'password_reset',
+    data: {
+      breadcrumb: 'Recuperación de contraseña'
+    },
+    component: PasswordResetComponent
   },
   {
     path: 'password_reset/:token',
