@@ -1,17 +1,20 @@
 <form [formGroup]="loginForm" style="margin-top: 80px;" (ngSubmit)="onSubmit()">
   <div class="container-fluid container-md">
     <div class="row d-flex justify-content-center">
-      <div class="col-8 col-sm-6 col-md-3">
-        <div class="rounded-3 shadow-sm p-3">
-          <app-text-input [formControl]="loginForm.controls['email']" [label]="'Username or Email'"
-            [type]="'email'"></app-text-input>
-          <app-text-input [formControl]="loginForm.controls['password']" [label]="'Password'"
-            [type]="'password'"></app-text-input>
-          <div class="d-grid gap-3 mb-4">
-            <a routerLink="/" class="btn btn-lg btn-outline-secondary">Cancelar</a>
-            <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
-          </div>
-          <a class="text-decoration-none" routerLink="/sign-up">Registro</a>
+      <div class="col-8 col-sm-6 col-md-3 bg-body-tertiary shadow p-3 rounded-3">
+        <app-text-input [formControl]="loginForm.controls['email']" [label]="'Email'"
+          [type]="'email'"></app-text-input>
+        <app-text-input [formControl]="loginForm.controls['password']" [label]="'Password'"
+          [type]="'password'"></app-text-input>
+        <div class="d-grid gap-3 mb-4">
+          <a routerLink="/" class="btn btn-lg btn-outline-secondary">Cancelar</a>
+          <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary" type="submit">Iniciar Sesión</button>
+        </div>
+        <div class="mb-3">
+          <a class="text-decoration-none" routerLink="/sign-up">No tengo una cuenta</a>
+        </div>
+        <div>
+          <a class="text-decoration-none" routerLink="/password_reset">¿Olvidaste tu contraseña?</a>
         </div>
       </div>
     </div>

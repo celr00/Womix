@@ -792,3 +792,48 @@ netstat -ntpl
 journalctl -u womix-web.service --since "5 min ago"
 
 ```
+
+<VirtualHost *:80>
+    ServerAdmin webmaster@localhost
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000
+    ServerName womix-beta.online
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    ProxyPass "/ws" "ws://localhost:5000/hubs"
+    ProxyPassReverse "/ws" "ws://localhost:5000/hubs"
+
+    RewriteEngine on
+    RewriteCond %{SERVER_NAME} =womix-beta.online
+    RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+
+    <IfModule mod_ssl.c>
+        <VirtualHost *:443>
+            ServerAdmin webmaster@localhost
+            ProxyPreserveHost On
+            ProxyPass / http://127.0.0.1:5000/
+            ProxyPassReverse / http://127.0.0.1:5000
+            ServerName womix-beta.online
+            ErrorLog ${APACHE_LOG_DIR}/error.log
+            CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+            ProxyPass "/ws" "ws://localhost:5000/hubs"
+            ProxyPassReverse "/ws" "ws://localhost:5000/hubs"
+
+            RewriteEngine on
+            RewriteCond %{SERVER_NAME} =womix-beta.online
+            RewriteRule ^ https://%{SERVER_NAME}%{REQUEST_URI} [END,NE,R=permanent]
+
+            <IfModule mod_rewrite.c>
+                RewriteCond %{REQUEST_METHOD} ^(GET|POST)$
+                RewriteCond %{HTTPS} on
+                RewriteCond %{SERVER_PORT} !^587$
+                RewriteRule ^(.*)$ https://%{SERVER_NAME}:587/$1 [L,R=301]
+            </IfModule>
+
+        </VirtualHost>
+    </IfModule>
+
+</VirtualHost>
