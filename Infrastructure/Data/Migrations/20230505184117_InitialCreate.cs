@@ -103,6 +103,20 @@ namespace Infrastructure.Data.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Curriculum",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Url = table.Column<string>(type: "text", nullable: true),
+                    PublicId = table.Column<string>(type: "text", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Curriculum", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Groups",
                 columns: table => new
                 {
@@ -367,6 +381,30 @@ namespace Infrastructure.Data.Migrations
                         column: x => x.SenderId,
                         principalTable: "AspNetUsers",
                         principalColumn: "Id");
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AppUserCurriculum",
+                columns: table => new
+                {
+                    UserId = table.Column<int>(type: "integer", nullable: false),
+                    CurriculumId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AppUserCurriculum", x => new { x.CurriculumId, x.UserId });
+                    table.ForeignKey(
+                        name: "FK_AppUserCurriculum_AspNetUsers_UserId",
+                        column: x => x.UserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_AppUserCurriculum_Curriculum_CurriculumId",
+                        column: x => x.CurriculumId,
+                        principalTable: "Curriculum",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -660,6 +698,12 @@ namespace Infrastructure.Data.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_AppUserCurriculum_UserId",
+                table: "AppUserCurriculum",
+                column: "UserId",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
                 name: "IX_AppUserPhotos_UserId",
                 table: "AppUserPhotos",
                 column: "UserId",
@@ -819,6 +863,9 @@ namespace Infrastructure.Data.Migrations
                 name: "AppUserAddresses");
 
             migrationBuilder.DropTable(
+                name: "AppUserCurriculum");
+
+            migrationBuilder.DropTable(
                 name: "AppUserPhotos");
 
             migrationBuilder.DropTable(
@@ -877,6 +924,9 @@ namespace Infrastructure.Data.Migrations
 
             migrationBuilder.DropTable(
                 name: "Address");
+
+            migrationBuilder.DropTable(
+                name: "Curriculum");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");

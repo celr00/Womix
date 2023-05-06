@@ -19,6 +19,7 @@ namespace Core.Entities
         public List<UserJobInterest> FollowingJobs { get; set; }
         
         public AppUserPhoto AppUserPhoto { get; set; }
+        public AppUserCurriculum AppUserCurriculum { get; set; }
         public AppUserAddress AppUserAddress { get; set; }
         
         public List<UserLike> LikedUsers { get; set; }

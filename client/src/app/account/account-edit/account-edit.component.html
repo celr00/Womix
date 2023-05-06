@@ -57,11 +57,12 @@
       </form>
     </tab>
     <tab heading="Foto" class="pt-3">
-      <app-photo-upload [photos]="photo" [controller]="'account'" [userId]="accountId"></app-photo-upload>
+      <app-account-picture-uploader (sendWithPhoto)="receiveUserWithPhoto($event)"
+        [photoUrl]="photoUrl"></app-account-picture-uploader>
     </tab>
     <tab heading="Currículum" class="pt-3">
+      <app-pdf-uploader (sendWithCurriculum)="receiveUserWithCurriculum($event)"
+        [curriculumUrl]="curriculumUrl"></app-pdf-uploader>
     </tab>
   </tabset>
 </ng-container>
-
-

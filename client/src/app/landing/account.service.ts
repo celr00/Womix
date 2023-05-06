@@ -143,4 +143,13 @@ export class AccountService {
     const body = { token: token, password: password };
     return this.http.post<any>(url, body)
   }
+
+  deleteCurriculum(accountId: number): Observable<UserEntity> {
+    return this.http.delete<UserEntity>(`${this.baseUrl}account/pdf/${accountId}`).pipe(
+      map(res => {
+        this.userEntity = res;
+        return res;
+      })
+    )
+  }
 }

@@ -26,6 +26,8 @@ export class AccountEditComponent implements OnInit {
   modal: Modal = new Modal;
   photo: Photo[] = [];
   accountId: number;
+  curriculumUrl: string = '';
+  photoUrl: string = '';
 
   constructor(private accountService: AccountService, private fb: FormBuilder,
     private route: ActivatedRoute, private bcService: BreadcrumbService, private toastr: ToastrService,
@@ -52,6 +54,11 @@ export class AccountEditComponent implements OnInit {
       this.userForm.controls['appUserPhoto'].get('userId')?.setValue(0);
       this.userForm.controls['appUserPhoto'].get('photoId')?.setValue(0);
       this.userForm.controls['appUserPhoto'].get('photo')?.get('id')?.setValue(0);
+    }
+    if (this.user.appUserCurriculum === null) {
+      this.userForm.controls['appUserCurriculum'].get('userId')?.setValue(0);
+      this.userForm.controls['appUserCurriculum'].get('curriculumId')?.setValue(0);
+      this.userForm.controls['appUserCurriculum'].get('curriculum')?.get('id')?.setValue(0);
     }
     const dateString = this.userForm.controls['dateOfBirth'].value;
     this.userForm.controls['dateOfBirth'].setValue(this.getDateOnly(dateString));
@@ -80,6 +87,18 @@ export class AccountEditComponent implements OnInit {
         else {
           this.photo.push(user.appUserPhoto.photo);
         }
+        if (this.user.appUserCurriculum !== null) {
+          this.curriculumUrl = user.appUserCurriculum.curriculum.url;
+        }
+        if (this.user.appUserPhoto !== null) {
+          this.photoUrl = user.appUserPhoto.photo.url;
+        }
+        if (this.user.appUserCurriculum === null) {
+          this.curriculumUrl = '';
+        }
+        if (this.user.appUserPhoto === null) {
+          this.photoUrl = '';
+        }
         this.initForm(user);
       }
     })
@@ -98,6 +117,14 @@ export class AccountEditComponent implements OnInit {
         userId: [''],
         photoId: [''],
         photo: this.fb.group({
+          url: [''],
+          id: [''],
+        })
+      }),
+      appUserCurriculum: this.fb.group({
+        userId: [''],
+        curriculumId: [''],
+        curriculum: this.fb.group({
           url: [''],
           id: [''],
         })
@@ -123,6 +150,14 @@ export class AccountEditComponent implements OnInit {
     let theDob = new Date(dob);
     return new Date(theDob.setMinutes(theDob.getMinutes()-theDob.getTimezoneOffset()))
       .toISOString().slice(0,10);
+  }
+
+  receiveUserWithCurriculum(event: any): void {
+    this.loadUser();
+  }
+
+  receiveUserWithPhoto(event: any): void {
+    this.loadUser();
   }
 
 }

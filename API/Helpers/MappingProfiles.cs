@@ -50,6 +50,7 @@ namespace API.Helpers
 
             CreateMap<AppUser, AppUserEntityDto>().ReverseMap();
             CreateMap<AppUserPhoto, AppUserPhotoDto>().ReverseMap();
+            CreateMap<AppUserCurriculum, AppUserCurriculumDto>().ReverseMap();
             CreateMap<AppUserAddress, AppUserAddressDto>().ReverseMap();
             CreateMap<Address, AddressDto>().ReverseMap();
 
@@ -86,6 +87,7 @@ namespace API.Helpers
             CreateMap<UserProduct, UserProductDto>().ReverseMap();
 
             CreateMap<Photo, PhotoDto>().ReverseMap();
+            CreateMap<Curriculum, CurriculumDto>().ReverseMap();
             CreateMap<Message, MessageDto>()
                 .ForMember(d => d.SenderPhotoUrl, o => o.MapFrom(s => s.Sender.AppUserPhoto.Photo.Url))
                 .ForMember(d => d.RecipientPhotoUrl, o => o.MapFrom(s => s.Recipient.AppUserPhoto.Photo.Url));

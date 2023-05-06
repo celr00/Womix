@@ -47,6 +47,11 @@ namespace Infrastructure.Data.Config
                 .IsRequired(false)
                 .OnDelete(DeleteBehavior.Cascade);
 
+            builder.HasOne(x => x.AppUserCurriculum)
+                .WithOne(x => x.User)
+                .IsRequired(false)
+                .OnDelete(DeleteBehavior.Cascade);
+
             builder
                 .HasOne(x => x.AppUserAddress)
                 .WithOne(x => x.User)
@@ -54,6 +59,7 @@ namespace Infrastructure.Data.Config
                 .OnDelete(DeleteBehavior.Cascade);
 
             builder.Navigation(x => x.AppUserPhoto).AutoInclude();
+            builder.Navigation(x => x.AppUserCurriculum).AutoInclude();
             builder.Navigation(x => x.AppUserAddress).AutoInclude();
             builder.Navigation(x => x.UserServices).AutoInclude();
             builder.Navigation(x => x.UserProducts).AutoInclude();

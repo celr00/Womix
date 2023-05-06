@@ -26,6 +26,7 @@ namespace API.Controllers
         private readonly IGenericRepository<Service> _serviceRepo;
         private readonly IGenericRepository<Photo> _photoRepo;
         private readonly IPhotoService _photoService;
+        private readonly IPdfService _pdfService;
         private readonly IGenericRepository<Job> _jobsRepo;
         private readonly string _resetUrl;
         private readonly IConfiguration _configuration;
@@ -35,11 +36,12 @@ namespace API.Controllers
             ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo,
             IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo,
             IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo,
-            IConfiguration configuration
+            IConfiguration configuration, IPdfService pdfService
         )
         {
             _jobsRepo = jobsRepo;
             _photoService = photoService;
+            _pdfService = pdfService;
             _photoRepo = photoRepo;
             _serviceRepo = serviceRepo;
             _productRepo = productRepo;
@@ -371,6 +373,65 @@ namespace API.Controllers
             {
                 return BadRequest(new ApiResponse(400, "Failed to reset password"));
             }
+
+            return Ok();
+        }
+
+        [HttpPost("pdf/{userId}")]
+        public async Task<IActionResult> UploadPdf(IFormFile file, int userId)
+        {
+            var user = await _userManager.Users
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            var pdfAddResult = await _pdfService.AddPdf(file);
+
+            if (pdfAddResult.Error != null) return BadRequest(new ApiResponse(400, pdfAddResult.Error.Message));
+
+            if (user.AppUserCurriculum == null)
+            {
+                user.AppUserCurriculum = new AppUserCurriculum
+                {
+                    Curriculum = new Curriculum
+                    {
+                        Url = pdfAddResult.SecureUrl.AbsoluteUri,
+                        PublicId = pdfAddResult.PublicId
+                    }
+                };
+            }
+            else
+            {
+                user.AppUserCurriculum.Curriculum.Url = pdfAddResult.SecureUrl.AbsoluteUri;
+                user.AppUserCurriculum.Curriculum.PublicId = pdfAddResult.PublicId;
+            }
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
+
+            return Ok(_mapper.Map<AppUser, AppUserEntityDto>(user));
+        }
+
+        [HttpDelete("pdf/{userId}")]
+        public async Task<IActionResult> DeletePdf(int userId)
+        {
+            var user = await _userManager.Users
+                .Include(x => x.AppUserCurriculum)
+                .ThenInclude(x => x.Curriculum)
+                .SingleOrDefaultAsync(x => x.Id == userId);
+
+            if (!string.IsNullOrEmpty(user.AppUserCurriculum.Curriculum.PublicId))
+            {
+                var deleteCurriculumResult = await _pdfService.DeletePdf(user.AppUserCurriculum.Curriculum.PublicId);
+
+                if (deleteCurriculumResult.Error != null) return BadRequest(new ApiResponse(400, deleteCurriculumResult.Error.Message));
+            }
+
+            user.AppUserCurriculum.Curriculum.Url = "";
+            user.AppUserCurriculum.Curriculum.PublicId = "";
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
 
             return Ok();
         }

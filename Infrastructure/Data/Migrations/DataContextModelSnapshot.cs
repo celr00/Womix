@@ -182,6 +182,22 @@ namespace Infrastructure.Data.Migrations
                     b.ToTable("AppUserAddresses");
                 });
 
+            modelBuilder.Entity("Core.Entities.AppUserCurriculum", b =>
+                {
+                    b.Property<int>("CurriculumId")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
+
+                    b.HasKey("CurriculumId", "UserId");
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
+
+                    b.ToTable("AppUserCurriculum");
+                });
+
             modelBuilder.Entity("Core.Entities.AppUserPhoto", b =>
                 {
                     b.Property<int>("PhotoId")
@@ -282,6 +298,25 @@ namespace Infrastructure.Data.Migrations
                     b.HasIndex("GroupName");
 
                     b.ToTable("Connections");
+                });
+
+            modelBuilder.Entity("Core.Entities.Curriculum", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("integer");
+
+                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("PublicId")
+                        .HasColumnType("text");
+
+                    b.Property<string>("Url")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Curriculum");
                 });
 
             modelBuilder.Entity("Core.Entities.Group", b =>
@@ -713,6 +748,24 @@ namespace Infrastructure.Data.Migrations
                     b.Navigation("User");
                 });
 
+            modelBuilder.Entity("Core.Entities.AppUserCurriculum", b =>
+                {
+                    b.HasOne("Core.Entities.Curriculum", "Curriculum")
+                        .WithMany()
+                        .HasForeignKey("CurriculumId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Core.Entities.AppUser", "User")
+                        .WithOne("AppUserCurriculum")
+                        .HasForeignKey("Core.Entities.AppUserCurriculum", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.Navigation("Curriculum");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Core.Entities.AppUserPhoto", b =>
                 {
                     b.HasOne("Core.Entities.Photo", "Photo")
@@ -1024,6 +1077,8 @@ namespace Infrastructure.Data.Migrations
             modelBuilder.Entity("Core.Entities.AppUser", b =>
                 {
                     b.Navigation("AppUserAddress");
+
+                    b.Navigation("AppUserCurriculum");
 
                     b.Navigation("AppUserPhoto");
 

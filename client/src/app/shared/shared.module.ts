@@ -22,6 +22,9 @@ import { JobInfoComponent } from './components/job-info/job-info.component';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { UserCardCompactComponent } from './components/user-card-compact/user-card-compact.component';
 import { JobCardComponent } from './components/job-card/job-card.component';
+import { PdfUploaderComponent } from './components/pdf-uploader/pdf-uploader.component';
+import { PdfViewerModule } from 'ng2-pdf-viewer';
+import { AccountPictureUploaderComponent } from './components/account-picture-uploader/account-picture-uploader.component';
 
 
 @NgModule({
@@ -39,6 +42,8 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     JobInfoComponent,
     UserCardCompactComponent,
     JobCardComponent,
+    PdfUploaderComponent,
+    AccountPictureUploaderComponent,
   ],
   imports: [
     CommonModule,
@@ -52,6 +57,7 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     NgxGalleryModule,
     ModalModule.forRoot(),
     TabsModule.forRoot(),
+    PdfViewerModule
   ],
   exports: [
     TextInputComponent,
@@ -74,6 +80,9 @@ import { JobCardComponent } from './components/job-card/job-card.component';
     TabsModule,
     UserCardCompactComponent,
     JobCardComponent,
+    PdfUploaderComponent,
+    PdfViewerModule,
+    AccountPictureUploaderComponent
   ]
 })
 export class SharedModule { }

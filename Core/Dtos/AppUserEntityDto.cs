@@ -10,6 +10,7 @@ namespace Core.Dtos
         public string PhoneNumber { get; set; }
         public string Instagram { get; set; }
         public AppUserPhotoDto AppUserPhoto { get; set; }
+        public AppUserCurriculumDto AppUserCurriculum { get; set; }
         public AppUserAddressDto AppUserAddress { get; set; }
     }
 }
