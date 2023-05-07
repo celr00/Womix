@@ -1,6 +1,6 @@
 <div class="container-fluid container-xxl">
   <div class="row align-items-center h-100">
-    <div class="col-6">
+    <div class="col-lg-6 col-xl-6 mb-5">
       <form [formGroup]="registerForm" class="shadow-info" (ngSubmit)="onSubmit()">
         <div class="card shadow-sm border-0">
           <h5 class="card-header p-3">
@@ -33,15 +33,15 @@
             </div>
             </div>
           </div>
-          <div class="card-footer d-flex justify-content-around row">
-            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info me-3 col-4 mt-3" type="submit">Crear cuenta</button>
-            <a routerLink="/" class="btn btn-lg btn-outline-secondary col-4 mt-3">Cancelar</a>
-            <a class="text-decoration-none mt-3 p-3 col-4 text-info" routerLink="/sign-in">Ya tengo una cuenta</a>
+          <div class="card-footerd-flex justify-content-around row">
+            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info col-sm-9 col-md-9 col-lg-4 col-xl-4 mt-3" type="submit">Crear cuenta</button>
+            <a routerLink="/" class="btn btn-lg btn-outline-secondary col-sm-9 col-md-9 col-lg-4 col-xl-4 mt-3">Cancelar</a>
+            <a class="text-decoration-none mt-3 p-3 col-12 align-self-center text-center text-info" routerLink="/sign-in">Ya tengo una cuenta</a>
           </div>
         </div>
       </form>
     </div>
-    <div class="col-6">
+    <div class="col-lg-6 col-xl-6">
       <section class="p-4 shadow-warning bg-primary-subtle">
           <h3 class="text-primary text-center mx-auto px-4">Encuentra el trabajo de tus sueños</h3>
       </section>
