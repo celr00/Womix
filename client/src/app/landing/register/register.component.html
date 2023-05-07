@@ -1,52 +1,59 @@
 <div class="container-fluid container-xxl">
-  <form [formGroup]="registerForm" class="mb-5" (ngSubmit)="onSubmit()">
-    <div class="card shadow-sm border-0">
-      <h5 class="card-header p-3">
-        Crea tu perfil
-      </h5>
-      <div class="card-body">
-        <div class="d-flex row mb-5">
-          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
-            <app-text-input [formControl]="$any(registerForm.controls['firstName'])" [label]="'Nombre'"></app-text-input>
+  <div class="row align-items-center h-100">
+    <div class="col-lg-6 col-xl-6 mb-5">
+      <form [formGroup]="registerForm" class="shadow-info" (ngSubmit)="onSubmit()">
+        <div class="card shadow-sm border-0">
+          <h5 class="card-header p-3">
+            Crea tu perfil
+          </h5>
+          <div class="card-body">
+            <div class="d-flex row mb-5">
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <app-text-input class="text-info" [formControl]="$any(registerForm.controls['firstName'])" [label]="'Nombre'"></app-text-input>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <app-text-input class="text-info border-3 border-info" [formControl]="$any(registerForm.controls['lastName'])" [label]="'Apellido'"></app-text-input>
+            </div>
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <app-text-input class="text-info" [formControl]="$any(registerForm.controls['email'])" [label]="'Correo'" [type]="'email'"></app-text-input>
+            </div>
+            <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                <app-date-picker class="text-info" [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Fecha de nacimiento'"
+                [maxDate]="maxDate"></app-date-picker>
+            </div>
+            </div>
+            <div class="row d-flex">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <app-text-input class="text-info" [formControl]="$any(registerForm.controls['password'])" [label]="'Contraseña'" [type]="'password'"></app-text-input>
+            </div>
+            </div>
+            <div class="row d-flex mb-5">
+            <div class="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                <app-text-input class="text-info" [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Repetir contraseña'" [type]="'password'"></app-text-input>
+            </div>
+            </div>
           </div>
-          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-3">
-            <app-text-input [formControl]="$any(registerForm.controls['lastName'])" [label]="'Apellido'"></app-text-input>
-          </div>
-          <div class="col-12 col-sm-6 col-md-5 col-lg-4 col-xl-4">
-            <app-text-input [formControl]="$any(registerForm.controls['email'])" [label]="'Correo'" [type]="'email'"></app-text-input>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-2">
-            <app-date-picker [formControl]="$any(registerForm.controls['dateOfBirth'])" [label]="'Fecha de nacimiento'"
-              [maxDate]="maxDate"></app-date-picker>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <app-text-input [formControl]="$any(registerForm.controls['password'])" [label]="'Contraseña'" [type]="'password'"></app-text-input>
-          </div>
-        </div>
-        <div class="row d-flex mb-5">
-          <div class="col-12 col-sm-8 col-md-6 col-lg-4">
-            <app-text-input [formControl]="$any(registerForm.controls['confirmPassword'])" [label]="'Repetir contraseña'" [type]="'password'"></app-text-input>
-          </div>
-        </div>
-        <div class="row d-flex">
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="$any(registerForm.controls['phoneNumber'])" [label]="'Teléfono'"></app-text-input>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="$any(registerForm.controls['facebook'])" [label]="'Facebook'"></app-text-input>
-          </div>
-          <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <app-text-input [formControl]="$any(registerForm.controls['instagram'])" [label]="'Instagram'"></app-text-input>
+          <div class="card-footerd-flex justify-content-around row">
+            <button [disabled]="registerForm.invalid" class="btn btn-lg btn-info col-sm-9 col-md-9 col-lg-4 col-xl-4 mt-3" type="submit">Crear cuenta</button>
+            <a routerLink="/" class="btn btn-lg btn-outline-secondary col-sm-9 col-md-9 col-lg-4 col-xl-4 mt-3">Cancelar</a>
+            <a class="text-decoration-none mt-3 p-3 col-12 align-self-center text-center text-info" routerLink="/sign-in">Ya tengo una cuenta</a>
           </div>
         </div>
-      </div>
-      <div class="card-footer p-3">
-        <a routerLink="/" class="btn btn-lg btn-outline-secondary me-3">Cancelar</a>
-        <button [disabled]="registerForm.invalid" class="btn btn-lg btn-primary" type="submit">Crear cuenta</button>
-      </div>
+      </form>
     </div>
-  </form>
-  <a class="text-decoration-none" routerLink="/sign-in">Ya tengo una cuenta</a>
+    <div class="col-lg-6 col-xl-6">
+      <section class="p-4 shadow-warning bg-primary-subtle">
+          <h3 class="text-primary text-center mx-auto px-4">Encuentra el trabajo de tus sueños</h3>
+      </section>
+      <section class="my-5 p-4 shadow-warning bg-primary-subtle">
+        <h3 class="text-primary text-center mx-auto px-4">Solo encontrarás calidad en productos y servicios</h3>
+      </section>
+      <section class="my-5 p-4 shadow-warning bg-primary-subtle">
+        <h3 class="text-primary text-center mx-auto px-4">Promociona tus propios productos y servicios</h3>
+      </section>
+      <section class="my-5 p-4 shadow-warning bg-primary-subtle">
+        <h3 class="text-primary text-center mx-auto px-4">Encuentra la persona correcta para tu negocio</h3>
+      </section>
+    </div>
+  </div>
 </div>
