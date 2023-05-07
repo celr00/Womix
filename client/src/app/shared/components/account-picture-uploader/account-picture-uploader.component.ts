@@ -4,6 +4,8 @@ import { ToastrService } from 'ngx-toastr';
 import { AccountService } from 'src/app/landing/account.service';
 import { environment } from 'src/environments/environment';
 import { UserEntity } from '../../models/app-user-entity';
+import { Modal } from '../../models/modal';
+import { ConfirmService } from 'src/app/core/services/confirm.service';
 
 @Component({
   selector: 'app-account-picture-uploader',
@@ -15,11 +17,13 @@ export class AccountPictureUploaderComponent implements OnInit {
   @Input() photoUrl: string = '';
   uploader?: FileUploader;
   hasBaseDropzoneOver = false;
+  modal: Modal = new Modal;
   baseUrl = environment.apiUrl;
   url = '';
   accountId: number;
 
-  constructor(private accountService: AccountService, private toastr: ToastrService) {
+  constructor(private accountService: AccountService, private toastr: ToastrService,
+    private confirmService: ConfirmService) {
     this.accountId = this.accountService.getAccountId();
   }
 
@@ -53,10 +57,18 @@ export class AccountPictureUploaderComponent implements OnInit {
   }
 
   delete() {
-    this.accountService.removePhoto(this.accountId).subscribe({
-      next: () => {
-        this.photoUrl = '';
-        this.toastr.success('Foto eliminada correctamente');
+    this.modal.title = `Eliminación de foto`;
+    this.modal.message = '¿Está seguro de eliminar su foto de perfil?';
+    this.modal.btnCancelText = 'Cancelar';
+    this.modal.btnOkText = 'Eliminar';
+    this.confirmService.confirm(this.modal).subscribe({
+      next: modal => {
+        modal && this.accountService.removePhoto(this.accountId).subscribe({
+          next: () => {
+            this.photoUrl = '';
+            this.toastr.success('Foto eliminada correctamente');
+          }
+        })
       }
     })
   }

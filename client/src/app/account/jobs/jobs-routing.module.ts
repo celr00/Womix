@@ -9,14 +9,15 @@ const routes: Routes = [
     path: 'new',
     component: NewComponent,
     data: {
-      breadcrumb: {
-        alias: 'newJobBreadcrumbTitle'
-      }
+      breadcrumb: 'Nuevo'
     },
     canDeactivate: [PreventUnsavedChangesGuard]
   },
   {
     path: 'list',
+    data: {
+      breadcrumb: 'Lista'
+    },
     loadChildren: () => import('./list/list.module')
       .then(x => x.ListModule)
   },

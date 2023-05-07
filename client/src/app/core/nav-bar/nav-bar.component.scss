@@ -25,3 +25,28 @@
   border-radius: 0.5rem;
   box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.15);
 }
+
+.appearanceMenu {
+  z-index: 1;
+  width: 100%;
+}
+
+.accountMenu {
+  z-index: 2;
+  width: 100%;
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  .offcanvas {
+    max-width: 250px !important;
+    width: 100% !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .offcanvas {
+    max-width: none !important;
+    width: auto !important;
+  }
+}

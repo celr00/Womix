@@ -8,9 +8,7 @@ const routes: Routes = [
     path: 'new',
     component: NewComponent,
     data: {
-      breadcrumb: {
-        alias: 'newServiceTitle'
-      }
+      breadcrumb: 'Nuevo'
     },
     canDeactivate: [PreventUnsavedChangesGuard]
   },
