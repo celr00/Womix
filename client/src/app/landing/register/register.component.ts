@@ -52,7 +52,7 @@ export class RegisterComponent implements OnInit {
       email: ['', [Validators.required, Validators.email], [this.validateEmailNotTaken()]],
       password: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(60), Validators.pattern(this.complexPassword)]],
       confirmPassword: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(60), this.matchValues('password')]],
-      phoneNumber: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(10)]],
+      phoneNumber: ['', [Validators.minLength(8), Validators.maxLength(10)]],
       dateOfBirth: ['', [Validators.required]],
       facebook: ['', [Validators.minLength(5), Validators.maxLength(60)]],
       instagram: ['', [Validators.minLength(5), Validators.maxLength(60)]],
