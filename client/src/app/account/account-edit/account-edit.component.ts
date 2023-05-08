@@ -133,12 +133,12 @@ export class AccountEditComponent implements OnInit {
         userId: [''],
         addressId: [''],
         address: this.fb.group({
-          number: [''],
-          street: [''],
-          city: [''],
-          state: [''],
-          zipcode: [''],
-          id: ['']
+          number: ['', [Validators.required]],
+          street: ['', [Validators.required]],
+          city: ['', [Validators.required]],
+          state: ['', [Validators.required]],
+          zipcode: ['', [Validators.required]],
+          id: ['', [Validators.required]]
         })
       })
     })
