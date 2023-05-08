@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { ProductService } from 'src/app/product/product.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ProductService } from 'src/app/product/product.service';
 })
 export class AccountProductsComponent implements OnInit {
 
-  constructor(private productService: ProductService) {}
+  constructor(private productService: ProductService) {
+  }
 
   ngOnInit(): void {
     this.productService.getTypes().subscribe({})

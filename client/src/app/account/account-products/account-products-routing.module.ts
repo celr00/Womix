@@ -8,14 +8,15 @@ const routes: Routes = [
     path: 'new',
     component: AccountProductsNewComponent,
     data: {
-      breadcrumb: {
-        alias: 'newProductTitle'
-      }
+      breadcrumb: 'Nuevo'
     },
     canDeactivate: [PreventUnsavedChangesGuard]
   },
   {
     path: 'list',
+    data: {
+      breadcrumb: 'Lista'
+    },
     loadChildren: () => import('./account-products-list/account-products-list.module')
       .then(x => x.AccountProductsListModule)
   }

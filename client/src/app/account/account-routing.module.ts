@@ -27,9 +27,7 @@ const routes: Routes = [
     path: 'edit',
     component: AccountEditComponent,
     data: {
-      breadcrumb: {
-        alias: 'editProfileTitle'
-      }
+      breadcrumb: 'Editar perfil'
     },
     canDeactivate: [PreventUnsavedChangesAccountGuard]
   },

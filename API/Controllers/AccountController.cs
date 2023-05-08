@@ -259,7 +259,7 @@ namespace API.Controllers
             var user = await _userManager.Users
                 .SingleOrDefaultAsync(x => x.Id == userId);
 
-            var photoAddResult = await _photoService.AddPhoto(file);
+            var photoAddResult = await _photoService.AddAccountPhoto(file);
 
             if (photoAddResult.Error != null) return BadRequest(new ApiResponse(400, photoAddResult.Error.Message));
 

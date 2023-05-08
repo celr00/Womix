@@ -7,8 +7,8 @@ const routes: Routes = [
     path: '',
     component: ListComponent,
     data: {
-      breadcrumb: 'Mis trabajos'
-    }
+      breadcrumb: 'Lista'
+    },
   },
   {
     path: ':id',
