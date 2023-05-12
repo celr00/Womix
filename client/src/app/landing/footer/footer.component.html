@@ -3,18 +3,67 @@
     <div class="d-flex justify-content-evenly align-items-center">
       <img style="max-width: 100px;" src="../../../assets/Womix Nav Logo.svg" alt="">
       <nav class="nav flex-column flex-sm-row">
-        <a routerLink="/" class="nav-link text-decoration-none text-muted">
+        <button type="button" (click)="mostrarPoliticas('privacidad')" class="nav-link text-decoration-none text-muted">
           Política de Privacidad
-        </a>
-        <a routerLink="/" class="nav-link text-decoration-none text-muted">
+        </button>
+        <dialog id="politicasPrivacidad-dialog">
+          <div>
+            <h2>Política de Privacidad</h2>
+            <p>Este Aviso de Privacidad establece los términos en los que se recopila, utiliza, almacena y protege la información personal de los usuarios del sitio web Womix. Al utilizar nuestro sitio web, usted acepta las prácticas de privacidad descritas en este aviso.<br><br>
+              Información que recopilamos: Podemos recopilar información personal, como nombre, dirección de correo electrónico, número de teléfono y otra información relevante, cuando usted se registra en nuestro sitio web o cuando nos proporciona información voluntariamente.<br><br>
+              Cómo utilizamos la información: Utilizamos la información que recopilamos para proporcionarle acceso a nuestro sitio web y a los servicios que ofrecemos. También podemos utilizar la información para enviarle actualizaciones y promociones relacionadas con nuestro sitio web o los servicios que ofrecemos. No compartiremos su información personal con terceros, a menos que sea necesario para cumplir con la ley o proteger nuestros derechos.<br><br>
+              Cómo protegemos su información: Hemos implementado medidas de seguridad para proteger su información personal contra el acceso no autorizado, la divulgación y el uso indebido. Sin embargo, tenga en cuenta que ninguna transmisión de datos por internet es completamente segura, y no podemos garantizar la seguridad de su información personal.</p>
+          </div>
+          <button (click)="cerrarPoliticas('privacidad')">Cerrar</button>
+        </dialog>
+        
+        <button type="button" (click)="mostrarPoliticas('uso')" class="nav-link text-decoration-none text-muted">
           Condiciones de Uso
-        </a>
-        <a routerLink="/" class="nav-link text-decoration-none text-muted">
+        </button>
+        <dialog id="condicionesUso-dialog">
+          <div>
+            <h2>Condiciones de Uso</h2>
+            <p>Al acceder y utilizar nuestro sitio web, usted acepta las siguientes condiciones de uso:<br><br>
+              Contenido del sitio web: Todo el contenido en nuestro sitio web, incluyendo imágenes, textos, gráficos y otros materiales, está protegido por derechos de autor y otros derechos de propiedad intelectual. No está permitido copiar, reproducir, modificar o distribuir el contenido sin nuestro permiso expreso por escrito.<br><br>
+              Registro de cuenta: Para utilizar ciertas características y servicios en nuestro sitio web, puede ser necesario que cree una cuenta. Usted es responsable de mantener la seguridad de su cuenta y de la información de inicio de sesión. Si cree que su cuenta ha sido comprometida, debe notificarnos inmediatamente.<br><br>
+              Comentarios y contribuciones: Al hacer comentarios o contribuir con contenido a nuestro sitio web, usted acepta que el contenido que proporciona es preciso y no infringe los derechos de terceros. Nos reservamos el derecho de eliminar cualquier contenido que consideremos inapropiado o que viole nuestras condiciones de uso.
+              </p>
+          </div>
+          <button (click)="cerrarPoliticas('uso')">Cerrar</button>
+        </dialog>
+        
+        <button type="button" (click)="mostrarPoliticas('cookies')" class="nav-link text-decoration-none text-muted">
           Política de Cookies
-        </a>
-        <a routerLink="/" class="nav-link text-decoration-none text-muted">
+        </button>
+        <dialog id="politicasCookies-dialog">
+          <div>
+            <h2>Política de Cookies</h2>
+            <p>Utilizamos cookies y tecnologías similares para mejorar la experiencia del usuario en nuestro sitio web. Al utilizar nuestro sitio web, usted acepta el uso de cookies de acuerdo con esta política.<br><br>
+              ¿Qué son las cookies? Las cookies son pequeños archivos de texto que se almacenan en su dispositivo cuando visita nuestro sitio web. Las cookies nos ayudan a recordar sus preferencias y a mejorar su experiencia de usuario.<br><br>
+              ¿Cómo utilizamos las cookies? Utilizamos cookies para proporcionarle una experiencia de usuario personalizada, para realizar análisis y para mejorar la funcionalidad de nuestro sitio web. También podemos utilizar cookies para mostrar anuncios personalizados.<br><br>
+              ¿Cómo controlar las cookies? Puede controlar el uso de cookies en su navegador web. Sin embargo, tenga en cuenta que desactivar las cookies puede afectar la funcionalidad de nuestro sitio web.
+              </p>
+          </div>
+          <button (click)="cerrarPoliticas('cookies')">Cerrar</button>
+        </dialog>
+        
+        <button type="button" (click)="mostrarPoliticas('copyright')" class="nav-link text-decoration-none text-muted">
           Política de copyright
-        </a>
+        </button>
+        <dialog id="politicasCopyright-dialog">
+          <div>
+            <h2>Política de copyright</h2>
+            <p>Todos los contenidos publicados en Womix están protegidos por derechos de autor y otros derechos de propiedad intelectual. Está estrictamente prohibido copiar, reproducir, modificar, distribuir, transmitir, mostrar, vender, licenciar o explotar de cualquier otra forma cualquier contenido sin nuestro permiso expreso por escrito o el permiso del propietario de los derechos de autor correspondiente.<br><br>
+              Nos tomamos muy en serio la protección de los derechos de autor. Si cree que su trabajo ha sido copiado de manera que constituye una infracción de derechos de autor, por favor contáctenos inmediatamente proporcionando la siguiente información:<br>
+              - Una descripción detallada del trabajo protegido por derechos de autor que se ha infringido.
+              - Una descripción detallada de la ubicación en nuestro sitio web donde se encuentra el contenido que se ha infringido.
+              - Información de contacto, incluyendo su nombre, dirección de correo electrónico y número de teléfono.
+              - Una declaración de que cree de buena fe que el uso en cuestión no está autorizado por el propietario de los derechos de autor.
+              - Una declaración de que la información proporcionada en su notificación es precisa y, bajo pena de perjurio, que es el propietario de los derechos de autor o está autorizado para actuar en nombre del propietario.<br><br>
+              Tomaremos las medidas necesarias para eliminar el contenido infractor de nuestro sitio web lo antes posible.</p>
+          </div>
+          <button (click)="cerrarPoliticas('copyright')">Cerrar</button>
+        </dialog>
 
       </nav>
     </div>
