@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   errors: string[] | null = null;
   maxDate: Date = new Date();
   registerForm: FormGroup = new FormGroup({});
-  modal: Modal = new Modal;
+  // modal: Modal = new Modal;
 
   constructor(private fb: FormBuilder, private toastr: ToastrService, private router: Router,
     private accountService: AccountService, private consentService: RegisterConsentService) {}
@@ -72,14 +72,19 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     const dob = this.getDateOnly(this.registerForm.controls['dateOfBirth'].value);
     const value = {...this.registerForm.value, dateOfBirth: dob};
-    this.consentService.confirm(this.modal).subscribe({
-      next: modal => {
-        modal && this.accountService.register(value).subscribe({
-          next: () => {
-            this.registerForm.reset();
-          },
-        })
-      }
+    // this.consentService.confirm(this.modal).subscribe({
+    //   next: modal => {
+    //     modal && this.accountService.register(value).subscribe({
+    //       next: () => {
+    //         this.registerForm.reset();
+    //       },
+    //     })
+    //   }
+    // })
+    this.accountService.register(value).subscribe({
+      next: () => {
+        this.registerForm.reset();
+      },
     })
   }
 
