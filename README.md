@@ -794,3 +794,119 @@ netstat -ntpl
 journalctl -u womix-web.service --since "5 min ago"
 
 ```
+
+# womix-beta.online
+
+Url
+
+[womix-beta.online](https://womix-beta.online)
+
+IP Address
+
+`34.174.143.105`
+
+## SFTP
+### Cyberduck
+
+Server: `34.174.143.105`
+
+Port: `22`
+
+URL: `sftp://root@34.174.143.105/var/womix`
+
+Username: `root`
+
+Password: ` `
+
+SSH Private Key: `C:\Projects\Womix\private.ppk`
+
+Path: `/var/womix`
+
+- configure auto upload to server
+
+## Server configuration
+### `/etc/apache2/sites-available/womix.conf`
+
+```
+<IfModule mod_ssl.c>
+<VirtualHost *:443 *:5000>
+    ServerAdmin webmaster@localhost
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000
+    ServerName womix-beta.online
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+    ProxyPass "/ws" "ws://localhost:5000/hubs"
+    ProxyPassReverse "/ws" "ws://localhost:5000/hubs"
+
+
+Include /etc/letsencrypt/options-ssl-apache.conf
+SSLCertificateFile /etc/letsencrypt/live/womix-beta.online/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/womix-beta.online/privkey.pem
+
+RewriteEngine On
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{REQUEST_URI} ^/hubs [NC]
+RewriteCond %{QUERY_STRING} transport=websocket [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule /(.*) ws://127.0.1:5000/$1 [P,L]
+
+</VirtualHost>
+</IfModule>
+```
+
+### `/etc/apache2/sites-available/womix-le-ssl.conf`
+
+```
+<IfModule mod_ssl.c>
+<VirtualHost *:443 *:5000>
+    ServerAdmin webmaster@localhost
+    ProxyPreserveHost On
+    ProxyPass / http://127.0.0.1:5000/
+    ProxyPassReverse / http://127.0.0.1:5000
+    ServerName womix-beta.online
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+    
+    ProxyPass "/ws" "ws://localhost:5000/hubs"
+    ProxyPassReverse "/ws" "ws://localhost:5000/hubs"
+
+
+Include /etc/letsencrypt/options-ssl-apache.conf
+SSLCertificateFile /etc/letsencrypt/live/womix-beta.online/fullchain.pem
+SSLCertificateKeyFile /etc/letsencrypt/live/womix-beta.online/privkey.pem
+
+RewriteEngine On
+RewriteCond %{HTTP:Upgrade} websocket [NC]
+RewriteCond %{REQUEST_URI} ^/hubs [NC]
+RewriteCond %{QUERY_STRING} transport=websocket [NC]
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+RewriteRule /(.*) ws://127.0.1:5000/$1 [P,L]
+
+</VirtualHost>
+</IfModule>
+```
+
+### `/etc/systemd/system/womix-web.service`
+
+```
+[Unit]
+Description=Kestrel service running on Ubuntu 20.04
+[Service]
+WorkingDirectory=/var/womix
+ExecStart=/usr/bin/dotnet /var/womix/API.dll
+Restart=always
+RestartSec=10
+SyslogIdentifier=womix
+User=www-data
+Environment=ASPNETCORE_ENVIRONMENT=Production
+Environment='Token__Key=supersecretunguessablekey'
+Environment='Token__Issuer=https://womix-beta.online'
+Environment='ConnectionStrings__DefaultConnection=Server=localhost;Port=5432;User Id=appuser;Password=secret; Database=womix'
+[Install]
+WantedBy=multi-user.target
+```
