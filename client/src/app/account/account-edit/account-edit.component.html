@@ -18,7 +18,7 @@
             </div>
           </div>
           <div class="row">
-            <h3>Social media</h3>
+            <h3>Redes Sociales</h3>
             <div class="col-12 col-sm-6 col-md-5 col-lg-4">
               <app-text-input [label]="'Facebook'" [formControl]="$any(userForm.controls['facebook'])"></app-text-input>
             </div>
@@ -27,7 +27,7 @@
             </div>
           </div>
           <div class="row" *ngIf="$any(userForm.controls['appUserAddress'].get('address'))">
-            <h3>Address</h3>
+            <h3>Dirección</h3>
             <div class="col-4 col-sm-3 col-md-3 col-lg-2">
               <app-text-input [label]="'Número'" [formControl]="$any(userForm.controls['appUserAddress'].get('address')!.get('number'))"></app-text-input>
             </div>
