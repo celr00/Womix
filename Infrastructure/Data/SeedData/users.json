@@ -3,9 +3,11 @@
         "PhoneNumber": "8441106618",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://res.cloudinary.com/dmjdskgd4/image/upload/v1682203962/Dulce_Mar%C3%ADa_ifw8ty.png"
+                "Url": "https://res.cloudinary.com/dmjdskgd4/image/upload/v1682203962/Dulce_Mar%C3%ADa_ifw8ty.png",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Monterrey",
@@ -27,9 +29,11 @@
         "PhoneNumber": "555-555-5555",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/50.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/50.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "New York",
@@ -51,9 +55,11 @@
         "PhoneNumber": "857-482-0176",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/30.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/30.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Miami",
@@ -75,9 +81,11 @@
         "PhoneNumber": "202-555-0140",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/21.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/21.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Washington",
@@ -99,9 +107,11 @@
         "PhoneNumber": "212-555-0198",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/12.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/12.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "New York",
@@ -123,9 +133,11 @@
         "PhoneNumber": "312-555-0162",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/33.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/33.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Chicago",
@@ -147,9 +159,11 @@
         "PhoneNumber": "6501234567",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/1.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/1.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Los Angeles",
@@ -171,9 +185,11 @@
         "PhoneNumber": "3055551234",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/2.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/2.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Miami",
@@ -195,9 +211,11 @@
         "PhoneNumber": "2125556789",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/3.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/3.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "New York",
@@ -219,9 +237,11 @@
         "PhoneNumber": "5125559876",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/4.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/4.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Austin",
@@ -243,9 +263,11 @@
         "PhoneNumber": "415-555-0195",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/43.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/43.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "Van Ness Ave",
@@ -267,9 +289,11 @@
         "PhoneNumber": "212-555-0194",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/61.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/61.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "5th Ave",
@@ -291,9 +315,11 @@
         "PhoneNumber": "202-555-0176",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/24.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/24.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "L St NW",
@@ -315,9 +341,11 @@
         "PhoneNumber": "8250583834",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/25.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/25.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "Broadway",
@@ -339,9 +367,11 @@
         "PhoneNumber": "8240371587",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/18.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/18.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Houston",
@@ -363,9 +393,11 @@
         "PhoneNumber": "8230123456",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/13.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/13.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "New York",
@@ -387,9 +419,11 @@
         "PhoneNumber": "8230123456",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/13.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/13.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "New York",
@@ -411,9 +445,11 @@
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/1.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/1.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "Calle Reforma",
@@ -435,9 +471,11 @@
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/2.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/2.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "Calle del Mar",
@@ -459,9 +497,11 @@
         "PhoneNumber": "5551234567",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/3.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/3.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "Street": "Avenida Independencia",
@@ -483,9 +523,11 @@
         "PhoneNumber": "9782323431",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/1.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/1.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Moscow",
@@ -507,9 +549,11 @@
         "PhoneNumber": "9372567874",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/2.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/2.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Saint Petersburg",
@@ -531,9 +575,11 @@
         "PhoneNumber": "9245678910",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/3.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/3.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Kazan",
@@ -555,9 +601,11 @@
         "PhoneNumber": "9512345678",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/4.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/4.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Novosibirsk",
@@ -579,9 +627,11 @@
         "PhoneNumber": "542358943",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/79.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/79.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Kraków",
@@ -603,9 +653,11 @@
         "PhoneNumber": "612345679",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/24.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/24.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Warszawa",
@@ -627,9 +679,11 @@
         "PhoneNumber": "725487963",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/62.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/62.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Gdańsk",
@@ -651,9 +705,11 @@
         "PhoneNumber": "643256789",
         "AppUserPhoto": {
             "Photo": {
-                "Url": "https://randomuser.me/api/portraits/women/15.jpg"
+                "Url": "https://randomuser.me/api/portraits/women/15.jpg",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "Poznań",
@@ -675,9 +731,11 @@
         "PhoneNumber": "8120800336",
         "AppUserPhoto": {
             "Photo": {
-                "Url": ""
+                "Url": "",
+                "Visible": true
             }
         },
+        "ShowAddress": false,
         "AppUserAddress": {
             "Address": {
                 "City": "San Pedro Garza Garcia",

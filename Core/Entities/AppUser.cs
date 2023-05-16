@@ -28,5 +28,7 @@ namespace Core.Entities
 
         public List<Message> MessagesSent { get; set; }
         public List<Message> MessagesReceived { get; set; }
+
+        public bool ShowAddress { get; set; } = false;
     }
 }

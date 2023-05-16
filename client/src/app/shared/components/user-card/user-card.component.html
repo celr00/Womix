@@ -21,10 +21,13 @@
         <p class="text-info">
           {{user.age}} años
         </p>
-        <p *ngIf="user.address" class="fw-light text-muted fst-italic">
-          {{user.address.street}} {{user.address.number}}, {{user.address.zipcode}}, {{user.address.city}},
-          {{user.address.state}}
-        </p>
+
+        <ng-container *ngIf="user.showAddress">
+          <p *ngIf="user.address" class="fw-light text-muted fst-italic">
+            {{user.address.street}} {{user.address.number}}, {{user.address.zipcode}}, {{user.address.city}},
+            {{user.address.state}}
+          </p>
+        </ng-container>
         <div class="d-flex icons align-items-center">
           <a target="_blank" href="https://instagram.com/{{user.instagram}}" class="me-2">
             <img src="../../../assets/social-media-icons/instagram.svg" alt="{{user.fullName}} Instagram">

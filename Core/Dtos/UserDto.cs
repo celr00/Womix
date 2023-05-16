@@ -12,5 +12,6 @@ namespace Core.Dtos
         public string Instagram { get; set; }
         public AppUserPhotoDto AppUserPhoto { get; set; }
         public AppUserAddressDto AppUserAddress { get; set; }
+        public bool ShowAddress { get; set; }
     }
 }

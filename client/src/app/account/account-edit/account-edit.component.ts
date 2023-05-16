@@ -6,7 +6,7 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { UserEntity } from 'src/app/shared/models/app-user-entity';
 import { Modal } from 'src/app/shared/models/modal';
-import { Photo } from 'src/app/shared/models/service';
+import { Photo } from 'src/app/shared/models/photo';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -158,6 +158,15 @@ export class AccountEditComponent implements OnInit {
 
   receiveUserWithPhoto(event: any): void {
     this.loadUser();
+  }
+
+  toggleAddress() {
+    this.accountService.toggleAddress().subscribe({
+      next: res => {
+        this.user = res;
+        this.toastr.success('Preferencia actualizada correctamente');
+      }
+    })
   }
 
 }

@@ -1,0 +1,9 @@
+<ng-container *ngIf="photo">
+  <div class="card shadow-sm">
+    <img src="{{photo.url}}" class="card-img-top">
+    <div class="card-body">
+      <a *ngIf="!photo.visible" class="btn btn-primary" (click)="onChangeVisibilityClick()">Validar</a>
+      <a *ngIf="photo.visible" class="btn btn-secondary" (click)="onChangeVisibilityClick()">Cancelar</a>
+    </div>
+  </div>
+</ng-container>

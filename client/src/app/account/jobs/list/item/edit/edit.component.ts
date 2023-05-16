@@ -5,11 +5,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { Modal } from 'src/app/shared/models/modal';
-import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { Area, Job } from 'src/app/shared/models/job';
 import { JobsParams } from 'src/app/shared/models/jobs-params';
 import { AccountService } from 'src/app/landing/account.service';
+import { Photo } from 'src/app/shared/models/photo';
 
 @Component({
   selector: 'app-edit',

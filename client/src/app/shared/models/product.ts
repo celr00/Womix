@@ -1,3 +1,5 @@
+import { Photo } from "./photo"
+
 export interface Product {
   id: number
   name: string
@@ -12,11 +14,6 @@ export interface Product {
 interface ProductPhoto {
   photoId: number
   photo: Photo
-}
-
-interface Photo {
-  id: number
-  url: string
 }
 
 interface ProductItemClass {

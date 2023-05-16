@@ -69,6 +69,7 @@ namespace Infrastructure.Data.Migrations
                     DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
                     Facebook = table.Column<string>(type: "text", nullable: true),
                     Instagram = table.Column<string>(type: "text", nullable: true),
+                    ShowAddress = table.Column<bool>(type: "boolean", nullable: false),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -162,7 +163,8 @@ namespace Infrastructure.Data.Migrations
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     Url = table.Column<string>(type: "text", nullable: true),
-                    PublicId = table.Column<string>(type: "text", nullable: true)
+                    PublicId = table.Column<string>(type: "text", nullable: true),
+                    Visible = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
                 {
