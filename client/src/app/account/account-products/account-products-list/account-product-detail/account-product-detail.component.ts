@@ -6,9 +6,9 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { ProductService } from 'src/app/product/product.service';
 import { Modal } from 'src/app/shared/models/modal';
+import { Photo } from 'src/app/shared/models/photo';
 import { Product } from 'src/app/shared/models/product';
 import { ProductsParams } from 'src/app/shared/models/productsParams';
-import { Photo } from 'src/app/shared/models/service';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -87,7 +87,7 @@ export class AccountProductDetailComponent implements OnInit {
     const imageUrls = [];
     const photos: Photo[] = [];
     product.productPhotos.forEach(x => {
-      photos.push(x.photo)
+      if (x.photo.visible) photos.push(x.photo)
     });
     for (const photo of photos) {
       imageUrls.push({

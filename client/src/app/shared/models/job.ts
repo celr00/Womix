@@ -1,3 +1,5 @@
+import { Photo } from "./photo"
+
 export interface Job {
   id: number
   name: string
@@ -24,11 +26,6 @@ interface AreaPhoto {
   areaId: number
   photoId: number
   photo: Photo
-}
-
-interface Photo {
-  id: number
-  url: string
 }
 
 interface UserJob {

@@ -12,5 +12,6 @@ namespace Core.Dtos
         public AppUserPhotoDto AppUserPhoto { get; set; }
         public AppUserCurriculumDto AppUserCurriculum { get; set; }
         public AppUserAddressDto AppUserAddress { get; set; }
+        public bool ShowAddress { get; set; }
     }
 }

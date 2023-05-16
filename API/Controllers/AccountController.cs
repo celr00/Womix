@@ -36,7 +36,7 @@ namespace API.Controllers
             ITokenService tokenService, IMapper mapper, IGenericRepository<Address> addressRepo,
             IGenericRepository<Product> productRepo, IGenericRepository<Service> serviceRepo,
             IGenericRepository<Photo> photoRepo, IPhotoService photoService, IGenericRepository<Job> jobsRepo,
-            IConfiguration configuration, IPdfService pdfService
+            IConfiguration configuration, IPdfService pdfService, IWebHostEnvironment env
         )
         {
             _jobsRepo = jobsRepo;
@@ -51,9 +51,7 @@ namespace API.Controllers
             _tokenService = tokenService;
             _userManager = userManager;
             _configuration = configuration;
-            _resetUrl = configuration.GetValue<bool>("IsProduction")
-                ? "https://womix-beta.online/password_reset/{0}"
-                : "https://localhost:4200/password_reset/{0}";
+            _resetUrl = "https://womix-beta.online/password_reset/{0}";
         }
 
         [Authorize]
@@ -434,6 +432,26 @@ namespace API.Controllers
             if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
 
             return Ok();
+        }
+
+        [HttpPut("address")]
+        public async Task<ActionResult<AppUserEntityDto>> ToggleAddress()
+        {
+            var userId = User.GetUserId();
+            
+            var user = await _userManager.Users.SingleOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null) return NotFound(new ApiResponse(404, "User was not found"));
+
+            user.ShowAddress = !user.ShowAddress;
+
+            var result = await _userManager.UpdateAsync(user);
+
+            if (!result.Succeeded) return BadRequest(new ApiResponse(400, "Fallo al actualizar el usuario"));
+
+            var userToReturn = _mapper.Map<AppUser, AppUserEntityDto>(user);
+
+            return Ok(userToReturn);
         }
     }
 }

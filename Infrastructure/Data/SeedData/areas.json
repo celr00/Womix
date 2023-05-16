@@ -4,7 +4,8 @@
         "AreaPhoto": {
             "AreaId": 1,
             "Photo": {
-                "Url": "https://static.vecteezy.com/system/resources/previews/000/129/874/original/vector-free-engineering-icons.jpg"
+                "Url": "https://static.vecteezy.com/system/resources/previews/000/129/874/original/vector-free-engineering-icons.jpg",
+                "Visible": true
             }
         }
     },
@@ -13,7 +14,8 @@
         "AreaPhoto": {
             "AreaId": 2,
             "Photo": {
-                "Url": "https://www.pngkit.com/png/detail/296-2967118_conclusion-finance-icon.png"
+                "Url": "https://www.pngkit.com/png/detail/296-2967118_conclusion-finance-icon.png",
+                "Visible": true
             }
         }
     },
@@ -22,7 +24,8 @@
         "AreaPhoto": {
             "AreaId": 3,
             "Photo": {
-                "Url": "https://image.similarpng.com/very-thumbnail/2020/08/Marketing-with-like-and-star-icons-on-transparent-background-PNG.png"
+                "Url": "https://image.similarpng.com/very-thumbnail/2020/08/Marketing-with-like-and-star-icons-on-transparent-background-PNG.png",
+                "Visible": true
             }
         }
     },
@@ -31,7 +34,8 @@
         "AreaPhoto": {
             "AreaId": 4,
             "Photo": {
-                "Url": "https://static.vecteezy.com/system/resources/previews/001/222/490/original/customer-service-concept-in-flat-style-design-vector.jpg"
+                "Url": "https://static.vecteezy.com/system/resources/previews/001/222/490/original/customer-service-concept-in-flat-style-design-vector.jpg",
+                "Visible": true
             }
         }
     },
@@ -40,7 +44,8 @@
         "AreaPhoto": {
             "AreaId": 5,
             "Photo": {
-                "Url": "https://thumbs.dreamstime.com/b/flat-design-icon-human-resources-management-searching-professional-staff-analyzing-resume-recruitment-work-hr-vector-65253654.jpg"
+                "Url": "https://thumbs.dreamstime.com/b/flat-design-icon-human-resources-management-searching-professional-staff-analyzing-resume-recruitment-work-hr-vector-65253654.jpg",
+                "Visible": true
             }
         }
     },
@@ -49,7 +54,8 @@
         "AreaPhoto": {
             "AreaId": 6,
             "Photo": {
-                "Url": "https://img.freepik.com/premium-vector/flat-design-concept-sales-social-media-digital-marketing_18660-487.jpg"
+                "Url": "https://img.freepik.com/premium-vector/flat-design-concept-sales-social-media-digital-marketing_18660-487.jpg",
+                "Visible": true
             }
         }
     },
@@ -58,7 +64,8 @@
         "AreaPhoto": {
             "AreaId": 7,
             "Photo": {
-                "Url": "https://media.istockphoto.com/id/1399269037/vector/business-roadmap-flat-design-vector-illustration-with-white-background.jpg?s=612x612&w=0&k=20&c=6bEX7_lmVOrR0ry-zeOB0Pldgz7DbN32unDp6DUJhqg="
+                "Url": "https://media.istockphoto.com/id/1399269037/vector/business-roadmap-flat-design-vector-illustration-with-white-background.jpg?s=612x612&w=0&k=20&c=6bEX7_lmVOrR0ry-zeOB0Pldgz7DbN32unDp6DUJhqg=",
+                "Visible": true
             }
         }
     },
@@ -67,7 +74,8 @@
         "AreaPhoto": {
             "AreaId": 8,
             "Photo": {
-                "Url": "https://media.istockphoto.com/id/471629610/vector/caduceus-medical-symbol.jpg?s=612x612&w=0&k=20&c=jLnfdQQphRwsmm6wo0O80sEo-5PhbEY4PHmQgBiRkq0="
+                "Url": "https://media.istockphoto.com/id/471629610/vector/caduceus-medical-symbol.jpg?s=612x612&w=0&k=20&c=jLnfdQQphRwsmm6wo0O80sEo-5PhbEY4PHmQgBiRkq0=",
+                "Visible": true
             }
         }
     }

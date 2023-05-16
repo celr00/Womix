@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Photo, Service } from '../../models/service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
+import { Photo } from '../../models/photo';
 
 @Component({
   selector: 'app-card',
@@ -63,12 +63,12 @@ export class CardComponent implements OnInit {
     const photos: Photo[] = [];
     if (type === 'service') {
       this.item.servicePhotos.forEach((x:any) => {
-        photos.push(x.photo)
+        if (x.photo.visible) photos.push(x.photo)
       });
     }
     if (type === 'product') {
       this.item.productPhotos.forEach((x:any) => {
-        photos.push(x.photo)
+        if (x.photo.visible) photos.push(x.photo)
       });
     }
     for (const photo of photos) {

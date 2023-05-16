@@ -64,5 +64,11 @@
       <app-pdf-uploader (sendWithCurriculum)="receiveUserWithCurriculum($event)"
         [curriculumUrl]="curriculumUrl"></app-pdf-uploader>
     </tab>
+    <tab heading="Preferencias" class="pt-3">
+      <h3>Dirección</h3>
+      <p class="text-muted">Configuración para hacer disponible tu dirección al resto de los usuarios</p>
+      <button class="btn btn-secondary shadow-sm" (click)="toggleAddress()" *ngIf="user.showAddress">Ocultar</button>
+      <button class="btn btn-primary shadow-sm" (click)="toggleAddress()" *ngIf="!user.showAddress">Mostrar</button>
+    </tab>
   </tabset>
 </ng-container>

@@ -1,3 +1,5 @@
+import { Photo } from "./photo"
+
 export interface UserEntity {
   id: number
   firstName: string
@@ -9,17 +11,13 @@ export interface UserEntity {
   appUserPhoto: AppUserPhoto
   appUserCurriculum: AppUserCurriculum
   appUserAddress: AppUserAddress
+  showAddress: boolean
 }
 
 export interface AppUserPhoto {
   userId: number
   photoId: number
   photo: Photo
-}
-
-export interface Photo {
-  id: number
-  url: string
 }
 
 export interface AppUserCurriculum {

@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { AppUser } from 'src/app/shared/models/app-user';
-import { Photo, Service } from 'src/app/shared/models/service';
+import { Service } from 'src/app/shared/models/service';
 import { ServicesService } from '../services.service';
 import { ActivatedRoute } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
 import { UserService } from 'src/app/user/user.service';
 import { BreadcrumbService } from 'xng-breadcrumb';
+import { Photo } from 'src/app/shared/models/photo';
 
 @Component({
   // selector: 'app-detail',
@@ -58,7 +58,7 @@ export class DetailComponent implements OnInit {
     const imageUrls = [];
     const photos: Photo[] = [];
     this.service.servicePhotos.forEach(x => {
-      photos.push(x.photo)
+      if (x.photo.visible) photos.push(x.photo)
     });
     for (const photo of photos) {
       imageUrls.push({

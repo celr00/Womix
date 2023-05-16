@@ -10,6 +10,7 @@ export interface AppUser {
   photoUrl: string
   age: number
   address: Address
+  showAddress: boolean
 }
 
 interface Address {
