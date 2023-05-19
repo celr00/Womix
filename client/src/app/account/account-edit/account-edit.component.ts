@@ -107,12 +107,12 @@ export class AccountEditComponent implements OnInit {
   initForm(user: UserEntity) {
     const dob = new Date(user.dateOfBirth);
     this.userForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      dateOfBirth: [dob],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      dateOfBirth: [dob, [Validators.required]],
       facebook: [''],
       instagram: [''],
-      phoneNumber: [''],
+      phoneNumber: ['', [Validators.required]],
       appUserPhoto: this.fb.group({
         userId: [''],
         photoId: [''],
@@ -133,12 +133,12 @@ export class AccountEditComponent implements OnInit {
         userId: [''],
         addressId: [''],
         address: this.fb.group({
-          number: ['', [Validators.required]],
-          street: ['', [Validators.required]],
-          city: ['', [Validators.required]],
-          state: ['', [Validators.required]],
-          zipcode: ['', [Validators.required]],
-          id: ['', [Validators.required]]
+          number: [''],
+          street: [''],
+          city: [''],
+          state: [''],
+          zipcode: [''],
+          id: ['']
         })
       })
     })

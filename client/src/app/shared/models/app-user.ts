@@ -11,6 +11,7 @@ export interface AppUser {
   age: number
   address: Address
   showAddress: boolean
+  curriculum: string
 }
 
 interface Address {

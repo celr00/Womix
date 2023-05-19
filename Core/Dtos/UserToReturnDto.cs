@@ -16,5 +16,6 @@ namespace Core.Dtos
         public int Age { get; set; }
         public Address Address { get; set; }
         public bool ShowAddress { get; set; }
+        public string Curriculum { get; set; }
     }
 }
