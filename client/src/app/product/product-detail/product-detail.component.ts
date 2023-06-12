@@ -5,7 +5,7 @@ import { Product } from 'src/app/shared/models/product';
 import { BreadcrumbService } from 'xng-breadcrumb';
 import { UserService } from 'src/app/user/user.service';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from '@kolkov/ngx-gallery';
-import { Photo } from 'src/app/shared/models/service';
+import { Photo } from 'src/app/shared/models/photo';
 
 @Component({
   selector: 'app-product-detail',
@@ -60,7 +60,7 @@ export class ProductDetailComponent implements OnInit {
     const imageUrls = [];
     const photos: Photo[] = [];
     this.product.productPhotos.forEach(x => {
-      photos.push(x.photo)
+      if (x.photo.visible) photos.push(x.photo)
     });
     for (const photo of photos) {
       imageUrls.push({

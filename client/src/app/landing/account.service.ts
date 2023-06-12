@@ -152,4 +152,14 @@ export class AccountService {
       })
     )
   }
+
+  toggleAddress(): Observable<UserEntity>{
+    return this.http.put<UserEntity>(this.baseUrl + 'account/address', {}).pipe(
+      map(res => {
+        this.userEntity = res;
+        return res;
+      })
+    )
+  }
+
 }

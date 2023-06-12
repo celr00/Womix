@@ -4,5 +4,6 @@ namespace Core.Entities
     {
         public string Url { get; set; }
         public string PublicId { get; set; }
+        public bool Visible { get; set; } = false;
     }
 }

@@ -11,7 +11,7 @@ export class AdminGuard implements CanActivate {
   constructor(private accountService: AccountService, private toastr: ToastrService) {}
 
   canActivate(): Observable<boolean> {
-    return this.accountService.currentUser$.pipe(
+    return this.accountService.currentAccount$.pipe(
       map(account => {
         if (!account) return false;
         if (account.role === 'Admin') {

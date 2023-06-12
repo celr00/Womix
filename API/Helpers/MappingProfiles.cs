@@ -30,6 +30,8 @@ namespace API.Helpers
                     opt.MapFrom(src => src.FirstName + " " + src.LastName))
                 .ForMember(dest => dest.PhotoUrl, opt =>
                     opt.MapFrom(src => src.AppUserPhoto.Photo.Url))
+                .ForMember(dest => dest.Curriculum, opt =>
+                    opt.MapFrom(src => src.AppUserCurriculum.Curriculum.Url))
                 .ForMember(dest => dest.Age, opt => opt.MapFrom(src => src.DateOfBirth.CalculateAge()))
                 .ForPath(dest => dest.Address.City, opt =>
                     opt.MapFrom(src => src.AppUserAddress.Address.City))

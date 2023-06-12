@@ -60,6 +60,17 @@
                   <strong>{{account.firstName}}</strong>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end">
+                  <ng-container *ngIf="account.role === 'Admin'">
+                    <li><span class="dropdown-item-text fw-bold text-muted ms-2">
+                      Administrador
+                      <i class="bi bi-eyeglasses ms-2"></i>
+                    </span></li>
+                  <li><a class="dropdown-item" routerLink="/admin/photos" routerLinkActive="active">
+                      <i class="bi bi-camera-fill me-2"></i>
+                      Moderar fotos
+                    </a></li>
+                  <div class="dropdown-divider"></div>
+                  </ng-container>
                   <ng-container [ngTemplateOutlet]="accountMenu"
                     [ngTemplateOutletContext]="{ account: account }"></ng-container>
                 </ul>

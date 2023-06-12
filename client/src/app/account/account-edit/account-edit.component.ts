@@ -6,7 +6,7 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { UserEntity } from 'src/app/shared/models/app-user-entity';
 import { Modal } from 'src/app/shared/models/modal';
-import { Photo } from 'src/app/shared/models/service';
+import { Photo } from 'src/app/shared/models/photo';
 import { BreadcrumbService } from 'xng-breadcrumb';
 
 @Component({
@@ -107,12 +107,12 @@ export class AccountEditComponent implements OnInit {
   initForm(user: UserEntity) {
     const dob = new Date(user.dateOfBirth);
     this.userForm = this.fb.group({
-      firstName: [''],
-      lastName: [''],
-      dateOfBirth: [dob],
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      dateOfBirth: [dob, [Validators.required]],
       facebook: [''],
       instagram: [''],
-      phoneNumber: [''],
+      phoneNumber: ['', [Validators.required]],
       appUserPhoto: this.fb.group({
         userId: [''],
         photoId: [''],
@@ -133,12 +133,12 @@ export class AccountEditComponent implements OnInit {
         userId: [''],
         addressId: [''],
         address: this.fb.group({
-          number: ['', [Validators.required]],
-          street: ['', [Validators.required]],
-          city: ['', [Validators.required]],
-          state: ['', [Validators.required]],
-          zipcode: ['', [Validators.required]],
-          id: ['', [Validators.required]]
+          number: [''],
+          street: [''],
+          city: [''],
+          state: [''],
+          zipcode: [''],
+          id: ['']
         })
       })
     })
@@ -158,6 +158,15 @@ export class AccountEditComponent implements OnInit {
 
   receiveUserWithPhoto(event: any): void {
     this.loadUser();
+  }
+
+  toggleAddress() {
+    this.accountService.toggleAddress().subscribe({
+      next: res => {
+        this.user = res;
+        this.toastr.success('Preferencia actualizada correctamente');
+      }
+    })
   }
 
 }

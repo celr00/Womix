@@ -18,10 +18,10 @@ import { AccountService } from '../landing/account.service';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent implements OnInit {
-  user: AppUser | undefined;
+  user?: AppUser;
   id: number;
-  products: Product[] = [];
-  services: Service[] = [];
+  products?: Product[];
+  services?: Service[];
   productParams: ProductsParams;
   serviceParams: ServiceParams;
 

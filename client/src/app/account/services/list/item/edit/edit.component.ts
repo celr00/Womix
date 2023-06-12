@@ -6,7 +6,8 @@ import { ConfirmService } from 'src/app/core/services/confirm.service';
 import { AccountService } from 'src/app/landing/account.service';
 import { ServicesService } from 'src/app/services/services.service';
 import { Modal } from 'src/app/shared/models/modal';
-import { Category, Photo, Service } from 'src/app/shared/models/service';
+import { Photo } from 'src/app/shared/models/photo';
+import { Category, Service } from 'src/app/shared/models/service';
 import { ServiceParams } from 'src/app/shared/models/service-params';
 import { BreadcrumbService } from 'xng-breadcrumb';
 

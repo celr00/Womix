@@ -11,10 +11,10 @@ import { PresenceService } from 'src/app/_services/presence.service';
 })
 export class UserCardComponent implements OnInit {
   @Input() loggedIn = false;
-  @Input() user: AppUser | undefined;
+  @Input() user?: AppUser;
   @Input() fromAccount: boolean = false;
   @Input() compact = false;
-  isSaved: boolean | undefined;
+  isSaved?: boolean;
 
   constructor(private toastr: ToastrService, private userService: UserService, public presenceService: PresenceService) {}
 

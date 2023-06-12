@@ -6,9 +6,10 @@ import { ProductService } from 'src/app/product/product.service';
 import { environment } from 'src/environments/environment';
 import { Product } from '../../models/product';
 import { ActivatedRoute } from '@angular/router';
-import { Photo, Service } from '../../models/service';
+import { Service } from '../../models/service';
 import { ServicesService } from 'src/app/services/services.service';
 import { UserEntity } from '../../models/app-user-entity';
+import { Photo } from '../../models/photo';
 
 @Component({
   selector: 'app-photo-upload',

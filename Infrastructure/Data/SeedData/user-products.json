@@ -10,25 +10,29 @@
                 {
                     "ProductId": 1,
                     "Photo": {
-                        "Url": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1"
+                        "Url": "https://cdn-dynmedia-1.microsoft.com/is/image/microsoftcorp/SurfaceLaptop4_tbmnl_es-mx?scl=1",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 1,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71yC2B6zmEL.AC_SL1500.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71yC2B6zmEL.AC_SL1500.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 1,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg"
+                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61L+WZakwBL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 1,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg"
+                        "Url": "https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61YyBesJqcL.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -49,25 +53,29 @@
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://cdn.shoesector.com/500378-thickbox_default/lacoste-men-classic-pique-slim-fit-short-sleeve-polo.jpg"
+                        "Url": "https://cdn.shoesector.com/500378-thickbox_default/lacoste-men-classic-pique-slim-fit-short-sleeve-polo.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://images-na.ssl-images-amazon.com/images/I/51QVG1PHFHL.jpg"
+                        "Url": "https://images-na.ssl-images-amazon.com/images/I/51QVG1PHFHL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/a01fff69-5147-4493-b25a-7b6e62c5dce8_1.e480576ddd00b8cbed7694593f3a85f9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                        "Url": "https://i5.walmartimages.com/asr/a01fff69-5147-4493-b25a-7b6e62c5dce8_1.e480576ddd00b8cbed7694593f3a85f9.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 2,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/91v8wvJMiwL._AC_UY1000_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/91v8wvJMiwL._AC_UY1000_.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -89,19 +97,22 @@
                 {
                     "ProductId": 3,
                     "Photo": {
-                        "Url": "https://cdn.shopify.com/s/files/1/0130/2999/8656/products/babolat-pure-aero-826900.jpg?v=1624301906"
+                        "Url": "https://cdn.shopify.com/s/files/1/0130/2999/8656/products/babolat-pure-aero-826900.jpg?v=1624301906",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 3,
                     "Photo": {
-                        "Url": "https://cdn.shopify.com/s/files/1/0500/2248/2080/products/101488_1_1024x1024.jpg?v=1663180571"
+                        "Url": "https://cdn.shopify.com/s/files/1/0500/2248/2080/products/101488_1_1024x1024.jpg?v=1663180571",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 3,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/514REwvE1jL._AC_SX425_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/514REwvE1jL._AC_SX425_.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -123,25 +134,29 @@
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://www.extreme-tennis.fr/25306-medium_default/wilson-pro-staff-rf97-autograph-v130-340g-test-racket.jpg"
+                        "Url": "https://www.extreme-tennis.fr/25306-medium_default/wilson-pro-staff-rf97-autograph-v130-340g-test-racket.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/51PmKcYqJfL._SL1200_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/51PmKcYqJfL._SL1200_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://i.ytimg.com/vi/ey18hh_pWnA/maxresdefault.jpg"
+                        "Url": "https://i.ytimg.com/vi/ey18hh_pWnA/maxresdefault.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 4,
                     "Photo": {
-                        "Url": "https://img.tennis-warehouse.com/watermark/rs.php?path=97V13R-1.jpg&nw=455"
+                        "Url": "https://img.tennis-warehouse.com/watermark/rs.php?path=97V13R-1.jpg&nw=455",
+                        "Visible": true
                     }
                 }
             ],
@@ -163,25 +178,29 @@
                 {
                     "ProductId": 5,
                     "Photo": {
-                        "Url": "https://i.insider.com/5f99d8ff6f5b310011724085?width=700"
+                        "Url": "https://i.insider.com/5f99d8ff6f5b310011724085?width=700",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 5,
                     "Photo": {
-                        "Url": "https://kitchenaid-h.assetsadobe.com/is/image/content/dam/business-unit/kitchenaid/en-us/digital-assets/pages/bowl-lift/image-flyout--bowl-lift-red-revised.jpg?fmt=png-alpha&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&scl=1&constrain=fit,1"
+                        "Url": "https://kitchenaid-h.assetsadobe.com/is/image/content/dam/business-unit/kitchenaid/en-us/digital-assets/pages/bowl-lift/image-flyout--bowl-lift-red-revised.jpg?fmt=png-alpha&qlt=85,0&resMode=sharp2&op_usm=1.75,0.3,2,0&scl=1&constrain=fit,1",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 5,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61HxNqW+aPL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61HxNqW+aPL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 5,
                     "Photo": {
-                        "Url": "https://www.kitchenaid.in/content/kitchenaid/en_in/countertop-appliances/stand-mixers/see-all/_jcr_content/root/main/parsys-bottom/responsivegrid_340956052/container_copy/wrapperParsys/responsivegrid/image.coreimg.jpeg/1587038508404/stand-mixer.jpeg"
+                        "Url": "https://www.kitchenaid.in/content/kitchenaid/en_in/countertop-appliances/stand-mixers/see-all/_jcr_content/root/main/parsys-bottom/responsivegrid_340956052/container_copy/wrapperParsys/responsivegrid/image.coreimg.jpeg/1587038508404/stand-mixer.jpeg",
+                        "Visible": true
                     }
                 }
             ],
@@ -203,25 +222,29 @@
                 {
                     "ProductId": 6,
                     "Photo": {
-                        "Url": "https://www.cuisinart.ca/on/demandware.static/-/Sites-master-ca/default/dw8bc6a4e5/FP-14DCNC_3.jpg"
+                        "Url": "https://www.cuisinart.ca/on/demandware.static/-/Sites-master-ca/default/dw8bc6a4e5/FP-14DCNC_3.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 6,
                     "Photo": {
-                        "Url": "https://cb.scene7.com/is/image/Crate/CuisFoodPrcssr14cpBlkSSSHF18/$web_pdp_main_carousel_zoom_low$/220913143710/cuisinart-food-processor-14-cup-black-stainless.jpg"
+                        "Url": "https://cb.scene7.com/is/image/Crate/CuisFoodPrcssr14cpBlkSSSHF18/$web_pdp_main_carousel_zoom_low$/220913143710/cuisinart-food-processor-14-cup-black-stainless.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 6,
                     "Photo": {
-                        "Url": "https://secure.img1-fg.wfcdn.com/im/62275091/compr-r85/1047/104751441/cuisinart-14-cup-food-processor.jpg"
+                        "Url": "https://secure.img1-fg.wfcdn.com/im/62275091/compr-r85/1047/104751441/cuisinart-14-cup-food-processor.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 6,
                     "Photo": {
-                        "Url": "https://cdn.thewirecutter.com/wp-content/uploads/2020/01/05-food-processor-cuisinart-custom-630.jpg"
+                        "Url": "https://cdn.thewirecutter.com/wp-content/uploads/2020/01/05-food-processor-cuisinart-custom-630.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -243,25 +266,29 @@
                 {
                     "ProductId": 7,
                     "Photo": {
-                        "Url": "https://i2-prod.bristolpost.co.uk/incoming/article6952928.ece/ALTERNATES/s1200c/0_ninja-1.jpg"
+                        "Url": "https://i2-prod.bristolpost.co.uk/incoming/article6952928.ece/ALTERNATES/s1200c/0_ninja-1.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 7,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/3d11b8e2-91f9-4bb6-885f-82579d3b0f58.019636a2baca3a242da85a57efa4356f.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/3d11b8e2-91f9-4bb6-885f-82579d3b0f58.019636a2baca3a242da85a57efa4356f.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 7,
                     "Photo": {
-                        "Url": "https://res.cloudinary.com/sharkninja/image/upload/v1662995885/Ninja/AF451UK/Ninja-AF451UK-InUse-OnIsland-Overhead-TwoWholeChickens-Woman_copy.jpg"
+                        "Url": "https://res.cloudinary.com/sharkninja/image/upload/v1662995885/Ninja/AF451UK/Ninja-AF451UK-InUse-OnIsland-Overhead-TwoWholeChickens-Woman_copy.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 7,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71+8uTMDRFL._AC_SL1500_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71+8uTMDRFL._AC_SL1500_.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -283,25 +310,29 @@
                 {
                     "ProductId": 8,
                     "Photo": {
-                        "Url": "https://runawayrice.com/wp-content/uploads/2019/03/Instant-Pot-DUO-Plus-60-In-Box.jpg"
+                        "Url": "https://runawayrice.com/wp-content/uploads/2019/03/Instant-Pot-DUO-Plus-60-In-Box.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 8,
                     "Photo": {
-                        "Url": "https://http2.mlstatic.com/D_NQ_NP_684580-MLA46089463991_052021-O.jpg"
+                        "Url": "https://http2.mlstatic.com/D_NQ_NP_684580-MLA46089463991_052021-O.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 8,
                     "Photo": {
-                        "Url": "https://www.cleaneatingkitchen.com/wp-content/uploads/2021/02/carrie-holding-instant-pot-duo.jpeg"
+                        "Url": "https://www.cleaneatingkitchen.com/wp-content/uploads/2021/02/carrie-holding-instant-pot-duo.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 8,
                     "Photo": {
-                        "Url": "https://embed.widencdn.net/img/worldkitchen/vhahobl5te/650x650px/IB_112-0170-01_113-0059-01_Duo-V5-6QT-8QT_ATF_Square_Tile2_v3.jpeg"
+                        "Url": "https://embed.widencdn.net/img/worldkitchen/vhahobl5te/650x650px/IB_112-0170-01_113-0059-01_Duo-V5-6QT-8QT_ATF_Square_Tile2_v3.jpeg",
+                        "Visible": true
                     }
                 }
             ],
@@ -327,25 +358,29 @@
                 {
                     "ProductId": 9,
                     "Photo": {
-                        "Url": "https://b3h2.scene7.com/is/image/BedBathandBeyond/56803109908c?$380$&wid=380&hei=380"
+                        "Url": "https://b3h2.scene7.com/is/image/BedBathandBeyond/56803109908c?$380$&wid=380&hei=380",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 9,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61nVfVL75yL._AC_SX466_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61nVfVL75yL._AC_SX466_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 9,
                     "Photo": {
-                        "Url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6291/6291884cv18d.jpg"
+                        "Url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/6291/6291884cv18d.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 9,
                     "Photo": {
-                        "Url": "https://www.cuisinart.com/globalassets/cuisinart-image-feed/mcp-12n/cuisinart_multiclad_tri-ply_stainless_steel_12-piece_cookware_set-1.jpg"
+                        "Url": "https://www.cuisinart.com/globalassets/cuisinart-image-feed/mcp-12n/cuisinart_multiclad_tri-ply_stainless_steel_12-piece_cookware_set-1.jpg",
+                        "Visible": true
                     }
                 }
             ]
@@ -367,25 +402,29 @@
                 {
                     "ProductId": 10,
                     "Photo": {
-                        "Url": "https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2129715_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1"
+                        "Url": "https://slimages.macysassets.com/is/image/MCY/products/5/optimized/2129715_fpx.tif?op_sharpen=1&wid=700&hei=855&fit=fit,1",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 10,
                     "Photo": {
-                        "Url": "https://images.thdstatic.com/productImages/3f7e3a5d-0a60-4d20-a365-3e1f0414bf4a/svn/silver-kitchenaid-stand-mixers-ksm75sl-64_1000.jpg"
+                        "Url": "https://images.thdstatic.com/productImages/3f7e3a5d-0a60-4d20-a365-3e1f0414bf4a/svn/silver-kitchenaid-stand-mixers-ksm75sl-64_1000.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 10,
                     "Photo": {
-                        "Url": "https://media.kohlsimg.com/is/image/kohls/1392420_White?wid=1000&hei=1000&op_sharpen=1"
+                        "Url": "https://media.kohlsimg.com/is/image/kohls/1392420_White?wid=1000&hei=1000&op_sharpen=1",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 10,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61JeOt-5CPL._AC_SY450_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61JeOt-5CPL._AC_SY450_.jpg",
+                        "Visible": true
                     }
                 }
             ]
@@ -407,25 +446,29 @@
                 {
                     "ProductId": 11,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 11,
                     "Photo": {
-                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1509333-847&recipeName=680"
+                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1509333-847&recipeName=680",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 11,
                     "Photo": {
-                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1174758-847&recipeName=680"
+                        "Url": "https://images.costco-static.com/ImageDelivery/imageService?profileId=12026540&itemId=1174758-847&recipeName=680",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 11,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71hIKuaN-pL.jpg",
+                        "Visible": true
                     }
                 }
             ]
@@ -443,25 +486,29 @@
                 {
                     "ProductId": 12,
                     "Photo": {
-                        "Url": "https://www.donaguacato.com/us/wp-content/uploads/2017/01/aguacate-1.png"
+                        "Url": "https://www.donaguacato.com/us/wp-content/uploads/2017/01/aguacate-1.png",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 12,
                     "Photo": {
-                        "Url": "https://cdn.shopify.com/s/files/1/0336/7167/5948/products/image-of-organic-avocado-organics-28658515607596_600x600.jpg?v=1627982727"
+                        "Url": "https://cdn.shopify.com/s/files/1/0336/7167/5948/products/image-of-organic-avocado-organics-28658515607596_600x600.jpg?v=1627982727",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 12,
                     "Photo": {
-                        "Url": "https://s.cornershopapp.com/product-images/2431423.jpg?versionId=9m6DRLPBsbGsm1XQ0_bhhckrNTTG1jHr"
+                        "Url": "https://s.cornershopapp.com/product-images/2431423.jpg?versionId=9m6DRLPBsbGsm1XQ0_bhhckrNTTG1jHr",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 12,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/51218VNkIOL._AC_UF1000,1000_QL80_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/51218VNkIOL._AC_UF1000,1000_QL80_.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -483,25 +530,29 @@
                 {
                     "ProductId": 13,
                     "Photo": {
-                        "Url": "https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684710272458/0e5338a8cf44b40b988009a8ac1c4e0a_large.png&width=512&type=webp&quality=90"
+                        "Url": "https://ipcdn.freshop.com/resize?url=https://images.freshop.com/1564405684710272458/0e5338a8cf44b40b988009a8ac1c4e0a_large.png&width=512&type=webp&quality=90",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 13,
                     "Photo": {
-                        "Url": "https://strawberryplants.org/wp-content/uploads/Organic-Strawberry-Plants-2.jpg"
+                        "Url": "https://strawberryplants.org/wp-content/uploads/Organic-Strawberry-Plants-2.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 13,
                     "Photo": {
-                        "Url": "https://target.scene7.com/is/image/Target/GUEST_95c6384a-7d40-4b61-8198-3d6a1598af5f?wid=488&hei=488&fmt=pjpeg"
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_95c6384a-7d40-4b61-8198-3d6a1598af5f?wid=488&hei=488&fmt=pjpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 13,
                     "Photo": {
-                        "Url": "https://modernfarmer.com/wp-content/uploads/2018/07/how-to-grow-strawberries-1200x900.jpg"
+                        "Url": "https://modernfarmer.com/wp-content/uploads/2018/07/how-to-grow-strawberries-1200x900.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -523,25 +574,29 @@
                 {
                     "ProductId": 14,
                     "Photo": {
-                        "Url": "https://s.cornershopapp.com/product-images/1414842.jpg?versionId=smHoqaX1G0bKmEg4AgHFwlYlt6izGPGE"
+                        "Url": "https://s.cornershopapp.com/product-images/1414842.jpg?versionId=smHoqaX1G0bKmEg4AgHFwlYlt6izGPGE",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 14,
                     "Photo": {
-                        "Url": "https://www.cabofinefoods.com/wp-content/uploads/2020/06/Dairy-Refrigerated-Horizon-Organics-Whole-Milk-Organic.jpg"
+                        "Url": "https://www.cabofinefoods.com/wp-content/uploads/2020/06/Dairy-Refrigerated-Horizon-Organics-Whole-Milk-Organic.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 14,
                     "Photo": {
-                        "Url": "https://horizon.com/wp-content/uploads/horizon-organic-whole-milk.png"
+                        "Url": "https://horizon.com/wp-content/uploads/horizon-organic-whole-milk.png",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 14,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/cfd574e0-24f8-42f1-8f6e-ea501e55c23a.df41d348475fdc9f22e9695e8f53a1fd.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/cfd574e0-24f8-42f1-8f6e-ea501e55c23a.df41d348475fdc9f22e9695e8f53a1fd.jpeg",
+                        "Visible": true
                     }
                 }
             ],
@@ -563,25 +618,29 @@
                 {
                     "ProductId": 15,
                     "Photo": {
-                        "Url": "https://bulkfoods.com/895-large_default/organic-low-acid-ground-coffee.jpg"
+                        "Url": "https://bulkfoods.com/895-large_default/organic-low-acid-ground-coffee.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 15,
                     "Photo": {
-                        "Url": "https://cdn.shopify.com/s/files/1/0069/2201/0735/products/macro-organic-coffee-ground-arabica-medium-roast-3-200g-drinks-macro-wholefoods-market-382357_800x.jpg?v=1665376413"
+                        "Url": "https://cdn.shopify.com/s/files/1/0069/2201/0735/products/macro-organic-coffee-ground-arabica-medium-roast-3-200g-drinks-macro-wholefoods-market-382357_800x.jpg?v=1665376413",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 15,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71f74f0aUIL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71f74f0aUIL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 15,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/575c3203-67fb-4010-a5ee-46bfca907aba.4a04c5d30df88a61ddb48d0a3fdd0694.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/575c3203-67fb-4010-a5ee-46bfca907aba.4a04c5d30df88a61ddb48d0a3fdd0694.jpeg",
+                        "Visible": true
                     }
                 }
             ],
@@ -603,25 +662,29 @@
                 {
                     "ProductId": 16,
                     "Photo": {
-                        "Url": "https://target.scene7.com/is/image/Target/GUEST_90259dc9-363e-43e3-9570-93655723ec61?wid=488&hei=488&fmt=pjpeg"
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_90259dc9-363e-43e3-9570-93655723ec61?wid=488&hei=488&fmt=pjpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 16,
                     "Photo": {
-                        "Url": "https://cdn.producebusiness.com/2019/12/sept-organicbananas-feature.jpg"
+                        "Url": "https://cdn.producebusiness.com/2019/12/sept-organicbananas-feature.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 16,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/4b15d1c6-03e7-489b-96cb-7d4b1edeb927.042464e5bc52fa0421f255d04ec525a4.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/4b15d1c6-03e7-489b-96cb-7d4b1edeb927.042464e5bc52fa0421f255d04ec525a4.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 16,
                     "Photo": {
-                        "Url": "https://superette.com.mx/wp-content/uploads/2021/07/h6-product6.png"
+                        "Url": "https://superette.com.mx/wp-content/uploads/2021/07/h6-product6.png",
+                        "Visible": true
                     }
                 }
             ],
@@ -643,25 +706,29 @@
                 {
                     "ProductId": 17,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/81aijximwiL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/81aijximwiL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 17,
                     "Photo": {
-                        "Url": "https://nuts.com/images/rackcdn/ed910ae2d60f0d25bcb8-80550f96b5feb12604f4f720bfefb46d.ssl.cf1.rackcdn.com/7596_ZOOMEDOrganicRo-x6_SYDs6-zoom.jpg"
+                        "Url": "https://nuts.com/images/rackcdn/ed910ae2d60f0d25bcb8-80550f96b5feb12604f4f720bfefb46d.ssl.cf1.rackcdn.com/7596_ZOOMEDOrganicRo-x6_SYDs6-zoom.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 17,
                     "Photo": {
-                        "Url": "https://onedegreeorganics.com/wp-content/uploads/2023/01/ODO_Rolled_Oats_24oz_US_1000x1000.png"
+                        "Url": "https://onedegreeorganics.com/wp-content/uploads/2023/01/ODO_Rolled_Oats_24oz_US_1000x1000.png",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 17,
                     "Photo": {
-                        "Url": "https://www.bobsredmill.com/media/catalog/product/cache/3b391e1591e1362f5e9fe6293f04dac3/6/0/6048s164_organic_regularrolledoats_f_1.jpg"
+                        "Url": "https://www.bobsredmill.com/media/catalog/product/cache/3b391e1591e1362f5e9fe6293f04dac3/6/0/6048s164_organic_regularrolledoats_f_1.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -683,25 +750,29 @@
                 {
                     "ProductId": 18,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/0467a35f-bece-45fd-a3d1-9e8f6e71b9ac.8bddfa865f425ab5a979514ff18f1e07.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/0467a35f-bece-45fd-a3d1-9e8f6e71b9ac.8bddfa865f425ab5a979514ff18f1e07.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 18,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/716KGD8484L.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/716KGD8484L.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 18,
                     "Photo": {
-                        "Url": "https://s.cornershopapp.com/product-images/1403094.jpg?versionId=dJ9DeKEUAm43G77uqJaytaaDjcQPDCsC"
+                        "Url": "https://s.cornershopapp.com/product-images/1403094.jpg?versionId=dJ9DeKEUAm43G77uqJaytaaDjcQPDCsC",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 18,
                     "Photo": {
-                        "Url": "https://es.aveeno.com/sites/aveeno_us_2/files/product-images/ave_381371172405_us_daily_moisturizing_body_wash_33oz_00015-min.png"
+                        "Url": "https://es.aveeno.com/sites/aveeno_us_2/files/product-images/ave_381371172405_us_daily_moisturizing_body_wash_33oz_00015-min.png",
+                        "Visible": true
                     }
                 }
             ],
@@ -723,25 +794,29 @@
                 {
                     "ProductId": 19,
                     "Photo": {
-                        "Url": "https://target.scene7.com/is/image/Target/GUEST_a89bef80-e953-48ed-877c-20c5e5accd71?wid=488&hei=488&fmt=pjpeg"
+                        "Url": "https://target.scene7.com/is/image/Target/GUEST_a89bef80-e953-48ed-877c-20c5e5accd71?wid=488&hei=488&fmt=pjpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 19,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/81bt+nsDyrL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/81bt+nsDyrL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 19,
                     "Photo": {
-                        "Url": "https://ntg-catalog.imgix.net/products/6811049-pack-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop"
+                        "Url": "https://ntg-catalog.imgix.net/products/6811049-pack-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 19,
                     "Photo": {
-                        "Url": "https://ntg-catalog.imgix.net/products/6811049-MAIN-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop"
+                        "Url": "https://ntg-catalog.imgix.net/products/6811049-MAIN-2101-2.jpg?fm=webp&auto=format&w=1200&h=1443&fit=crop",
+                        "Visible": true
                     }
                 }
             ],
@@ -763,25 +838,29 @@
                 {
                     "ProductId": 20,
                     "Photo": {
-                        "Url": "https://ae01.alicdn.com/kf/H00311a725f7d42a8ab74c8967089c8d01/Professional-3D-White-Whitestrips-LUXE-Professional-Effects-Original-Oral-Hygiene-Teeth-Whitening-100-Original.jpg"
+                        "Url": "https://ae01.alicdn.com/kf/H00311a725f7d42a8ab74c8967089c8d01/Professional-3D-White-Whitestrips-LUXE-Professional-Effects-Original-Oral-Hygiene-Teeth-Whitening-100-Original.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 20,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/714O8YHhbtL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/714O8YHhbtL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 20,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/91CN0E4cKhL._AC_SX425_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/91CN0E4cKhL._AC_SX425_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 20,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/43b66c18-67ba-4415-be76-6a0d57890b81_1.ff8794772b32753ec6493ce06287aa2d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF"
+                        "Url": "https://i5.walmartimages.com/asr/43b66c18-67ba-4415-be76-6a0d57890b81_1.ff8794772b32753ec6493ce06287aa2d.jpeg?odnHeight=612&odnWidth=612&odnBg=FFFFFF",
+                        "Visible": true
                     }
                 }
             ],
@@ -803,25 +882,29 @@
                 {
                     "ProductId": 21,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71eYqcoZEYL._AC_SL1500_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71eYqcoZEYL._AC_SL1500_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 21,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/a2572306-1b3f-421c-9b74-2580a4c0bdaf.01052f85cf481422031f014dc86a82d3.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/a2572306-1b3f-421c-9b74-2580a4c0bdaf.01052f85cf481422031f014dc86a82d3.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 21,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61qouR91jpL._AC_SY879_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61qouR91jpL._AC_SY879_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 21,
                     "Photo": {
-                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/niv/niv01150/l/17.jpg"
+                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/niv/niv01150/l/17.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -842,25 +925,29 @@
                 {
                     "ProductId": 22,
                     "Photo": {
-                        "Url": "https://images.philips.com/is/image/philipsconsumer/ab71a8b6d18049bba59bac5c00e7a3f7?$jpglarge$&wid=1250"
+                        "Url": "https://images.philips.com/is/image/philipsconsumer/ab71a8b6d18049bba59bac5c00e7a3f7?$jpglarge$&wid=1250",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 22,
                     "Photo": {
-                        "Url": "https://images.philips.com/is/image/philipsconsumer/5b02c362a67d48f7a16dac5c011ea35b?$jpglarge$&wid=960"
+                        "Url": "https://images.philips.com/is/image/philipsconsumer/5b02c362a67d48f7a16dac5c011ea35b?$jpglarge$&wid=960",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 22,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL._AC_SX425_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL._AC_SX425_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 22,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/810AkkpqgsL.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -881,25 +968,29 @@
                 {
                     "ProductId": 23,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/addf002e-4918-4455-b26b-53e4d00864e8.60decc7e0882ddaa3fecd07e90bc24e6.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/addf002e-4918-4455-b26b-53e4d00864e8.60decc7e0882ddaa3fecd07e90bc24e6.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 23,
                     "Photo": {
-                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crr/crr00005/l/28.jpg"
+                        "Url": "https://cloudinary.images-iherb.com/image/upload/f_auto,q_auto:eco/images/crr/crr00005/l/28.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 23,
                     "Photo": {
-                        "Url": "https://www.biovea.com/MX/images/products/xlrg/2147_z.jpg"
+                        "Url": "https://www.biovea.com/MX/images/products/xlrg/2147_z.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 23,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61Ww5oL3wPL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61Ww5oL3wPL.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -920,25 +1011,29 @@
                 {
                     "ProductId": 24,
                     "Photo": {
-                        "Url": "https://www.biovea.com/mx/images/products/xlrg/2391_z.jpg"
+                        "Url": "https://www.biovea.com/mx/images/products/xlrg/2391_z.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 24,
                     "Photo": {
-                        "Url": "https://res.cloudinary.com/walmart-labs/image/upload/d_default.jpg/w_960,dpr_auto,f_auto,q_auto:best/gr/images/product-images/img_large/00750103591137L.jpg"
+                        "Url": "https://res.cloudinary.com/walmart-labs/image/upload/d_default.jpg/w_960,dpr_auto,f_auto,q_auto:best/gr/images/product-images/img_large/00750103591137L.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 24,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/91aJu2qWOHL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/91aJu2qWOHL.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 24,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61HsnqfoUAL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61HsnqfoUAL.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -959,25 +1054,29 @@
                 {
                     "ProductId": 25,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/71MnXAnJlUL._AC_UF1000,1000_QL80_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/71MnXAnJlUL._AC_UF1000,1000_QL80_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 25,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/b15f70b3-1654-4dcd-a03d-77ee2a792bc7.34af0a208e83789b1f69b58fa29e7129.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/b15f70b3-1654-4dcd-a03d-77ee2a792bc7.34af0a208e83789b1f69b58fa29e7129.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 25,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/419e2456-12a4-4e94-bf14-46f7f63e4b2a.4defec08f583569f54f27c61e05077d3.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/419e2456-12a4-4e94-bf14-46f7f63e4b2a.4defec08f583569f54f27c61e05077d3.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 25,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/61M9PmJfrZL.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/61M9PmJfrZL.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -998,25 +1097,29 @@
                 {
                     "ProductId": 26,
                     "Photo": {
-                        "Url": "https://http2.mlstatic.com/D_NQ_NP_804159-MLA40593852179_012020-O.jpg"
+                        "Url": "https://http2.mlstatic.com/D_NQ_NP_804159-MLA40593852179_012020-O.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 26,
                     "Photo": {
-                        "Url": "https://www.waterpik.com/oral-health/products/images/waterpik-aquarius-water-flosser-wp-660-white.jpg"
+                        "Url": "https://www.waterpik.com/oral-health/products/images/waterpik-aquarius-water-flosser-wp-660-white.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 26,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/517ZUobcX2L._AC_SX425_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/517ZUobcX2L._AC_SX425_.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 26,
                     "Photo": {
-                        "Url": "https://m.media-amazon.com/images/I/719pUQCxnmL._AC_SX425_.jpg"
+                        "Url": "https://m.media-amazon.com/images/I/719pUQCxnmL._AC_SX425_.jpg",
+                        "Visible": true
                     }
                 }
             ],
@@ -1037,25 +1140,29 @@
                 {
                     "ProductId": 27,
                     "Photo": {
-                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/13098_listerine_badge-digitalshelf2_3300x3300.jpg"
+                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/13098_listerine_badge-digitalshelf2_3300x3300.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 27,
                     "Photo": {
-                        "Url": "https://i5.walmartimages.com/asr/a7725354-3e0a-4c34-b597-c9e4e1b5a23f.a592787169109267652d9f329ed68185.jpeg"
+                        "Url": "https://i5.walmartimages.com/asr/a7725354-3e0a-4c34-b597-c9e4e1b5a23f.a592787169109267652d9f329ed68185.jpeg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 27,
                     "Photo": {
-                        "Url": "https://www.listerineprofessional.com/sites/listerinepro_us/files/styles/product_image/public/product-images/lis_cool-mint-1l-bty_ft-juno.jpg"
+                        "Url": "https://www.listerineprofessional.com/sites/listerinepro_us/files/styles/product_image/public/product-images/lis_cool-mint-1l-bty_ft-juno.jpg",
+                        "Visible": true
                     }
                 },
                 {
                     "ProductId": 27,
                     "Photo": {
-                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/product-images/products_coolmint_980x980.png"
+                        "Url": "https://www.listerine.com/sites/listerine_us_2/files/product-images/products_coolmint_980x980.png",
+                        "Visible": true
                     }
                 }
             ],

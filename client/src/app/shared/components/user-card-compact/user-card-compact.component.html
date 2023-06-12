@@ -3,9 +3,13 @@
     <div class="col-9 col-sm-10 d-flex align-items-center">
       <div>
         <div class="mb-3">
-          <span class="fs-3 fw-light me-2">
-            {{user.firstName}} {{ user.lastName}}
-          </span>
+          <h3>
+            <a routerLink="/user/{{user.id}}" class="text-info">
+              <span class="fs-3 fw-light me-2">
+                {{user.firstName}} {{ user.lastName}}
+              </span>
+            </a>
+          </h3>
           <span *ngIf="(presenceService.onlineUsers$ | async)?.includes(user.email)">
             <i class="fa fa-user me-2 is-online"></i>
             <span class="fs-6 fw-light text-muted ms-2">en línea</span>

@@ -6,6 +6,8 @@ import { ServerErrorComponent } from './core/server-error/server-error.component
 import { TestErrorComponent } from './core/test-error/test-error.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { DevGuard } from './core/guards/dev.guard';
+import { AdminComponent } from './admin/admin.component';
+import { AdminGuard } from './core/guards/admin.guard';
 
 const routes: Routes = [
   {
@@ -69,6 +71,16 @@ const routes: Routes = [
     component: AccountComponent,
     loadChildren: () => import('./account/account.module')
       .then(m => m.AccountModule)
+  },
+  {
+    path: 'admin',
+    data: {
+      breadcrumb: 'Administrador'
+    },
+    canActivate: [AuthGuard, AdminGuard],
+    component: AdminComponent,
+    loadChildren: () => import('./admin/admin.module')
+      .then(m => m.AdminModule)
   },
 ];
 
