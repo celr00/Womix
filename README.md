@@ -588,6 +588,25 @@ sudo nano docker-compose.yml
 ```
 services:
 
+  redis:
+    image: redis:latest
+    ports:
+      - 6379:6379
+    command: ["redis-server", "--appendonly", "yes"]
+    volumes:
+      - redis-data:/data
+
+  redis-commander:
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - HTTP_USER=root
+      - HTTP_PASSWORD=secret
+    ports:
+      - 8081:8081
+    depends_on:
+      - redis
+
   db:
     image: postgres
     environment:
@@ -599,6 +618,7 @@ services:
       - postgres-data:/data
 
 volumes:
+  redis-data:
   postgres-data:
 ```
 
@@ -622,9 +642,142 @@ sudo systemctl status apache2
 
 ## Allow ports through firewall for PostgreSQL
 
-sudo ufw allow 5432/tcp
+### Inside the Linux machine
 
-Test you can access the default apache page by browsing to:  http://34.174.115.18
+Enable ufw Uncomplicated Firewall
+
+```
+sudo ufw enable
+```
+
+Allow ports
+
+```
+sudo ufw allow 5432/tcp
+sudo ufw allow 8081/tcp
+```
+
+List ports allowed
+
+```
+sudo ufw status
+```
+
+### Inside the Google Cloud Platform
+
+Go to the Google Cloud Platform
+
+Search for firewall and go to it
+
+Select on the top the second option (Create Firewall Rule)
+
+Name: `allow-postgres`
+
+Targets: `Specified target tags`
+
+Target tags: `postgres`
+
+Source filter: `IPv4 ranges`
+
+Source IPv4 ranges: `0.0.0.0/0`
+
+Protocols and ports --> `Specified protocols and ports`
+
+Select `TCP`
+
+Ports: `5432`
+
+Click the `CREATE` button on the button.
+
+Edit the instance
+
+In Network Tags type `postgres` and press tab
+
+Click the `SAVE` button.
+
+Now it is ready for Postgres connection
+
+### _PgAdmin_ or DB Client app
+
+Browser / Servers
+
+Right click Servers --> Register --> Server...
+
+Name: `womix`
+
+Host name/address: `34.174.26.63`
+
+Port: `5432`
+
+Maintenance database: `womix`
+
+Username: `appuser`
+
+Kerberos authentication? `Off`
+
+Password: `secret`
+
+**The connection should be successfull.**
+
+### Access redis-commander
+
+Add the rules for redis and redis-commander
+
+```
+sudo ufw allow 6379/tcp
+sudo ufw allow 8081/tcp
+sudo ufw status
+```
+
+#### Redis
+
+Name: `allow-redis`
+
+Targets: `Specified target tags`
+
+Target tags: `redis`
+
+Source filter: `IPv4 ranges`
+
+Source IPv4 ranges: `0.0.0.0/0`
+
+Protocols and ports --> `Specified protocols and ports`
+
+Select `TCP`
+
+Ports: `6379`
+
+#### Redis commander
+
+Name: `allow-redis-commander`
+
+Targets: `Specified target tags`
+
+Target tags: `redis-commander`
+
+Source filter: `IPv4 ranges`
+
+Source IPv4 ranges: `0.0.0.0/0`
+
+Protocols and ports --> `Specified protocols and ports`
+
+Select `TCP`
+
+Ports: `8081`
+
+#### Add the rules to the instance
+
+Go to the instance and add the rules of `redis` and `redis-commander` in the `Network tags`
+
+#### Navigate to the `redis-commander`
+
+Browser: `http://womix-online.beta:8081` or `http://34.174.26.63:8081`
+
+Login with
+
+Username: `root`
+
+Password: `secret`
 
 ## Create a new directory that will contain our published dotnet app and assign rights to the user:
 
@@ -735,7 +888,7 @@ SyslogIdentifier=womix
 User=www-data
 Environment=ASPNETCORE_ENVIRONMENT=Production
 Environment='Token__Key=supersecretunguessablekey'
-Environment='Token__Issuer=http://34.174.115.18'
+Environment='Token__Issuer=http://34.174.26.63'
 Environment='ConnectionStrings__DefaultConnection=Server=localhost;Port=5432;User Id=appuser;Password=secret; Database=womix'
 [Install]
 WantedBy=multi-user.target
@@ -768,6 +921,7 @@ apt install dotnet-runtime-7.0
 systemctl restart systemd-journald
 
 sudo systemctl start womix-web.service
+sudo systemctl status womix-web.service
 
 netstat -ntpl
 
@@ -787,7 +941,7 @@ sudo systemctl stop womix-web.service
 (publish)
 
 docker-compose up -d
-systemctl restart systemd-journald
+sudo systemctl restart systemd-journald
 sudo systemctl start womix-web.service
 
 netstat -ntpl
